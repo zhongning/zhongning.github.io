@@ -1,5 +1,5 @@
 ---
-title: Markdown的使用
+title: Markdown基本语法
 tags:
   - markdown
 categories:
@@ -8,7 +8,7 @@ abbrlink: 48840
 date: 2019-03-25 22:10:59
 ---
 
-Markdown基本语法介绍
+Markdown基本语法，几乎所有Markdown应用程序都支持`John Gruber`原始设计文档中概述的基本语法。
 
 ## 标题
 
@@ -89,7 +89,7 @@ This text is ___really important___.
 ```
 > Dorothy followed her through many of the beautiful rooms in her castle.
 >
-> The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
+> The Witch bade her clean the pots and kettles and sweep the floor.
 ```
 
 ### 引用嵌套
@@ -99,7 +99,7 @@ This text is ___really important___.
 ```
 > Dorothy followed her through many of the beautiful rooms in her castle.
 >
->> The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
+>> The Witch bade her clean the pots and kettles and sweep the floor.
 ```
 
 ### 引用中使用其他元素
@@ -201,9 +201,10 @@ At the command prompt, type `nano`.
 
 ### 代码块
 
-代码块的每行代码必须最少缩进4个空格，或者使用三个`` ` ``来包裹代码块
+代码块的每行代码必须最少缩进4个空格或者1个tab
 
 ```
+####
     <html>
       <head>
       </head>
@@ -233,6 +234,64 @@ My favorite search engine is [Duck Duck Go](https://duckduckgo.com).
 ### 链接添加提示
 
 ```
-My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best search engine for privacy").
+My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best one").
 ```
 
+### 网页和邮箱
+
+为了快速将网页和邮箱转为链接，可以用`<>`包裹起来
+
+```
+<https://www.markdownguide.org>
+<fake@example.com>
+```
+
+### 格式化链接
+
+为了强调链接，可以在链接的前后加星号
+
+```
+I love supporting **[EFF](https://eff.org)**.
+This is the *[Markdown Guide](https://www.markdownguide.org)*.
+```
+
+## 图片
+
+图片的插入方式是在最开始插入`!`，然后用`[]`包裹图片无法加载的描述，再把图片的地址用`()`包裹
+
+```
+![This place](/images/philly-magic-gardens.jpg "Magic Gardens")
+```
+
+### 带链接的图片
+
+给图片加链接的方式是，把图片的Markdown用`[]`包裹，再在后面把链接地址用`()`包裹
+
+```
+[![Hey](/images/shiprock.jpg "Shiprock")](https://www.flickr.com)
+```
+
+## 转义字符
+
+如果有些符号是Markdown使用的，但是又想显示，可以在字符前加` \ `
+
+```
+\* Without the backslash, this would be a bullet in an unordered list.
+```
+
+## 转义字符列表
+
+| Character | Name |
+| --- | --- |
+| \ | backslash |
+| ` | tick mark |
+| * | asterisk |
+| _ | underscore |
+| {} | curly braces |
+| [] | brackets |
+| () | parentheses |
+| # | pound sign |
+| + | plus sign |
+| - | minus sign (hyphen) |
+| . | dot|
+| ! | exclamation mark |
