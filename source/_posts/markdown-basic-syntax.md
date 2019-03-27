@@ -37,11 +37,13 @@ I think I'll use it to format all of my documents from now on.
 
 ## 换行符
 
-在文字中间插入`<br>`可以进行换行
+在文字中间插入`<br>`可以进行换行，或者两个空格再回车。
 
 ```
 This is the first line. <br> And this is the second line.
 ```
+
+This is the first line. <br> And this is the second line.
 
 ## 强调
 
@@ -55,6 +57,10 @@ I just love __bold text__.
 Love**is**bold
 ```
 
+I just love **bold text**.  
+I just love __bold text__.  
+Love**is**bold
+
 ### 斜体
 
 在文字的前后用一个`*`或者`_`可以变成斜体
@@ -65,6 +71,10 @@ Italicized text is the _cat's meow_.
 A*cat*meow
 ```
 
+Italicized text is the *cat's meow*.  
+Italicized text is the _cat's meow_.  
+A*cat*meow
+
 ### 同时加粗和斜体
 
 在文字的前后用三个`*`或者`_`可以同时加粗和变成斜体
@@ -74,6 +84,9 @@ This text is ***really important***.
 This text is ___really important___.
 ```
 
+This text is ***really important***.  
+This text is ___really important___.
+
 ## 引用
 
 在一段文字中的开头加上 `>` 来表示一段引用文字
@@ -81,6 +94,8 @@ This text is ___really important___.
 ```
 > Dorothy followed her through many of the beautiful rooms in her castle.
 ```
+
+> Dorothy followed her through many of the beautiful rooms in her castle.
 
 ### 引用多个段落
 
@@ -92,6 +107,10 @@ This text is ___really important___.
 > The Witch bade her clean the pots and kettles and sweep the floor.
 ```
 
+> Dorothy followed her through many of the beautiful rooms in her castle.
+>
+> The Witch bade her clean the pots and kettles and sweep the floor.
+
 ### 引用嵌套
 
 引用可以嵌套，在段落的开头加上`>>`
@@ -101,6 +120,10 @@ This text is ___really important___.
 >
 >> The Witch bade her clean the pots and kettles and sweep the floor.
 ```
+
+> Dorothy followed her through many of the beautiful rooms in her castle.
+>
+>> The Witch bade her clean the pots and kettles and sweep the floor.
 
 ### 引用中使用其他元素
 
@@ -114,6 +137,13 @@ This text is ___really important___.
 >
 >  *Everything* is going according to **plan**.
 ```
+
+> #### The quarterly results look great!
+>
+> - Revenue was off the chart.
+> - Profits were higher than ever.
+>
+>  *Everything* is going according to **plan**.
 
 ## 列表
 
@@ -141,6 +171,13 @@ This text is ___really important___.
     2. Indented item
 4. Fourth item
 ```
+
+1. First item
+2. Second item
+3. Third item
+    1. Indented item
+    2. Indented item
+4. Fourth item
 
 ### 无序列表
 
@@ -170,6 +207,13 @@ This text is ___really important___.
 - Fourth item
 ```
 
+- First item
+- Second item
+- Third item
+    - Indented item
+    - Indented item
+- Fourth item
+
 ### 在列表中添加其他元素
 
 在列表中添加其他元素，要缩进4个空格或者1个tab
@@ -183,6 +227,13 @@ This text is ___really important___.
 *   And here's the third list item.
 ```
 
+*   This is the first list item.
+*   Here's the second list item.
+
+    I need to add another paragraph below the second list item.
+
+*   And here's the third list item.
+
 ## 代码
 
 要表示一行代码，使用`` ` ``来包裹
@@ -191,6 +242,8 @@ This text is ___really important___.
 At the command prompt, type `nano`.
 ```
 
+At the command prompt, type `nano`.
+
 ### 反引号转义
 
 在一行代码中如果代码本身也含有反引号，可以把最外层用两个反引号包裹
@@ -198,6 +251,8 @@ At the command prompt, type `nano`.
 ```
 ``Use `code` in your Markdown file.``
 ```
+
+``Use `code` in your Markdown file.``
 
 ### 代码块
 
@@ -211,6 +266,11 @@ At the command prompt, type `nano`.
     </html>
 ```
 
+    <html>
+      <head>
+      </head>
+    </html>
+
 ## 分割线
 
 使用三个及以上的`*`、`-`、`_`表示分割线
@@ -223,6 +283,8 @@ At the command prompt, type `nano`.
 _________________
 ```
 
+***
+
 ## 链接
 
 用`[]`包裹链接文字，随后用`()`包裹URL
@@ -231,11 +293,15 @@ _________________
 My favorite search engine is [Duck Duck Go](https://duckduckgo.com).
 ```
 
+My favorite search engine is [Duck Duck Go](https://duckduckgo.com).
+
 ### 链接添加提示
 
 ```
 My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best one").
 ```
+
+My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best one").
 
 ### 网页和邮箱
 
@@ -246,6 +312,9 @@ My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best one
 <fake@example.com>
 ```
 
+<https://www.markdownguide.org>  
+<fake@example.com>
+
 ### 格式化链接
 
 为了强调链接，可以在链接的前后加星号
@@ -255,21 +324,28 @@ I love supporting **[EFF](https://eff.org)**.
 This is the *[Markdown Guide](https://www.markdownguide.org)*.
 ```
 
+I love supporting **[EFF](https://eff.org)**.  
+This is the *[Markdown Guide](https://www.markdownguide.org)*.
+
 ## 图片
 
 图片的插入方式是在最开始插入`!`，然后用`[]`包裹图片无法加载的描述，再把图片的地址用`()`包裹
 
 ```
-![This place](/images/philly-magic-gardens.jpg "Magic Gardens")
+![Google](http://pngimg.com/uploads/google/google_PNG19631.png "Google Search")
 ```
+
+![Google](http://pngimg.com/uploads/google/google_PNG19631.png "Google Search")
 
 ### 带链接的图片
 
 给图片加链接的方式是，把图片的Markdown用`[]`包裹，再在后面把链接地址用`()`包裹
 
 ```
-[![Hey](/images/shiprock.jpg "Shiprock")](https://www.flickr.com)
+[![Google](http://pngimg.com/uploads/google/google_PNG19631.png "Google Search")](https://www.google.com)
 ```
+
+[![Google](http://pngimg.com/uploads/google/google_PNG19631.png "Google Search")](https://www.google.com)
 
 ## 转义字符
 
