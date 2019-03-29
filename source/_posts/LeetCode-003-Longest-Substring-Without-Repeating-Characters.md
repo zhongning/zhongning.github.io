@@ -46,7 +46,7 @@ Explanation: The answer is "wke", with the length of 3.
 
 **Code:**
 
-```
+```java
 class Solution {
     public int lengthOfLongestSubstring(String s) {
         
@@ -55,6 +55,10 @@ class Solution {
 ```
 
 <!-- more -->
+
+## 题意
+
+
 
 ## Solution 1
 
