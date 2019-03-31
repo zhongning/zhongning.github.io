@@ -46,6 +46,82 @@ class Solution {
 
 ## 题意
 
-
+给定一个字符串，找出最长的回文子串，假定字符串最大长度是1000。
 
 ## Solution 1
+
+暴力遍历，外层作为子串的左侧，内层作为子串右侧，检查子串的左侧和右侧是否相等，若不等，则忽略，否则左侧和右侧往中间不断收缩继续检查。
+
+```java
+class Solution {
+    public String longestPalindrome(String s) {
+        int max=-1;
+        String res="";
+        for(int i=0;i<s.length();i++){
+            for(int j=i;j<s.length();j++){
+                int left=i,right=j;
+                boolean flag = true;
+                while(left<=right){
+                    if(s.charAt(left)!=s.charAt(right)){
+                        flag=false;
+                        break;
+                    }
+                    left++;
+                    right--;
+                }
+                if(!flag){
+                    continue;
+                }
+                if(j-i+1>max){
+                    max=j-i+1;
+                    res=j==s.length()-1?s.substring(i):s.substring(i,j+1); 
+                }
+            }
+        }
+        return res;
+    }
+}
+```
+
+**时间复杂度:** O(n3)，双层遍历，内部循环检查是否回文。
+
+**空间复杂度:** O(1)，没有使用额外空间。
+
+## Solution 2
+
+遍历字符串，以当前字符为中心去检查最大回文(奇数长度)，另外以当前字符及当前字符下一位检查最大回文长度(偶数长度)。
+
+```java
+class Solution {
+    int start=0,maxLen=0;
+    
+    public String longestPalindrome(String s) {
+        if(s.length()<2){
+            return s;
+        }
+        for(int i=0;i<s.length()-1;i++){
+            searchPalindrome(s,i,i);
+            searchPalindrome(s,i,i+1);
+        }
+        return s.substring(start,start+maxLen);
+    }
+    
+    public void searchPalindrome(String s, int left, int right){
+        while(left>=0&&right<s.length()&&s.charAt(left)==s.charAt(right)){
+            left--;
+            right++;
+        }
+        if(right-left-1>maxLen){
+            maxLen=right-left-1;
+            start=left+1;
+        }
+    }
+}
+```
+
+**时间复杂度:** O(n2)，一层遍历，内部循环检查是否回文。
+
+**空间复杂度:** O(1)，没有使用额外空间。
+
+## Solution 3
+

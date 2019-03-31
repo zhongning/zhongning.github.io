@@ -3,7 +3,7 @@ title: Markdown基本语法
 tags:
   - markdown
 categories:
-  - tools
+  - hexo
 abbrlink: 48840
 date: 2019-03-25 22:10:59
 ---
