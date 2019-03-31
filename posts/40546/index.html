@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Show me the code">
 <meta property="og:description" content="DescriptionThere are two sorted arrays nums1 and nums2 of size m and n respectively. Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)). You may assume nu">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-29T15:38:18.570Z">
+<meta property="og:updated_time" content="2019-03-31T13:13:38.352Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 004 Median of Two Sorted Arrays">
 <meta name="twitter:description" content="DescriptionThere are two sorted arrays nums1 and nums2 of size m and n respectively. Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)). You may assume nu">
@@ -429,7 +429,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-29 23:38:18" itemprop="dateModified" datetime="2019-03-29T23:38:18+08:00">2019-03-29</time>
+                <time title="修改时间：2019-03-31 21:13:38" itemprop="dateModified" datetime="2019-03-31T21:13:38+08:00">2019-03-31</time>
               
             
           </span>
@@ -492,7 +492,57 @@
 <p><strong>Code:</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span>[] nums2)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定两个有序数组，长度分别是m和n。找出这两个数组到中位数，总体到时间复杂度要求O(log (m+n))，假定两个数组都不为空。</p>
+<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>中位数是把一组有序数分成两个相等长度的部分，一部分比另外一部分都要大。如果是偶数个，则取最中间两个数的平均数。</p>
+<p>如果两个有序数组混合起来成为一个有序数组再去找中位数，肯定很简单，但是时间复杂度应该是O(m+n)，不符合要求。O(log (m+n))提示应该是用二分查找，但是两个数组又如何去做，着实很难。</p>
+<p>首先将数组A在随机的位置i切成两部分：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">      left_A             |        right_A</span><br><span class="line">A[0], A[1], ..., A[i-1]  |  A[i], A[i+1], ..., A[m-1]</span><br></pre></td></tr></table></figure>
+<p>因为A有m个元素，所以有m+1种切法(i=0~m)。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">len(left_A)=i,len(right_A)=m−i.</span><br><span class="line">Note: when i = 0, left_A is empty, and when i = m, right_A is empty.</span><br></pre></td></tr></table></figure>
+<p>使用同样的方式，把数组B在随机位置j切成两部分。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">      left_B             |        right_B</span><br><span class="line">B[0], B[1], ..., B[j-1]  |  B[j], B[j+1], ..., B[n-1]</span><br></pre></td></tr></table></figure>
+<p>把left_A和left_B放到一起合并成left_part，把right_A和right_B放到一起合并成right_part。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">      left_part          |        right_part</span><br><span class="line">A[0], A[1], ..., A[i-1]  |  A[i], A[i+1], ..., A[m-1]</span><br><span class="line">B[0], B[1], ..., B[j-1]  |  B[j], B[j+1], ..., B[n-1]</span><br></pre></td></tr></table></figure>
+<p>如果我们能保证</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. len(left_part)=len(right_part)</span><br><span class="line">2. max(left_part)≤min(right_part)</span><br></pre></td></tr></table></figure>
+<p>那么我们就成功将数组A和B中所有的元素分成了长度相同的两部分，并且一部分总是比另外一部分大。那么</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">median= (max(left_part)+min(right_part))/2</span><br></pre></td></tr></table></figure>
+<p>为了达到上述两个条件，只需要保证</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. i+j=m−i+n−j or i+j=m−i+n−j+1</span><br><span class="line">    如果n&gt;=m，只需要设：i=0~m,j=(m+n+1)/2-i;</span><br><span class="line">2. B[j−1] ≤ A[i] and A[i−1] ≤ B[j]</span><br></pre></td></tr></table></figure>
+<p>ps.1 为了简化，假定A[i-1],B[j-1],A[i],B[j]都是有效的即使i=0,i=m,j=0,j=n。后面会介绍这些边界值如何处理。</p>
+<p>ps.2 为什么要保证n&gt;=m，因为要保证j是非负数。</p>
+<p>所以我们需要做的是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在[0~m]中查找i，能够满足</span><br><span class="line">B[j-1]&lt;=A[i] and A[i-1]&lt;=B[j], j=(m+n+1)/2-i</span><br></pre></td></tr></table></figure>
+<p>按照以下的步骤进行二分查找</p>
+<ol>
+<li>初始化imin=0 and imax=m，然后在[imin,imax]进行查找</li>
+<li>设置i=(imin+imax)/2 and j=(m+n+1)/2-i</li>
+<li><p>已经达成len(left_part)=len(right_part)，只会碰到3种情况</p>
+<ul>
+<li><p>B[j-1]&lt;=A[i] and A[i-1]&lt;=B[j]</p>
+<p>  意味着我们找到了目标i，停止查找</p>
+</li>
+<li><p>B[j-1]&gt;A[i]</p>
+<p>  意味着A[i]太小，必须增大i以达到B[j-1]&lt;=A[i]。当i增大时，j减小，A[i]增大，B[j-1]减小。调整查找范围[i+1,imax]，imin=i+1，跳转到第2步。</p>
+</li>
+<li><p>A[i-1]&gt;B[j]</p>
+<p>  意味着A[i-1]太大，必须减小i以达到A[i-1]&lt;=B[j]。调整查找范围[imin,i-1]，imax=i-1，跳转到第2步</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>当目标i找到时，中位数是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">max(A[i-1],B[j-1])，当m+n是奇数</span><br><span class="line">(max(A[i-1],B[j-1)+min(A[i]+B[j])/2，当m+n是偶数</span><br></pre></td></tr></table></figure>
+<p>现在考虑边界值，i=0,i=m,j=0,j=m，此时A[i-1],B[j-1],A[i],B[j]可能不存在。</p>
+<p>只需要保证max(left_part)&lt;=min(right_part)，但是当A[i-1],B[j-1],A[i],B[j]不存在时，不需要检查所有的那两个条件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(j=0 or i=m or B[j−1]≤A[i]) and ( i=0 or j=n or A[i-1]&lt;=B[j])，当j=(m+n+1)/2-i</span><br></pre></td></tr></table></figure>
+<p>在循环搜索时，只会碰到以下三种情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1. (j=0 or i=m or B[j−1]≤A[i]) and ( i=0 or j=n or A[i-1]&lt;=B[j])</span><br><span class="line">    意味着i已经找到，可以停止搜索</span><br><span class="line">2. j&gt;0 and i&lt;m and B[j-1]&gt;A[i]</span><br><span class="line">    意味着i太小，要增大i</span><br><span class="line">3. i&gt;0 and j&lt;n and A[j-1]&gt;B[j]</span><br><span class="line">    意味着i太大，要减小i</span><br></pre></td></tr></table></figure>
+<p>代码如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span>[] nums2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m=nums1.length;</span><br><span class="line">        <span class="keyword">int</span> n=nums2.length;</span><br><span class="line">        <span class="keyword">if</span>(m&gt;n)&#123;</span><br><span class="line">            <span class="keyword">return</span> findMedianSortedArrays(nums2,nums1);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> imin=<span class="number">0</span>,imax=m,halfLen=(m+n+<span class="number">1</span>)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">while</span>(imin&lt;=imax)&#123;</span><br><span class="line">            <span class="keyword">int</span> i = (imin+imax)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">int</span> j = halfLen-i;</span><br><span class="line">            <span class="keyword">if</span>(i&lt;imax&amp;&amp;nums2[j-<span class="number">1</span>]&gt;nums1[i])&#123;</span><br><span class="line">                imin=i+<span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(i&gt;imin&amp;&amp;nums1[i-<span class="number">1</span>]&gt;nums2[j])&#123;</span><br><span class="line">                imax=i-<span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">int</span> maxLeft=<span class="number">0</span>;</span><br><span class="line">                <span class="keyword">if</span>(i==<span class="number">0</span>)&#123;</span><br><span class="line">                    maxLeft=nums2[j-<span class="number">1</span>];</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(j==<span class="number">0</span>)&#123;</span><br><span class="line">                    maxLeft=nums1[i-<span class="number">1</span>];</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    maxLeft=Math.max(nums1[i-<span class="number">1</span>],nums2[j-<span class="number">1</span>]);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>((m+n)%<span class="number">2</span>==<span class="number">1</span>)&#123;</span><br><span class="line">                    <span class="keyword">return</span> maxLeft;</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">int</span> minRight=<span class="number">0</span>;</span><br><span class="line">                <span class="keyword">if</span>(i==m)&#123;</span><br><span class="line">                    minRight=nums2[j];</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(j==n)&#123;</span><br><span class="line">                    minRight=nums1[i];</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    minRight=Math.min(nums1[i],nums2[j]);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> (maxLeft+minRight)/<span class="number">2.0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0.0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(log (m+n))，每次调整i都是将其范围减半。</p>
+<p><strong>空间复杂度:</strong> O(1)，只使用了固定几个变量保存状态。</p>
+
       
     </div>
 
@@ -643,7 +693,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -664,9 +714,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
