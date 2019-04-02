@@ -1,37 +1,46 @@
 const commandList = {
-  version: {
-    description: 'Return this project version',
-    messages: [
-      { message: '1.0.0' }
-    ]
-  },
-  contact: {
-    description: 'How to contact author',
-    messages: [
-    { message: 'Website: http://xiaofeixu.cn' },
-    { message: 'Email: xuxiaofei915@gmail.com' },
-    { message: 'Github: https://github.com/dongsuo' },
-    { message: 'WeChat Offical Account: dongsuo' }
-    ] },
   about: {
     description: 'About author',
     messages: [
-    { message: 'My name is xu xiaofei. I\'m a programmer, You can visit my personal website at http://xiaofeixu.cn to learn more about me.' }
+      { message: 'My name is Zhong Ning. I\'m a programmer, You can visit my personal website at https://zhongning.github.io to learn more about me.' }
     ]
   },
-  readme: {
-    description: 'About this project.',
+  contact: {
+    description: 'How to contact me',
     messages: [
-    { message: 'This is a component that emulates a command terminal in Vue' }
+    { message: 'Website: https://zhongning.github.io' },
+    { message: 'Email: zhongning1989@gmail.com' },
+    { message: 'Github: https://github.com/zhongning' },
     ] },
-  document: {
-    description: 'Document of this project.',
+  skill: {
+    description: 'Return a list of my skills',
     messages: [
-      { message: {
-        text: 'Under Construction',
-        list: [
-        { label: 'hello', type: 'error', message: 'this is a test message' }
-        ]
-      } }]
+      { type: 'success', label: 'Expert', message: 'Java'},
+      { type: 'success', label: 'Expert', message: 'Linux' },
+      { type: 'success', label: 'Expert', message: 'MySQL/Oracle' },
+      { type: 'success', label: 'Expert', message: 'HTML/CSS' },
+      { type: 'info', label: 'Advanced', message: 'Docker/Openshift' },
+      { type: 'info', label: 'Advanced', message: 'SpringBoot/SpringMVC' },
+      { type: 'info', label: 'Advanced', message: 'Storm' },
+      { type: 'info', label: 'Advanced', message: 'Zookeeper' },
+      { type: 'info', label: 'Advanced', message: 'Elasticsearch/Logstash/Kibana' },
+      { type: 'info', label: 'Advanced', message: 'AngularJS' }
+    ] },
+  experience: {
+    description: 'Work experience',
+    messages: [
+          { type: 'error', label: 'Citi', message: '2019- Work as Assistant Vice President' },
+          { type: 'error', label: 'Citi', message: '2017-2018 Work as Manager' },
+          { type: 'error', label: 'Citi', message: '2015-2016 Work as Assistant Manager' },
+          { type: 'warning', label: 'HP', message: '2014-2015 Work as Senior Java Developer' },
+          { type: 'warning', label: 'Primeton', message: '2011-2013 Work as Junior Java Developer' }
+    ]
+  },
+  education: {
+    description: 'Education Background',
+    messages: [
+      { type: 'error', label: 'Fudan University', message: '2017- Major in Software Engineering, Master Degree (in process)' },
+      { type: 'warning', label: 'Wuhan University of Technology', message: '2007-2011 Major in Automation, Bachelor Degree' }
+    ]
   }
 }
