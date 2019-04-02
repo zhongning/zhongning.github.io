@@ -336,7 +336,8 @@
                 var t = this;
                 this.supportingCommandList = r()(this.commandList).concat(r()(this.taskList)), this.handleRun(this.defaultTask).then(function() {
                     t.pushToList({
-                        level: "System",
+                        type: "system",
+                        label: "System",
                         message: 'Type "help" to get a supporting command list.'
                     }), t.handleFocus()
                 })
@@ -356,10 +357,12 @@
                         "help" === n[0] ? this.printHelp(n[1]) : this.commandList[this.inputCommand] ? this.commandList[this.inputCommand].messages.map(function(t) {
                             return e.pushToList(t)
                         }) : this.taskList[this.inputCommand.split(" ")[0]] ? this.handleRun(this.inputCommand.split(" ")[0], this.inputCommand) : (this.pushToList({
-                            level: "System",
+                            type: "system",
+                            label: "System",
                             message: "Unknown Command."
                         }), this.pushToList({
-                            level: "System",
+                            type: "system",
+                            label: "System",
                             message: 'type "help" to get a supporting command list.'
                         })), this.inputCommand = "", this.autoScroll()
                     }
