@@ -11,14 +11,27 @@ function generateTime() {
 }
 
 const mockData = [
-  { time: generateTime(),
-    type: 'system',
+  { type: 'system',
     label: 'System',
-    message: 'Welcome to vTerminal, this is an example to show you what this project can do.' },
-    { time: generateTime(), type: 'info', label: 'Info', message: 'Terminal Initializing ............' },
-    { time: generateTime(), type: 'warning', label: 'warning', message: 'This is a Waning Message!' },
-    { time: generateTime(), type: 'error', label: 'Error', message: 'Oops, Something Went Wrong!' },
-    { time: generateTime(), type: 'success', label: 'Success', message: 'Take it easy! Everything OK!' }
+    message: 'Thanks for your visiting, let me introduce myself first.' },
+    { time: generateTime(), type: 'info', label: 'Name:', message: 'Zhong Ning' },
+    { time: generateTime(), type: 'info', label: 'Age:', message: '30' },
+    { time: generateTime(), type: 'info', label: 'Gender:', message: 'Male' },
+    { time: generateTime(), type: 'info', label: 'Profession:', message: 'Java Programmer' },
+    { time: generateTime(), type: 'info', label: 'School:', message: 'Fudan University' },
+    { time: generateTime(), type: 'info', label: 'Address:', message: 'Shanghai, China' },
+    { time: generateTime(), type: 'info', label: 'Email:', message: 'zhongning1989@gmail.com' },
+    { time: generateTime(), type: 'info', label: 'Website:', message: 'https://zhongning.github.io' },
+    { time: generateTime(), type: 'info', label: 'Experience:', message: {
+        text: "Here is my work experence:",
+        list: [
+          { type: 'error', label: 'Citi', message: '2019- Work as Assistant Vice President' },
+          { type: 'error', label: 'Citi', message: '2017-2018 Work as Manager' },
+          { type: 'error', label: 'Citi', message: '2015-2016 Work as Assistant Manager' },
+          { type: 'warning', label: 'HP', message: '2014-2015 Work as Senior Java Developer' },
+          { type: 'warning', label: 'Primeton', message: '2011-2013 Work as Junior Java Developer' }
+        ]}
+    }
 ]
 
 const taskList = {
@@ -35,17 +48,17 @@ const taskList = {
     }
   },
   defaultTask: {
-    description: 'this is default task.',
+    description: 'Print resume',
     defaultTask(pushToList) {
       let i = 0;
       const p = new Promise(resolve => {
         const interval = setInterval(() => {
-          mockData[i].time = generateTime()
+          //mockData[i].time = generateTime()
           pushToList(mockData[i]);
           i++
           if (!mockData[i]) {
             clearInterval(interval)
-            resolve({ type: 'success', label: 'Success', message: 'Example Over!' })
+            resolve({ type: 'success', label: 'Done', message: 'My self introduction is over!' })
           }
         }, 1000);
       })
