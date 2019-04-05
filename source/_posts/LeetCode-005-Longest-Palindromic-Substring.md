@@ -125,3 +125,42 @@ class Solution {
 
 ## Solution 3
 
+使用动态规划，维护一个二维数组dp，其中dp[i][j]表示字符串区间[i,j]是否为回文串。
+
+当j=i时，因为只有一个字符肯定是回文串，结果为true。
+
+当j=i+1时，说明是相邻字符，只需要比较s[j]==s[i]。
+
+当j>i+1时，则判断s[j]==s[i] && dp[i+1][j-1]。
+
+```java
+class Solution {
+    public String longestPalindrome(String s) {
+        if(s.length()<=1){
+            return s;
+        }
+        boolean[][] dp = new boolean[s.length()][s.length()];
+        int left=0, right=0, maxLen=0;
+        for(int j=0;j<s.length();j++){
+            dp[j][j]=true;
+            for(int i=0;i<j;i++){
+                dp[i][j]=s.charAt(i)==s.charAt(j)&&(j<=i+1||dp[i+1][j-1]);
+                if(dp[i][j]&&j-i+1>maxLen){
+                    left=i;
+                    right=j;
+                    maxLen=j-i+1;
+                }
+            }
+        }
+        return s.substring(left,right+1);
+    }
+}
+```
+
+**时间复杂度:** O(n2)，两层遍历。
+
+**空间复杂度:** O(n2)，使用二维数组存储结果。
+
+## Solution 4
+
+使用马拉车算法Manacher's Algorithm，这个算法将时间复杂度提升到了O(n)。
