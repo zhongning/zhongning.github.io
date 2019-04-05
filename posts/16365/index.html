@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Show me the code">
 <meta property="og:description" content="DescriptionThe string “PAYPALISHIRING” is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility) 123P   A   H   N">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-31T05:50:36.416Z">
+<meta property="og:updated_time" content="2019-04-05T08:06:50.218Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 006 ZigZag Conversion">
 <meta name="twitter:description" content="DescriptionThe string “PAYPALISHIRING” is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility) 123P   A   H   N">
@@ -412,12 +412,24 @@
                 
               
 
-              <time title="创建时间：2019-03-31 13:47:53 / 修改时间：13:50:36" itemprop="dateCreated datePublished" datetime="2019-03-31T13:47:53+08:00">2019-03-31</time>
+              <time title="创建时间：2019-03-31 13:47:53" itemprop="dateCreated datePublished" datetime="2019-03-31T13:47:53+08:00">2019-03-31</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-05 16:06:50" itemprop="dateModified" datetime="2019-04-05T16:06:50+08:00">2019-04-05</time>
               
             
           </span>
@@ -482,7 +494,21 @@
 <p><strong>Code:</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">convert</span><span class="params">(String s, <span class="keyword">int</span> numRows)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>某字符串是基于给定的行数使用锯齿状格式书写，然后逐行读取成字符串。写一段代码完成该转换。</p>
+<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>可以使用nRows长的字符数组来保存格式转换后放置的所有字符。字符数组下标代表行数，该字符代表这一行的所有字符。<br>遍历字符串并将当前字符放入对应的行，然后在遍历该数组，逐行读取所有字符。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">convert</span><span class="params">(String s, <span class="keyword">int</span> numRows)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(numRows==<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> s;</span><br><span class="line">        &#125;</span><br><span class="line">        String[] rows = <span class="keyword">new</span> String[numRows];</span><br><span class="line">        Arrays.fill(rows,<span class="string">""</span>);</span><br><span class="line">        <span class="keyword">boolean</span> goDown = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">int</span> currRow =<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length();i++)&#123;</span><br><span class="line">            rows[currRow]+=s.charAt(i);</span><br><span class="line">            <span class="keyword">if</span>(currRow==<span class="number">0</span>||currRow==numRows-<span class="number">1</span>)&#123;</span><br><span class="line">                goDown=!goDown;</span><br><span class="line">            &#125;</span><br><span class="line">            currRow=goDown?currRow+<span class="number">1</span>:currRow-<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        String result = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">for</span>(String row:rows)&#123;</span><br><span class="line">            result+=row;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(n)，只从左到右遍历一次原始字符串。</p>
+<p><strong>空间复杂度:</strong> O(n)，使用来字符串数组来保存当前转换后到字符。</p>
+<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><p>按行直接读取转换后到字符。给定当前第几竖列k，有</p>
+<ul>
+<li>第0行到字符在原始字符串的下标是k(2*numRows-2)</li>
+<li>第numRows-1行在原始字符串的下标是k(2*numRows-2)+numRows-1</li>
+<li>在这之间的第i行在原始字符串的下标是k(2<em>numRows-2)+i和(k+1)(2</em>numRows-2)-i</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">convert</span><span class="params">(String s, <span class="keyword">int</span> numRows)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(numRows==<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> s;</span><br><span class="line">        &#125;</span><br><span class="line">        StringBuilder result = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">int</span> cycleLen = <span class="number">2</span>*numRows -<span class="number">2</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;numRows;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;i+j&lt;s.length();j+=cycleLen)&#123;</span><br><span class="line">                result.append(s.charAt(i+j));</span><br><span class="line">                <span class="keyword">if</span>(i!=<span class="number">0</span>&amp;&amp;i!=numRows-<span class="number">1</span>&amp;&amp;j+cycleLen-i&lt;s.length())&#123;</span><br><span class="line">                    result.append(s.charAt(j+cycleLen-i));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(n)，只遍历一次原始字符串。</p>
+<p><strong>空间复杂度:</strong> O(n)，使用StringBuilder来保存结果。</p>
+
       
     </div>
 
@@ -763,7 +789,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题意"><span class="nav-number">2.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-1"><span class="nav-number">3.</span> <span class="nav-text">Solution 1</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题意"><span class="nav-number">2.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-1"><span class="nav-number">3.</span> <span class="nav-text">Solution 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-2"><span class="nav-number">4.</span> <span class="nav-text">Solution 2</span></a></li></ol></div>
             
 
           </div>
