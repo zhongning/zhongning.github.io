@@ -105,7 +105,7 @@
 <meta property="og:description" content="DescriptionGiven n non-negative integers a1, a2, …, an , where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0).">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/07/17/question_11.jpg">
-<meta property="og:updated_time" content="2019-04-11T16:37:23.398Z">
+<meta property="og:updated_time" content="2019-04-14T13:48:01.314Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 011 Container With Most Water">
 <meta name="twitter:description" content="DescriptionGiven n non-negative integers a1, a2, …, an , where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0).">
@@ -431,7 +431,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-12 00:37:23" itemprop="dateModified" datetime="2019-04-12T00:37:23+08:00">2019-04-12</time>
+                <time title="修改时间：2019-04-14 21:48:01" itemprop="dateModified" datetime="2019-04-14T21:48:01+08:00">2019-04-14</time>
               
             
           </span>
@@ -493,12 +493,15 @@
 <p><strong>Code:</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="keyword">int</span>[] height)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>时间复杂度:</strong> O(max(m,n))，遍历到步长取决于两个链表的最大长度。</p>
-<p><strong>空间复杂度:</strong> O(max(m,n))，和的位数取决于最大数的位数。</p>
-<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>时间复杂度:</strong> O(max(m,n))，遍历到步长取决于两个链表的最大长度。</p>
-<p><strong>空间复杂度:</strong> O(max(m,n))，和的位数取决于最大数的位数。</p>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定正整数1, a2, …, an，代表坐标轴横轴上1到n到地方，各有一条垂直到线段，其另一端到高度为正整数到值。<br>两根线及横轴组成了容器，求使容器装最多水到两条线段，并返回装水到面积。</p>
+<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>使用双指针，定义i和j分别指向数组到左右两端，然后两个指针向中间搜索。<br>搜索到策略是如果左右两端某端的高度要小一些，则将这一端向中间移动，并更新最大面积。<br>因为如果往中间移动高度较高的一端，则面积只会减小，因为最终的面积的高度是由较低的那端决定的，这样高度不变，长度缺减少，面积只能也减小。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="keyword">int</span>[] height)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i=<span class="number">0</span>,j=height.length-<span class="number">1</span>,max=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i&lt;j)&#123;</span><br><span class="line">            <span class="keyword">int</span> h = Math.min(height[i],height[j]);</span><br><span class="line">            max = Math.max(h*(j-i),max);</span><br><span class="line">            <span class="keyword">if</span>(height[i]&lt;height[j])&#123;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                j--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(n)，遍历一遍数组。</p>
+<p><strong>空间复杂度:</strong> O(1)。</p>
+<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><p>也可以在上述解法上小优化，不用每步都计算面积。当确定左侧还是右侧向中间移动后，跳过高度小于上次计算时那侧高度的点。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="keyword">int</span>[] height)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i=<span class="number">0</span>,j=height.length-<span class="number">1</span>,max=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i&lt;j)&#123;</span><br><span class="line">            <span class="keyword">int</span> h = Math.min(height[i],height[j]);</span><br><span class="line">            max = Math.max(h*(j-i),max);</span><br><span class="line">            <span class="keyword">boolean</span> moveRight = height[i]&lt;height[j]?<span class="keyword">true</span>:<span class="keyword">false</span>;</span><br><span class="line">            <span class="keyword">while</span>(i&lt;j&amp;&amp;moveRight&amp;&amp;h&gt;=height[i])&#123;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;;</span><br><span class="line">            <span class="keyword">while</span>(i&lt;j&amp;&amp;!moveRight&amp;&amp;h&gt;=height[j])&#123;</span><br><span class="line">                j--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(n)，遍历一遍数组。</p>
+<p><strong>空间复杂度:</strong> O(1)。</p>
 
       
     </div>
@@ -575,6 +578,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/posts/56606/" rel="prev" title="LeetCode 012 Integer to Roman">
+                LeetCode 012 Integer to Roman <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -644,7 +651,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">17</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
