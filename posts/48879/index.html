@@ -96,25 +96,25 @@
 
 
 
-  <meta name="description" content="DescriptionGiven an input string (s) and a pattern (p), implement regular expression matching with support for ‘.’ and ‘*’. 12&amp;apos;.&amp;apos; Matches any single character.&amp;apos;*&amp;apos; Matches zero or m">
-<meta name="keywords" content="leetcode,leetcode-string,leetcode-dynamic-programming,leetcode-hard,leetcode-backtracking">
+  <meta name="description" content="DescriptionWrite a function to find the longest common prefix string amongst an array of strings. If there is no common prefix, return an empty string “”. Example 1: 12Input: [&amp;quot;flower&amp;quot;,&amp;quot">
+<meta name="keywords" content="leetcode,leetcode-easy,leetcode-string">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode 010 Regular Expression Matching">
-<meta property="og:url" content="http://yoursite.com/posts/47345/index.html">
+<meta property="og:title" content="LeetCode 014 Longest Common Prefix">
+<meta property="og:url" content="http://yoursite.com/posts/48879/index.html">
 <meta property="og:site_name" content="Show me the code">
-<meta property="og:description" content="DescriptionGiven an input string (s) and a pattern (p), implement regular expression matching with support for ‘.’ and ‘*’. 12&amp;apos;.&amp;apos; Matches any single character.&amp;apos;*&amp;apos; Matches zero or m">
+<meta property="og:description" content="DescriptionWrite a function to find the longest common prefix string amongst an array of strings. If there is no common prefix, return an empty string “”. Example 1: 12Input: [&amp;quot;flower&amp;quot;,&amp;quot">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-14T12:46:34.339Z">
+<meta property="og:updated_time" content="2019-04-15T15:46:33.276Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode 010 Regular Expression Matching">
-<meta name="twitter:description" content="DescriptionGiven an input string (s) and a pattern (p), implement regular expression matching with support for ‘.’ and ‘*’. 12&amp;apos;.&amp;apos; Matches any single character.&amp;apos;*&amp;apos; Matches zero or m">
+<meta name="twitter:title" content="LeetCode 014 Longest Common Prefix">
+<meta name="twitter:description" content="DescriptionWrite a function to find the longest common prefix string amongst an array of strings. If there is no common prefix, return an empty string “”. Example 1: 12Input: [&amp;quot;flower&amp;quot;,&amp;quot">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/posts/47345/">
+  <link rel="canonical" href="http://yoursite.com/posts/48879/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>LeetCode 010 Regular Expression Matching | Show me the code</title>
+  <title>LeetCode 014 Longest Common Prefix | Show me the code</title>
   
 
 
@@ -369,7 +369,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/47345/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/48879/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhong Ning(钟宁)">
@@ -386,7 +386,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LeetCode 010 Regular Expression Matching
+          <h1 class="post-title" itemprop="name headline">LeetCode 014 Longest Common Prefix
 
               
             
@@ -412,24 +412,12 @@
                 
               
 
-              <time title="创建时间：2019-04-10 23:32:02" itemprop="dateCreated datePublished" datetime="2019-04-10T23:32:02+08:00">2019-04-10</time>
+              <time title="创建时间：2019-04-15 23:43:46 / 修改时间：23:46:33" itemprop="dateCreated datePublished" datetime="2019-04-15T23:43:46+08:00">2019-04-15</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-04-14 20:46:34" itemprop="dateModified" datetime="2019-04-14T20:46:34+08:00">2019-04-14</time>
               
             
           </span>
@@ -481,58 +469,25 @@
       
 
       
-        <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given an input string (s) and a pattern (p), implement regular expression matching with support for ‘.’ and ‘*’.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&apos;.&apos; Matches any single character.</span><br><span class="line">&apos;*&apos; Matches zero or more of the preceding element.</span><br></pre></td></tr></table></figure>
-<p>The matching should cover the entire input string (not partial).</p>
-<p><strong>Note:</strong></p>
-<ul>
-<li>s could be empty and contains only lowercase letters a-z.</li>
-<li>p could be empty and contains only lowercase letters a-z, and characters like . or *.</li>
-</ul>
+        <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Write a function to find the longest common prefix string amongst an array of strings.</p>
+<p>If there is no common prefix, return an empty string “”.</p>
 <p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">s = &quot;aa&quot;</span><br><span class="line">p = &quot;a&quot;</span><br><span class="line">Output: false</span><br><span class="line">Explanation: &quot;a&quot; does not match the entire string &quot;aa&quot;.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]</span><br><span class="line">Output: &quot;fl&quot;</span><br></pre></td></tr></table></figure>
 <p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">s = &quot;aa&quot;</span><br><span class="line">p = &quot;a*&quot;</span><br><span class="line">Output: true</span><br><span class="line">Explanation: &apos;*&apos; means zero or more of the precedeng element, &apos;a&apos;. Therefore, by repeating &apos;a&apos; once, it becomes &quot;aa&quot;.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 3:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">s = &quot;ab&quot;</span><br><span class="line">p = &quot;.*&quot;</span><br><span class="line">Output: true</span><br><span class="line">Explanation: &quot;.*&quot; means &quot;zero or more (*) of any character (.)&quot;.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 4:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">s = &quot;aab&quot;</span><br><span class="line">p = &quot;c*a*b&quot;</span><br><span class="line">Output: true</span><br><span class="line">Explanation: c can be repeated 0 times, a can be repeated 1 time. Therefore it matches &quot;aab&quot;.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 5:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">s = &quot;mississippi&quot;</span><br><span class="line">p = &quot;mis*is*p*.&quot;</span><br><span class="line">Output: false</span><br></pre></td></tr></table></figure>
-<p><strong>Difficulty: Hard</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: [&quot;dog&quot;,&quot;racecar&quot;,&quot;car&quot;]</span><br><span class="line">Output: &quot;&quot;</span><br><span class="line">Explanation: There is no common prefix among the input strings.</span><br></pre></td></tr></table></figure>
+<p><strong>Note:</strong></p>
+<p>All given inputs are in lowercase letters a-z.</p>
+<p><strong>Difficulty: Easy</strong></p>
 <p><strong>Code:</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isMatch</span><span class="params">(String s, String p)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">longestCommonPrefix</span><span class="params">(String[] strs)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>这道题关于正则表达式，’.’表示任意字符，’*’表示其之前的字符可以出现0次或者多次。要求返回字符串是否完全匹配正则表达式。</p>
-<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>使用递归来解，大致思路如下：</p>
-<ul>
-<li>当p为空时，若s为空则返回true，否则返回false</li>
-<li>当p的长度为1时，若s当长度也为1并且s[0]==p[0]或者p[0]==’.’则返回true，否则返回false</li>
-<li>当p的第二个字符不为’*’时，若s为空则返回false，否则判断首字符是否匹配，并且从各自的第二个字符递归调用去匹配</li>
-<li>当p的第二个字符为’*’时，进行下列循环，条件时s不为空并且首字符匹配，在循环中递归调用去匹配s和去掉前两个字符的p（假设此时p星号的作用是让前面的字符出现0次）<br>  若匹配则返回true，否则去掉s首字符继续循环（因为首字符已经匹配所以可以去掉s首字符往后面去匹配）</li>
-<li>返回递归调用去匹配s和去掉前两个字符的p，因为要处理以下两种情况<ul>
-<li>若s为空，则表明p的星号表示出现0次</li>
-<li>若s不为空，首字符不匹配，也表明p的星号表示出现0次</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isMatch</span><span class="params">(String s, String p)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(p.length()==<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> s.length()==<span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(p.length()==<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> s.length()==<span class="number">1</span>&amp;&amp;(s.charAt(<span class="number">0</span>)==p.charAt(<span class="number">0</span>)||p.charAt(<span class="number">0</span>)==<span class="string">'.'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(p.charAt(<span class="number">1</span>)!=<span class="string">'*'</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s.length()==<span class="number">0</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(s.length()==<span class="number">1</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> (s.charAt(<span class="number">0</span>)==p.charAt(<span class="number">0</span>)||p.charAt(<span class="number">0</span>)==<span class="string">'.'</span>)&amp;&amp;isMatch(<span class="string">""</span>,p.substring(<span class="number">1</span>));</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> (s.charAt(<span class="number">0</span>)==p.charAt(<span class="number">0</span>)||p.charAt(<span class="number">0</span>)==<span class="string">'.'</span>)&amp;&amp;isMatch(s.substring(<span class="number">1</span>),p.substring(<span class="number">1</span>));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(s.length()!=<span class="number">0</span>&amp;&amp;(s.charAt(<span class="number">0</span>)==p.charAt(<span class="number">0</span>)||p.charAt(<span class="number">0</span>)==<span class="string">'.'</span>))&#123;</span><br><span class="line">            <span class="keyword">if</span>(isMatch(s,p.substring(<span class="number">2</span>)))&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            s=s.substring(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> isMatch(s,p.substring(<span class="number">2</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>在字符串数组中找出最长的公共前缀字符串，若没有则返回空字符串。</p>
+<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p><strong>时间复杂度:</strong> O()。</p>
 <p><strong>空间复杂度:</strong> O()。</p>
-<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><p>上面的解法可以换一种写法，让代码更简洁</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isMatch</span><span class="params">(String s, String p)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (p.isEmpty()) <span class="keyword">return</span> s.isEmpty();</span><br><span class="line">        <span class="keyword">boolean</span> first_match = (!s.isEmpty() &amp;&amp;</span><br><span class="line">                               (p.charAt(<span class="number">0</span>) == s.charAt(<span class="number">0</span>) || p.charAt(<span class="number">0</span>) == <span class="string">'.'</span>));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (p.length() &gt;= <span class="number">2</span> &amp;&amp; p.charAt(<span class="number">1</span>) == <span class="string">'*'</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> (isMatch(s, p.substring(<span class="number">2</span>)) ||</span><br><span class="line">                    (first_match &amp;&amp; isMatch(s.substring(<span class="number">1</span>), p)));</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> first_match &amp;&amp; isMatch(s.substring(<span class="number">1</span>), p.substring(<span class="number">1</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p><strong>时间复杂度:</strong> O()。</p>
 <p><strong>空间复杂度:</strong> O()。</p>
-<h2 id="Solution-3"><a href="#Solution-3" class="headerlink" title="Solution 3"></a>Solution 3</h2><p>动态规划解法，dp[i][j]表示s[0:i)和p[0:j)是否匹配，从前往进行匹配。</p>
-<p>条件判断：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.  P[i][j] = P[i - 1][j - 1], if p[j - 1] != &apos;*&apos; &amp;&amp; (s[i - 1] == p[j - 1] || p[j - 1] == &apos;.&apos;);</span><br><span class="line">2.  P[i][j] = P[i][j - 2], if p[j - 1] == &apos;*&apos; and the pattern repeats for 0 times;</span><br><span class="line">3.  P[i][j] = P[i - 1][j] &amp;&amp; (s[i - 1] == p[j - 2] || p[j - 2] == &apos;.&apos;), if p[j - 1] == &apos;*&apos; and the pattern repeats for at least 1 times.</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isMatch</span><span class="params">(String s, String p)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s == <span class="keyword">null</span> || p == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">boolean</span>[][] dp = <span class="keyword">new</span> <span class="keyword">boolean</span>[s.length()+<span class="number">1</span>][p.length()+<span class="number">1</span>];</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt;= s.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= p.length(); j++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(j&gt;<span class="number">1</span> &amp;&amp; p.charAt(j-<span class="number">1</span>)==<span class="string">'*'</span>)&#123;</span><br><span class="line">                    dp[i][j]=dp[i][j-<span class="number">2</span>]||(i&gt;<span class="number">0</span>&amp;&amp;(s.charAt(i-<span class="number">1</span>)==p.charAt(j-<span class="number">2</span>)||p.charAt(j-<span class="number">2</span>)==<span class="string">'.'</span>)&amp;&amp;dp[i-<span class="number">1</span>][j]);</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    dp[i][j]=i&gt;<span class="number">0</span>&amp;&amp;(s.charAt(i-<span class="number">1</span>)==p.charAt(j-<span class="number">1</span>)||p.charAt(j-<span class="number">1</span>)==<span class="string">'.'</span>)&amp;&amp;dp[i-<span class="number">1</span>][j-<span class="number">1</span>];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[s.length()][p.length()];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>时间复杂度:</strong> O(SP)，S代表字符串长度，P代表正则表达式长度。</p>
-<p><strong>空间复杂度:</strong> O(SP)，S代表字符串长度，P代表正则表达式长度。</p>
-<h2 id="Solution-4"><a href="#Solution-4" class="headerlink" title="Solution 4"></a>Solution 4</h2><p>使用动态规划，dp[i][j]表示s[i:]和p[j:]是否匹配，从后往前进行匹配。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isMatch</span><span class="params">(String s, String p)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">boolean</span>[][] dp = <span class="keyword">new</span> <span class="keyword">boolean</span>[s.length() + <span class="number">1</span>][p.length() + <span class="number">1</span>];</span><br><span class="line">        dp[s.length()][p.length()] = <span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = s.length(); i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = p.length() - <span class="number">1</span>; j &gt;= <span class="number">0</span>; j--)&#123;</span><br><span class="line">                <span class="keyword">boolean</span> first_match = (i &lt; s.length() &amp;&amp;</span><br><span class="line">                                       (p.charAt(j) == s.charAt(i) ||</span><br><span class="line">                                        p.charAt(j) == <span class="string">'.'</span>));</span><br><span class="line">                <span class="keyword">if</span> (j + <span class="number">1</span> &lt; p.length() &amp;&amp; p.charAt(j+<span class="number">1</span>) == <span class="string">'*'</span>)&#123;</span><br><span class="line">                    dp[i][j] = dp[i][j+<span class="number">2</span>] || first_match &amp;&amp; dp[i+<span class="number">1</span>][j];</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    dp[i][j] = first_match &amp;&amp; dp[i+<span class="number">1</span>][j+<span class="number">1</span>];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>时间复杂度:</strong> O(SP)，S代表字符串长度，P代表正则表达式长度。</p>
-<p><strong>空间复杂度:</strong> O(SP)，S代表字符串长度，P代表正则表达式长度。</p>
 
       
     </div>
@@ -582,13 +537,9 @@
           
             <a href="/tags/leetcode/" rel="tag"># leetcode</a>
           
+            <a href="/tags/leetcode-easy/" rel="tag"># leetcode-easy</a>
+          
             <a href="/tags/leetcode-string/" rel="tag"># leetcode-string</a>
-          
-            <a href="/tags/leetcode-dynamic-programming/" rel="tag"># leetcode-dynamic-programming</a>
-          
-            <a href="/tags/leetcode-hard/" rel="tag"># leetcode-hard</a>
-          
-            <a href="/tags/leetcode-backtracking/" rel="tag"># leetcode-backtracking</a>
           
         </div>
       
@@ -601,8 +552,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/5013/" rel="next" title="LeetCode 009 Palindrome Number">
-                <i class="fa fa-chevron-left"></i> LeetCode 009 Palindrome Number
+              <a href="/posts/19839/" rel="next" title="LeetCode 013 Roman to Integer">
+                <i class="fa fa-chevron-left"></i> LeetCode 013 Roman to Integer
               </a>
             
           </div>
@@ -610,10 +561,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/posts/12616/" rel="prev" title="LeetCode 011 Container With Most Water">
-                LeetCode 011 Container With Most Water <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -820,7 +767,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题意"><span class="nav-number">2.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-1"><span class="nav-number">3.</span> <span class="nav-text">Solution 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-2"><span class="nav-number">4.</span> <span class="nav-text">Solution 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-3"><span class="nav-number">5.</span> <span class="nav-text">Solution 3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-4"><span class="nav-number">6.</span> <span class="nav-text">Solution 4</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题意"><span class="nav-number">2.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-1"><span class="nav-number">3.</span> <span class="nav-text">Solution 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-2"><span class="nav-number">4.</span> <span class="nav-text">Solution 2</span></a></li></ol></div>
             
 
           </div>

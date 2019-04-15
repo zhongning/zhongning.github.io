@@ -97,14 +97,14 @@
 
 
   <meta name="description" content="DescriptionRoman numerals are represented by seven different symbols: I, V, X, L, C, D and M. 12345678Symbol       ValueI             1V             5X             10L             50C             100D">
-<meta name="keywords" content="leetcode,leetcode-easy,leetcode-string,leetcode-math">
+<meta name="keywords" content="leetcode,leetcode-easy,leetcode-math,leetcode-string">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 013 Roman to Integer">
 <meta property="og:url" content="http://yoursite.com/posts/19839/index.html">
 <meta property="og:site_name" content="Show me the code">
 <meta property="og:description" content="DescriptionRoman numerals are represented by seven different symbols: I, V, X, L, C, D and M. 12345678Symbol       ValueI             1V             5X             10L             50C             100D">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-14T14:08:39.489Z">
+<meta property="og:updated_time" content="2019-04-15T15:41:21.618Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 013 Roman to Integer">
 <meta name="twitter:description" content="DescriptionRoman numerals are represented by seven different symbols: I, V, X, L, C, D and M. 12345678Symbol       ValueI             1V             5X             10L             50C             100D">
@@ -412,12 +412,24 @@
                 
               
 
-              <time title="创建时间：2019-04-14 22:02:55 / 修改时间：22:08:39" itemprop="dateCreated datePublished" datetime="2019-04-14T22:02:55+08:00">2019-04-14</time>
+              <time title="创建时间：2019-04-14 22:02:55" itemprop="dateCreated datePublished" datetime="2019-04-14T22:02:55+08:00">2019-04-14</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-15 23:41:21" itemprop="dateModified" datetime="2019-04-15T23:41:21+08:00">2019-04-15</time>
               
             
           </span>
@@ -493,10 +505,13 @@
 <p><strong>Code:</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">romanToInt</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>时间复杂度:</strong> O()。</p>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>将罗马数字转成整数，假定此整数范围在1到3999。</p>
+<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>将罗马字符和其整数值相对应，遍历罗马数字字符串，若后一位字符所代表到位数比当前位数高，则用后一位到整数值减去当前位到整数值再累加，否则直接累加。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">romanToInt</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span>[] values = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">1000</span>,<span class="number">500</span>,<span class="number">100</span>,<span class="number">50</span>,<span class="number">10</span>,<span class="number">5</span>,<span class="number">1</span>&#125;;</span><br><span class="line">        String roman = <span class="string">"MDCLXVI"</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length();i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i&lt;s.length()-<span class="number">1</span>&amp;&amp;roman.indexOf(s.charAt(i))&gt;roman.indexOf(s.charAt(i+<span class="number">1</span>)))&#123;</span><br><span class="line">                result += values[roman.indexOf(s.charAt(i+<span class="number">1</span>))] - values[roman.indexOf(s.charAt(i))];</span><br><span class="line">                i++;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                result += values[roman.indexOf(s.charAt(i))];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(n)，数字到长度。</p>
 <p><strong>空间复杂度:</strong> O()。</p>
-<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><p>我们需要用到HashMap数据结构，来将罗马数字的字母转化为对应的整数值，因为输入的一定是罗马数字，那么我们只要考虑两种情况即可：<br>第一，如果当前数字不是最后一个数字且之后的数字比它大的话，则减去当前数字。<br>第二，其他情况则加上这个数字。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">romanToInt</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">        Map&lt;Character,Integer&gt; romans = <span class="keyword">new</span> HashMap&lt;Character,Integer&gt;();</span><br><span class="line">        romans.put(<span class="string">'M'</span>,<span class="number">1000</span>);</span><br><span class="line">        romans.put(<span class="string">'D'</span>,<span class="number">500</span>);</span><br><span class="line">        romans.put(<span class="string">'C'</span>,<span class="number">100</span>);</span><br><span class="line">        romans.put(<span class="string">'L'</span>,<span class="number">50</span>);</span><br><span class="line">        romans.put(<span class="string">'X'</span>,<span class="number">10</span>);</span><br><span class="line">        romans.put(<span class="string">'V'</span>,<span class="number">5</span>);</span><br><span class="line">        romans.put(<span class="string">'I'</span>,<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length();i++)&#123;</span><br><span class="line">            <span class="keyword">char</span> curr = s.charAt(i);</span><br><span class="line">            <span class="keyword">if</span>(i&lt;s.length()-<span class="number">1</span>&amp;&amp;romans.get(curr)&lt;romans.get(s.charAt(i+<span class="number">1</span>)))&#123;</span><br><span class="line">                result -= romans.get(curr);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                result += romans.get(curr);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>时间复杂度:</strong> O()。</p>
 <p><strong>空间复杂度:</strong> O()。</p>
 
@@ -550,9 +565,9 @@
           
             <a href="/tags/leetcode-easy/" rel="tag"># leetcode-easy</a>
           
-            <a href="/tags/leetcode-string/" rel="tag"># leetcode-string</a>
-          
             <a href="/tags/leetcode-math/" rel="tag"># leetcode-math</a>
+          
+            <a href="/tags/leetcode-string/" rel="tag"># leetcode-string</a>
           
         </div>
       
@@ -574,6 +589,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/48879/" rel="prev" title="LeetCode 014 Longest Common Prefix">
+                LeetCode 014 Longest Common Prefix <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -644,7 +663,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-count">18</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
