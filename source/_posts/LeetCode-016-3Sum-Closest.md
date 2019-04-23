@@ -39,29 +39,41 @@ class Solution {
 
 ## 题意
 
-
+给定n个整数和一个目标整数，找出三个整数，其和和目标整数最接近。
 
 ## Solution 1
 
+和求三数之和为0类似，循环固定第一个数，第二个数从第一个数下一位往右取，第三个从末尾往左取。
 
-
-```java
-
-```
-
-**时间复杂度:** O()。
-
-**空间复杂度:** O()。
-
-## Solution 2
-
-
+定义一个变量记录三数之和与给定值差的绝对值，比较差值，若小则更新最小差值并记录和。
 
 ```java
-
+class Solution {
+    public int threeSumClosest(int[] nums, int target) {
+        int closest = Integer.MAX_VALUE, res = Integer.MAX_VALUE;
+        Arrays.sort(nums);
+        for(int i=0;i<nums.length-2;i++){
+            int j=i+1,k=nums.length-1;
+            while(j<k){
+                int sum = nums[i]+nums[j]+nums[k];
+                if(closest>Math.abs(sum-target)){
+                    closest = Math.abs(sum-target);
+                    res = sum;
+                }
+                if(sum==target){
+                    return target;
+                }else if(sum>target){
+                    k--;
+                }else{
+                    j++;
+                }
+            }
+        }
+        return res;
+    }
+}
 ```
 
-**时间复杂度:** O()。
+**时间复杂度:** O(n2)，每个数字最多遍历两遍。
 
-**空间复杂度:** O()。
-
+**空间复杂度:** O(1)。
