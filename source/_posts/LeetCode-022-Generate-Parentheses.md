@@ -39,11 +39,11 @@ class Solution {
 }
 ```
 
-<!-- more -->
-
 ## 题意
 
 给定n对括弧，生成所有正确形式组合的字符串。
+
+<!-- more -->
 
 ## Solution 1
 

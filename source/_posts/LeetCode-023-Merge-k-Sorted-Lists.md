@@ -49,11 +49,11 @@ class Solution {
 }
 ```
 
-<!-- more -->
-
 ## 题意
 
 把K个有序链表合并成一个有序链表。
+
+<!-- more -->
 
 ## Solution 1
 
