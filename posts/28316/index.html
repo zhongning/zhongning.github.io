@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Show me the code">
 <meta property="og:description" content="DescriptionGiven n pairs of parentheses, write a function to generate all combinations of well-formed parentheses. For example, given n = 3, a solution set is: 1234567[  &amp;quot;((()))&amp;quot;,  &amp;quot;(()">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-25T14:56:06.346Z">
+<meta property="og:updated_time" content="2019-04-25T15:36:27.957Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 022 Generate Parentheses">
 <meta name="twitter:description" content="DescriptionGiven n pairs of parentheses, write a function to generate all combinations of well-formed parentheses. For example, given n = 3, a solution set is: 1234567[  &amp;quot;((()))&amp;quot;,  &amp;quot;(()">
@@ -412,7 +412,7 @@
                 
               
 
-              <time title="创建时间：2019-04-25 21:38:38 / 修改时间：22:56:06" itemprop="dateCreated datePublished" datetime="2019-04-25T21:38:38+08:00">2019-04-25</time>
+              <time title="创建时间：2019-04-25 21:38:38 / 修改时间：23:36:27" itemprop="dateCreated datePublished" datetime="2019-04-25T21:38:38+08:00">2019-04-25</time>
             
 
             
@@ -475,8 +475,8 @@
 <p><strong>Difficulty: Medium</strong></p>
 <p><strong>Code:</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">generateParenthesis</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
 <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定n对括弧，生成所有正确形式组合的字符串。</p>
+<a id="more"></a>
 <h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>对于这种列出所有结果的题目优先考虑递归Recursion求解。对于n，则有n个左括号和n个右括号，定义两个变量open、close表示左右括号还剩下的个数。因为总是先出现左括号，所有open应该不大于close。</p>
 <p>若出现open大于close则直接返回。若open和close都为0则将当前字符串放入结果中。若open或者close不为0，则递归调用并更新open或close的值。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">generateParenthesis</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; res = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">        <span class="keyword">if</span>(n&lt;=<span class="number">0</span>) <span class="keyword">return</span> res;</span><br><span class="line">        generate(n,n,res,<span class="string">""</span>);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">generate</span><span class="params">(<span class="keyword">int</span> open, <span class="keyword">int</span> close, List&lt;String&gt; res, String out)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(close&lt;open) <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">if</span>(open==<span class="number">0</span>&amp;&amp;close==<span class="number">0</span>) res.add(out);</span><br><span class="line">        <span class="keyword">if</span>(open&gt;<span class="number">0</span>)&#123;</span><br><span class="line">            generate(open-<span class="number">1</span>,close,res,out+<span class="string">"("</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(close&gt;<span class="number">0</span>)&#123;</span><br><span class="line">            generate(open,close-<span class="number">1</span>,res,out+<span class="string">")"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>

@@ -365,7 +365,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/40546/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/19839/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhong Ning(钟宁)">
@@ -385,7 +385,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/posts/40546/" class="post-title-link" itemprop="url">LeetCode 004 Median of Two Sorted Arrays</a>
+                <a href="/posts/19839/" class="post-title-link" itemprop="url">LeetCode 013 Roman to Integer</a>
               
             
           </h1>
@@ -410,7 +410,7 @@
                 
               
 
-              <time title="创建时间：2019-03-28 23:27:57" itemprop="dateCreated datePublished" datetime="2019-03-28T23:27:57+08:00">2019-03-28</time>
+              <time title="创建时间：2019-04-14 22:02:55" itemprop="dateCreated datePublished" datetime="2019-04-14T22:02:55+08:00">2019-04-14</time>
             
 
             
@@ -427,7 +427,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-31 21:13:38" itemprop="dateModified" datetime="2019-03-31T21:13:38+08:00">2019-03-31</time>
+                <time title="修改时间：2019-04-25 23:39:19" itemprop="dateModified" datetime="2019-04-25T23:39:19+08:00">2019-04-25</time>
               
             
           </span>
@@ -480,578 +480,34 @@
 
       
         
-          <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>There are two sorted arrays nums1 and nums2 of size m and n respectively.</p>
-<p>Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).</p>
-<p>You may assume nums1 and nums2 cannot be both empty.</p>
+          <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Symbol       Value</span><br><span class="line">I             1</span><br><span class="line">V             5</span><br><span class="line">X             10</span><br><span class="line">L             50</span><br><span class="line">C             100</span><br><span class="line">D             500</span><br><span class="line">M             1000</span><br></pre></td></tr></table></figure>
+<p>For example, two is written as II in Roman numeral, just two one’s added together. Twelve is written as, XII, which is simply X + II. The number twenty seven is written as XXVII, which is XX + V + II.</p>
+<p>Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not IIII. Instead, the number four is written as IV. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as IX. There are six instances where subtraction is used:</p>
+<ul>
+<li>I can be placed before V (5) and X (10) to make 4 and 9. </li>
+<li>X can be placed before L (50) and C (100) to make 40 and 90. </li>
+<li>C can be placed before D (500) and M (1000) to make 400 and 900.</li>
+</ul>
+<p>Given a roman numeral, convert it to an integer. Input is guaranteed to be within the range from 1 to 3999.</p>
 <p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nums1 = [1, 3]</span><br><span class="line">nums2 = [2]</span><br><span class="line"></span><br><span class="line">The median is 2.0</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;III&quot;</span><br><span class="line">Output: 3</span><br></pre></td></tr></table></figure>
 <p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nums1 = [1, 2]</span><br><span class="line">nums2 = [3, 4]</span><br><span class="line"></span><br><span class="line">The median is (2 + 3)/2 = 2.5</span><br></pre></td></tr></table></figure>
-<p><strong>Difficulty: Hard</strong></p>
-<p><strong>Code:</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span>[] nums2)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/posts/40546/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/33885/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhong Ning(钟宁)">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Show me the code">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/posts/33885/" class="post-title-link" itemprop="url">LeetCode 003 Longest Substring Without Repeating Characters</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-27 18:48:14" itemprop="dateCreated datePublished" datetime="2019-03-27T18:48:14+08:00">2019-03-27</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-03-31 20:49:32" itemprop="dateModified" datetime="2019-03-31T20:49:32+08:00">2019-03-31</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given a string, find the length of the longest substring without repeating characters.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;abcabcbb&quot;</span><br><span class="line">Output: 3 </span><br><span class="line">Explanation: The answer is &quot;abc&quot;, with the length of 3.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;bbbbb&quot;</span><br><span class="line">Output: 1</span><br><span class="line">Explanation: The answer is &quot;b&quot;, with the length of 1.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;IV&quot;</span><br><span class="line">Output: 4</span><br></pre></td></tr></table></figure>
 <p><strong>Example 3:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;pwwkew&quot;</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: The answer is &quot;wke&quot;, with the length of 3. </span><br><span class="line">             Note that the answer must be a substring, &quot;pwke&quot; is a subsequence and not a substring.</span><br></pre></td></tr></table></figure>
-<p><strong>Difficulty: Medium</strong></p>
-<p><strong>Code:</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/posts/33885/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/4084/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhong Ning(钟宁)">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Show me the code">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/posts/4084/" class="post-title-link" itemprop="url">LeetCode 002 Add Two Numbers</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-27 18:42:30" itemprop="dateCreated datePublished" datetime="2019-03-27T18:42:30+08:00">2019-03-27</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-03-28 00:10:24" itemprop="dateModified" datetime="2019-03-28T00:10:24+08:00">2019-03-28</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.</p>
-<p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
-<p><strong>Example:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)</span><br><span class="line">Output: 7 -&gt; 0 -&gt; 8</span><br><span class="line">Explanation: 342 + 465 = 807.</span><br></pre></td></tr></table></figure>
-<p><strong>Difficulty: Medium</strong></p>
-<p><strong>Code:</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/posts/4084/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/45823/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhong Ning(钟宁)">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Show me the code">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/posts/45823/" class="post-title-link" itemprop="url">LeetCode 001 Two Sum</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-27 18:17:30" itemprop="dateCreated datePublished" datetime="2019-03-27T18:17:30+08:00">2019-03-27</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-03-28 00:10:57" itemprop="dateModified" datetime="2019-03-28T00:10:57+08:00">2019-03-28</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.</p>
-<p>You may assume that each input would have exactly one solution, and you may not use the same element twice.</p>
-<p><strong>Example:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Given nums = [2, 7, 11, 15], target = 9,</span><br><span class="line"></span><br><span class="line">Because nums[0] + nums[1] = 2 + 7 = 9,</span><br><span class="line">return [0, 1].</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;IX&quot;</span><br><span class="line">Output: 9</span><br></pre></td></tr></table></figure>
+<p><strong>Example 4:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;LVIII&quot;</span><br><span class="line">Output: 58</span><br><span class="line">Explanation: L = 50, V= 5, III = 3.</span><br></pre></td></tr></table></figure>
+<p><strong>Example 5:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;MCMXCIV&quot;</span><br><span class="line">Output: 1994</span><br><span class="line">Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.</span><br></pre></td></tr></table></figure>
 <p><strong>Difficulty: Easy</strong></p>
 <p><strong>Code:</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">romanToInt</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>将罗马数字转成整数，假定此整数范围在1到3999。</p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/posts/45823/#more" rel="contents">
+              <a class="btn" href="/posts/19839/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1111,7 +567,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/38514/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/56606/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhong Ning(钟宁)">
@@ -1131,7 +587,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/posts/38514/" class="post-title-link" itemprop="url">Markdown扩展语法</a>
+                <a href="/posts/56606/" class="post-title-link" itemprop="url">LeetCode 012 Integer to Roman</a>
               
             
           </h1>
@@ -1156,7 +612,7 @@
                 
               
 
-              <time title="创建时间：2019-03-26 14:01:16" itemprop="dateCreated datePublished" datetime="2019-03-26T14:01:16+08:00">2019-03-26</time>
+              <time title="创建时间：2019-04-14 21:56:15" itemprop="dateCreated datePublished" datetime="2019-04-14T21:56:15+08:00">2019-04-14</time>
             
 
             
@@ -1173,7 +629,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-31 13:41:43" itemprop="dateModified" datetime="2019-03-31T13:41:43+08:00">2019-03-31</time>
+                <time title="修改时间：2019-04-25 23:39:36" itemprop="dateModified" datetime="2019-04-25T23:39:36+08:00">2019-04-25</time>
               
             
           </span>
@@ -1190,7 +646,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
 
                 
                 
@@ -1226,40 +682,34 @@
 
       
         
-          <p>Markdown扩展语法的由来是基本语法不太够用，一些个人和组织添加来额外的元素来扩展基本语法。主要包括表格、代码块、语法高亮、URL自动链接、脚注。</p>
-<h2 id="可用性"><a href="#可用性" class="headerlink" title="可用性"></a>可用性</h2><p>扩展语法并不是在所有的Markdown应用中都能使用，你需要去检查自己的应用使用的轻量级Markdown语言是否支持。</p>
-<h2 id="轻量级Markdown语言"><a href="#轻量级Markdown语言" class="headerlink" title="轻量级Markdown语言"></a>轻量级Markdown语言</h2><p>这里列举集中轻量级Markdown语言，很多流行的Markdown应用都使用其中一种。</p>
+          <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Symbol       Value</span><br><span class="line">I             1</span><br><span class="line">V             5</span><br><span class="line">X             10</span><br><span class="line">L             50</span><br><span class="line">C             100</span><br><span class="line">D             500</span><br><span class="line">M             1000</span><br></pre></td></tr></table></figure>
+<p>For example, two is written as II in Roman numeral, just two one’s added together. Twelve is written as, XII, which is simply X + II. The number twenty seven is written as XXVII, which is XX + V + II.</p>
+<p>Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not IIII. Instead, the number four is written as IV. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as IX. There are six instances where subtraction is used:</p>
 <ul>
-<li><a href="http://commonmark.org/" target="_blank" rel="noopener">CommonMark</a></li>
-<li><a href="https://github.github.com/gfm/" target="_blank" rel="noopener">GitHub Flavored Markdown (GFM)</a></li>
-<li><a href="https://michelf.ca/projects/php-markdown/extra/" target="_blank" rel="noopener">Markdown Extra</a></li>
-<li><a href="http://fletcherpenney.net/multimarkdown/" target="_blank" rel="noopener">MultiMarkdown</a></li>
+<li>I can be placed before V (5) and X (10) to make 4 and 9. </li>
+<li>X can be placed before L (50) and C (100) to make 40 and 90. </li>
+<li>C can be placed before D (500) and M (1000) to make 400 and 900.</li>
 </ul>
-<h3 id="Markdown处理器"><a href="#Markdown处理器" class="headerlink" title="Markdown处理器"></a>Markdown处理器</h3><p>有很多可用的Markdown处理器，都能够允许你增加扩展去使用扩展语法。</p>
-<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>使用3个或者更多的连字符<code>---</code>去创建每一列的表头，使用竖线<code>|</code>去分割每一列。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">| Syntax      | Description |</span><br><span class="line">| ----------- | ----------- |</span><br><span class="line">| Header      | Title       |</span><br><span class="line">| Paragraph   | Text        |</span><br><span class="line"></span><br><span class="line">| Syntax | Description |</span><br><span class="line">| --- | ----------- |</span><br><span class="line">| Header | Title |</span><br><span class="line">| Paragraph | Text |</span><br></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th>Syntax</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Header</td>
-<td>Title</td>
-</tr>
-<tr>
-<td>Paragraph</td>
-<td>Text</td>
-</tr>
-</tbody>
-</table>
+<p>Given an integer, convert it to a roman numeral. Input is guaranteed to be within the range from 1 to 3999.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: 3</span><br><span class="line">Output: &quot;III&quot;</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: 4</span><br><span class="line">Output: &quot;IV&quot;</span><br></pre></td></tr></table></figure>
+<p><strong>Example 3:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: 9</span><br><span class="line">Output: &quot;IX&quot;</span><br></pre></td></tr></table></figure>
+<p><strong>Example 4:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: 58</span><br><span class="line">Output: &quot;LVIII&quot;</span><br><span class="line">Explanation: L = 50, V = 5, III = 3.</span><br></pre></td></tr></table></figure>
+<p><strong>Example 5:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: 1994</span><br><span class="line">Output: &quot;MCMXCIV&quot;</span><br><span class="line">Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.</span><br></pre></td></tr></table></figure>
+<p><strong>Difficulty: Medium</strong></p>
+<p><strong>Code:</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">intToRoman</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定一个整数，将其转成罗马数字，整数的范围在1到3999。</p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/posts/38514/#more" rel="contents">
+              <a class="btn" href="/posts/56606/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1319,7 +769,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/48840/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/12616/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhong Ning(钟宁)">
@@ -1339,7 +789,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/posts/48840/" class="post-title-link" itemprop="url">Markdown基本语法</a>
+                <a href="/posts/12616/" class="post-title-link" itemprop="url">LeetCode 011 Container With Most Water</a>
               
             
           </h1>
@@ -1364,7 +814,7 @@
                 
               
 
-              <time title="创建时间：2019-03-25 22:10:59" itemprop="dateCreated datePublished" datetime="2019-03-25T22:10:59+08:00">2019-03-25</time>
+              <time title="创建时间：2019-04-11 23:51:14" itemprop="dateCreated datePublished" datetime="2019-04-11T23:51:14+08:00">2019-04-11</time>
             
 
             
@@ -1381,7 +831,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-31 13:41:37" itemprop="dateModified" datetime="2019-03-31T13:41:37+08:00">2019-03-31</time>
+                <time title="修改时间：2019-04-25 23:39:48" itemprop="dateModified" datetime="2019-04-25T23:39:48+08:00">2019-04-25</time>
               
             
           </span>
@@ -1398,7 +848,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
 
                 
                 
@@ -1434,15 +884,20 @@
 
       
         
-          <p>Markdown基本语法，几乎所有Markdown应用程序都支持<code>John Gruber</code>原始设计文档中概述的基本语法。</p>
-<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>在标题前插入1到6个#，表示6个不同级别的标题</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Heading level 1</span><br><span class="line">## Heading level 2</span><br><span class="line">### Heading level 3</span><br><span class="line">#### Heading level 4</span><br><span class="line">##### Heading level 5</span><br><span class="line">###### Heading level 6</span><br></pre></td></tr></table></figure>
-<h2 id="段落"><a href="#段落" class="headerlink" title="段落"></a>段落</h2><p>段落之间用空行隔开，不能使用空格或者缩进</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">I really like using Markdown.</span><br><span class="line"></span><br><span class="line">I think I&apos;ll use it to format all of my documents from now on.</span><br></pre></td></tr></table></figure>
+          <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given n non-negative integers a1, a2, …, an , where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). Find two lines, which together with x-axis forms a container, such that the container contains the most water.</p>
+<p><strong>Note:</strong> You may not slant the container and n is at least 2.</p>
+<p><img src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/07/17/question_11.jpg" alt="pic"></p>
+<p>The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7]. In this case, the max area of water (blue section) the container can contain is 49.</p>
+<p><strong>Example:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [1,8,6,2,5,4,8,3,7]</span><br><span class="line">Output: 49</span><br></pre></td></tr></table></figure>
+<p><strong>Difficulty: Medium</strong></p>
+<p><strong>Code:</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="keyword">int</span>[] height)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定正整数1, a2, …, an，代表坐标轴横轴上1到n到地方，各有一条垂直到线段，其另一端到高度为正整数到值。<br>两根线及横轴组成了容器，求使容器装最多水到两条线段，并返回装水到面积。</p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/posts/48840/#more" rel="contents">
+              <a class="btn" href="/posts/12616/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1502,7 +957,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/16107/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/47345/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhong Ning(钟宁)">
@@ -1522,7 +977,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/posts/16107/" class="post-title-link" itemprop="url">Hello World</a>
+                <a href="/posts/47345/" class="post-title-link" itemprop="url">LeetCode 010 Regular Expression Matching</a>
               
             
           </h1>
@@ -1547,7 +1002,7 @@
                 
               
 
-              <time title="创建时间：2019-03-24 22:10:59" itemprop="dateCreated datePublished" datetime="2019-03-24T22:10:59+08:00">2019-03-24</time>
+              <time title="创建时间：2019-04-10 23:32:02" itemprop="dateCreated datePublished" datetime="2019-04-10T23:32:02+08:00">2019-04-10</time>
             
 
             
@@ -1564,7 +1019,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-29 23:41:55" itemprop="dateModified" datetime="2019-03-29T23:41:55+08:00">2019-03-29</time>
+                <time title="修改时间：2019-04-25 23:39:59" itemprop="dateModified" datetime="2019-04-25T23:39:59+08:00">2019-04-25</time>
               
             
           </span>
@@ -1581,7 +1036,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
 
                 
                 
@@ -1617,18 +1072,226 @@
 
       
         
+          <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given an input string (s) and a pattern (p), implement regular expression matching with support for ‘.’ and ‘*’.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&apos;.&apos; Matches any single character.</span><br><span class="line">&apos;*&apos; Matches zero or more of the preceding element.</span><br></pre></td></tr></table></figure>
+<p>The matching should cover the entire input string (not partial).</p>
+<p><strong>Note:</strong></p>
+<ul>
+<li>s could be empty and contains only lowercase letters a-z.</li>
+<li>p could be empty and contains only lowercase letters a-z, and characters like . or *.</li>
+</ul>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">s = &quot;aa&quot;</span><br><span class="line">p = &quot;a&quot;</span><br><span class="line">Output: false</span><br><span class="line">Explanation: &quot;a&quot; does not match the entire string &quot;aa&quot;.</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">s = &quot;aa&quot;</span><br><span class="line">p = &quot;a*&quot;</span><br><span class="line">Output: true</span><br><span class="line">Explanation: &apos;*&apos; means zero or more of the precedeng element, &apos;a&apos;. Therefore, by repeating &apos;a&apos; once, it becomes &quot;aa&quot;.</span><br></pre></td></tr></table></figure>
+<p><strong>Example 3:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">s = &quot;ab&quot;</span><br><span class="line">p = &quot;.*&quot;</span><br><span class="line">Output: true</span><br><span class="line">Explanation: &quot;.*&quot; means &quot;zero or more (*) of any character (.)&quot;.</span><br></pre></td></tr></table></figure>
+<p><strong>Example 4:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">s = &quot;aab&quot;</span><br><span class="line">p = &quot;c*a*b&quot;</span><br><span class="line">Output: true</span><br><span class="line">Explanation: c can be repeated 0 times, a can be repeated 1 time. Therefore it matches &quot;aab&quot;.</span><br></pre></td></tr></table></figure>
+<p><strong>Example 5:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">s = &quot;mississippi&quot;</span><br><span class="line">p = &quot;mis*is*p*.&quot;</span><br><span class="line">Output: false</span><br></pre></td></tr></table></figure>
+<p><strong>Difficulty: Hard</strong></p>
+<p><strong>Code:</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isMatch</span><span class="params">(String s, String p)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>这道题关于正则表达式，’.’表示任意字符，’*’表示其之前的字符可以出现0次或者多次。要求返回字符串是否完全匹配正则表达式。</p>
+          <!--noindex-->
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+            <div class="post-button text-center">
+              <a class="btn" href="/posts/47345/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/5013/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhong Ning(钟宁)">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Show me the code">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/posts/5013/" class="post-title-link" itemprop="url">LeetCode 009 Palindrome Number</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-10 22:48:32" itemprop="dateCreated datePublished" datetime="2019-04-10T22:48:32+08:00">2019-04-10</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-25 23:40:09" itemprop="dateModified" datetime="2019-04-25T23:40:09+08:00">2019-04-25</time>
+              
+            
+          </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: 121</span><br><span class="line">Output: true</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: -121</span><br><span class="line">Output: false</span><br><span class="line">Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.</span><br></pre></td></tr></table></figure>
+<p><strong>Example 3:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: 10</span><br><span class="line">Output: false</span><br><span class="line">Explanation: Reads 01 from right to left. Therefore it is not a palindrome.</span><br></pre></td></tr></table></figure>
+<p><strong>Difficulty: Easy</strong></p>
+<p><strong>Code:</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>判断一个int数是否是回文格式，即从前读取和从后开始读取都是一样的。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/posts/5013/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1672,7 +1335,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 

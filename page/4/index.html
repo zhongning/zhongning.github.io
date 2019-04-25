@@ -96,25 +96,20 @@
 
 
 
-  <meta name="description" content="DescriptionThe string “PAYPALISHIRING” is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility) 123P   A   H   N">
-<meta name="keywords" content="leetcode,leetcode-medium,leetcode-string">
-<meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode 006 ZigZag Conversion">
-<meta property="og:url" content="http://yoursite.com/posts/16365/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Show me the code">
+<meta property="og:url" content="http://yoursite.com/page/4/index.html">
 <meta property="og:site_name" content="Show me the code">
-<meta property="og:description" content="DescriptionThe string “PAYPALISHIRING” is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility) 123P   A   H   N">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-25T15:40:53.732Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode 006 ZigZag Conversion">
-<meta name="twitter:description" content="DescriptionThe string “PAYPALISHIRING” is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility) 123P   A   H   N">
+<meta name="twitter:title" content="Show me the code">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/posts/16365/">
+  <link rel="canonical" href="http://yoursite.com/page/4/">
 
 
 
@@ -124,7 +119,7 @@
   };
 </script>
 
-  <title>LeetCode 006 ZigZag Conversion | Show me the code</title>
+  <title>Show me the code</title>
   
 
 
@@ -172,7 +167,8 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -352,9 +348,588 @@
           
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/64402/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhong Ning(钟宁)">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Show me the code">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/posts/64402/" class="post-title-link" itemprop="url">LeetCode 008 String to Integer (atoi)</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-05 17:44:49" itemprop="dateCreated datePublished" datetime="2019-04-05T17:44:49+08:00">2019-04-05</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-25 23:40:21" itemprop="dateModified" datetime="2019-04-25T23:40:21+08:00">2019-04-25</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Implement atoi which converts a string to an integer.</p>
+<p>The function first discards as many whitespace characters as necessary until the first non-whitespace character is found. Then, starting from this character, takes an optional initial plus or minus sign followed by as many numerical digits as possible, and interprets them as a numerical value.</p>
+<p>The string can contain additional characters after those that form the integral number, which are ignored and have no effect on the behavior of this function.</p>
+<p>If the first sequence of non-whitespace characters in str is not a valid integral number, or if no such sequence exists because either str is empty or it contains only whitespace characters, no conversion is performed.</p>
+<p>If no valid conversion could be performed, a zero value is returned.</p>
+<p><strong>Note:</strong></p>
+<ul>
+<li><p>Only the space character ‘ ‘ is considered as whitespace character.</p>
+</li>
+<li><p>Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−231,  231 − 1]. If the numerical value is out of the range of representable values, INT_MAX (231 − 1) or INT_MIN (−231) is returned.</p>
+</li>
+</ul>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;42&quot;</span><br><span class="line">Output: 42</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;   -42&quot;</span><br><span class="line">Output: -42</span><br><span class="line">Explanation: The first non-whitespace character is &apos;-&apos;, which is the minus sign.</span><br><span class="line">             Then take as many numerical digits as possible, which gets 42.</span><br></pre></td></tr></table></figure>
+<p><strong>Example 3:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;4193 with words&quot;</span><br><span class="line">Output: 4193</span><br><span class="line">Explanation: Conversion stops at digit &apos;3&apos; as the next character is not a numerical digit.</span><br></pre></td></tr></table></figure>
+<p><strong>Example 4:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;words and 987&quot;</span><br><span class="line">Output: 0</span><br><span class="line">Explanation: The first non-whitespace character is &apos;w&apos;, which is not a numerical </span><br><span class="line">             digit or a +/- sign. Therefore no valid conversion could be performed.</span><br></pre></td></tr></table></figure>
+<p><strong>Example 5:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;-91283472332&quot;</span><br><span class="line">Output: -2147483648</span><br><span class="line">Explanation: The number &quot;-91283472332&quot; is out of the range of a 32-bit signed integer.</span><br><span class="line">             Thefore INT_MIN (−231) is returned.</span><br></pre></td></tr></table></figure>
+<p><strong>Difficulty: Medium</strong></p>
+<p><strong>Code:</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">myAtoi</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>实现atoi函数将字符串转换为整数。</p>
+<p>函数首先尽可能多的丢弃空白字符，直到发现第一个非空字符位为止。 接着从这个字符开始，读入一个可选的正负号，然后尽可能多的读入数字，最后将它们解析成数值。</p>
+<p>字符串中在合法数字后可以包含额外的非法字符，对于这些字符只需丢弃即可。</p>
+<p>如果字符串的非空字符不是一个有效的整数，或者，当字符串为空或者只包含空白字符时，不需要执行转换。</p>
+<p>如果不能够执行有效的转换则返回0。如果得到的数值超出了整数范围，返回INT_MAX (2147483647) 或者 INT_MIN (-2147483648)。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/posts/64402/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/8972/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhong Ning(钟宁)">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Show me the code">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/posts/8972/" class="post-title-link" itemprop="url">LeetCode 007 Reverse Integer</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-05 16:30:33" itemprop="dateCreated datePublished" datetime="2019-04-05T16:30:33+08:00">2019-04-05</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-25 23:40:43" itemprop="dateModified" datetime="2019-04-25T23:40:43+08:00">2019-04-25</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given a 32-bit signed integer, reverse digits of an integer.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: 123</span><br><span class="line">Output: 321</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: -123</span><br><span class="line">Output: -321</span><br></pre></td></tr></table></figure>
+<p><strong>Example 3:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: 120</span><br><span class="line">Output: 21</span><br></pre></td></tr></table></figure>
+<p><strong>Noted:</strong></p>
+<p>Note:<br>Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−231,  231 − 1].<br>For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.</p>
+<p><strong>Difficulty: Easy</strong></p>
+<p><strong>Code:</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定一个32位有符号的整数，找出其反转后的整数。反转后的数字如果溢出，则返回0。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/posts/8972/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/56866/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhong Ning(钟宁)">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Show me the code">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/posts/56866/" class="post-title-link" itemprop="url">Hexo创建自定义页面的方法</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-01 23:07:21" itemprop="dateCreated datePublished" datetime="2019-04-01T23:07:21+08:00">2019-04-01</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-03 00:42:49" itemprop="dateModified" datetime="2019-04-03T00:42:49+08:00">2019-04-03</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="自定义页面的问题"><a href="#自定义页面的问题" class="headerlink" title="自定义页面的问题"></a>自定义页面的问题</h2><p>只有source目录下的文件才会发布到public（能够在网络上访问到），因此Hexo只默认渲染source目录下的文件，但有一些前端作品或demo页我们不希望经过渲染，而是能保持完全自定义的样子，那该怎么用Hexo添加自定义的web页面呢？</p>
+<h2 id="第一种解决方法"><a href="#第一种解决方法" class="headerlink" title="第一种解决方法"></a>第一种解决方法</h2><p>第一种方法是使用Hexo提供的跳过渲染配置，针对某个文件或者目录进行排除。具体步骤，打开博客根目录_config.yml，找到其中skip_render项，这个项目用来配置/source/中需要跳过渲染的文件或目录。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/posts/56866/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
 
   
 
@@ -386,8 +961,10 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LeetCode 006 ZigZag Conversion
-
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/posts/16365/" class="post-title-link" itemprop="url">LeetCode 006 ZigZag Conversion</a>
               
             
           </h1>
@@ -481,7 +1058,8 @@
       
 
       
-        <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>The string “PAYPALISHIRING” is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)</p>
+        
+          <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>The string “PAYPALISHIRING” is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">P   A   H   N</span><br><span class="line">A P L S I I G</span><br><span class="line">Y   I   R</span><br></pre></td></tr></table></figure>
 <p>And then read line by line: “PAHNAPLSIIGYIR”</p>
 <p>Write the code that will take a string and make this conversion given a number of rows:</p>
@@ -494,21 +1072,16 @@
 <p><strong>Code:</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">convert</span><span class="params">(String s, <span class="keyword">int</span> numRows)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>某字符串是基于给定的行数使用锯齿状格式书写，然后逐行读取成字符串。写一段代码完成该转换。</p>
-<a id="more"></a>
-<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>可以使用nRows长的字符数组来保存格式转换后放置的所有字符。字符数组下标代表行数，该字符代表这一行的所有字符。<br>遍历字符串并将当前字符放入对应的行，然后在遍历该数组，逐行读取所有字符。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">convert</span><span class="params">(String s, <span class="keyword">int</span> numRows)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(numRows==<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> s;</span><br><span class="line">        &#125;</span><br><span class="line">        String[] rows = <span class="keyword">new</span> String[numRows];</span><br><span class="line">        Arrays.fill(rows,<span class="string">""</span>);</span><br><span class="line">        <span class="keyword">boolean</span> goDown = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">int</span> currRow =<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length();i++)&#123;</span><br><span class="line">            rows[currRow]+=s.charAt(i);</span><br><span class="line">            <span class="keyword">if</span>(currRow==<span class="number">0</span>||currRow==numRows-<span class="number">1</span>)&#123;</span><br><span class="line">                goDown=!goDown;</span><br><span class="line">            &#125;</span><br><span class="line">            currRow=goDown?currRow+<span class="number">1</span>:currRow-<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        String result = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">for</span>(String row:rows)&#123;</span><br><span class="line">            result+=row;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>时间复杂度:</strong> O(n)，只从左到右遍历一次原始字符串。</p>
-<p><strong>空间复杂度:</strong> O(n)，使用来字符串数组来保存当前转换后到字符。</p>
-<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><p>按行直接读取转换后到字符。给定当前第几竖列k，有</p>
-<ul>
-<li>第0行到字符在原始字符串的下标是k(2*numRows-2)</li>
-<li>第numRows-1行在原始字符串的下标是k(2*numRows-2)+numRows-1</li>
-<li>在这之间的第i行在原始字符串的下标是k(2<em>numRows-2)+i和(k+1)(2</em>numRows-2)-i</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">convert</span><span class="params">(String s, <span class="keyword">int</span> numRows)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(numRows==<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> s;</span><br><span class="line">        &#125;</span><br><span class="line">        StringBuilder result = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">int</span> cycleLen = <span class="number">2</span>*numRows -<span class="number">2</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;numRows;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;i+j&lt;s.length();j+=cycleLen)&#123;</span><br><span class="line">                result.append(s.charAt(i+j));</span><br><span class="line">                <span class="keyword">if</span>(i!=<span class="number">0</span>&amp;&amp;i!=numRows-<span class="number">1</span>&amp;&amp;j+cycleLen-i&lt;s.length())&#123;</span><br><span class="line">                    result.append(s.charAt(j+cycleLen-i));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>时间复杂度:</strong> O(n)，只遍历一次原始字符串。</p>
-<p><strong>空间复杂度:</strong> O(n)，使用StringBuilder来保存结果。</p>
-
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/posts/16365/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
       
     </div>
 
@@ -524,73 +1097,19 @@
       
     
     
-      <div>
-        <div id="reward-container">
-  <div></div>
-  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
-    打赏
-  </button>
-  <div id="qr" style="display: none;">
-
-    
-      
-      
-        
-      
-      <div style="display: inline-block">
-        <img src="/images/wechatpay.jpg" alt="Zhong Ning(钟宁) 微信支付">
-        <p>微信支付</p>
-      </div>
-    
-
-  </div>
-</div>
-
-      </div>
-    
 
     
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
-          
-            <a href="/tags/leetcode-medium/" rel="tag"># leetcode-medium</a>
-          
-            <a href="/tags/leetcode-string/" rel="tag"># leetcode-string</a>
-          
-        </div>
+
+      
+
       
 
       
       
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/posts/26628/" rel="next" title="LeetCode 005 Longest Palindromic Substring">
-                <i class="fa fa-chevron-left"></i> LeetCode 005 Longest Palindromic Substring
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/posts/56866/" rel="prev" title="Hexo创建自定义页面的方法">
-                Hexo创建自定义页面的方法 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -600,15 +1119,205 @@
   </article>
 
 
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/26628/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhong Ning(钟宁)">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Show me the code">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/posts/26628/" class="post-title-link" itemprop="url">LeetCode 005 Longest Palindromic Substring</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-29 23:35:38" itemprop="dateCreated datePublished" datetime="2019-03-29T23:35:38+08:00">2019-03-29</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-25 23:41:07" itemprop="dateModified" datetime="2019-04-25T23:41:07+08:00">2019-04-25</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;babad&quot;</span><br><span class="line">Output: &quot;bab&quot;</span><br><span class="line">Note: &quot;aba&quot; is also a valid answer.</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;cbbd&quot;</span><br><span class="line">Output: &quot;bb&quot;</span><br></pre></td></tr></table></figure>
+<p><strong>Difficulty: Medium</strong></p>
+<p><strong>Code:</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">longestPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定一个字符串，找出最长的回文子串，假定字符串最大长度是1000。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/posts/26628/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
   </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
 
 
           </div>
           
-
-  
-
-
 
         </div>
         
@@ -628,17 +1337,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -785,23 +1485,6 @@
       </div>
 
       
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题意"><span class="nav-number">2.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-1"><span class="nav-number">3.</span> <span class="nav-text">Solution 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-2"><span class="nav-number">4.</span> <span class="nav-text">Solution 2</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
-      
 
       
 
@@ -930,10 +1613,6 @@
 
 
   
-  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
-<script src="/js/src/post-details.js?v=7.0.1"></script>
-
-
 
   
 
@@ -949,8 +1628,6 @@
 
   
 
-
-  
 
 
   

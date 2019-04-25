@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Show me the code">
 <meta property="og:description" content="DescriptionMerge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity. Example: 1234567Input:[  1-&amp;gt;4-&amp;gt;5,  1-&amp;gt;3-&amp;gt;4,  2-&amp;gt;6]Output: 1-&amp;gt;1-&amp;gt;2-&amp;gt">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-25T15:26:27.189Z">
+<meta property="og:updated_time" content="2019-04-25T15:35:22.878Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 023 Merge k Sorted Lists">
 <meta name="twitter:description" content="DescriptionMerge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity. Example: 1234567Input:[  1-&amp;gt;4-&amp;gt;5,  1-&amp;gt;3-&amp;gt;4,  2-&amp;gt;6]Output: 1-&amp;gt;1-&amp;gt;2-&amp;gt">
@@ -412,7 +412,7 @@
                 
               
 
-              <time title="创建时间：2019-04-25 22:54:13 / 修改时间：23:26:27" itemprop="dateCreated datePublished" datetime="2019-04-25T22:54:13+08:00">2019-04-25</time>
+              <time title="创建时间：2019-04-25 22:54:13 / 修改时间：23:35:22" itemprop="dateCreated datePublished" datetime="2019-04-25T22:54:13+08:00">2019-04-25</time>
             
 
             
@@ -475,8 +475,8 @@
 <p><strong>Difficulty: Hard</strong></p>
 <p><strong>Code:</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">mergeKLists</span><span class="params">(ListNode[] lists)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
 <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>把K个有序链表合并成一个有序链表。</p>
+<a id="more"></a>
 <h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>和合并两个链表类似，建立哨兵节点，结果返回哨兵节点下一位。进循环，循环中每次遍历所有链表的首个节点，并比较各个节点，找出值最小的节点。</p>
 <p>将结果链接的当前节点指向这个最小节点，并将链表数组中最小节点所在的链表移动到最小节点到下一节点。</p>
 <p>若碰到某个链表当前节点为空则跳过，若所有链表当前节点都为空则退出循环。</p>

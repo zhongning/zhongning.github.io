@@ -97,14 +97,14 @@
 
 
   <meta name="description" content="DescriptionThere are two sorted arrays nums1 and nums2 of size m and n respectively. Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)). You may assume nu">
-<meta name="keywords" content="leetcode,leetcode-hard,leetcode-array,leetcode-binary-search,leetcode-divide-and-conquer">
+<meta name="keywords" content="leetcode,leetcode-array,leetcode-hard,leetcode-binary-search,leetcode-divide-and-conquer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 004 Median of Two Sorted Arrays">
 <meta property="og:url" content="http://yoursite.com/posts/40546/index.html">
 <meta property="og:site_name" content="Show me the code">
 <meta property="og:description" content="DescriptionThere are two sorted arrays nums1 and nums2 of size m and n respectively. Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)). You may assume nu">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-31T13:13:38.352Z">
+<meta property="og:updated_time" content="2019-04-25T15:41:19.488Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 004 Median of Two Sorted Arrays">
 <meta name="twitter:description" content="DescriptionThere are two sorted arrays nums1 and nums2 of size m and n respectively. Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)). You may assume nu">
@@ -429,7 +429,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-31 21:13:38" itemprop="dateModified" datetime="2019-03-31T21:13:38+08:00">2019-03-31</time>
+                <time title="修改时间：2019-04-25 23:41:19" itemprop="dateModified" datetime="2019-04-25T23:41:19+08:00">2019-04-25</time>
               
             
           </span>
@@ -491,8 +491,8 @@
 <p><strong>Difficulty: Hard</strong></p>
 <p><strong>Code:</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span>[] nums2)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
 <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定两个有序数组，长度分别是m和n。找出这两个数组到中位数，总体到时间复杂度要求O(log (m+n))，假定两个数组都不为空。</p>
+<a id="more"></a>
 <h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>中位数是把一组有序数分成两个相等长度的部分，一部分比另外一部分都要大。如果是偶数个，则取最中间两个数的平均数。</p>
 <p>如果两个有序数组混合起来成为一个有序数组再去找中位数，肯定很简单，但是时间复杂度应该是O(m+n)，不符合要求。O(log (m+n))提示应该是用二分查找，但是两个数组又如何去做，着实很难。</p>
 <p>首先将数组A在随机的位置i切成两部分：</p>
@@ -591,9 +591,9 @@
           
             <a href="/tags/leetcode/" rel="tag"># leetcode</a>
           
-            <a href="/tags/leetcode-hard/" rel="tag"># leetcode-hard</a>
-          
             <a href="/tags/leetcode-array/" rel="tag"># leetcode-array</a>
+          
+            <a href="/tags/leetcode-hard/" rel="tag"># leetcode-hard</a>
           
             <a href="/tags/leetcode-binary-search/" rel="tag"># leetcode-binary-search</a>
           
