@@ -1,17 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[LeetCode 023 Merge k Sorted Lists]]></title>
-    <url>%2Fposts%2F44312%2F</url>
-    <content type="text"><![CDATA[DescriptionMerge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity. Example: 1234567Input:[ 1-&gt;4-&gt;5, 1-&gt;3-&gt;4, 2-&gt;6]Output: 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6 Difficulty: Hard Code: 12345678910111213/** * Definition for singly-linked list. * public class ListNode &#123; * int val; * ListNode next; * ListNode(int x) &#123; val = x; &#125; * &#125; */class Solution &#123; public ListNode mergeKLists(ListNode[] lists) &#123; &#125;&#125; 题意把K个有序链表合并成一个有序链表。 Solution 1和合并两个链表类似，建立哨兵节点，结果返回哨兵节点下一位。进循环，循环中每次遍历所有链表的首个节点，并比较各个节点，找出值最小的节点。 将结果链接的当前节点指向这个最小节点，并将链表数组中最小节点所在的链表移动到最小节点到下一节点。 若碰到某个链表当前节点为空则跳过，若所有链表当前节点都为空则退出循环。 12345678910111213141516171819202122232425262728293031323334353637383940/** * Definition for singly-linked list. * public class ListNode &#123; * int val; * ListNode next; * ListNode(int x) &#123; val = x; &#125; * &#125; */class Solution &#123; public ListNode mergeKLists(ListNode[] lists) &#123; ListNode dummy=new ListNode(0), curr=dummy; while(true)&#123; int num = lists.length; int minVal = Integer.MAX_VALUE; int minIndex = -1; ListNode minNode = null; for(int i=0;i&lt;lists.length;i++)&#123; ListNode node = lists[i]; if(node==null)&#123; num--; continue; &#125; if(node.val&lt;minVal)&#123; minVal=node.val; minIndex = i; minNode=node; &#125; &#125; if(minNode!=null)&#123; curr.next=minNode; curr=curr.next; lists[minIndex]=minNode.next; &#125; if(num==0)&#123; break; &#125; &#125; return dummy.next; &#125;&#125; 时间复杂度: O()。 空间复杂度: O()。 Solution 212 时间复杂度: O()。 空间复杂度: O()。]]></content>
+    <title><![CDATA[LeetCode 025 Reverse Nodes in k-Group]]></title>
+    <url>%2Fposts%2F34575%2F</url>
+    <content type="text"><![CDATA[DescriptionGiven a linked list, reverse the nodes of a linked list k at a time and return its modified list. k is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of k then left-out nodes in the end should remain as it is. Example: Given this linked list: 1-&gt;2-&gt;3-&gt;4-&gt;5 For k = 2, you should return: 2-&gt;1-&gt;4-&gt;3-&gt;5 For k = 3, you should return: 3-&gt;2-&gt;1-&gt;4-&gt;5 Note: Only constant extra memory is allowed. You may not alter the values in the list’s nodes, only nodes itself may be changed. Difficulty: Hard Code: 12345678910111213/** * Definition for singly-linked list. * public class ListNode &#123; * int val; * ListNode next; * ListNode(int x) &#123; val = x; &#125; * &#125; */class Solution &#123; public ListNode reverseKGroup(ListNode head, int k) &#123; &#125;&#125; 题意给定一个链表，将其每k个节点反转，并返回修改后的链表。k是小于等于链表长度的正整数，不足k个时保持原样。不允许修改节点的值，只允许修改整个节点。 Solution 1123456789101112131415161718192021222324252627282930313233343536373839/** * Definition for singly-linked list. * public class ListNode &#123; * int val; * ListNode next; * ListNode(int x) &#123; val = x; &#125; * &#125; */class Solution &#123; public ListNode reverseKGroup(ListNode head, int k) &#123; if(head==null||head.next==null) return head; ListNode dummy = new ListNode(0), curr= head, start = curr , lastDone = dummy; int count = 0; while(curr!=null)&#123; count++; ListNode nextOne = curr.next; if(count==k)&#123; lastDone.next=reverse(start,k); lastDone=start; start=nextOne; count=0; &#125; curr=nextOne; &#125; lastDone.next=start; return dummy.next; &#125; public ListNode reverse(ListNode node, int k)&#123; ListNode dummy = new ListNode(0), curr = node; for(int i=0;i&lt;k;i++)&#123; ListNode tmp = dummy.next; dummy.next = curr; curr = curr.next; dummy.next.next=tmp; &#125; return dummy.next; &#125;&#125; 时间复杂度: O()。 空间复杂度: O()。 Solution 212 时间复杂度: O()。 空间复杂度: O()。]]></content>
       <categories>
         <category>leetcode</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>leetcode-linked-list</tag>
+        <tag>leetcode-hard</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 024 Swap Nodes in Pairs]]></title>
+    <url>%2Fposts%2F65154%2F</url>
+    <content type="text"><![CDATA[DescriptionGiven a linked list, swap every two adjacent nodes and return its head. You may not modify the values in the list’s nodes, only nodes itself may be changed. Example: 1Given 1-&gt;2-&gt;3-&gt;4, you should return the list as 2-&gt;1-&gt;4-&gt;3. Difficulty: Medium Code: 12345678910111213/** * Definition for singly-linked list. * public class ListNode &#123; * int val; * ListNode next; * ListNode(int x) &#123; val = x; &#125; * &#125; */class Solution &#123; public ListNode swapPairs(ListNode head) &#123; &#125;&#125; 题意给定一个链表，按顺序将每两个节点交换，并返回链表头部。不能修改节点的值，只能改变整个节点。 Solution 1若链表为空或只有一个节点则返回头节点。循环遍历，条件是当前节点和当前节点的下一个节点都存在，在循环体中把这两个交换位置放入结果链表中。 当退出循环体后，只有一个节点没有遍历或者都遍历过，只需要在将其添加到结果链表中去。 1234567891011121314151617181920212223/** * Definition for singly-linked list. * public class ListNode &#123; * int val; * ListNode next; * ListNode(int x) &#123; val = x; &#125; * &#125; */class Solution &#123; public ListNode swapPairs(ListNode head) &#123; if(head==null||head.next==null) return head; ListNode dummy = new ListNode(0), curr = dummy; while(head!=null&amp;&amp;head.next!=null)&#123; ListNode tmp = head.next.next; curr.next=head.next; curr.next.next=head; curr=curr.next.next; head=tmp; &#125; curr.next=head; return dummy.next; &#125;&#125; 时间复杂度: O()。 空间复杂度: O()。 Solution 2递归调用，先把链表的前两个节点交换，再对除去这两个节点对链表进行递归调用，并将其赋给第二个节点的下一位，返回第一个节点。 1234567891011121314151617/** * Definition for singly-linked list. * public class ListNode &#123; * int val; * ListNode next; * ListNode(int x) &#123; val = x; &#125; * &#125; */class Solution &#123; public ListNode swapPairs(ListNode head) &#123; if(head==null||head.next==null) return head; ListNode res = head.next; head.next=swapPairs(head.next.next); res.next=head; return res; &#125;&#125; 时间复杂度: O()。 空间复杂度: O()。]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>leetcode-medium</tag>
+        <tag>leetcode-linked-list</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 023 Merge k Sorted Lists]]></title>
+    <url>%2Fposts%2F44312%2F</url>
+    <content type="text"><![CDATA[DescriptionMerge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity. Example: 1234567Input:[ 1-&gt;4-&gt;5, 1-&gt;3-&gt;4, 2-&gt;6]Output: 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6 Difficulty: Hard Code: 12345678910111213/** * Definition for singly-linked list. * public class ListNode &#123; * int val; * ListNode next; * ListNode(int x) &#123; val = x; &#125; * &#125; */class Solution &#123; public ListNode mergeKLists(ListNode[] lists) &#123; &#125;&#125; 题意把K个有序链表合并成一个有序链表。 Solution 1和合并两个链表类似，建立哨兵节点，结果返回哨兵节点下一位。进循环，循环中每次遍历所有链表的首个节点，并比较各个节点，找出值最小的节点。 将结果链接的当前节点指向这个最小节点，并将链表数组中最小节点所在的链表移动到最小节点到下一节点。 若碰到某个链表当前节点为空则跳过，若所有链表当前节点都为空则退出循环。 12345678910111213141516171819202122232425262728293031323334353637383940/** * Definition for singly-linked list. * public class ListNode &#123; * int val; * ListNode next; * ListNode(int x) &#123; val = x; &#125; * &#125; */class Solution &#123; public ListNode mergeKLists(ListNode[] lists) &#123; ListNode dummy=new ListNode(0), curr=dummy; while(true)&#123; int num = lists.length; int minVal = Integer.MAX_VALUE; int minIndex = -1; ListNode minNode = null; for(int i=0;i&lt;lists.length;i++)&#123; ListNode node = lists[i]; if(node==null)&#123; num--; continue; &#125; if(node.val&lt;minVal)&#123; minVal=node.val; minIndex = i; minNode=node; &#125; &#125; if(minNode!=null)&#123; curr.next=minNode; curr=curr.next; lists[minIndex]=minNode.next; &#125; if(num==0)&#123; break; &#125; &#125; return dummy.next; &#125;&#125; 时间复杂度: O()。 空间复杂度: O()。 Solution 2使用PriorityQueue来维持一个最小堆，把k个链表到首节点放入优先队列中，它们会自动根据值val排序好。 每次取出最小的节点加入到结果链表中，并把该最小节点的下一位放入队列中。依此类推，直到队列中没有元素。 1234567891011121314151617181920212223242526272829303132333435363738/** * Definition for singly-linked list. * public class ListNode &#123; * int val; * ListNode next; * ListNode(int x) &#123; val = x; &#125; * &#125; */class Solution &#123; public ListNode mergeKLists(ListNode[] lists) &#123; if (lists==null||lists.length==0) return null; ListNode dummy=new ListNode(0), curr=dummy; PriorityQueue&lt;ListNode&gt; queue = new PriorityQueue&lt;ListNode&gt;(lists.length, new Comparator&lt;ListNode&gt;()&#123; public int compare(ListNode o1, ListNode o2)&#123; if(o1.val&lt;o2.val)&#123; return -1; &#125;else if(o1.val==o2.val)&#123; return 0; &#125;else&#123; return 1; &#125; &#125; &#125;); for(ListNode node:lists)&#123; if(node!=null)&#123; queue.add(node); &#125; &#125; while(!queue.isEmpty())&#123; curr.next=queue.poll(); curr=curr.next; if(curr.next!=null)&#123; queue.add(curr.next); &#125; &#125; return dummy.next; &#125;&#125; 时间复杂度: O()。 空间复杂度: O()。 Solution 3不管几个链表，都可以两两合并，最终合并成一个链表。利用分治思想，将链表数组从中划分为两部分，分别顺序合并两部分每一个链表并赋给前半部分。 不停地对半划分并合并更新，直到应该合并的链表数量为1，即已经合并完成所有链表。 12345678910111213141516171819202122232425262728293031323334353637383940/** * Definition for singly-linked list. * public class ListNode &#123; * int val; * ListNode next; * ListNode(int x) &#123; val = x; &#125; * &#125; */class Solution &#123; public ListNode mergeKLists(ListNode[] lists) &#123; if (lists==null||lists.length==0) return null; int n = lists.length; while(n&gt;1)&#123; int steps = (n+1)/2; for(int i=0;i&lt;n/2;i++)&#123; lists[i]=mergeTwoLists(lists[i],lists[i+steps]); &#125; n=steps; &#125; return lists[0]; &#125; public ListNode mergeTwoLists(ListNode l1, ListNode l2)&#123; ListNode dummy=new ListNode(0), curr=dummy; while(l1!=null&amp;&amp;l2!=null)&#123; if(l1.val&lt;l2.val)&#123; curr.next=l1; curr=curr.next; l1=l1.next; &#125;else&#123; curr.next=l2; curr=curr.next; l2=l2.next; &#125; &#125; if(l1==null) curr.next=l2; if(l2==null) curr.next=l1; return dummy.next; &#125;&#125; 时间复杂度: O()。 空间复杂度: O()。]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>leetcode-linked-list</tag>
         <tag>leetcode-hard</tag>
         <tag>leetcode-divide-and-conquer</tag>
-        <tag>leetcode-linked-list</tag>
         <tag>leetcode-heap</tag>
       </tags>
   </entry>
@@ -38,8 +64,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-linked-list</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -51,8 +77,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-easy</tag>
         <tag>leetcode-stack</tag>
       </tags>
   </entry>
@@ -66,8 +92,8 @@
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-two-pointers</tag>
         <tag>leetcode-linked-list</tag>
+        <tag>leetcode-two-pointers</tag>
       </tags>
   </entry>
   <entry>
@@ -79,10 +105,10 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
-        <tag>leetcode-hash-table</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-hash-table</tag>
         <tag>leetcode-two-pointers</tag>
+        <tag>leetcode-array</tag>
       </tags>
   </entry>
   <entry>
@@ -108,9 +134,9 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
         <tag>leetcode-two-pointers</tag>
+        <tag>leetcode-array</tag>
       </tags>
   </entry>
   <entry>
@@ -122,9 +148,9 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
         <tag>leetcode-two-pointers</tag>
+        <tag>leetcode-array</tag>
       </tags>
   </entry>
   <entry>
@@ -136,8 +162,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -149,9 +175,9 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-string</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -164,8 +190,8 @@
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-string</tag>
       </tags>
   </entry>
   <entry>
@@ -177,9 +203,9 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
         <tag>leetcode-two-pointers</tag>
+        <tag>leetcode-array</tag>
       </tags>
   </entry>
   <entry>
@@ -206,8 +232,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -220,8 +246,8 @@
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-string</tag>
       </tags>
   </entry>
   <entry>
@@ -233,8 +259,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -284,8 +310,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-hard</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-binary-search</tag>
         <tag>leetcode-divide-and-conquer</tag>
       </tags>
@@ -299,8 +325,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hash-table</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-hash-table</tag>
         <tag>leetcode-two-pointers</tag>
         <tag>leetcode-string</tag>
         <tag>leetcode-sliding-window</tag>
@@ -316,8 +342,8 @@
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-math</tag>
         <tag>leetcode-linked-list</tag>
+        <tag>leetcode-math</tag>
       </tags>
   </entry>
   <entry>
@@ -329,9 +355,9 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-hash-table</tag>
+        <tag>leetcode-array</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -348,7 +374,7 @@
   <entry>
     <title><![CDATA[Markdown基本语法]]></title>
     <url>%2Fposts%2F48840%2F</url>
-    <content type="text"><![CDATA[Markdown基本语法，几乎所有Markdown应用程序都支持John Gruber原始设计文档中概述的基本语法。 标题在标题前插入1到6个#，表示6个不同级别的标题 123456# Heading level 1## Heading level 2### Heading level 3#### Heading level 4##### Heading level 5###### Heading level 6 段落段落之间用空行隔开，不能使用空格或者缩进 123I really like using Markdown.I think I&apos;ll use it to format all of my documents from now on. 换行符在文字中间插入&lt;br&gt;可以进行换行，或者两个空格再回车。 1This is the first line. &lt;br&gt; And this is the second line. This is the first line. And this is the second line. 强调加粗在文字的前后用两个*或者_可以加粗字体 123I just love **bold text**.I just love __bold text__.Love**is**bold I just love bold text.I just love bold text.Loveisbold 斜体在文字的前后用一个*或者_可以变成斜体 123Italicized text is the *cat&apos;s meow*.Italicized text is the _cat&apos;s meow_.A*cat*meow Italicized text is the cat’s meow.Italicized text is the cat’s meow.Acatmeow 同时加粗和斜体在文字的前后用三个*或者_可以同时加粗和变成斜体 12This text is ***really important***.This text is ___really important___. This text is really important.This text is really important. 引用在一段文字中的开头加上 &gt; 来表示一段引用文字 1&gt; Dorothy followed her through many of the beautiful rooms in her castle. Dorothy followed her through many of the beautiful rooms in her castle. 引用多个段落在每个段落及空行开头加上 &gt; 来表示引用多段文字 123&gt; Dorothy followed her through many of the beautiful rooms in her castle.&gt;&gt; The Witch bade her clean the pots and kettles and sweep the floor. Dorothy followed her through many of the beautiful rooms in her castle. The Witch bade her clean the pots and kettles and sweep the floor. 引用嵌套引用可以嵌套，在段落的开头加上&gt;&gt; 123&gt; Dorothy followed her through many of the beautiful rooms in her castle.&gt;&gt;&gt; The Witch bade her clean the pots and kettles and sweep the floor. Dorothy followed her through many of the beautiful rooms in her castle. The Witch bade her clean the pots and kettles and sweep the floor. 引用中使用其他元素引用中可以包含其他Markdown的元素，但并不是所有但元素都可以用 123456&gt; #### The quarterly results look great!&gt;&gt; - Revenue was off the chart.&gt; - Profits were higher than ever.&gt;&gt; *Everything* is going according to **plan**. The quarterly results look great! Revenue was off the chart. Profits were higher than ever. Everything is going according to plan. 列表列表可以分为有序列表和无序列表 有序列表有序列表在文字开头加上数字和点，数字并不要求按照顺序，但是起始应该是1 123456789101112131415161. First item2. Second item3. Third item4. Fourth item1. First item8. Second item3. Third item5. Fourth item1. First item2. Second item3. Third item 1. Indented item 2. Indented item4. Fourth item First item Second item Third item Indented item Indented item Fourth item 无序列表无序列表在每一行开头加上-、+、*，缩进去创建嵌套列表 123456789101112131415161718192021- First item- Second item- Third item- Fourth item* First item* Second item* Third item* Fourth item+ First item* Second item- Third item+ Fourth item- First item- Second item- Third item - Indented item - Indented item- Fourth item First item Second item Third item Indented item Indented item Fourth item 在列表中添加其他元素在列表中添加其他元素，要缩进4个空格或者1个tab 123456* This is the first list item.* Here&apos;s the second list item. I need to add another paragraph below the second list item.* And here&apos;s the third list item. This is the first list item. Here’s the second list item. I need to add another paragraph below the second list item. And here’s the third list item. 代码要表示一行代码，使用`来包裹 1At the command prompt, type `nano`. At the command prompt, type nano. 反引号转义在一行代码中如果代码本身也含有反引号，可以把最外层用两个反引号包裹 1``Use `code` in your Markdown file.`` Use `code` in your Markdown file. 代码块代码块的每行代码必须最少缩进4个空格或者1个tab 12345#### &lt;html&gt; &lt;head&gt; &lt;/head&gt; &lt;/html&gt; &lt;html&gt; &lt;head&gt; &lt;/head&gt; &lt;/html&gt; 分割线使用三个及以上的*、-、_表示分割线 12345***---_________________ 链接用[]包裹链接文字，随后用()包裹URL 1My favorite search engine is [Duck Duck Go](https://duckduckgo.com). My favorite search engine is Duck Duck Go. 链接添加提示1My favorite search engine is [Duck Duck Go](https://duckduckgo.com &quot;The best one&quot;). My favorite search engine is Duck Duck Go. 网页和邮箱为了快速将网页和邮箱转为链接，可以用&lt;&gt;包裹起来 12&lt;https://www.markdownguide.org&gt;&lt;fake@example.com&gt; https://www.markdownguide.org&#102;&#x61;&#x6b;&#x65;&#x40;&#101;&#x78;&#x61;&#109;&#x70;&#108;&#x65;&#46;&#x63;&#111;&#x6d; 格式化链接为了强调链接，可以在链接的前后加星号 12I love supporting **[EFF](https://eff.org)**.This is the *[Markdown Guide](https://www.markdownguide.org)*. I love supporting EFF.This is the Markdown Guide. 图片图片的插入方式是在最开始插入!，然后用[]包裹图片无法加载的描述，再把图片的地址用()包裹 1![Google](http://pngimg.com/uploads/google/google_PNG19631.png &quot;Google Search&quot;) 带链接的图片给图片加链接的方式是，把图片的Markdown用[]包裹，再在后面把链接地址用()包裹 1[![Google](http://pngimg.com/uploads/google/google_PNG19631.png &quot;Google Search&quot;)](https://www.google.com) 转义字符如果有些符号是Markdown使用的，但是又想显示，可以在字符前加\ 1\* Without the backslash, this would be a bullet in an unordered list. 转义字符列表 Character Name \ backslash ` tick mark * asterisk _ underscore {} curly braces [] brackets () parentheses # pound sign + plus sign - minus sign (hyphen) . dot ! exclamation mark]]></content>
+    <content type="text"><![CDATA[Markdown基本语法，几乎所有Markdown应用程序都支持John Gruber原始设计文档中概述的基本语法。 标题在标题前插入1到6个#，表示6个不同级别的标题 123456# Heading level 1## Heading level 2### Heading level 3#### Heading level 4##### Heading level 5###### Heading level 6 段落段落之间用空行隔开，不能使用空格或者缩进 123I really like using Markdown.I think I&apos;ll use it to format all of my documents from now on. 换行符在文字中间插入&lt;br&gt;可以进行换行，或者两个空格再回车。 1This is the first line. &lt;br&gt; And this is the second line. This is the first line. And this is the second line. 强调加粗在文字的前后用两个*或者_可以加粗字体 123I just love **bold text**.I just love __bold text__.Love**is**bold I just love bold text.I just love bold text.Loveisbold 斜体在文字的前后用一个*或者_可以变成斜体 123Italicized text is the *cat&apos;s meow*.Italicized text is the _cat&apos;s meow_.A*cat*meow Italicized text is the cat’s meow.Italicized text is the cat’s meow.Acatmeow 同时加粗和斜体在文字的前后用三个*或者_可以同时加粗和变成斜体 12This text is ***really important***.This text is ___really important___. This text is really important.This text is really important. 引用在一段文字中的开头加上 &gt; 来表示一段引用文字 1&gt; Dorothy followed her through many of the beautiful rooms in her castle. Dorothy followed her through many of the beautiful rooms in her castle. 引用多个段落在每个段落及空行开头加上 &gt; 来表示引用多段文字 123&gt; Dorothy followed her through many of the beautiful rooms in her castle.&gt;&gt; The Witch bade her clean the pots and kettles and sweep the floor. Dorothy followed her through many of the beautiful rooms in her castle. The Witch bade her clean the pots and kettles and sweep the floor. 引用嵌套引用可以嵌套，在段落的开头加上&gt;&gt; 123&gt; Dorothy followed her through many of the beautiful rooms in her castle.&gt;&gt;&gt; The Witch bade her clean the pots and kettles and sweep the floor. Dorothy followed her through many of the beautiful rooms in her castle. The Witch bade her clean the pots and kettles and sweep the floor. 引用中使用其他元素引用中可以包含其他Markdown的元素，但并不是所有但元素都可以用 123456&gt; #### The quarterly results look great!&gt;&gt; - Revenue was off the chart.&gt; - Profits were higher than ever.&gt;&gt; *Everything* is going according to **plan**. The quarterly results look great! Revenue was off the chart. Profits were higher than ever. Everything is going according to plan. 列表列表可以分为有序列表和无序列表 有序列表有序列表在文字开头加上数字和点，数字并不要求按照顺序，但是起始应该是1 123456789101112131415161. First item2. Second item3. Third item4. Fourth item1. First item8. Second item3. Third item5. Fourth item1. First item2. Second item3. Third item 1. Indented item 2. Indented item4. Fourth item First item Second item Third item Indented item Indented item Fourth item 无序列表无序列表在每一行开头加上-、+、*，缩进去创建嵌套列表 123456789101112131415161718192021- First item- Second item- Third item- Fourth item* First item* Second item* Third item* Fourth item+ First item* Second item- Third item+ Fourth item- First item- Second item- Third item - Indented item - Indented item- Fourth item First item Second item Third item Indented item Indented item Fourth item 在列表中添加其他元素在列表中添加其他元素，要缩进4个空格或者1个tab 123456* This is the first list item.* Here&apos;s the second list item. I need to add another paragraph below the second list item.* And here&apos;s the third list item. This is the first list item. Here’s the second list item. I need to add another paragraph below the second list item. And here’s the third list item. 代码要表示一行代码，使用`来包裹 1At the command prompt, type `nano`. At the command prompt, type nano. 反引号转义在一行代码中如果代码本身也含有反引号，可以把最外层用两个反引号包裹 1``Use `code` in your Markdown file.`` Use `code` in your Markdown file. 代码块代码块的每行代码必须最少缩进4个空格或者1个tab 12345#### &lt;html&gt; &lt;head&gt; &lt;/head&gt; &lt;/html&gt; &lt;html&gt; &lt;head&gt; &lt;/head&gt; &lt;/html&gt; 分割线使用三个及以上的*、-、_表示分割线 12345***---_________________ 链接用[]包裹链接文字，随后用()包裹URL 1My favorite search engine is [Duck Duck Go](https://duckduckgo.com). My favorite search engine is Duck Duck Go. 链接添加提示1My favorite search engine is [Duck Duck Go](https://duckduckgo.com &quot;The best one&quot;). My favorite search engine is Duck Duck Go. 网页和邮箱为了快速将网页和邮箱转为链接，可以用&lt;&gt;包裹起来 12&lt;https://www.markdownguide.org&gt;&lt;fake@example.com&gt; https://www.markdownguide.org&#x66;&#x61;&#107;&#x65;&#64;&#101;&#120;&#x61;&#109;&#112;&#x6c;&#101;&#x2e;&#99;&#111;&#x6d; 格式化链接为了强调链接，可以在链接的前后加星号 12I love supporting **[EFF](https://eff.org)**.This is the *[Markdown Guide](https://www.markdownguide.org)*. I love supporting EFF.This is the Markdown Guide. 图片图片的插入方式是在最开始插入!，然后用[]包裹图片无法加载的描述，再把图片的地址用()包裹 1![Google](http://pngimg.com/uploads/google/google_PNG19631.png &quot;Google Search&quot;) 带链接的图片给图片加链接的方式是，把图片的Markdown用[]包裹，再在后面把链接地址用()包裹 1[![Google](http://pngimg.com/uploads/google/google_PNG19631.png &quot;Google Search&quot;)](https://www.google.com) 转义字符如果有些符号是Markdown使用的，但是又想显示，可以在字符前加\ 1\* Without the backslash, this would be a bullet in an unordered list. 转义字符列表 Character Name \ backslash ` tick mark * asterisk _ underscore {} curly braces [] brackets () parentheses # pound sign + plus sign - minus sign (hyphen) . dot ! exclamation mark]]></content>
       <categories>
         <category>hexo</category>
       </categories>

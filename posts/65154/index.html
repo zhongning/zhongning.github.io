@@ -96,25 +96,25 @@
 
 
 
-  <meta name="description" content="DescriptionMerge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists. Example: 12Input: 1-&amp;gt;2-&amp;gt;4, 1-&amp;gt;3-&amp;gt;4O">
-<meta name="keywords" content="leetcode,leetcode-linked-list,leetcode-easy">
+  <meta name="description" content="DescriptionGiven a linked list, swap every two adjacent nodes and return its head. You may not modify the values in the list’s nodes, only nodes itself may be changed. Example: 1Given 1-&amp;gt;2-&amp;gt;3-&amp;g">
+<meta name="keywords" content="leetcode,leetcode-medium,leetcode-linked-list">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode 021 Merge Two Sorted Lists">
-<meta property="og:url" content="http://yoursite.com/posts/13700/index.html">
+<meta property="og:title" content="LeetCode 024 Swap Nodes in Pairs">
+<meta property="og:url" content="http://yoursite.com/posts/65154/index.html">
 <meta property="og:site_name" content="Show me the code">
-<meta property="og:description" content="DescriptionMerge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists. Example: 12Input: 1-&amp;gt;2-&amp;gt;4, 1-&amp;gt;3-&amp;gt;4O">
+<meta property="og:description" content="DescriptionGiven a linked list, swap every two adjacent nodes and return its head. You may not modify the values in the list’s nodes, only nodes itself may be changed. Example: 1Given 1-&amp;gt;2-&amp;gt;3-&amp;g">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-25T15:37:11.932Z">
+<meta property="og:updated_time" content="2019-04-28T10:54:00.641Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode 021 Merge Two Sorted Lists">
-<meta name="twitter:description" content="DescriptionMerge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists. Example: 12Input: 1-&amp;gt;2-&amp;gt;4, 1-&amp;gt;3-&amp;gt;4O">
+<meta name="twitter:title" content="LeetCode 024 Swap Nodes in Pairs">
+<meta name="twitter:description" content="DescriptionGiven a linked list, swap every two adjacent nodes and return its head. You may not modify the values in the list’s nodes, only nodes itself may be changed. Example: 1Given 1-&amp;gt;2-&amp;gt;3-&amp;g">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/posts/13700/">
+  <link rel="canonical" href="http://yoursite.com/posts/65154/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>LeetCode 021 Merge Two Sorted Lists | Show me the code</title>
+  <title>LeetCode 024 Swap Nodes in Pairs | Show me the code</title>
   
 
 
@@ -369,7 +369,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/13700/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/65154/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhong Ning(钟宁)">
@@ -386,7 +386,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LeetCode 021 Merge Two Sorted Lists
+          <h1 class="post-title" itemprop="name headline">LeetCode 024 Swap Nodes in Pairs
 
               
             
@@ -412,7 +412,7 @@
                 
               
 
-              <time title="创建时间：2019-04-25 20:55:51 / 修改时间：23:37:11" itemprop="dateCreated datePublished" datetime="2019-04-25T20:55:51+08:00">2019-04-25</time>
+              <time title="创建时间：2019-04-28 18:17:33 / 修改时间：18:54:00" itemprop="dateCreated datePublished" datetime="2019-04-28T18:17:33+08:00">2019-04-28</time>
             
 
             
@@ -469,24 +469,24 @@
       
 
       
-        <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.</p>
+        <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given a linked list, swap every two adjacent nodes and return its head.</p>
+<p>You may not modify the values in the list’s nodes, only nodes itself may be changed.</p>
 <p><strong>Example:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: 1-&gt;2-&gt;4, 1-&gt;3-&gt;4</span><br><span class="line">Output: 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4</span><br></pre></td></tr></table></figure>
-<p><strong>Difficulty: Easy</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Given 1-&gt;2-&gt;3-&gt;4, you should return the list as 2-&gt;1-&gt;4-&gt;3.</span><br></pre></td></tr></table></figure>
+<p><strong>Difficulty: Medium</strong></p>
 <p><strong>Code:</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">mergeTwoLists</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>把K个有序链表合并成一个有序链表。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">swapPairs</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定一个链表，按顺序将每两个节点交换，并返回链表头部。不能修改节点的值，只能改变整个节点。</p>
 <a id="more"></a>
-<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>建立哨兵节点，当前节点指向哨兵节点。开始While循环，条件是l1和l2都不为空。在循环体中，比较l1和l2到值找出较小的节点，到将其放在结果链表当前位置之后，并将该节点及结果链接都往后移一位，继续循环。</p>
-<p>由于遍历到最后，肯定有一个链表先遍历到末尾退出循环，则结果链表的后面接上未完成的链表，最终返回哨兵节点的后一位。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">mergeTwoLists</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">        ListNode dummy=<span class="keyword">new</span> ListNode(<span class="number">0</span>), curr=dummy;</span><br><span class="line">        <span class="keyword">while</span>(l1!=<span class="keyword">null</span>&amp;&amp;l2!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(l1.val&lt;=l2.val)&#123;</span><br><span class="line">                curr.next=l1;</span><br><span class="line">                l1=l1.next;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                curr.next=l2;</span><br><span class="line">                l2=l2.next;</span><br><span class="line">            &#125;</span><br><span class="line">            curr=curr.next;</span><br><span class="line">        &#125;</span><br><span class="line">        curr.next=l1!=<span class="keyword">null</span>?l1:l2;</span><br><span class="line">        <span class="keyword">return</span> dummy.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>时间复杂度:</strong> O(M+N)，两个链表的长度。</p>
-<p><strong>空间复杂度:</strong> O(M+N)，两个链表的长度。</p>
-<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><p>使用递归，比较两个链表当前节点的大小找出较小的节点，则对剩余对节点进行递归调用，将返回对结果赋给此节点对下一位，同时返回该节点作为结果。</p>
-<p>相当于每次递归只找出一个合适的节点，递归结束的条件是有个链表为空，则直接返回另一个链表未完成的部分。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">mergeTwoLists</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(l1==<span class="keyword">null</span>) <span class="keyword">return</span> l2;</span><br><span class="line">        <span class="keyword">if</span>(l2==<span class="keyword">null</span>) <span class="keyword">return</span> l1;</span><br><span class="line">        <span class="keyword">if</span>(l1.val&lt;=l2.val)&#123;</span><br><span class="line">            l1.next=mergeTwoLists(l1.next,l2);</span><br><span class="line">            <span class="keyword">return</span> l1;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            l2.next=mergeTwoLists(l1,l2.next);</span><br><span class="line">            <span class="keyword">return</span> l2;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>时间复杂度:</strong> O(M+N)，两个链表的长度。</p>
-<p><strong>空间复杂度:</strong> O(M+N)，两个链表的长度。</p>
+<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>若链表为空或只有一个节点则返回头节点。循环遍历，条件是当前节点和当前节点的下一个节点都存在，在循环体中把这两个交换位置放入结果链表中。</p>
+<p>当退出循环体后，只有一个节点没有遍历或者都遍历过，只需要在将其添加到结果链表中去。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">swapPairs</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head==<span class="keyword">null</span>||head.next==<span class="keyword">null</span>) <span class="keyword">return</span> head;</span><br><span class="line">        ListNode dummy = <span class="keyword">new</span> ListNode(<span class="number">0</span>), curr = dummy;</span><br><span class="line">        <span class="keyword">while</span>(head!=<span class="keyword">null</span>&amp;&amp;head.next!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            ListNode tmp = head.next.next;</span><br><span class="line">            curr.next=head.next;</span><br><span class="line">            curr.next.next=head;</span><br><span class="line">            curr=curr.next.next;</span><br><span class="line">            head=tmp;</span><br><span class="line">        &#125;</span><br><span class="line">        curr.next=head;</span><br><span class="line">        <span class="keyword">return</span> dummy.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O()。</p>
+<p><strong>空间复杂度:</strong> O()。</p>
+<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><p>递归调用，先把链表的前两个节点交换，再对除去这两个节点对链表进行递归调用，并将其赋给第二个节点的下一位，返回第一个节点。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">swapPairs</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head==<span class="keyword">null</span>||head.next==<span class="keyword">null</span>) <span class="keyword">return</span> head;</span><br><span class="line">        ListNode res = head.next;</span><br><span class="line">        head.next=swapPairs(head.next.next);</span><br><span class="line">        res.next=head;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O()。</p>
+<p><strong>空间复杂度:</strong> O()。</p>
 
       
     </div>
@@ -536,9 +536,9 @@
           
             <a href="/tags/leetcode/" rel="tag"># leetcode</a>
           
-            <a href="/tags/leetcode-linked-list/" rel="tag"># leetcode-linked-list</a>
+            <a href="/tags/leetcode-medium/" rel="tag"># leetcode-medium</a>
           
-            <a href="/tags/leetcode-easy/" rel="tag"># leetcode-easy</a>
+            <a href="/tags/leetcode-linked-list/" rel="tag"># leetcode-linked-list</a>
           
         </div>
       
@@ -551,8 +551,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/29601/" rel="next" title="LeetCode 020 Valid Parentheses">
-                <i class="fa fa-chevron-left"></i> LeetCode 020 Valid Parentheses
+              <a href="/posts/44312/" rel="next" title="LeetCode 023 Merge k Sorted Lists">
+                <i class="fa fa-chevron-left"></i> LeetCode 023 Merge k Sorted Lists
               </a>
             
           </div>
@@ -561,8 +561,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/posts/28316/" rel="prev" title="LeetCode 022 Generate Parentheses">
-                LeetCode 022 Generate Parentheses <i class="fa fa-chevron-right"></i>
+              <a href="/posts/34575/" rel="prev" title="LeetCode 025 Reverse Nodes in k-Group">
+                LeetCode 025 Reverse Nodes in k-Group <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
