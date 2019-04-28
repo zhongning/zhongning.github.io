@@ -112,10 +112,102 @@ class Solution {
 
 ## Solution 2
 
+使用PriorityQueue来维持一个最小堆，把k个链表到首节点放入优先队列中，它们会自动根据值val排序好。
 
+每次取出最小的节点加入到结果链表中，并把该最小节点的下一位放入队列中。依此类推，直到队列中没有元素。
 
 ```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode mergeKLists(ListNode[] lists) {
+        if (lists==null||lists.length==0) return null;
+        ListNode dummy=new ListNode(0), curr=dummy;
+        PriorityQueue<ListNode> queue = new PriorityQueue<ListNode>(lists.length, new Comparator<ListNode>(){
+            public int compare(ListNode o1, ListNode o2){
+                if(o1.val<o2.val){
+                    return -1;
+                }else if(o1.val==o2.val){
+                    return 0;
+                }else{
+                    return 1;
+                }
+            }
+        });
+        for(ListNode node:lists){
+            if(node!=null){
+                queue.add(node);
+            }
+        }
+        while(!queue.isEmpty()){
+            curr.next=queue.poll();
+            curr=curr.next;
+            if(curr.next!=null){
+                queue.add(curr.next);
+            }
+        }
+        return dummy.next;
+    }
+}
+```
 
+**时间复杂度:** O()。
+
+**空间复杂度:** O()。
+
+## Solution 3
+
+不管几个链表，都可以两两合并，最终合并成一个链表。利用分治思想，将链表数组从中划分为两部分，分别顺序合并两部分每一个链表并赋给前半部分。
+
+不停地对半划分并合并更新，直到应该合并的链表数量为1，即已经合并完成所有链表。
+
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode mergeKLists(ListNode[] lists) {
+        if (lists==null||lists.length==0) return null;
+        int n = lists.length;
+        while(n>1){
+            int steps = (n+1)/2;
+            for(int i=0;i<n/2;i++){
+                lists[i]=mergeTwoLists(lists[i],lists[i+steps]);
+            }
+            n=steps;
+        }
+        return lists[0];
+    }
+    
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2){
+        ListNode dummy=new ListNode(0), curr=dummy;
+        while(l1!=null&&l2!=null){
+            if(l1.val<l2.val){
+                curr.next=l1;
+                curr=curr.next;
+                l1=l1.next;
+            }else{
+                curr.next=l2;
+                curr=curr.next;
+                l2=l2.next;
+            }
+        }
+        if(l1==null) curr.next=l2;
+        if(l2==null) curr.next=l1;
+        return dummy.next;
+    }
+}
 ```
 
 **时间复杂度:** O()。
