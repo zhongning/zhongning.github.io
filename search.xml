@@ -1,9 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[LeetCode 028 Implement strStr()]]></title>
+    <url>%2Fposts%2F18258%2F</url>
+    <content type="text"><![CDATA[DescriptionImplement strStr(). Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack. Example 1: 12Input: haystack = &quot;hello&quot;, needle = &quot;ll&quot;Output: 2 Example 2: 12Input: haystack = &quot;aaaaa&quot;, needle = &quot;bba&quot;Output: -1 Clarification: What should we return when needle is an empty string? This is a great question to ask during an interview. For the purpose of this problem, we will return 0 when needle is an empty string. This is consistent to C’s strstr() and Java’s indexOf(). Difficulty: Easy Code: 12345class Solution &#123; public int strStr(String haystack, String needle) &#123; &#125;&#125; 题意实现String.indexOf()的功能，返回needle在haystack第一次出现的下标，若不存在则返回-1。若needle是空字符串，则返回0。 Solution 1遍历haystack直到其当前字符等于needle的首字符，然后基于needle比较后续字符是否相等。 若有不想等或者到达haystack末尾，则说明不匹配，haystack往后移动一位。 12345678910111213141516171819class Solution &#123; public int strStr(String haystack, String needle) &#123; if(needle==null||needle.isEmpty()) return 0; if(haystack==null||haystack.isEmpty()) return -1; for(int i=0;i&lt;haystack.length();i++)&#123; if(haystack.charAt(i)==needle.charAt(0))&#123; boolean flag = true; for(int j=0;j&lt;needle.length();j++)&#123; if(i+j&gt;=haystack.length() || haystack.charAt(i+j)!=needle.charAt(j))&#123; flag = false; break; &#125; &#125; if(flag) return i; &#125; &#125; return -1; &#125;&#125; 时间复杂度: O()。 空间复杂度: O()。]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>leetcode-easy</tag>
+        <tag>leetcode-string</tag>
+        <tag>leetcode-two-pointers</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 027 Remove Element]]></title>
+    <url>%2Fposts%2F39064%2F</url>
+    <content type="text"><![CDATA[DescriptionGiven an array nums and a value val, remove all instances of that value in-place and return the new length. Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory. The order of elements can be changed. It doesn’t matter what you leave beyond the new length. Example 1: 12345Given nums = [3,2,2,3], val = 3,Your function should return length = 2, with the first two elements of nums being 2.It doesn&apos;t matter what you leave beyond the returned length. Example 2: 1234567Given nums = [0,1,2,2,3,0,4,2], val = 2,Your function should return length = 5, with the first five elements of nums containing 0, 1, 3, 0, and 4.Note that the order of those five elements can be arbitrary.It doesn&apos;t matter what values are set beyond the returned length. Clarification: Confused why the returned value is an integer but your answer is an array? Note that the input array is passed in by reference, which means modification to the input array will be known to the caller as well. Internally you can think of this: 12345678// nums is passed in by reference. (i.e., without making a copy)int len = removeElement(nums, val);// any modification to nums in your function would be known by the caller.// using the length returned by your function, it prints the first len elements.for (int i = 0; i &lt; len; i++) &#123; print(nums[i]);&#125; Difficulty: Easy Code: 12345class Solution &#123; public int removeElement(int[] nums, int val) &#123; &#125;&#125; 题意给定一个整数数组nums，将所有等于val的元素移除，并且返回新数组的长度。 不允许分配额外的空间同创建新数组，必须直接修改当前数组以达到空间复杂度为O(1)。 Solution 1使用双指针，left指向最终去掉目前元素数组掉最新位置，right指向当前遍历掉位置。 若right的值不等于目标值val，则nums在left的值更新为right的值，left及right加1。 123456789101112class Solution &#123; public int removeElement(int[] nums, int val) &#123; int left = 0, right = 0; while(right&lt;nums.length)&#123; if(nums[right]!=val)&#123; nums[left++]=nums[right]; &#125; right++; &#125; return left; &#125;&#125; 时间复杂度: O(n)。 空间复杂度: O(1)。]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>leetcode-easy</tag>
+        <tag>leetcode-array</tag>
+        <tag>leetcode-two-pointers</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 026 Remove Duplicates from Sorted Array]]></title>
+    <url>%2Fposts%2F12484%2F</url>
+    <content type="text"><![CDATA[DescriptionGiven a sorted array nums, remove the duplicates in-place such that each element appear only once and return the new length. Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory. Example 1: 12345Given nums = [1,1,2],Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively.It doesn&apos;t matter what you leave beyond the returned length. Example 2: 12345Given nums = [0,0,1,1,1,2,2,3,3,4],Your function should return length = 5, with the first five elements of nums being modified to 0, 1, 2, 3, and 4 respectively.It doesn&apos;t matter what values are set beyond the returned length. Clarification: Confused why the returned value is an integer but your answer is an array? Note that the input array is passed in by reference, which means modification to the input array will be known to the caller as well. Internally you can think of this: 12345678// nums is passed in by reference. (i.e., without making a copy)int len = removeDuplicates(nums);// any modification to nums in your function would be known by the caller.// using the length returned by your function, it prints the first len elements.for (int i = 0; i &lt; len; i++) &#123; print(nums[i]);&#125; Difficulty: Easy Code: 12345class Solution &#123; public int removeDuplicates(int[] nums) &#123; &#125;&#125; 题意给定一个有序的数字数组，移除重复的元素，并且返回新的长度。不允许分配额外的空间给另外一个数组，要直接修改输入数组达到O(1)的空间复杂度。 Solution 1使用双指针，left指向该数字出现的第一个位置，right初始指向left的下一位，len表示最终的长度。 遍历数组，若right位置上的数字和left相同，则right往后移动一位，直到发现不同的数字或者达到末尾。 当发现不同数字时，更新len，并将数组len-1上的值更新为最新发现的数字，同时left移动到right位置，right后移一位。 1234567891011121314151617181920class Solution &#123; public int removeDuplicates(int[] nums) &#123; if(nums.length&lt;=1) return nums.length; int left = 0, right = 1; int len = 1; while(right&lt;nums.length)&#123; while(nums[right]==nums[left])&#123; right++; if(right&gt;=nums.length)&#123; return len; &#125; &#125; len++; nums[len-1]=nums[right]; left=right; right++; &#125; return len; &#125;&#125; 时间复杂度: O()。 空间复杂度: O()。 Solution 2对解法1进行优化，left指向最终去重后对当前位置，right指向当前遍历对位置。 当right位置上到元素和left不相等时，left后移一位，同时给left位置赋right的值，然后继续right后移一位。 123456789101112class Solution &#123; public int removeDuplicates(int[] nums) &#123; if(nums.length&lt;=1) return nums.length; int left = 0, right = 0; while(++right &lt; nums.length)&#123; if(nums[right]!=nums[left])&#123; nums[++left]=nums[right]; &#125; &#125; return left+1; &#125;&#125; 时间复杂度: O()。 空间复杂度: O()。 Solution 3也可以如解法2，只使用左侧指针，右侧依靠for循环来取出当前位置的值。 1234567891011class Solution &#123; public int removeDuplicates(int[] nums) &#123; int n = 0; for(int num:nums)&#123; if(n==0 || num!=nums[n-1])&#123; nums[n++]=num; &#125; &#125; return n; &#125;&#125; 时间复杂度: O()。 空间复杂度: O()。]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>leetcode-easy</tag>
+        <tag>leetcode-array</tag>
+        <tag>leetcode-two-pointers</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[LeetCode 025 Reverse Nodes in k-Group]]></title>
     <url>%2Fposts%2F34575%2F</url>
-    <content type="text"><![CDATA[DescriptionGiven a linked list, reverse the nodes of a linked list k at a time and return its modified list. k is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of k then left-out nodes in the end should remain as it is. Example: Given this linked list: 1-&gt;2-&gt;3-&gt;4-&gt;5 For k = 2, you should return: 2-&gt;1-&gt;4-&gt;3-&gt;5 For k = 3, you should return: 3-&gt;2-&gt;1-&gt;4-&gt;5 Note: Only constant extra memory is allowed. You may not alter the values in the list’s nodes, only nodes itself may be changed. Difficulty: Hard Code: 12345678910111213/** * Definition for singly-linked list. * public class ListNode &#123; * int val; * ListNode next; * ListNode(int x) &#123; val = x; &#125; * &#125; */class Solution &#123; public ListNode reverseKGroup(ListNode head, int k) &#123; &#125;&#125; 题意给定一个链表，将其每k个节点反转，并返回修改后的链表。k是小于等于链表长度的正整数，不足k个时保持原样。不允许修改节点的值，只允许修改整个节点。 Solution 1123456789101112131415161718192021222324252627282930313233343536373839/** * Definition for singly-linked list. * public class ListNode &#123; * int val; * ListNode next; * ListNode(int x) &#123; val = x; &#125; * &#125; */class Solution &#123; public ListNode reverseKGroup(ListNode head, int k) &#123; if(head==null||head.next==null) return head; ListNode dummy = new ListNode(0), curr= head, start = curr , lastDone = dummy; int count = 0; while(curr!=null)&#123; count++; ListNode nextOne = curr.next; if(count==k)&#123; lastDone.next=reverse(start,k); lastDone=start; start=nextOne; count=0; &#125; curr=nextOne; &#125; lastDone.next=start; return dummy.next; &#125; public ListNode reverse(ListNode node, int k)&#123; ListNode dummy = new ListNode(0), curr = node; for(int i=0;i&lt;k;i++)&#123; ListNode tmp = dummy.next; dummy.next = curr; curr = curr.next; dummy.next.next=tmp; &#125; return dummy.next; &#125;&#125; 时间复杂度: O()。 空间复杂度: O()。 Solution 212 时间复杂度: O()。 空间复杂度: O()。]]></content>
+    <content type="text"><![CDATA[DescriptionGiven a linked list, reverse the nodes of a linked list k at a time and return its modified list. k is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of k then left-out nodes in the end should remain as it is. Example: Given this linked list: 1-&gt;2-&gt;3-&gt;4-&gt;5 For k = 2, you should return: 2-&gt;1-&gt;4-&gt;3-&gt;5 For k = 3, you should return: 3-&gt;2-&gt;1-&gt;4-&gt;5 Note: Only constant extra memory is allowed. You may not alter the values in the list’s nodes, only nodes itself may be changed. Difficulty: Hard Code: 12345678910111213/** * Definition for singly-linked list. * public class ListNode &#123; * int val; * ListNode next; * ListNode(int x) &#123; val = x; &#125; * &#125; */class Solution &#123; public ListNode reverseKGroup(ListNode head, int k) &#123; &#125;&#125; 题意给定一个链表，将其每k个节点反转，并返回修改后的链表。k是小于等于链表长度的正整数，不足k个时保持原样。不允许修改节点的值，只允许修改整个节点。 Solution 1把每k个节点为一组进行反转，那样需要两个函数，一个用来分段，一个用来反转。 123456789101112131415161718192021222324252627282930313233343536373839/** * Definition for singly-linked list. * public class ListNode &#123; * int val; * ListNode next; * ListNode(int x) &#123; val = x; &#125; * &#125; */class Solution &#123; public ListNode reverseKGroup(ListNode head, int k) &#123; if(head==null||head.next==null) return head; ListNode dummy = new ListNode(0), curr= head, start = curr , lastDone = dummy; int count = 0; while(curr!=null)&#123; count++; ListNode nextOne = curr.next; if(count==k)&#123; lastDone.next=reverse(start,k); lastDone=start; start=nextOne; count=0; &#125; curr=nextOne; &#125; lastDone.next=start; return dummy.next; &#125; public ListNode reverse(ListNode node, int k)&#123; ListNode dummy = new ListNode(0), curr = node; for(int i=0;i&lt;k;i++)&#123; ListNode tmp = dummy.next; dummy.next = curr; curr = curr.next; dummy.next.next=tmp; &#125; return dummy.next; &#125;&#125; 时间复杂度: O()。 空间复杂度: O()。 Solution 2上述解法，是以k为步进来生成最终的结果链表，保存了很多状态。也可以很平滑地进行反转，在反转是带上k个节点为一组的前置和后置节点。 1234567891011121314151617181920212223242526272829303132333435/** * Definition for singly-linked list. * public class ListNode &#123; * int val; * ListNode next; * ListNode(int x) &#123; val = x; &#125; * &#125; */class Solution &#123; public ListNode reverseKGroup(ListNode head, int k) &#123; if(head==null||head.next==null) return head; ListNode dummy = new ListNode(0), pre = dummy, curr = head; dummy.next = head; for(int i=1;curr!=null;i++)&#123; if(i%k==0)&#123; pre = reverse(pre,curr.next); curr = pre.next; &#125;else&#123; curr = curr.next; &#125; &#125; return dummy.next; &#125; public ListNode reverse(ListNode pre, ListNode next)&#123; ListNode last = pre.next, curr = last.next; while(curr!=next)&#123; last.next = curr.next; curr.next = pre.next; pre.next = curr; curr = last.next; &#125; return last; &#125;&#125; 时间复杂度: O()。 空间复杂度: O()。 Solution 3上述过程也可以在一个方法中完成，先遍历整个链表计算出链表长度，然后每次对k个节点进行反转。 1234567891011121314151617181920212223242526272829303132/** * Definition for singly-linked list. * public class ListNode &#123; * int val; * ListNode next; * ListNode(int x) &#123; val = x; &#125; * &#125; */class Solution &#123; public ListNode reverseKGroup(ListNode head, int k) &#123; if(head==null||head.next==null) return head; ListNode dummy = new ListNode(0), pre = dummy, curr = head; dummy.next = head; int num = 0; while(curr!=null)&#123; num++; curr = curr.next; &#125; while(num&gt;k)&#123; curr = pre.next; for(int i=1;i&lt;k;i++)&#123; ListNode tmp = curr.next; curr.next=tmp.next; tmp.next=pre.next; pre.next=tmp; &#125; pre = curr; num -= k; &#125; return dummy.next; &#125;&#125; 时间复杂度: O()。 空间复杂度: O()。 Solution 4递归调用，我们用pre记录每段的开始位置的前一个节点，cur记录结束位置的下一个节点，然后我们调用reverse函数来将这段翻转，然后得到一个new_head，原来的head就变成了末尾，这时候后面接上递归调用下一段得到的新节点，返回new_head即可。 123456789101112131415161718192021222324252627282930313233/** * Definition for singly-linked list. * public class ListNode &#123; * int val; * ListNode next; * ListNode(int x) &#123; val = x; &#125; * &#125; */class Solution &#123; public ListNode reverseKGroup(ListNode head, int k) &#123; if(head==null||head.next==null) return head; ListNode dummy = new ListNode(0), pre = dummy, curr = head; dummy.next = head; for(int i=0;i&lt;k;i++)&#123; if(curr==null) return head; curr = curr.next; &#125; ListNode newHead = reverse(pre,curr); head.next = reverseKGroup(curr,k); return newHead; &#125; public ListNode reverse(ListNode pre, ListNode next)&#123; ListNode last = pre.next, curr = last.next; while(curr!=next)&#123; last.next = curr.next; curr.next = pre.next; pre.next = curr; curr = last.next; &#125; return pre.next; &#125;&#125; 时间复杂度: O()。 空间复杂度: O()。]]></content>
       <categories>
         <category>leetcode</category>
       </categories>
@@ -64,8 +106,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-linked-list</tag>
         <tag>leetcode-easy</tag>
+        <tag>leetcode-linked-list</tag>
       </tags>
   </entry>
   <entry>
@@ -77,8 +119,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-easy</tag>
+        <tag>leetcode-string</tag>
         <tag>leetcode-stack</tag>
       </tags>
   </entry>
@@ -105,10 +147,10 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-medium</tag>
-        <tag>leetcode-hash-table</tag>
-        <tag>leetcode-two-pointers</tag>
         <tag>leetcode-array</tag>
+        <tag>leetcode-hash-table</tag>
+        <tag>leetcode-medium</tag>
+        <tag>leetcode-two-pointers</tag>
       </tags>
   </entry>
   <entry>
@@ -134,9 +176,9 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
         <tag>leetcode-two-pointers</tag>
-        <tag>leetcode-array</tag>
       </tags>
   </entry>
   <entry>
@@ -148,9 +190,9 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
         <tag>leetcode-two-pointers</tag>
-        <tag>leetcode-array</tag>
       </tags>
   </entry>
   <entry>
@@ -162,8 +204,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-easy</tag>
+        <tag>leetcode-string</tag>
       </tags>
   </entry>
   <entry>
@@ -175,9 +217,9 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>leetcode-easy</tag>
         <tag>leetcode-math</tag>
         <tag>leetcode-string</tag>
-        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -203,9 +245,9 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
         <tag>leetcode-two-pointers</tag>
-        <tag>leetcode-array</tag>
       </tags>
   </entry>
   <entry>
@@ -232,8 +274,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-math</tag>
         <tag>leetcode-easy</tag>
+        <tag>leetcode-math</tag>
       </tags>
   </entry>
   <entry>
@@ -259,8 +301,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-math</tag>
         <tag>leetcode-easy</tag>
+        <tag>leetcode-math</tag>
       </tags>
   </entry>
   <entry>
@@ -310,8 +352,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-array</tag>
+        <tag>leetcode-hard</tag>
         <tag>leetcode-binary-search</tag>
         <tag>leetcode-divide-and-conquer</tag>
       </tags>
@@ -325,10 +367,10 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-medium</tag>
         <tag>leetcode-hash-table</tag>
-        <tag>leetcode-two-pointers</tag>
+        <tag>leetcode-medium</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-two-pointers</tag>
         <tag>leetcode-sliding-window</tag>
       </tags>
   </entry>
@@ -355,9 +397,9 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hash-table</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-easy</tag>
+        <tag>leetcode-array</tag>
+        <tag>leetcode-hash-table</tag>
       </tags>
   </entry>
   <entry>
@@ -374,7 +416,7 @@
   <entry>
     <title><![CDATA[Markdown基本语法]]></title>
     <url>%2Fposts%2F48840%2F</url>
-    <content type="text"><![CDATA[Markdown基本语法，几乎所有Markdown应用程序都支持John Gruber原始设计文档中概述的基本语法。 标题在标题前插入1到6个#，表示6个不同级别的标题 123456# Heading level 1## Heading level 2### Heading level 3#### Heading level 4##### Heading level 5###### Heading level 6 段落段落之间用空行隔开，不能使用空格或者缩进 123I really like using Markdown.I think I&apos;ll use it to format all of my documents from now on. 换行符在文字中间插入&lt;br&gt;可以进行换行，或者两个空格再回车。 1This is the first line. &lt;br&gt; And this is the second line. This is the first line. And this is the second line. 强调加粗在文字的前后用两个*或者_可以加粗字体 123I just love **bold text**.I just love __bold text__.Love**is**bold I just love bold text.I just love bold text.Loveisbold 斜体在文字的前后用一个*或者_可以变成斜体 123Italicized text is the *cat&apos;s meow*.Italicized text is the _cat&apos;s meow_.A*cat*meow Italicized text is the cat’s meow.Italicized text is the cat’s meow.Acatmeow 同时加粗和斜体在文字的前后用三个*或者_可以同时加粗和变成斜体 12This text is ***really important***.This text is ___really important___. This text is really important.This text is really important. 引用在一段文字中的开头加上 &gt; 来表示一段引用文字 1&gt; Dorothy followed her through many of the beautiful rooms in her castle. Dorothy followed her through many of the beautiful rooms in her castle. 引用多个段落在每个段落及空行开头加上 &gt; 来表示引用多段文字 123&gt; Dorothy followed her through many of the beautiful rooms in her castle.&gt;&gt; The Witch bade her clean the pots and kettles and sweep the floor. Dorothy followed her through many of the beautiful rooms in her castle. The Witch bade her clean the pots and kettles and sweep the floor. 引用嵌套引用可以嵌套，在段落的开头加上&gt;&gt; 123&gt; Dorothy followed her through many of the beautiful rooms in her castle.&gt;&gt;&gt; The Witch bade her clean the pots and kettles and sweep the floor. Dorothy followed her through many of the beautiful rooms in her castle. The Witch bade her clean the pots and kettles and sweep the floor. 引用中使用其他元素引用中可以包含其他Markdown的元素，但并不是所有但元素都可以用 123456&gt; #### The quarterly results look great!&gt;&gt; - Revenue was off the chart.&gt; - Profits were higher than ever.&gt;&gt; *Everything* is going according to **plan**. The quarterly results look great! Revenue was off the chart. Profits were higher than ever. Everything is going according to plan. 列表列表可以分为有序列表和无序列表 有序列表有序列表在文字开头加上数字和点，数字并不要求按照顺序，但是起始应该是1 123456789101112131415161. First item2. Second item3. Third item4. Fourth item1. First item8. Second item3. Third item5. Fourth item1. First item2. Second item3. Third item 1. Indented item 2. Indented item4. Fourth item First item Second item Third item Indented item Indented item Fourth item 无序列表无序列表在每一行开头加上-、+、*，缩进去创建嵌套列表 123456789101112131415161718192021- First item- Second item- Third item- Fourth item* First item* Second item* Third item* Fourth item+ First item* Second item- Third item+ Fourth item- First item- Second item- Third item - Indented item - Indented item- Fourth item First item Second item Third item Indented item Indented item Fourth item 在列表中添加其他元素在列表中添加其他元素，要缩进4个空格或者1个tab 123456* This is the first list item.* Here&apos;s the second list item. I need to add another paragraph below the second list item.* And here&apos;s the third list item. This is the first list item. Here’s the second list item. I need to add another paragraph below the second list item. And here’s the third list item. 代码要表示一行代码，使用`来包裹 1At the command prompt, type `nano`. At the command prompt, type nano. 反引号转义在一行代码中如果代码本身也含有反引号，可以把最外层用两个反引号包裹 1``Use `code` in your Markdown file.`` Use `code` in your Markdown file. 代码块代码块的每行代码必须最少缩进4个空格或者1个tab 12345#### &lt;html&gt; &lt;head&gt; &lt;/head&gt; &lt;/html&gt; &lt;html&gt; &lt;head&gt; &lt;/head&gt; &lt;/html&gt; 分割线使用三个及以上的*、-、_表示分割线 12345***---_________________ 链接用[]包裹链接文字，随后用()包裹URL 1My favorite search engine is [Duck Duck Go](https://duckduckgo.com). My favorite search engine is Duck Duck Go. 链接添加提示1My favorite search engine is [Duck Duck Go](https://duckduckgo.com &quot;The best one&quot;). My favorite search engine is Duck Duck Go. 网页和邮箱为了快速将网页和邮箱转为链接，可以用&lt;&gt;包裹起来 12&lt;https://www.markdownguide.org&gt;&lt;fake@example.com&gt; https://www.markdownguide.org&#x66;&#x61;&#107;&#x65;&#64;&#101;&#120;&#x61;&#109;&#112;&#x6c;&#101;&#x2e;&#99;&#111;&#x6d; 格式化链接为了强调链接，可以在链接的前后加星号 12I love supporting **[EFF](https://eff.org)**.This is the *[Markdown Guide](https://www.markdownguide.org)*. I love supporting EFF.This is the Markdown Guide. 图片图片的插入方式是在最开始插入!，然后用[]包裹图片无法加载的描述，再把图片的地址用()包裹 1![Google](http://pngimg.com/uploads/google/google_PNG19631.png &quot;Google Search&quot;) 带链接的图片给图片加链接的方式是，把图片的Markdown用[]包裹，再在后面把链接地址用()包裹 1[![Google](http://pngimg.com/uploads/google/google_PNG19631.png &quot;Google Search&quot;)](https://www.google.com) 转义字符如果有些符号是Markdown使用的，但是又想显示，可以在字符前加\ 1\* Without the backslash, this would be a bullet in an unordered list. 转义字符列表 Character Name \ backslash ` tick mark * asterisk _ underscore {} curly braces [] brackets () parentheses # pound sign + plus sign - minus sign (hyphen) . dot ! exclamation mark]]></content>
+    <content type="text"><![CDATA[Markdown基本语法，几乎所有Markdown应用程序都支持John Gruber原始设计文档中概述的基本语法。 标题在标题前插入1到6个#，表示6个不同级别的标题 123456# Heading level 1## Heading level 2### Heading level 3#### Heading level 4##### Heading level 5###### Heading level 6 段落段落之间用空行隔开，不能使用空格或者缩进 123I really like using Markdown.I think I&apos;ll use it to format all of my documents from now on. 换行符在文字中间插入&lt;br&gt;可以进行换行，或者两个空格再回车。 1This is the first line. &lt;br&gt; And this is the second line. This is the first line. And this is the second line. 强调加粗在文字的前后用两个*或者_可以加粗字体 123I just love **bold text**.I just love __bold text__.Love**is**bold I just love bold text.I just love bold text.Loveisbold 斜体在文字的前后用一个*或者_可以变成斜体 123Italicized text is the *cat&apos;s meow*.Italicized text is the _cat&apos;s meow_.A*cat*meow Italicized text is the cat’s meow.Italicized text is the cat’s meow.Acatmeow 同时加粗和斜体在文字的前后用三个*或者_可以同时加粗和变成斜体 12This text is ***really important***.This text is ___really important___. This text is really important.This text is really important. 引用在一段文字中的开头加上 &gt; 来表示一段引用文字 1&gt; Dorothy followed her through many of the beautiful rooms in her castle. Dorothy followed her through many of the beautiful rooms in her castle. 引用多个段落在每个段落及空行开头加上 &gt; 来表示引用多段文字 123&gt; Dorothy followed her through many of the beautiful rooms in her castle.&gt;&gt; The Witch bade her clean the pots and kettles and sweep the floor. Dorothy followed her through many of the beautiful rooms in her castle. The Witch bade her clean the pots and kettles and sweep the floor. 引用嵌套引用可以嵌套，在段落的开头加上&gt;&gt; 123&gt; Dorothy followed her through many of the beautiful rooms in her castle.&gt;&gt;&gt; The Witch bade her clean the pots and kettles and sweep the floor. Dorothy followed her through many of the beautiful rooms in her castle. The Witch bade her clean the pots and kettles and sweep the floor. 引用中使用其他元素引用中可以包含其他Markdown的元素，但并不是所有但元素都可以用 123456&gt; #### The quarterly results look great!&gt;&gt; - Revenue was off the chart.&gt; - Profits were higher than ever.&gt;&gt; *Everything* is going according to **plan**. The quarterly results look great! Revenue was off the chart. Profits were higher than ever. Everything is going according to plan. 列表列表可以分为有序列表和无序列表 有序列表有序列表在文字开头加上数字和点，数字并不要求按照顺序，但是起始应该是1 123456789101112131415161. First item2. Second item3. Third item4. Fourth item1. First item8. Second item3. Third item5. Fourth item1. First item2. Second item3. Third item 1. Indented item 2. Indented item4. Fourth item First item Second item Third item Indented item Indented item Fourth item 无序列表无序列表在每一行开头加上-、+、*，缩进去创建嵌套列表 123456789101112131415161718192021- First item- Second item- Third item- Fourth item* First item* Second item* Third item* Fourth item+ First item* Second item- Third item+ Fourth item- First item- Second item- Third item - Indented item - Indented item- Fourth item First item Second item Third item Indented item Indented item Fourth item 在列表中添加其他元素在列表中添加其他元素，要缩进4个空格或者1个tab 123456* This is the first list item.* Here&apos;s the second list item. I need to add another paragraph below the second list item.* And here&apos;s the third list item. This is the first list item. Here’s the second list item. I need to add another paragraph below the second list item. And here’s the third list item. 代码要表示一行代码，使用`来包裹 1At the command prompt, type `nano`. At the command prompt, type nano. 反引号转义在一行代码中如果代码本身也含有反引号，可以把最外层用两个反引号包裹 1``Use `code` in your Markdown file.`` Use `code` in your Markdown file. 代码块代码块的每行代码必须最少缩进4个空格或者1个tab 12345#### &lt;html&gt; &lt;head&gt; &lt;/head&gt; &lt;/html&gt; &lt;html&gt; &lt;head&gt; &lt;/head&gt; &lt;/html&gt; 分割线使用三个及以上的*、-、_表示分割线 12345***---_________________ 链接用[]包裹链接文字，随后用()包裹URL 1My favorite search engine is [Duck Duck Go](https://duckduckgo.com). My favorite search engine is Duck Duck Go. 链接添加提示1My favorite search engine is [Duck Duck Go](https://duckduckgo.com &quot;The best one&quot;). My favorite search engine is Duck Duck Go. 网页和邮箱为了快速将网页和邮箱转为链接，可以用&lt;&gt;包裹起来 12&lt;https://www.markdownguide.org&gt;&lt;fake@example.com&gt; https://www.markdownguide.org&#102;&#x61;&#107;&#x65;&#64;&#101;&#x78;&#97;&#x6d;&#112;&#x6c;&#x65;&#46;&#99;&#x6f;&#x6d; 格式化链接为了强调链接，可以在链接的前后加星号 12I love supporting **[EFF](https://eff.org)**.This is the *[Markdown Guide](https://www.markdownguide.org)*. I love supporting EFF.This is the Markdown Guide. 图片图片的插入方式是在最开始插入!，然后用[]包裹图片无法加载的描述，再把图片的地址用()包裹 1![Google](http://pngimg.com/uploads/google/google_PNG19631.png &quot;Google Search&quot;) 带链接的图片给图片加链接的方式是，把图片的Markdown用[]包裹，再在后面把链接地址用()包裹 1[![Google](http://pngimg.com/uploads/google/google_PNG19631.png &quot;Google Search&quot;)](https://www.google.com) 转义字符如果有些符号是Markdown使用的，但是又想显示，可以在字符前加\ 1\* Without the backslash, this would be a bullet in an unordered list. 转义字符列表 Character Name \ backslash ` tick mark * asterisk _ underscore {} curly braces [] brackets () parentheses # pound sign + plus sign - minus sign (hyphen) . dot ! exclamation mark]]></content>
       <categories>
         <category>hexo</category>
       </categories>
