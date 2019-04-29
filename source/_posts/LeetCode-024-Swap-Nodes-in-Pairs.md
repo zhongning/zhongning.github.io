@@ -6,6 +6,7 @@ tags:
   - leetcode-linked-list
 categories:
   - leetcode
+abbrlink: 65154
 date: 2019-04-28 18:17:33
 ---
 

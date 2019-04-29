@@ -6,6 +6,7 @@ tags:
   - leetcode-linked-list
 categories:
   - leetcode
+abbrlink: 34575
 date: 2019-04-28 18:55:45
 ---
 
@@ -56,7 +57,7 @@ class Solution {
 
 ## Solution 1
 
-
+把每k个节点为一组进行反转，那样需要两个函数，一个用来分段，一个用来反转。
 
 ```java
 /**
@@ -106,13 +107,133 @@ class Solution {
 
 ## Solution 2
 
-
+上述解法，是以k为步进来生成最终的结果链表，保存了很多状态。也可以很平滑地进行反转，在反转是带上k个节点为一组的前置和后置节点。
 
 ```java
-
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode reverseKGroup(ListNode head, int k) {
+        if(head==null||head.next==null) return head;
+        ListNode dummy = new ListNode(0), pre = dummy, curr = head;
+        dummy.next = head;
+        for(int i=1;curr!=null;i++){
+            if(i%k==0){
+                pre = reverse(pre,curr.next);
+                curr = pre.next;
+            }else{
+                curr = curr.next;
+            }
+        }
+        return dummy.next;
+    }
+    
+    public ListNode reverse(ListNode pre, ListNode next){
+        ListNode last = pre.next, curr = last.next;
+        while(curr!=next){
+            last.next = curr.next;
+            curr.next = pre.next;
+            pre.next = curr;
+            curr = last.next;
+        }
+        return last;
+    }
+}
 ```
 
 **时间复杂度:** O()。
 
 **空间复杂度:** O()。
 
+## Solution 3
+
+上述过程也可以在一个方法中完成，先遍历整个链表计算出链表长度，然后每次对k个节点进行反转。
+
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode reverseKGroup(ListNode head, int k) {
+        if(head==null||head.next==null) return head;
+        ListNode dummy = new ListNode(0), pre = dummy, curr = head;
+        dummy.next = head;
+        int num = 0;
+        while(curr!=null){
+            num++;
+            curr = curr.next;
+        }
+        while(num>k){
+            curr = pre.next;
+            for(int i=1;i<k;i++){
+                ListNode tmp = curr.next;
+                curr.next=tmp.next;
+                tmp.next=pre.next;
+                pre.next=tmp;
+            }
+            pre = curr;
+            num -= k;
+        }
+        return dummy.next;
+    }
+}
+```
+
+**时间复杂度:** O()。
+
+**空间复杂度:** O()。
+
+## Solution 4
+
+递归调用，我们用pre记录每段的开始位置的前一个节点，cur记录结束位置的下一个节点，然后我们调用reverse函数来将这段翻转，然后得到一个new_head，原来的head就变成了末尾，这时候后面接上递归调用下一段得到的新节点，返回new_head即可。
+
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode reverseKGroup(ListNode head, int k) {
+        if(head==null||head.next==null) return head;
+        ListNode dummy = new ListNode(0), pre = dummy, curr = head;
+        dummy.next = head;
+        for(int i=0;i<k;i++){
+            if(curr==null) return head;
+            curr = curr.next;
+        }
+        ListNode newHead = reverse(pre,curr);
+        head.next = reverseKGroup(curr,k);
+        return newHead;
+    }
+    
+    public ListNode reverse(ListNode pre, ListNode next){
+        ListNode last = pre.next, curr = last.next;
+        while(curr!=next){
+            last.next = curr.next;
+            curr.next = pre.next;
+            pre.next = curr;
+            curr = last.next;
+        }
+        return pre.next;
+    }
+}
+```
+
+**时间复杂度:** O()。
+
+**空间复杂度:** O()。
