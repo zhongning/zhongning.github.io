@@ -86,3 +86,28 @@ class Solution {
 **时间复杂度:** O()。
 
 **空间复杂度:** O()。
+
+## Solution 2
+
+解法1的优化版本，遍历haystack时，直接比较needle的所有字符。
+
+```java
+class Solution {
+    public int strStr(String haystack, String needle) {
+        if(needle==null||needle.isEmpty()) return 0;
+        if(haystack==null||haystack.length()<needle.length()) return -1;
+        for(int i=0;i<=haystack.length()-needle.length();i++){
+            int j = 0;
+            for(;j<needle.length();j++){
+                if(haystack.charAt(i+j)!=needle.charAt(j)) break;
+            }
+            if(j==needle.length()) return i;
+        }
+        return -1;
+    }
+}
+```
+
+**时间复杂度:** O()。
+
+**空间复杂度:** O()。
