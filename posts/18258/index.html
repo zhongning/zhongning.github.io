@@ -97,14 +97,14 @@
 
 
   <meta name="description" content="DescriptionImplement strStr(). Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack. Example 1: 12Input: haystack = &amp;quot;hello&amp;quot;, needle = &amp;quot">
-<meta name="keywords" content="leetcode,leetcode-easy,leetcode-string,leetcode-two-pointers">
+<meta name="keywords" content="leetcode,leetcode-easy,leetcode-two-pointers,leetcode-string">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 028 Implement strStr()">
 <meta property="og:url" content="http://yoursite.com/posts/18258/index.html">
 <meta property="og:site_name" content="Show me the code">
 <meta property="og:description" content="DescriptionImplement strStr(). Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack. Example 1: 12Input: haystack = &amp;quot;hello&amp;quot;, needle = &amp;quot">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-29T15:20:26.770Z">
+<meta property="og:updated_time" content="2019-04-29T15:31:00.790Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 028 Implement strStr()">
 <meta name="twitter:description" content="DescriptionImplement strStr(). Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack. Example 1: 12Input: haystack = &amp;quot;hello&amp;quot;, needle = &amp;quot">
@@ -412,7 +412,7 @@
                 
               
 
-              <time title="创建时间：2019-04-29 22:49:27 / 修改时间：23:20:26" itemprop="dateCreated datePublished" datetime="2019-04-29T22:49:27+08:00">2019-04-29</time>
+              <time title="创建时间：2019-04-29 22:49:27 / 修改时间：23:31:00" itemprop="dateCreated datePublished" datetime="2019-04-29T22:49:27+08:00">2019-04-29</time>
             
 
             
@@ -488,6 +488,10 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">strStr</span><span class="params">(String haystack, String needle)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(needle==<span class="keyword">null</span>||needle.isEmpty()) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(haystack==<span class="keyword">null</span>||haystack.isEmpty()) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;haystack.length();i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(haystack.charAt(i)==needle.charAt(<span class="number">0</span>))&#123;</span><br><span class="line">                <span class="keyword">boolean</span> flag = <span class="keyword">true</span>;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;needle.length();j++)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(i+j&gt;=haystack.length() || haystack.charAt(i+j)!=needle.charAt(j))&#123;</span><br><span class="line">                        flag = <span class="keyword">false</span>;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(flag) <span class="keyword">return</span> i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>时间复杂度:</strong> O()。</p>
 <p><strong>空间复杂度:</strong> O()。</p>
+<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><p>解法1的优化版本，遍历haystack时，直接比较needle的所有字符。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">strStr</span><span class="params">(String haystack, String needle)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(needle==<span class="keyword">null</span>||needle.isEmpty()) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(haystack==<span class="keyword">null</span>||haystack.length()&lt;needle.length()) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=haystack.length()-needle.length();i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(;j&lt;needle.length();j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(haystack.charAt(i+j)!=needle.charAt(j)) <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(j==needle.length()) <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O()。</p>
+<p><strong>空间复杂度:</strong> O()。</p>
 
       
     </div>
@@ -539,9 +543,9 @@
           
             <a href="/tags/leetcode-easy/" rel="tag"># leetcode-easy</a>
           
-            <a href="/tags/leetcode-string/" rel="tag"># leetcode-string</a>
-          
             <a href="/tags/leetcode-two-pointers/" rel="tag"># leetcode-two-pointers</a>
+          
+            <a href="/tags/leetcode-string/" rel="tag"># leetcode-string</a>
           
         </div>
       
@@ -563,6 +567,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/4645/" rel="prev" title="LeetCode 029 Divide Two Integers">
+                LeetCode 029 Divide Two Integers <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -633,7 +641,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">32</span>
+                    <span class="site-state-item-count">34</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -773,7 +781,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题意"><span class="nav-number">2.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-1"><span class="nav-number">3.</span> <span class="nav-text">Solution 1</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题意"><span class="nav-number">2.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-1"><span class="nav-number">3.</span> <span class="nav-text">Solution 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-2"><span class="nav-number">4.</span> <span class="nav-text">Solution 2</span></a></li></ol></div>
             
 
           </div>
