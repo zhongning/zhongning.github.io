@@ -56,25 +56,51 @@ class Solution {
 
 ## Solution 1
 
+对每个空格子都带入1-9，每带入一个数字判定其是否合法，若合法则将其放入棋盘并递归调用。
 
+若其递归调用都仍然合法，说明棋盘已经填充正确，直接返回；若不合法，说明这个数字不适合，将棋盘此位置重新放入`.`。
 
 ```java
-
+class Solution {
+    public void solveSudoku(char[][] board) {
+        if(board==null||board.length==0){
+            return;
+        }
+        solve(board);
+    }
+    
+    public boolean solve(char[][] board){
+        for(int i=0;i<9;i++){
+            for(int j=0;j<9;j++){
+                if(board[i][j]=='.'){
+                    for(char curr='1';curr<='9';curr++){
+                        if(isValid(board,i,j,curr)){
+                            board[i][j]=curr;
+                            if(solve(board)){
+                                return true;
+                            }else{
+                                board[i][j]='.';
+                            }
+                        }
+                    }
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    
+    public boolean isValid(char[][] board, int row, int column, char curr){
+        for(int i=0;i<9;i++){
+            if(board[row][i]!='.'&&board[row][i]==curr) return false;
+            if(board[i][column]!='.'&&board[i][column]==curr) return false;
+            if(board[3*(row/3)+i/3][3*(column/3)+i%3]!='.'&&board[3*(row/3)+i/3][3*(column/3)+i%3]==curr) return false;
+        }
+        return true;
+    }
+}
 ```
 
 **时间复杂度:** O()。
 
 **空间复杂度:** O()。
-
-## Solution 2
-
-
-
-```java
-
-```
-
-**时间复杂度:** O()。
-
-**空间复杂度:** O()。
-
