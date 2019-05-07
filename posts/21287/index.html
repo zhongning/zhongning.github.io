@@ -106,7 +106,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Sudoku-by-L2G-20050714.svg/250px-Sudoku-by-L2G-20050714.svg.png">
 <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Sudoku-by-L2G-20050714_solution.svg/250px-Sudoku-by-L2G-20050714_solution.svg.png">
-<meta property="og:updated_time" content="2019-05-06T15:19:11.701Z">
+<meta property="og:updated_time" content="2019-05-07T12:55:16.654Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 037 Sudoku Solver">
 <meta name="twitter:description" content="DescriptionWrite a program to solve a Sudoku puzzle by filling the empty cells. A sudoku solution must satisfy all of the following rules:  Each of the digits 1-9 must occur exactly once in each row.">
@@ -415,12 +415,24 @@
                 
               
 
-              <time title="创建时间：2019-05-06 23:13:04 / 修改时间：23:19:11" itemprop="dateCreated datePublished" datetime="2019-05-06T23:13:04+08:00">2019-05-06</time>
+              <time title="创建时间：2019-05-06 23:13:04" itemprop="dateCreated datePublished" datetime="2019-05-06T23:13:04+08:00">2019-05-06</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-07 20:55:16" itemprop="dateModified" datetime="2019-05-07T20:55:16+08:00">2019-05-07</time>
               
             
           </span>
@@ -495,10 +507,9 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">solveSudoku</span><span class="params">(<span class="keyword">char</span>[][] board)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>将数独中的空白按规则正确填充，假设有且仅有唯一解。</p>
 <a id="more"></a>
-<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>时间复杂度:</strong> O()。</p>
-<p><strong>空间复杂度:</strong> O()。</p>
-<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>对每个空格子都带入1-9，每带入一个数字判定其是否合法，若合法则将其放入棋盘并递归调用。</p>
+<p>若其递归调用都仍然合法，说明棋盘已经填充正确，直接返回；若不合法，说明这个数字不适合，将棋盘此位置重新放入<code>.</code>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">solveSudoku</span><span class="params">(<span class="keyword">char</span>[][] board)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(board==<span class="keyword">null</span>||board.length==<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        solve(board);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">solve</span><span class="params">(<span class="keyword">char</span>[][] board)</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">9</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">9</span>;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(board[i][j]==<span class="string">'.'</span>)&#123;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">char</span> curr=<span class="string">'1'</span>;curr&lt;=<span class="string">'9'</span>;curr++)&#123;</span><br><span class="line">                        <span class="keyword">if</span>(isValid(board,i,j,curr))&#123;</span><br><span class="line">                            board[i][j]=curr;</span><br><span class="line">                            <span class="keyword">if</span>(solve(board))&#123;</span><br><span class="line">                                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">                            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                                board[i][j]=<span class="string">'.'</span>;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(<span class="keyword">char</span>[][] board, <span class="keyword">int</span> row, <span class="keyword">int</span> column, <span class="keyword">char</span> curr)</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">9</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(board[row][i]!=<span class="string">'.'</span>&amp;&amp;board[row][i]==curr) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            <span class="keyword">if</span>(board[i][column]!=<span class="string">'.'</span>&amp;&amp;board[i][column]==curr) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            <span class="keyword">if</span>(board[<span class="number">3</span>*(row/<span class="number">3</span>)+i/<span class="number">3</span>][<span class="number">3</span>*(column/<span class="number">3</span>)+i%<span class="number">3</span>]!=<span class="string">'.'</span>&amp;&amp;board[<span class="number">3</span>*(row/<span class="number">3</span>)+i/<span class="number">3</span>][<span class="number">3</span>*(column/<span class="number">3</span>)+i%<span class="number">3</span>]==curr) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>时间复杂度:</strong> O()。</p>
 <p><strong>空间复杂度:</strong> O()。</p>
 
@@ -577,6 +588,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/posts/40563/" rel="prev" title="LeetCode 038 Count and Say">
+                LeetCode 038 Count and Say <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -646,7 +661,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">41</span>
+                    <span class="site-state-item-count">43</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -786,7 +801,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题意"><span class="nav-number">2.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-1"><span class="nav-number">3.</span> <span class="nav-text">Solution 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-2"><span class="nav-number">4.</span> <span class="nav-text">Solution 2</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题意"><span class="nav-number">2.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-1"><span class="nav-number">3.</span> <span class="nav-text">Solution 1</span></a></li></ol></div>
             
 
           </div>
