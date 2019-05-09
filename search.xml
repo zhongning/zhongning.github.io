@@ -1,17 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[LeetCode 042 Trapping Rain Water]]></title>
-    <url>%2Fposts%2F37397%2F</url>
-    <content type="text"><![CDATA[DescriptionGiven n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining. The above elevation map is represented by array [0,1,0,2,1,0,1,3,2,1,2,1]. In this case, 6 units of rain water (blue section) are being trapped. Thanks Marcos for contributing this image! Example: 12Input: [0,1,0,2,1,0,1,3,2,1,2,1]Output: 6 Difficulty: Hard Code: 12345class Solution &#123; public int trap(int[] height) &#123; &#125;&#125; 题意 Solution 112 时间复杂度: O()。 空间复杂度: O()。 Solution 212 时间复杂度: O()。 空间复杂度: O()。]]></content>
+    <title><![CDATA[LeetCode 043 Multiply Strings]]></title>
+    <url>%2Fposts%2F15075%2F</url>
+    <content type="text"><![CDATA[DescriptionGiven two non-negative integers num1 and num2 represented as strings, return the product of num1 and num2, also represented as a string. Example 1: 12Input: num1 = &quot;2&quot;, num2 = &quot;3&quot;Output: &quot;6&quot; Example 2: 12Input: num1 = &quot;123&quot;, num2 = &quot;456&quot;Output: &quot;56088&quot; Note: The length of both num1 and num2 is &lt; 110. Both num1 and num2 contain only digits 0-9. Both num1 and num2 do not contain any leading zero, except the number 0 itself. You must not use any built-in BigInteger library or convert the inputs to integer directly. Difficulty: Medium Code: 12345class Solution &#123; public String multiply(String num1, String num2) &#123; &#125;&#125; 题意给定两个代表非负num1和num2的字符串，用字符串表示它们的乘积。字符串的长度小于110，只包含0-9。不能将输入转成int进行计算。 Solution 1用一个数组pos保存m+n长度的数字，代表每一位上的数字，最后一个数字表示结果的个位。 从字符串num1和num2的右侧开始，提取对应位置上的数字并计算乘积，确定相乘后所影响的pos位置上的数字。 num1[i] * num2[j]将会影响pos[i+j]和pos[i+j+1]上的数字，对其进行更新。 最后遍历pos返回结果字符串。 12345678910111213141516171819202122class Solution &#123; public String multiply(String num1, String num2) &#123; if(num1.equals("0")||num2.equals("0")) return "0"; int m=num1.length(), n=num2.length(); if(m&gt;n) return multiply(num2,num1); int[] pos=new int[m+n]; for(int i=m-1;i&gt;=0;i--)&#123; for(int j=n-1;j&gt;=0;j--)&#123; int tmp = (num1.charAt(i)-'0')*(num2.charAt(j)-'0'); int p1=i+j, p2=i+j+1, sum=tmp+pos[p2]; pos[p1]+=sum/10; pos[p2]=sum%10; &#125; &#125; StringBuilder sb = new StringBuilder(); for(int i=0;i&lt;pos.length;i++)&#123; if(i==0&amp;&amp;pos[i]==0) continue; sb.append(pos[i]); &#125; return sb.length()==0?"0":sb.toString(); &#125;&#125; 时间复杂度: O()。 空间复杂度: O()。]]></content>
       <categories>
         <category>leetcode</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>leetcode-medium</tag>
+        <tag>leetcode-math</tag>
+        <tag>leetcode-string</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 042 Trapping Rain Water]]></title>
+    <url>%2Fposts%2F37397%2F</url>
+    <content type="text"><![CDATA[DescriptionGiven n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining. The above elevation map is represented by array [0,1,0,2,1,0,1,3,2,1,2,1]. In this case, 6 units of rain water (blue section) are being trapped. Thanks Marcos for contributing this image! Example: 12Input: [0,1,0,2,1,0,1,3,2,1,2,1]Output: 6 Difficulty: Hard Code: 12345class Solution &#123; public int trap(int[] height) &#123; &#125;&#125; 题意收集雨水，给定n个非负整数代表宽为1不同高度柱子的容器，求它能收集多少雨水。 Solution 1双指针left和right分别指向最左端和最右端，同时维护maxLeft和maxRight表示左侧和右侧遍历时最大高度。 若当前left的高度较小，则固定住right侧，填充左侧的格子。 1234567891011121314151617181920212223class Solution &#123; public int trap(int[] height) &#123; int left=0,right=height.length-1,maxLeft=0,maxRight=0,res=0; while(left&lt;=right)&#123; if(height[left]&lt;=height[right])&#123; if(height[left]&gt;=maxLeft)&#123; maxLeft=height[left]; &#125;else&#123; res+=maxLeft-height[left]; &#125; left++; &#125;else&#123; if(height[right]&gt;maxRight)&#123; maxRight=height[right]; &#125;else&#123; res+=maxRight-height[right]; &#125; right--; &#125; &#125; return res; &#125;&#125; 时间复杂度: O()。 空间复杂度: O()。 Solution 2从左侧及右侧更新两边的最大高度maxLeft和maxRight，当maxLeft比maxRight小时，意味着左侧可以存水，值为maxLeft-height[left]。 1234567891011121314151617class Solution &#123; public int trap(int[] height) &#123; int left=0,right=height.length-1,maxLeft=0,maxRight=0,res=0; while(left&lt;=right)&#123; maxLeft=Math.max(maxLeft,height[left]); maxRight=Math.max(maxRight,height[right]); if(maxLeft&lt;=maxRight)&#123; res+=maxLeft-height[left]; left++; &#125;else&#123; res+=maxRight-height[right]; right--; &#125; &#125; return res; &#125;&#125; 时间复杂度: O()。 空间复杂度: O()。 Solution 3每次只处理最左侧left和最右侧right高度较小的一侧，拿出较小的高度去更新当前安全深度level，取其中较大的值。 然后用此level减去当前格子的高度，累加至结果res，同时更新left和right。 1234567891011class Solution &#123; public int trap(int[] height) &#123; int left=0,right=height.length-1,level=0,res=0; while(left&lt;right)&#123; int lower = height[height[left]&lt;height[right]?left++:right--]; level = Math.max(level,lower); res+=level-lower; &#125; return res; &#125;&#125; 时间复杂度: O()。 空间复杂度: O()。 Solution 4使用栈，从左到右遍历数组，保存递减的高度到下标。若找到当前格子比栈中最上面的下标对应的高度高，则栈中最顶上的格子就是一个洼地，可以存水。 从栈中弹出这块洼地的下标，用洼地格子的右方和左方的高度较小的一个减去当前格子的高度，累加进结果。相当于这一小块洼地被填平，并不断重复此判断。 123456789101112131415161718class Solution &#123; public int trap(int[] height) &#123; int i=0,res=0; Stack&lt;Integer&gt; stack = new Stack&lt;Integer&gt;(); while(i&lt;height.length)&#123; if(!stack.isEmpty()&amp;&amp;height[i]&gt;height[stack.peek()])&#123; int bar = stack.pop(); if(!stack.isEmpty())&#123; int h = Math.min(height[i],height[stack.peek()]); res+=(i-stack.peek()-1)*(h-height[bar]); &#125; &#125;else&#123; stack.push(i++); &#125; &#125; return res; &#125;&#125; 时间复杂度: O()。 空间复杂度: O()。]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>leetcode-hard</tag>
         <tag>leetcode-array</tag>
         <tag>leetcode-two-pointers</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-stack</tag>
       </tags>
   </entry>
@@ -24,8 +38,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-hard</tag>
+        <tag>leetcode-array</tag>
       </tags>
   </entry>
   <entry>
@@ -37,9 +51,9 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
         <tag>leetcode-backtracking</tag>
+        <tag>leetcode-array</tag>
       </tags>
   </entry>
   <entry>
@@ -51,9 +65,9 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
         <tag>leetcode-backtracking</tag>
+        <tag>leetcode-array</tag>
       </tags>
   </entry>
   <entry>
@@ -65,8 +79,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -78,9 +92,9 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hash-table</tag>
         <tag>leetcode-hard</tag>
         <tag>leetcode-backtracking</tag>
+        <tag>leetcode-hash-table</tag>
       </tags>
   </entry>
   <entry>
@@ -92,8 +106,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hash-table</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-hash-table</tag>
       </tags>
   </entry>
   <entry>
@@ -119,8 +133,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-binary-search</tag>
       </tags>
   </entry>
@@ -133,8 +147,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-binary-search</tag>
       </tags>
   </entry>
@@ -148,8 +162,8 @@
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-string</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-dynamic-programming</tag>
+        <tag>leetcode-hard</tag>
       </tags>
   </entry>
   <entry>
@@ -161,8 +175,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
       </tags>
   </entry>
   <entry>
@@ -174,10 +188,10 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hash-table</tag>
-        <tag>leetcode-two-pointers</tag>
         <tag>leetcode-string</tag>
         <tag>leetcode-hard</tag>
+        <tag>leetcode-two-pointers</tag>
+        <tag>leetcode-hash-table</tag>
       </tags>
   </entry>
   <entry>
@@ -203,9 +217,9 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>leetcode-string</tag>
         <tag>leetcode-easy</tag>
         <tag>leetcode-two-pointers</tag>
-        <tag>leetcode-string</tag>
       </tags>
   </entry>
   <entry>
@@ -300,8 +314,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-linked-list</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -313,8 +327,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-easy</tag>
         <tag>leetcode-stack</tag>
       </tags>
   </entry>
@@ -341,10 +355,10 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
-        <tag>leetcode-hash-table</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-two-pointers</tag>
+        <tag>leetcode-hash-table</tag>
       </tags>
   </entry>
   <entry>
@@ -370,8 +384,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-two-pointers</tag>
       </tags>
   </entry>
@@ -384,8 +398,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-two-pointers</tag>
       </tags>
   </entry>
@@ -398,8 +412,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -411,9 +425,9 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-math</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -439,8 +453,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-two-pointers</tag>
       </tags>
   </entry>
@@ -454,8 +468,8 @@
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-string</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-dynamic-programming</tag>
+        <tag>leetcode-hard</tag>
         <tag>leetcode-backtracking</tag>
       </tags>
   </entry>
@@ -468,8 +482,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -495,8 +509,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -546,10 +560,10 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-hard</tag>
-        <tag>leetcode-binary-search</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-divide-and-conquer</tag>
+        <tag>leetcode-binary-search</tag>
       </tags>
   </entry>
   <entry>
@@ -561,10 +575,10 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hash-table</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-two-pointers</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-two-pointers</tag>
+        <tag>leetcode-hash-table</tag>
         <tag>leetcode-sliding-window</tag>
       </tags>
   </entry>
@@ -610,7 +624,7 @@
   <entry>
     <title><![CDATA[Markdown基本语法]]></title>
     <url>%2Fposts%2F48840%2F</url>
-    <content type="text"><![CDATA[Markdown基本语法，几乎所有Markdown应用程序都支持John Gruber原始设计文档中概述的基本语法。 标题在标题前插入1到6个#，表示6个不同级别的标题 123456# Heading level 1## Heading level 2### Heading level 3#### Heading level 4##### Heading level 5###### Heading level 6 段落段落之间用空行隔开，不能使用空格或者缩进 123I really like using Markdown.I think I&apos;ll use it to format all of my documents from now on. 换行符在文字中间插入&lt;br&gt;可以进行换行，或者两个空格再回车。 1This is the first line. &lt;br&gt; And this is the second line. This is the first line. And this is the second line. 强调加粗在文字的前后用两个*或者_可以加粗字体 123I just love **bold text**.I just love __bold text__.Love**is**bold I just love bold text.I just love bold text.Loveisbold 斜体在文字的前后用一个*或者_可以变成斜体 123Italicized text is the *cat&apos;s meow*.Italicized text is the _cat&apos;s meow_.A*cat*meow Italicized text is the cat’s meow.Italicized text is the cat’s meow.Acatmeow 同时加粗和斜体在文字的前后用三个*或者_可以同时加粗和变成斜体 12This text is ***really important***.This text is ___really important___. This text is really important.This text is really important. 引用在一段文字中的开头加上 &gt; 来表示一段引用文字 1&gt; Dorothy followed her through many of the beautiful rooms in her castle. Dorothy followed her through many of the beautiful rooms in her castle. 引用多个段落在每个段落及空行开头加上 &gt; 来表示引用多段文字 123&gt; Dorothy followed her through many of the beautiful rooms in her castle.&gt;&gt; The Witch bade her clean the pots and kettles and sweep the floor. Dorothy followed her through many of the beautiful rooms in her castle. The Witch bade her clean the pots and kettles and sweep the floor. 引用嵌套引用可以嵌套，在段落的开头加上&gt;&gt; 123&gt; Dorothy followed her through many of the beautiful rooms in her castle.&gt;&gt;&gt; The Witch bade her clean the pots and kettles and sweep the floor. Dorothy followed her through many of the beautiful rooms in her castle. The Witch bade her clean the pots and kettles and sweep the floor. 引用中使用其他元素引用中可以包含其他Markdown的元素，但并不是所有但元素都可以用 123456&gt; #### The quarterly results look great!&gt;&gt; - Revenue was off the chart.&gt; - Profits were higher than ever.&gt;&gt; *Everything* is going according to **plan**. The quarterly results look great! Revenue was off the chart. Profits were higher than ever. Everything is going according to plan. 列表列表可以分为有序列表和无序列表 有序列表有序列表在文字开头加上数字和点，数字并不要求按照顺序，但是起始应该是1 123456789101112131415161. First item2. Second item3. Third item4. Fourth item1. First item8. Second item3. Third item5. Fourth item1. First item2. Second item3. Third item 1. Indented item 2. Indented item4. Fourth item First item Second item Third item Indented item Indented item Fourth item 无序列表无序列表在每一行开头加上-、+、*，缩进去创建嵌套列表 123456789101112131415161718192021- First item- Second item- Third item- Fourth item* First item* Second item* Third item* Fourth item+ First item* Second item- Third item+ Fourth item- First item- Second item- Third item - Indented item - Indented item- Fourth item First item Second item Third item Indented item Indented item Fourth item 在列表中添加其他元素在列表中添加其他元素，要缩进4个空格或者1个tab 123456* This is the first list item.* Here&apos;s the second list item. I need to add another paragraph below the second list item.* And here&apos;s the third list item. This is the first list item. Here’s the second list item. I need to add another paragraph below the second list item. And here’s the third list item. 代码要表示一行代码，使用`来包裹 1At the command prompt, type `nano`. At the command prompt, type nano. 反引号转义在一行代码中如果代码本身也含有反引号，可以把最外层用两个反引号包裹 1``Use `code` in your Markdown file.`` Use `code` in your Markdown file. 代码块代码块的每行代码必须最少缩进4个空格或者1个tab 12345#### &lt;html&gt; &lt;head&gt; &lt;/head&gt; &lt;/html&gt; &lt;html&gt; &lt;head&gt; &lt;/head&gt; &lt;/html&gt; 分割线使用三个及以上的*、-、_表示分割线 12345***---_________________ 链接用[]包裹链接文字，随后用()包裹URL 1My favorite search engine is [Duck Duck Go](https://duckduckgo.com). My favorite search engine is Duck Duck Go. 链接添加提示1My favorite search engine is [Duck Duck Go](https://duckduckgo.com &quot;The best one&quot;). My favorite search engine is Duck Duck Go. 网页和邮箱为了快速将网页和邮箱转为链接，可以用&lt;&gt;包裹起来 12&lt;https://www.markdownguide.org&gt;&lt;fake@example.com&gt; https://www.markdownguide.org&#102;&#x61;&#x6b;&#101;&#x40;&#x65;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#99;&#x6f;&#x6d; 格式化链接为了强调链接，可以在链接的前后加星号 12I love supporting **[EFF](https://eff.org)**.This is the *[Markdown Guide](https://www.markdownguide.org)*. I love supporting EFF.This is the Markdown Guide. 图片图片的插入方式是在最开始插入!，然后用[]包裹图片无法加载的描述，再把图片的地址用()包裹 1![Google](http://pngimg.com/uploads/google/google_PNG19631.png &quot;Google Search&quot;) 带链接的图片给图片加链接的方式是，把图片的Markdown用[]包裹，再在后面把链接地址用()包裹 1[![Google](http://pngimg.com/uploads/google/google_PNG19631.png &quot;Google Search&quot;)](https://www.google.com) 转义字符如果有些符号是Markdown使用的，但是又想显示，可以在字符前加\ 1\* Without the backslash, this would be a bullet in an unordered list. 转义字符列表 Character Name \ backslash ` tick mark * asterisk _ underscore {} curly braces [] brackets () parentheses # pound sign + plus sign - minus sign (hyphen) . dot ! exclamation mark]]></content>
+    <content type="text"><![CDATA[Markdown基本语法，几乎所有Markdown应用程序都支持John Gruber原始设计文档中概述的基本语法。 标题在标题前插入1到6个#，表示6个不同级别的标题 123456# Heading level 1## Heading level 2### Heading level 3#### Heading level 4##### Heading level 5###### Heading level 6 段落段落之间用空行隔开，不能使用空格或者缩进 123I really like using Markdown.I think I&apos;ll use it to format all of my documents from now on. 换行符在文字中间插入&lt;br&gt;可以进行换行，或者两个空格再回车。 1This is the first line. &lt;br&gt; And this is the second line. This is the first line. And this is the second line. 强调加粗在文字的前后用两个*或者_可以加粗字体 123I just love **bold text**.I just love __bold text__.Love**is**bold I just love bold text.I just love bold text.Loveisbold 斜体在文字的前后用一个*或者_可以变成斜体 123Italicized text is the *cat&apos;s meow*.Italicized text is the _cat&apos;s meow_.A*cat*meow Italicized text is the cat’s meow.Italicized text is the cat’s meow.Acatmeow 同时加粗和斜体在文字的前后用三个*或者_可以同时加粗和变成斜体 12This text is ***really important***.This text is ___really important___. This text is really important.This text is really important. 引用在一段文字中的开头加上 &gt; 来表示一段引用文字 1&gt; Dorothy followed her through many of the beautiful rooms in her castle. Dorothy followed her through many of the beautiful rooms in her castle. 引用多个段落在每个段落及空行开头加上 &gt; 来表示引用多段文字 123&gt; Dorothy followed her through many of the beautiful rooms in her castle.&gt;&gt; The Witch bade her clean the pots and kettles and sweep the floor. Dorothy followed her through many of the beautiful rooms in her castle. The Witch bade her clean the pots and kettles and sweep the floor. 引用嵌套引用可以嵌套，在段落的开头加上&gt;&gt; 123&gt; Dorothy followed her through many of the beautiful rooms in her castle.&gt;&gt;&gt; The Witch bade her clean the pots and kettles and sweep the floor. Dorothy followed her through many of the beautiful rooms in her castle. The Witch bade her clean the pots and kettles and sweep the floor. 引用中使用其他元素引用中可以包含其他Markdown的元素，但并不是所有但元素都可以用 123456&gt; #### The quarterly results look great!&gt;&gt; - Revenue was off the chart.&gt; - Profits were higher than ever.&gt;&gt; *Everything* is going according to **plan**. The quarterly results look great! Revenue was off the chart. Profits were higher than ever. Everything is going according to plan. 列表列表可以分为有序列表和无序列表 有序列表有序列表在文字开头加上数字和点，数字并不要求按照顺序，但是起始应该是1 123456789101112131415161. First item2. Second item3. Third item4. Fourth item1. First item8. Second item3. Third item5. Fourth item1. First item2. Second item3. Third item 1. Indented item 2. Indented item4. Fourth item First item Second item Third item Indented item Indented item Fourth item 无序列表无序列表在每一行开头加上-、+、*，缩进去创建嵌套列表 123456789101112131415161718192021- First item- Second item- Third item- Fourth item* First item* Second item* Third item* Fourth item+ First item* Second item- Third item+ Fourth item- First item- Second item- Third item - Indented item - Indented item- Fourth item First item Second item Third item Indented item Indented item Fourth item 在列表中添加其他元素在列表中添加其他元素，要缩进4个空格或者1个tab 123456* This is the first list item.* Here&apos;s the second list item. I need to add another paragraph below the second list item.* And here&apos;s the third list item. This is the first list item. Here’s the second list item. I need to add another paragraph below the second list item. And here’s the third list item. 代码要表示一行代码，使用`来包裹 1At the command prompt, type `nano`. At the command prompt, type nano. 反引号转义在一行代码中如果代码本身也含有反引号，可以把最外层用两个反引号包裹 1``Use `code` in your Markdown file.`` Use `code` in your Markdown file. 代码块代码块的每行代码必须最少缩进4个空格或者1个tab 12345#### &lt;html&gt; &lt;head&gt; &lt;/head&gt; &lt;/html&gt; &lt;html&gt; &lt;head&gt; &lt;/head&gt; &lt;/html&gt; 分割线使用三个及以上的*、-、_表示分割线 12345***---_________________ 链接用[]包裹链接文字，随后用()包裹URL 1My favorite search engine is [Duck Duck Go](https://duckduckgo.com). My favorite search engine is Duck Duck Go. 链接添加提示1My favorite search engine is [Duck Duck Go](https://duckduckgo.com &quot;The best one&quot;). My favorite search engine is Duck Duck Go. 网页和邮箱为了快速将网页和邮箱转为链接，可以用&lt;&gt;包裹起来 12&lt;https://www.markdownguide.org&gt;&lt;fake@example.com&gt; https://www.markdownguide.org&#102;&#97;&#x6b;&#101;&#64;&#101;&#120;&#97;&#x6d;&#x70;&#108;&#x65;&#x2e;&#99;&#x6f;&#109; 格式化链接为了强调链接，可以在链接的前后加星号 12I love supporting **[EFF](https://eff.org)**.This is the *[Markdown Guide](https://www.markdownguide.org)*. I love supporting EFF.This is the Markdown Guide. 图片图片的插入方式是在最开始插入!，然后用[]包裹图片无法加载的描述，再把图片的地址用()包裹 1![Google](http://pngimg.com/uploads/google/google_PNG19631.png &quot;Google Search&quot;) 带链接的图片给图片加链接的方式是，把图片的Markdown用[]包裹，再在后面把链接地址用()包裹 1[![Google](http://pngimg.com/uploads/google/google_PNG19631.png &quot;Google Search&quot;)](https://www.google.com) 转义字符如果有些符号是Markdown使用的，但是又想显示，可以在字符前加\ 1\* Without the backslash, this would be a bullet in an unordered list. 转义字符列表 Character Name \ backslash ` tick mark * asterisk _ underscore {} curly braces [] brackets () parentheses # pound sign + plus sign - minus sign (hyphen) . dot ! exclamation mark]]></content>
       <categories>
         <category>hexo</category>
       </categories>
