@@ -183,3 +183,80 @@ class Solution {
 
 **空间复杂度:** O()。
 
+## Solution 3
+
+使用动态规划，定义dp[m+1][n+1]，dp[i][j]表示s中的前i个字符组成的字符串和p中的前j个字符组成的字符串是否匹配。
+
+初始化dp[0][0]为true，因为s和p都为空时应返回true。还有当s为空，p中都是星号时也返回true。
+
+若p中第j个字符为星号，若星号匹配空串即dp[i][j-1]为true，则d[i][j]也为true；有dp[i-1][j]为true时星号也可再多匹配一个，则dp[i][j]也为true。
+
+若p中第j个字符不为星号，则在直到dp[i-1][j-1]的情况下，看s[i-1]和p[j-1]是否匹配。
+
+```java
+class Solution {
+    public boolean isMatch(String s, String p) {
+        int m=s.length(), n=p.length();
+        boolean[][] dp = new boolean[m+1][n+1];
+        dp[0][0] = true;
+        for(int i=1;i<=n;i++){
+            if(p.charAt(i-1)=='*') dp[0][i]=dp[0][i-1];
+        }
+        for(int i=1;i<=m;i++){
+            for(int j=1;j<=n;j++){
+                if(p.charAt(j-1)=='*'){
+                    dp[i][j]=dp[i][j-1]||dp[i-1][j];
+                }else{
+                    dp[i][j]=dp[i-1][j-1]&&(s.charAt(i-1)==p.charAt(j-1)||p.charAt(j-1)=='?');
+                }
+            }
+        }
+        return dp[m][n];
+    }
+}
+```
+
+**时间复杂度:** O()。
+
+**空间复杂度:** O()。
+
+## Solution 4
+
+同解法1使用递归调用，但同时采用剪枝。递归方法返回但不是boolean而是int，有三种状态。0表示匹配到s到末尾，但是未匹配成功。1表示未匹配到s到末尾就失败了。2表示匹配成功。
+
+若s和p都完成匹配则返回2。若s匹配完成，但p当前字符不是星号则返回0。若s未匹配完而p匹配完，返回1。
+
+若s和p都匹配完成则对下一位字符递归调用。否则若p当前字符为星号，那么先跳过连续的星号，然后分别让星号匹配空串、1个字符、2个字符...
+
+剪枝条件：当返回值为0或者2时，则返回，否则继续遍历。
+
+```java
+class Solution {
+    public boolean isMatch(String s, String p) {
+        return helper(s, p, 0, 0) > 1;
+    }
+    
+    public int helper(String s, String p, int i, int j){
+        if(i==s.length() && j==p.length()) return 2;
+        if(i==s.length() && p.charAt(j)!='*') return 0;
+        if(j==p.length()) return 1;
+        if(i<s.length()&&(s.charAt(i)==p.charAt(j)||p.charAt(j)=='?')){
+            return helper(s, p, i+1, j+1);
+        }
+        if(p.charAt(j)=='*'){
+            if(j+1<p.length()&&p.charAt(j+1)=='*'){
+                return helper(s,p,i,j+1);
+            }
+            for(int k=0;k<=s.length()-i;k++){
+                int res=helper(s,p,i+k,j+1);
+                if(res==0||res==2) return res;
+            }
+        }
+        return 1;
+    }
+}
+```
+
+**时间复杂度:** O()。
+
+**空间复杂度:** O()。
