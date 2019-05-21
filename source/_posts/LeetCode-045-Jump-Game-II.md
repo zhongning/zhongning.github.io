@@ -54,10 +54,33 @@ class Solution {
 
 ## Solution 1
 
+使用动态规划，令len表示nums第长度，有dp[len]，dp[i]表示从数组第i位跳到数组最后一位所需第最少步数。dp[len-1]=0，因为数组最后一位不需要跳。
 
+从数组第倒数第二位开始往前遍历，取出当前位置i上的数字steps，初始化当前位置i用的最少步数min为int最大值。在位置i上最多有steps中跳法，但同时要保证不会跳出数组边界。
+
+假定从位置i跳j步到位置i+j上，若dp[i+j]不能到达数组末尾即dp[i+j]为int最大值，则j加1。否则此时所用步数为1+dp[i+j]，更新min到值。
+
+所有可能到步数遍历完后，确定位置i对应所需到步数dp[i]。最终结果返回dp[0]。
 
 ```java
-
+class Solution {
+    public int jump(int[] nums) {
+        int len = nums.length;
+        int[] dp = new int[len];
+        dp[len-1]=0;
+        for(int i=len-2;i>=0;i--){
+            int steps=nums[i];
+            int min=Integer.MAX_VALUE;
+            for(int j=1;j<=steps&&i+j<=len-1;j++){
+                if(dp[i+j]==Integer.MAX_VALUE) continue;
+                int curr = 1 + dp[i+j];
+                min = Math.min(min,curr);
+            }
+            dp[i]=min;
+        }
+        return dp[0];
+    }
+}
 ```
 
 **时间复杂度:** O()。
@@ -66,7 +89,7 @@ class Solution {
 
 ## Solution 2
 
-
+贪婪算法，
 
 ```java
 
