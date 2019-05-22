@@ -89,10 +89,28 @@ class Solution {
 
 ## Solution 2
 
-贪婪算法，
+贪婪算法，jumps代表跳到步数，curEnd表示当前能跳到点的范围是[curBegin, curEnd]，curFarthest表示在[curBegin, curEnd]下一次跳所能到达的最远的点。
+
+遍历数组，i为数组当前所在点，则该点能最远到达的点为i+nums[i]，并据此更新curFarthest。
+
+当i到达curEnd，表示[curBegin, curEnd]所能到达的点都已检查完毕，下次跳最远能跳到curFarthest。
+
+那么将跳一次jumps++，同时此时能跳的最远位置curEnd更新为curFarthest，继续循环。
 
 ```java
-
+class Solution {
+    public int jump(int[] nums) {
+        int jumps=0, curEnd=0, curFarthest=0;
+        for(int i=0;i<nums.length-1;i++){
+            curFarthest=Math.max(curFarthest,i+nums[i]);
+            if(i==curEnd){
+                jumps++;
+                curEnd=curFarthest;
+            }
+        }
+        return jumps;
+    }
+}
 ```
 
 **时间复杂度:** O()。
