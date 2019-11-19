@@ -6,6 +6,7 @@ tags:
   - backtracking
 categories:
   - leetcode
+abbrlink: 23032
 date: 2019-11-19 19:03:25
 ---
 
