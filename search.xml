@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[LeetCode 054 Spiral Matrix]]></title>
+    <url>%2Fposts%2F57431%2F</url>
+    <content type="text"><![CDATA[DescriptionGiven a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order. Example 1: 1234567Input:[ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7, 8, 9 ]]Output: [1,2,3,6,9,8,7,4,5] Example 2: 1234567Input:[ [1, 2, 3, 4], [5, 6, 7, 8], [9,10,11,12]]Output: [1,2,3,4,8,12,11,10,9,5,6,7] Difficulty: Medium Code: 12345class Solution &#123; public List&lt;Integer&gt; spiralOrder(int[][] matrix) &#123; &#125;&#125; 题意给定m x n的矩阵，按照螺旋的顺序返回所有元素。 Solution 1cc表示螺旋总的环数，i表示当前的环数，p为当前环的宽度，q为当前环的高度。 对每个环按顺序遍历四条边，当p或q为1时，表示最后一环只有一行或者一列，可以跳出循环。 12345678910111213141516171819202122232425class Solution &#123; public List&lt;Integer&gt; spiralOrder(int[][] matrix) &#123; List&lt;Integer&gt; res = new ArrayList&lt;Integer&gt;(); if(matrix.length==0||matrix[0].length==0) return res; int m = matrix.length, n = matrix[0].length; int c = Math.min((m+1)/2,(n+1)/2); int p = m, q = n; for(int i=0;i&lt;c;i++,p-=2,q-=2)&#123; for(int col=i;col&lt;i+q;col++)&#123; res.add(matrix[i][col]); &#125; for(int row=i+1;row&lt;i+p;row++)&#123; res.add(matrix[row][i+q-1]); &#125; if(p==1||q==1) break; for(int col=i+q-2;col&gt;=i;col--)&#123; res.add(matrix[i+p-1][col]); &#125; for(int row=i+p-2;row&gt;i;row--)&#123; res.add(matrix[row][i]); &#125; &#125; return res; &#125;&#125; 时间复杂度: O()。 空间复杂度: O()。 Solution 2注意四条边对变化，上边是up初始化0，下边down初始化m-1，左边left初始化0，右边right初始化n-1。 进行while循环，先遍历上边，结束后将上边加1，若上边大于下边说明遍历结束。其他边同理。 12345678910111213141516171819class Solution &#123; public List&lt;Integer&gt; spiralOrder(int[][] matrix) &#123; List&lt;Integer&gt; res = new ArrayList&lt;Integer&gt;(); if(matrix.length==0||matrix[0].length==0) return res; int m = matrix.length, n = matrix[0].length; int up = 0, down = m-1, left = 0, right = n-1; while(true)&#123; for(int i=left;i&lt;=right;i++) res.add(matrix[up][i]); if(++up&gt;down) break; for(int i=up;i&lt;=down;i++) res.add(matrix[i][right]); if(--right&lt;left) break; for(int i=right;i&gt;=left;i--) res.add(matrix[down][i]); if(--down&lt;up) break; for(int i=down;i&gt;=up;i--) res.add(matrix[i][left]); if(++left&gt;right) break; &#125; return res; &#125;&#125; 时间复杂度: O()。 空间复杂度: O()。]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 053 Maximum Subarray]]></title>
+    <url>%2Fposts%2F54807%2F</url>
+    <content type="text"><![CDATA[DescriptionGiven an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum. Example: 123Input: [-2,1,-3,4,-1,2,1,-5,4],Output: 6Explanation: [4,-1,2,1] has the largest sum = 6. Follow Up: 1If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle. Difficulty: Easy Code: 12345class Solution &#123; public int maxSubArray(int[] nums) &#123; &#125;&#125; 题意给定一个数字数组，找出一个连续都子数组，其所有数之和最大，并返回这个和。 如果已经找到来复杂度为O(n)的解法，可以试试分治的思路。 Solution 1定义两个变量res、curr，res表示最大子数组的和，curr表示当前子数组的和并初始化为0。 遍历数组，若curr+num比num大，说明当前curr是正数，那么肯定是新子数组肯定是要继续在之前大基础上往后扩展。 一旦curr是负数或者0，那么之前的都可以抛弃因为不能使新子数组之和变大。 所以curr取curr+num和num中大的数，再用curr去更新保存起来的最大和res。 1234567891011class Solution &#123; public int maxSubArray(int[] nums) &#123; int res = Integer.MIN_VALUE; int curr = 0; for(int num:nums)&#123; curr = Math.max(curr+num,num); res = Math.max(res,curr); &#125; return res; &#125;&#125; 时间复杂度: O()。 空间复杂度: O()。 Solution 2上道解法的另一种写法，通俗易懂。 123456789101112class Solution &#123; public int maxSubArray(int[] nums) &#123; int res = Integer.MIN_VALUE; int curr = 0; for(int num:nums)&#123; curr+=num; if(curr&gt;res) res=curr; if(curr&lt;0) curr=0; &#125; return res; &#125;&#125; 时间复杂度: O()。 空间复杂度: O()。]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>leetcode-easy</tag>
+        <tag>leetcode-array</tag>
+        <tag>leetcode-divide-and-conquer</tag>
+        <tag>leetcode-dynamic-programming</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[LeetCode 052 N-Queens II]]></title>
     <url>%2Fposts%2F23032%2F</url>
     <content type="text"><![CDATA[DescriptionThe n-queens puzzle is the problem of placing n queens on an n×n chessboard such that no two queens attack each other. Given an integer n, return the number of distinct solutions to the n-queens puzzle. Example: 1234567891011121314Input: 4Output: 2Explanation: There are two distinct solutions to the 4-queens puzzle as shown below.[ [&quot;.Q..&quot;, // Solution 1 &quot;...Q&quot;, &quot;Q...&quot;, &quot;..Q.&quot;], [&quot;..Q.&quot;, // Solution 2 &quot;Q...&quot;, &quot;...Q&quot;, &quot;.Q..&quot;]] Difficulty: Hard Code: 12345class Solution &#123; public int totalNQueens(int n) &#123; &#125;&#125; 题意N皇后问题，将n个皇后放在nxn的棋盘上，保证任意两个皇后不能相互攻击。 给定正整数n，求不重复的N皇后问题答案的个数。 Solution 1这道题和上一题一样，只需要返回结果数量更加简单，可以用上一题的解法。 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849class Solution &#123; public int totalNQueens(int n) &#123; char[][] board = new char[n][n]; for(int i=0;i&lt;n;i++)&#123; for(int j=0;j&lt;n;j++)&#123; board[i][j]='.'; &#125; &#125; List&lt;List&lt;String&gt;&gt; res = new ArrayList&lt;List&lt;String&gt;&gt;(); helper(res,board,0); return res.size(); &#125; public void helper(List&lt;List&lt;String&gt;&gt; res,char[][] board,int row)&#123; if(row==board.length)&#123; res.add(convert(board)); return; &#125; for(int col=0;col&lt;board.length;col++)&#123; if(valid(board, row, col))&#123; board[row][col]='Q'; helper(res,board,row+1); board[row][col]='.'; &#125; &#125; &#125; public boolean valid(char[][] board, int row, int col)&#123; for(int i=0;i&lt;board.length;i++)&#123; for(int j=0;j&lt;board.length;j++)&#123; if(board[i][j]=='Q')&#123; if(i==row||j==col||i-row==j-col||i-row==col-j)&#123; return false; &#125; &#125; &#125; &#125; return true; &#125; public List&lt;String&gt; convert(char[][] board)&#123; List&lt;String&gt; res = new ArrayList&lt;String&gt;(); for(int i=0;i&lt;board.length;i++)&#123; String row = new String(board[i]); res.add(row); &#125; return res; &#125;&#125; 时间复杂度: O()。 空间复杂度: O()。 Solution 2我们并不需要知道每一行皇后的具体位置，而只需要知道会不会产生冲突即可。 对于每行要新加的位置，需要看跟之前的列，对角线，及逆对角线之间是否有冲突。 同一条对角线上的点，其横坐标减纵坐标都相等（要保证数组边界）。同一条逆对角线，其横坐标加纵坐标都相等。 123456789101112131415161718192021222324252627282930313233343536373839class Solution &#123; int res = 0; boolean[] cols; boolean[] posDiag; boolean[] negDiag; public int totalNQueens(int n) &#123; cols = new boolean[n]; posDiag = new boolean[2*n-1]; negDiag = new boolean[2*n-1]; dfs(0,n); return res; &#125; private void dfs(int row, int n)&#123; if(row==n)&#123; res++; return; &#125; for(int col=0;col&lt;n;col++)&#123; if(valid(row,col,n))&#123; update(row,col,n,true); dfs(row+1,n); update(row,col,n,false); &#125; &#125; &#125; private void update(int row, int col, int n, boolean used)&#123; cols[col]=used; posDiag[row+col]=used; negDiag[row-col+n-1]=used; &#125; private boolean valid(int row, int col, int n)&#123; return !cols[col] &amp;&amp; !posDiag[row+col] &amp;&amp; !negDiag[row-col+n-1]; &#125;&#125; 时间复杂度: O()。 空间复杂度: O()。]]></content>
@@ -35,9 +63,9 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-binary-search</tag>
         <tag>leetcode-medium</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-binary-search</tag>
       </tags>
   </entry>
   <entry>
@@ -49,8 +77,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hash-table</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-hash-table</tag>
         <tag>leetcode-string</tag>
       </tags>
   </entry>
@@ -63,8 +91,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
       </tags>
   </entry>
   <entry>
@@ -133,8 +161,8 @@
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-string</tag>
       </tags>
   </entry>
   <entry>
@@ -174,8 +202,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-backtracking</tag>
       </tags>
   </entry>
@@ -188,8 +216,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-backtracking</tag>
       </tags>
   </entry>
@@ -229,8 +257,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hash-table</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-hash-table</tag>
       </tags>
   </entry>
   <entry>
@@ -256,9 +284,9 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>leetcode-medium</tag>
         <tag>leetcode-array</tag>
         <tag>leetcode-binary-search</tag>
-        <tag>leetcode-medium</tag>
       </tags>
   </entry>
   <entry>
@@ -270,9 +298,9 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>leetcode-medium</tag>
         <tag>leetcode-array</tag>
         <tag>leetcode-binary-search</tag>
-        <tag>leetcode-medium</tag>
       </tags>
   </entry>
   <entry>
@@ -298,8 +326,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
       </tags>
   </entry>
   <entry>
@@ -326,9 +354,9 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-binary-search</tag>
         <tag>leetcode-medium</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-binary-search</tag>
       </tags>
   </entry>
   <entry>
@@ -382,8 +410,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-linked-list</tag>
+        <tag>leetcode-hard</tag>
       </tags>
   </entry>
   <entry>
@@ -408,9 +436,9 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>leetcode-linked-list</tag>
         <tag>leetcode-hard</tag>
         <tag>leetcode-divide-and-conquer</tag>
-        <tag>leetcode-linked-list</tag>
         <tag>leetcode-heap</tag>
       </tags>
   </entry>
@@ -437,8 +465,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-linked-list</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -465,8 +493,8 @@
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-two-pointers</tag>
         <tag>leetcode-linked-list</tag>
+        <tag>leetcode-two-pointers</tag>
       </tags>
   </entry>
   <entry>
@@ -478,9 +506,9 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>leetcode-medium</tag>
         <tag>leetcode-array</tag>
         <tag>leetcode-hash-table</tag>
-        <tag>leetcode-medium</tag>
         <tag>leetcode-two-pointers</tag>
       </tags>
   </entry>
@@ -507,8 +535,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-two-pointers</tag>
       </tags>
   </entry>
@@ -521,8 +549,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-two-pointers</tag>
       </tags>
   </entry>
@@ -548,9 +576,9 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>leetcode-math</tag>
         <tag>leetcode-easy</tag>
         <tag>leetcode-string</tag>
-        <tag>leetcode-math</tag>
       </tags>
   </entry>
   <entry>
@@ -563,8 +591,8 @@
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-string</tag>
       </tags>
   </entry>
   <entry>
@@ -576,8 +604,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-two-pointers</tag>
       </tags>
   </entry>
@@ -605,8 +633,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -619,8 +647,8 @@
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-string</tag>
       </tags>
   </entry>
   <entry>
@@ -632,8 +660,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -698,8 +726,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hash-table</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-hash-table</tag>
         <tag>leetcode-string</tag>
         <tag>leetcode-two-pointers</tag>
         <tag>leetcode-sliding-window</tag>
@@ -715,8 +743,8 @@
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-math</tag>
         <tag>leetcode-linked-list</tag>
+        <tag>leetcode-math</tag>
       </tags>
   </entry>
   <entry>
@@ -747,7 +775,7 @@
   <entry>
     <title><![CDATA[Markdown基本语法]]></title>
     <url>%2Fposts%2F48840%2F</url>
-    <content type="text"><![CDATA[Markdown基本语法，几乎所有Markdown应用程序都支持John Gruber原始设计文档中概述的基本语法。 标题在标题前插入1到6个#，表示6个不同级别的标题 123456# Heading level 1## Heading level 2### Heading level 3#### Heading level 4##### Heading level 5###### Heading level 6 段落段落之间用空行隔开，不能使用空格或者缩进 123I really like using Markdown.I think I&apos;ll use it to format all of my documents from now on. 换行符在文字中间插入&lt;br&gt;可以进行换行，或者两个空格再回车。 1This is the first line. &lt;br&gt; And this is the second line. This is the first line. And this is the second line. 强调加粗在文字的前后用两个*或者_可以加粗字体 123I just love **bold text**.I just love __bold text__.Love**is**bold I just love bold text.I just love bold text.Loveisbold 斜体在文字的前后用一个*或者_可以变成斜体 123Italicized text is the *cat&apos;s meow*.Italicized text is the _cat&apos;s meow_.A*cat*meow Italicized text is the cat’s meow.Italicized text is the cat’s meow.Acatmeow 同时加粗和斜体在文字的前后用三个*或者_可以同时加粗和变成斜体 12This text is ***really important***.This text is ___really important___. This text is really important.This text is really important. 引用在一段文字中的开头加上 &gt; 来表示一段引用文字 1&gt; Dorothy followed her through many of the beautiful rooms in her castle. Dorothy followed her through many of the beautiful rooms in her castle. 引用多个段落在每个段落及空行开头加上 &gt; 来表示引用多段文字 123&gt; Dorothy followed her through many of the beautiful rooms in her castle.&gt;&gt; The Witch bade her clean the pots and kettles and sweep the floor. Dorothy followed her through many of the beautiful rooms in her castle. The Witch bade her clean the pots and kettles and sweep the floor. 引用嵌套引用可以嵌套，在段落的开头加上&gt;&gt; 123&gt; Dorothy followed her through many of the beautiful rooms in her castle.&gt;&gt;&gt; The Witch bade her clean the pots and kettles and sweep the floor. Dorothy followed her through many of the beautiful rooms in her castle. The Witch bade her clean the pots and kettles and sweep the floor. 引用中使用其他元素引用中可以包含其他Markdown的元素，但并不是所有但元素都可以用 123456&gt; #### The quarterly results look great!&gt;&gt; - Revenue was off the chart.&gt; - Profits were higher than ever.&gt;&gt; *Everything* is going according to **plan**. The quarterly results look great! Revenue was off the chart. Profits were higher than ever. Everything is going according to plan. 列表列表可以分为有序列表和无序列表 有序列表有序列表在文字开头加上数字和点，数字并不要求按照顺序，但是起始应该是1 123456789101112131415161. First item2. Second item3. Third item4. Fourth item1. First item8. Second item3. Third item5. Fourth item1. First item2. Second item3. Third item 1. Indented item 2. Indented item4. Fourth item First item Second item Third item Indented item Indented item Fourth item 无序列表无序列表在每一行开头加上-、+、*，缩进去创建嵌套列表 123456789101112131415161718192021- First item- Second item- Third item- Fourth item* First item* Second item* Third item* Fourth item+ First item* Second item- Third item+ Fourth item- First item- Second item- Third item - Indented item - Indented item- Fourth item First item Second item Third item Indented item Indented item Fourth item 在列表中添加其他元素在列表中添加其他元素，要缩进4个空格或者1个tab 123456* This is the first list item.* Here&apos;s the second list item. I need to add another paragraph below the second list item.* And here&apos;s the third list item. This is the first list item. Here’s the second list item. I need to add another paragraph below the second list item. And here’s the third list item. 代码要表示一行代码，使用`来包裹 1At the command prompt, type `nano`. At the command prompt, type nano. 反引号转义在一行代码中如果代码本身也含有反引号，可以把最外层用两个反引号包裹 1``Use `code` in your Markdown file.`` Use `code` in your Markdown file. 代码块代码块的每行代码必须最少缩进4个空格或者1个tab 12345#### &lt;html&gt; &lt;head&gt; &lt;/head&gt; &lt;/html&gt; &lt;html&gt; &lt;head&gt; &lt;/head&gt; &lt;/html&gt; 分割线使用三个及以上的*、-、_表示分割线 12345***---_________________ 链接用[]包裹链接文字，随后用()包裹URL 1My favorite search engine is [Duck Duck Go](https://duckduckgo.com). My favorite search engine is Duck Duck Go. 链接添加提示1My favorite search engine is [Duck Duck Go](https://duckduckgo.com &quot;The best one&quot;). My favorite search engine is Duck Duck Go. 网页和邮箱为了快速将网页和邮箱转为链接，可以用&lt;&gt;包裹起来 12&lt;https://www.markdownguide.org&gt;&lt;fake@example.com&gt; https://www.markdownguide.org&#102;&#97;&#x6b;&#101;&#x40;&#101;&#x78;&#x61;&#109;&#112;&#108;&#x65;&#46;&#99;&#111;&#109; 格式化链接为了强调链接，可以在链接的前后加星号 12I love supporting **[EFF](https://eff.org)**.This is the *[Markdown Guide](https://www.markdownguide.org)*. I love supporting EFF.This is the Markdown Guide. 图片图片的插入方式是在最开始插入!，然后用[]包裹图片无法加载的描述，再把图片的地址用()包裹 1![Google](http://pngimg.com/uploads/google/google_PNG19631.png &quot;Google Search&quot;) 带链接的图片给图片加链接的方式是，把图片的Markdown用[]包裹，再在后面把链接地址用()包裹 1[![Google](http://pngimg.com/uploads/google/google_PNG19631.png &quot;Google Search&quot;)](https://www.google.com) 转义字符如果有些符号是Markdown使用的，但是又想显示，可以在字符前加\ 1\* Without the backslash, this would be a bullet in an unordered list. 转义字符列表 Character Name \ backslash ` tick mark * asterisk _ underscore {} curly braces [] brackets () parentheses # pound sign + plus sign - minus sign (hyphen) . dot ! exclamation mark]]></content>
+    <content type="text"><![CDATA[Markdown基本语法，几乎所有Markdown应用程序都支持John Gruber原始设计文档中概述的基本语法。 标题在标题前插入1到6个#，表示6个不同级别的标题 123456# Heading level 1## Heading level 2### Heading level 3#### Heading level 4##### Heading level 5###### Heading level 6 段落段落之间用空行隔开，不能使用空格或者缩进 123I really like using Markdown.I think I&apos;ll use it to format all of my documents from now on. 换行符在文字中间插入&lt;br&gt;可以进行换行，或者两个空格再回车。 1This is the first line. &lt;br&gt; And this is the second line. This is the first line. And this is the second line. 强调加粗在文字的前后用两个*或者_可以加粗字体 123I just love **bold text**.I just love __bold text__.Love**is**bold I just love bold text.I just love bold text.Loveisbold 斜体在文字的前后用一个*或者_可以变成斜体 123Italicized text is the *cat&apos;s meow*.Italicized text is the _cat&apos;s meow_.A*cat*meow Italicized text is the cat’s meow.Italicized text is the cat’s meow.Acatmeow 同时加粗和斜体在文字的前后用三个*或者_可以同时加粗和变成斜体 12This text is ***really important***.This text is ___really important___. This text is really important.This text is really important. 引用在一段文字中的开头加上 &gt; 来表示一段引用文字 1&gt; Dorothy followed her through many of the beautiful rooms in her castle. Dorothy followed her through many of the beautiful rooms in her castle. 引用多个段落在每个段落及空行开头加上 &gt; 来表示引用多段文字 123&gt; Dorothy followed her through many of the beautiful rooms in her castle.&gt;&gt; The Witch bade her clean the pots and kettles and sweep the floor. Dorothy followed her through many of the beautiful rooms in her castle. The Witch bade her clean the pots and kettles and sweep the floor. 引用嵌套引用可以嵌套，在段落的开头加上&gt;&gt; 123&gt; Dorothy followed her through many of the beautiful rooms in her castle.&gt;&gt;&gt; The Witch bade her clean the pots and kettles and sweep the floor. Dorothy followed her through many of the beautiful rooms in her castle. The Witch bade her clean the pots and kettles and sweep the floor. 引用中使用其他元素引用中可以包含其他Markdown的元素，但并不是所有但元素都可以用 123456&gt; #### The quarterly results look great!&gt;&gt; - Revenue was off the chart.&gt; - Profits were higher than ever.&gt;&gt; *Everything* is going according to **plan**. The quarterly results look great! Revenue was off the chart. Profits were higher than ever. Everything is going according to plan. 列表列表可以分为有序列表和无序列表 有序列表有序列表在文字开头加上数字和点，数字并不要求按照顺序，但是起始应该是1 123456789101112131415161. First item2. Second item3. Third item4. Fourth item1. First item8. Second item3. Third item5. Fourth item1. First item2. Second item3. Third item 1. Indented item 2. Indented item4. Fourth item First item Second item Third item Indented item Indented item Fourth item 无序列表无序列表在每一行开头加上-、+、*，缩进去创建嵌套列表 123456789101112131415161718192021- First item- Second item- Third item- Fourth item* First item* Second item* Third item* Fourth item+ First item* Second item- Third item+ Fourth item- First item- Second item- Third item - Indented item - Indented item- Fourth item First item Second item Third item Indented item Indented item Fourth item 在列表中添加其他元素在列表中添加其他元素，要缩进4个空格或者1个tab 123456* This is the first list item.* Here&apos;s the second list item. I need to add another paragraph below the second list item.* And here&apos;s the third list item. This is the first list item. Here’s the second list item. I need to add another paragraph below the second list item. And here’s the third list item. 代码要表示一行代码，使用`来包裹 1At the command prompt, type `nano`. At the command prompt, type nano. 反引号转义在一行代码中如果代码本身也含有反引号，可以把最外层用两个反引号包裹 1``Use `code` in your Markdown file.`` Use `code` in your Markdown file. 代码块代码块的每行代码必须最少缩进4个空格或者1个tab 12345#### &lt;html&gt; &lt;head&gt; &lt;/head&gt; &lt;/html&gt; &lt;html&gt; &lt;head&gt; &lt;/head&gt; &lt;/html&gt; 分割线使用三个及以上的*、-、_表示分割线 12345***---_________________ 链接用[]包裹链接文字，随后用()包裹URL 1My favorite search engine is [Duck Duck Go](https://duckduckgo.com). My favorite search engine is Duck Duck Go. 链接添加提示1My favorite search engine is [Duck Duck Go](https://duckduckgo.com &quot;The best one&quot;). My favorite search engine is Duck Duck Go. 网页和邮箱为了快速将网页和邮箱转为链接，可以用&lt;&gt;包裹起来 12&lt;https://www.markdownguide.org&gt;&lt;fake@example.com&gt; https://www.markdownguide.org&#102;&#x61;&#107;&#101;&#x40;&#101;&#120;&#97;&#x6d;&#112;&#x6c;&#x65;&#46;&#99;&#111;&#x6d; 格式化链接为了强调链接，可以在链接的前后加星号 12I love supporting **[EFF](https://eff.org)**.This is the *[Markdown Guide](https://www.markdownguide.org)*. I love supporting EFF.This is the Markdown Guide. 图片图片的插入方式是在最开始插入!，然后用[]包裹图片无法加载的描述，再把图片的地址用()包裹 1![Google](http://pngimg.com/uploads/google/google_PNG19631.png &quot;Google Search&quot;) 带链接的图片给图片加链接的方式是，把图片的Markdown用[]包裹，再在后面把链接地址用()包裹 1[![Google](http://pngimg.com/uploads/google/google_PNG19631.png &quot;Google Search&quot;)](https://www.google.com) 转义字符如果有些符号是Markdown使用的，但是又想显示，可以在字符前加\ 1\* Without the backslash, this would be a bullet in an unordered list. 转义字符列表 Character Name \ backslash ` tick mark * asterisk _ underscore {} curly braces [] brackets () parentheses # pound sign + plus sign - minus sign (hyphen) . dot ! exclamation mark]]></content>
       <categories>
         <category>hexo</category>
       </categories>
