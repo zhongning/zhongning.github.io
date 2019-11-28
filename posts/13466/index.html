@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"hide","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="目录 主板  Intel芯片组主板  AMD芯片组主板  主板尺寸  关于品牌CPU  关键参数  Intel CPU后面的数字  Intel CPU后面的字母  AMD CPU后面的数字  CPU天梯图  CPU的主要厂商显卡   显卡品牌：N卡和A卡  关于品牌  核心显卡、主板集成显卡和独立显卡的区别内存条  单通道与双通道硬盘  机械硬盘  固态硬盘电源  功率的选择  80Plus">
+<meta name="keywords" content="computer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="电脑组装之硬件选择">
+<meta property="og:url" content="http://yoursite.com/posts/13466/index.html">
+<meta property="og:site_name" content="Show me the code">
+<meta property="og:description" content="目录 主板  Intel芯片组主板  AMD芯片组主板  主板尺寸  关于品牌CPU  关键参数  Intel CPU后面的数字  Intel CPU后面的字母  AMD CPU后面的数字  CPU天梯图  CPU的主要厂商显卡   显卡品牌：N卡和A卡  关于品牌  核心显卡、主板集成显卡和独立显卡的区别内存条  单通道与双通道硬盘  机械硬盘  固态硬盘电源  功率的选择  80Plus">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1433301/201909/1433301-20190929145343685-315109850.jpg">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114095147601-1312966062.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1433301/201909/1433301-20190929113926637-1532822600.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1433301/201909/1433301-20190929140546242-149217135.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114162727474-1218538472.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1433301/201909/1433301-20190929113017828-590241116.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114164801692-196287110.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114164906037-1495443491.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114163710411-1578557060.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114170114606-713450572.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114170132809-1182807883.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114170143521-129482932.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114170150071-1375418241.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114170155985-645292354.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114170202171-45700482.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114170218827-479568681.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114170213496-277375763.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1433301/201909/1433301-20190929141351372-804157291.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1433301/201910/1433301-20191008213214451-1909427204.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114185345848-1662642306.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114202727339-1973588211.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1433301/201909/1433301-20190929150819499-2128493526.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114203439951-325641122.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114203448104-2040709388.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114205327799-2076300470.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114210747297-924690287.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114212811099-1261214911.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1433301/201909/1433301-20190929141919965-1141374635.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115093316122-42975311.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115093630340-1637950448.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115093829824-233476730.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115100121446-1174300693.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115100200434-70980180.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115100433217-1131807579.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115100544006-1531324743.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115100626116-53643246.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115101011458-796024594.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115101232477-2103575610.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115101608849-1079651925.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115101656393-388689453.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115101730429-670483489.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115101826510-295289614.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115101832099-717743911.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115101838051-557647675.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115101845293-427766019.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191124210206619-1900508646.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191124210233217-1469606628.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191124210950851-885396265.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191124210726379-1756265637.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191124210756518-1111947114.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115104255253-388030584.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115104313254-1880343116.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115104424880-2089323325.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115104828033-2044685536.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115104921450-1494442067.png">
+<meta property="og:updated_time" content="2019-11-28T13:27:58.861Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="电脑组装之硬件选择">
+<meta name="twitter:description" content="目录 主板  Intel芯片组主板  AMD芯片组主板  主板尺寸  关于品牌CPU  关键参数  Intel CPU后面的数字  Intel CPU后面的字母  AMD CPU后面的数字  CPU天梯图  CPU的主要厂商显卡   显卡品牌：N卡和A卡  关于品牌  核心显卡、主板集成显卡和独立显卡的区别内存条  单通道与双通道硬盘  机械硬盘  固态硬盘电源  功率的选择  80Plus">
+<meta name="twitter:image" content="https://img2018.cnblogs.com/blog/1433301/201909/1433301-20190929145343685-315109850.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/posts/13466/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>电脑组装之硬件选择 | Show me the code</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Show me the code</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/13466/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhong Ning(钟宁)">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Show me the code">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">电脑组装之硬件选择
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-28 20:35:56 / 修改时间：21:27:58" itemprop="dateCreated datePublished" datetime="2019-11-28T20:35:56+08:00">2019-11-28</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识百科/" itemprop="url" rel="index"><span itemprop="name">知识百科</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <meta name="referrer" content="no-referrer">
+
+<blockquote>
+<p><strong>目录</strong></p>
+<p><a href="#主板">主板</a><br><a href="#Intel芯片组主板">  Intel芯片组主板</a><br><a href="#AMD芯片组主板">  AMD芯片组主板</a><br><a href="#主板尺寸">  主板尺寸</a><br><a href="#关于品牌">  关于品牌</a><br><a href="#CPU">CPU</a><br><a href="#关键参数">  关键参数</a><br><a href="#Intel-CPU后面的数字">  Intel CPU后面的数字</a><br><a href="#Intel-CPU后面的字母">  Intel CPU后面的字母</a><br><a href="#AMD-CPU后面的数字">  AMD CPU后面的数字</a><br><a href="#CPU天梯图">  CPU天梯图</a><br><a href="#CPU的主要厂商">  CPU的主要厂商</a><br><a href="#显卡">显卡 </a><br><a href="#显卡品牌：N卡和A卡">  显卡品牌：N卡和A卡</a><br><a href="#关于品牌">  关于品牌</a><br><a href="#核心显卡、主板集成显卡和独立显卡的区别">  核心显卡、主板集成显卡和独立显卡的区别</a><br><a href="#内存条">内存条</a><br><a href="#单通道与双通道">  单通道与双通道</a><br><a href="#硬盘">硬盘</a><br><a href="#机械硬盘">  机械硬盘</a><br><a href="#固态硬盘">  固态硬盘</a><br><a href="#电源">电源</a><br><a href="#功率的选择">  功率的选择</a><br><a href="#80Plus认证">  80Plus认证</a><br><a href="#模组选择">  模组选择</a><br><a href="#电源尺寸">  电源尺寸</a><br><a href="#关于品牌">  关于品牌</a><br><a href="#散热器">散热器</a><br><a href="#散热器的工作原理">  散热器的工作原理</a><br><a href="#影响散热效果的因素（风冷）">  影响散热效果的因素（风冷）</a><br><a href="#热量传递的效率">  热量传递的效率</a><br><a href="#风冷散热器的类型">  风冷散热器的类型</a><br><a href="#关于品牌">  关于品牌</a><br><a href="#显示器">显示器</a><br><a href="#显示器接口">  显示器接口</a><br><a href="#液晶面板">  液晶面板</a><br><a href="#带鱼屏">  带鱼屏</a><br><a href="#机箱">机箱</a><br><a href="#搭配选择">搭配选择</a><br><a href="#如果因为资金原因，那么哪些电脑配件可以选择二手的，哪些不能呢？">如果因为资金原因，那么哪些电脑配件可以选择二手的，哪些不能呢？</a><br><a href="#参考">参考</a><br><a href="#硬件知识">  硬件知识</a><br><a href="#组装电脑">  组装电脑</a>  </p>
+</blockquote>
+<hr>
+<p><strong>电脑主要配件</strong>：主板、CPU、显卡、显示器、电源、机箱、内存条、硬盘。CPU、显卡、内存条、硬盘是插在主板上的，电源用来给主板上的部件进行供电，CPU，主板，显卡，内存条、硬盘、电源这几个放在机箱中就构成了我们通常所说的主机。摩尔定律，硬件的性能每隔18～20个月就会提升一倍。</p>
+<a id="more"></a>
+<h1 id="主板"><a href="#主板" class="headerlink" title="主板"></a>主板</h1><p><strong>主板主要接口</strong>：CPU插槽；内存条插槽；SATA硬盘接口；M.2接口(用于M.2接口的固态硬盘)；背板I/O接口；PCLE-X16插槽(用来接显卡)；PCLE-X1插槽(用来接声卡、网卡等)；供电插槽</p>
+<p><img src="https://img2018.cnblogs.com/blog/1433301/201909/1433301-20190929145343685-315109850.jpg" alt></p>
+<p><strong>主板性能指标</strong>：芯片组、供电项数目（供电项越多，平分下来每一路的电流就会减小了，减少主板发热 超频时更加稳定）、做工、扩展能力（是否支持USB3.0或者USB3.1，是否支持超频）。</p>
+<p>对于主板最重要的就是其<strong>稳定能力</strong>，其次才是<strong>芯片组</strong></p>
+<p>因为<strong>芯片组有Intel和AMD</strong>，所以主板可以根据芯片组分类，英特尔和AMD这两家公司每次发布新的CPU的时候，都会先各大主板厂家发布适配自己CPU的芯片组，意思就是说：“我这边CPU已经做出来了，你们主板厂得按照我的这个标准，做出来的主板才能用我的这个CPU”</p>
+<p><strong>如何区分intel主板和AMD主板：</strong></p>
+<ul>
+<li>intel主板会有亮闪闪的金属扣，且主板的安装位置是一个一个针脚，均匀分布，因为intel处理器是触点式接口</li>
+<li>AMD主板没有金属扣，且主板的安装位置是一个一个小凹槽，因为AMD处理器是针脚式接口</li>
+</ul>
+<h2 id="Intel芯片组主板"><a href="#Intel芯片组主板" class="headerlink" title="Intel芯片组主板"></a>Intel芯片组主板</h2><p>芯片组是主板的核心芯片，选对芯片组，主板和CPU才能兼容。</p>
+<h3 id="型号字母"><a href="#型号字母" class="headerlink" title="型号字母"></a>型号字母</h3><p>目前英特尔的芯片组有4个等级，<strong>H</strong>、<strong>B</strong>、<strong>Z</strong>、<strong>X</strong>分别适配不同的用户，下面只是一个大概的规律，不能以偏概全，比如：H370&gt;B360</p>
+<p><strong><strong>H</strong></strong>：<strong>中低端、入门</strong>，<strong>不支持超频</strong>。价格在300元左右。</p>
+<p><strong>B：**</strong>中低端、主流，<strong>这类主板</strong>几乎不能超频<strong>（有特殊几个主板能通过人工破解来进行超频），而且仅支持最高DDR4 2666GHz的内存条频率，所以如果你买的CPU是不带K的如 i3-8100；i5-8500这类不支持超频的CPU，或者本身没有超频需求，B系主板是非常划算和</strong>有性价比**的选择。价格在500元左右。</p>
+<p><strong>Z：**</strong>高端，<strong>这类主板</strong>天生支持超频功能<strong>（需要CPU支持，</strong>英特尔CPU后面带K的都支持超频**，如i3-8350K;I5-8600K;I7-8700K），同时芯片组支持更多原生的扩展卡槽的接口，而且这类主板通常也支持非常高的内存频率，价格也会贵一些，一般在1000元以上。</p>
+<p><strong>X：**</strong>特殊、顶级**，这类主板有2066个针脚，也就是只能用英特尔后面带X的CPU。如i9-7960X、i7-7800X。当然这类主板和CPU价格都高的吓人，市场很小众。</p>
+<p>H、B、Z芯片组的主板/CPU接口都是 LGA 1151的，X系列的主板/CPU接口是 LGA 2066</p>
+<h3 id="字母后面的数字"><a href="#字母后面的数字" class="headerlink" title="字母后面的数字"></a>字母后面的数字</h3><p><strong>100系列支持英特尔6代CPU</strong>，如B150芯片组支持i3-6100、i5-6500、i7 6700等。（intel的<strong>100系列</strong>主板刷新bios是可以上<strong>7</strong>代cpu的）</p>
+<p><strong>**200系列</strong>支持<strong>英特尔</strong>6、7代CPU**，如：B250芯片组支持i3-7100、i5-7500、i7-7700k等。</p>
+<p><strong>300系列支持</strong>英特尔<strong>8</strong>、<strong>9代CPU</strong>，如：B360芯片组支持i3-8100、i5-8500、i7-8700k、i7-9700k、i9-9900k等。</p>
+<p>至于后面个位和十位数上的数字，越高代表主板在同等级中越高端。</p>
+<h2 id="AMD芯片组主板"><a href="#AMD芯片组主板" class="headerlink" title="AMD芯片组主板"></a>AMD芯片组主板</h2><p>芯片组是主板的核心芯片，选对芯片组，主板和CPU才能兼容。</p>
+<h3 id="型号字母-1"><a href="#型号字母-1" class="headerlink" title="型号字母"></a>型号字母</h3><p>AMD平台的主板芯片组，有<strong>A</strong>、<strong>B</strong>、<strong>X</strong>三个档次</p>
+<p><strong>A：低端</strong>，这类芯片组的主板不能超频，普通用户使用也足够了。价格大多在500元以下。</p>
+<p><strong>B：中端</strong>，这类芯片组的主板<strong>也能超频</strong>，高性能的接口数量要少一些，价格在500元左右，是普通装机用户的<strong>性价比选择。</strong></p>
+<p><strong><strong>X：高端</strong></strong>，芯片组支持更多可以扩展的接口，<strong>可以超频</strong>。</p>
+<p>AMD芯片组的主板CPU接口大都是AM4的，像高端的X399CPU接口是TR4的。</p>
+<h3 id="字母后面的数字-1"><a href="#字母后面的数字-1" class="headerlink" title="字母后面的数字"></a>字母后面的数字</h3><p><strong>**300系列</strong>支持 <strong><strong>一代</strong></strong>锐龙，需要更新BIOS才能支持二代锐龙<strong><strong>**</strong></strong></p>
+<p><strong>**</strong>400系列<strong>支持 一代、二代锐龙**</strong></p>
+<p>锐龙二代或一代的用户买300 400系列芯片组的主板都可以</p>
+<h2 id="主板尺寸"><a href="#主板尺寸" class="headerlink" title="主板尺寸"></a>主板尺寸</h2><p>常见的主板板型分为：E-ATX(加强型)、ATX(标准型)、M-ATX(紧凑型)、MINI-ITX(迷你型)。</p>
+<p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114095147601-1312966062.png" alt> </p>
+<p>常见的主板板型对比</p>
+<p><strong>E-ATX型主板</strong>：<strong>高性能主板</strong>，一般会有8跟内存插槽，芯片组也多为X等级的，也就是说适用于英特尔以X结尾的CPU，如i9-7960X。价格非常高</p>
+<p><strong>ATX型主板：</strong>用的最多的主板，俗称“<strong>大板</strong>”。这类主板由于体型稍大，需要搭配中塔以上大机箱，做工用料较好，扩展接口比较丰富，不过价位略贵</p>
+<p><strong>M-ATX型主板：</strong>比ATX要短了一些，俗称“<strong>小板</strong>”，也叫紧凑型主板，其结构为方形。M-ATX主板主要用于小机箱电脑中，如今装机非常主流的主板板型。</p>
+<p><strong>MINI-ITX型主板：</strong>俗称<strong>迷你型主板</strong>，结构是方形，主板尺寸小，适合一些迷你小机箱电脑，这种主板通常作为小巧的HTPC电脑，因此这类主板大部分都内置了Wifi模块。</p>
+<h3 id="主板小板和大板的区别是什么？主板小板和大板优缺点分析："><a href="#主板小板和大板的区别是什么？主板小板和大板优缺点分析：" class="headerlink" title="主板小板和大板的区别是什么？主板小板和大板优缺点分析："></a><strong>主板小板和大板的区别是什么？主板小板和大板优缺点分析：</strong></h3><p>1、同芯片的主板大板和小板性能没有任何提升，主板尺寸并不会影响到电脑的整体性能；</p>
+<p>2、大板相比小板的扩展接口也许会更加丰富，比如大板标配4个内存插槽，而小板有可能是2个或则4个，大板的PCI-E显卡插槽拥有两个，而小板只有一个。此外，PCI插槽方面，大板也更丰富一些，USB方面，大板通常也多出两个；</p>
+<p>3、大主板做工用料相对充足，不过价位上也会更加贵一些；</p>
+<p>4、大板需要中塔以上大机箱支持，而小主板既能够兼容大机箱，还能够兼容一些迷你机箱，价位上也相对可能实惠一些；</p>
+<p>　　对于买主板是选择小板还是大板，关于这个问题，关键看个人需求。通常来说，组装入门级电脑，选用小巧的M-ATX机箱，那么肯定需要选用M-ATX主板或者迷你主板，对于注重散热并定位中高端或者高端，选用大机箱的装机用户，建议搭配ATX大主板，其扩展、做工更加有优势，一般用户，建议选择M-ATX小主板，价格相对实惠一些，扩展接口也基本足够使用了，属于大众型主板。</p>
+<h2 id="关于品牌"><a href="#关于品牌" class="headerlink" title="关于品牌"></a>关于品牌</h2><p><strong>华硕：</strong>三大板厂之一，主板的BIOS界面做的超一流，简单易懂，好用，而且功能很多。高端主板非常强，中低端主板与其他牌子拉不开差距。ROG玩家国度系列主板用料豪华，超频能力非常强，是最高端主板的象征。</p>
+<p><strong>技嘉：</strong>三大板厂之一，技嘉的主板一般比较耐用。AROUS系列主板定位高端，类ROG玩家国度。</p>
+<p><strong>微星：</strong>三大板厂之一，微星的板子跟华硕技嘉都差不多，BIOS比华硕稍差一些，价格也低一点点。</p>
+<p><strong>华擎：</strong>华擎是华硕的子公司，是华硕面对中低端市场与二三线品牌竞争的品牌，在低价位中用料算是不错的，性价比高，价格比三大厂要低一两百块，被称为价格屠夫。</p>
+<p><strong>映泰</strong>：映泰也是台湾的主板大厂，主板相对来说稍微低端一些，稳定性可以，价格也很低。</p>
+<p><strong>七彩虹：</strong>七彩虹的品牌宣传做的好，线下电脑城卖的好，但线上销量有点凄惨，不建议购买。</p>
+<p>高端板子最好选择华硕的，低中端主板最好选择技嘉、华擎的。</p>
+<h1 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h1><p>CPU有几个重要的参数：架构、主频(频率)、核心数、线程数、缓存、最大睿频。</p>
+<h2 id="关键参数"><a href="#关键参数" class="headerlink" title="关键参数"></a>关键参数</h2><p><strong>主频</strong>：CPU的工作频率，我们可以直接理解为运算速度，主频越高，计算能力越强，现在CPU主频都以GHz为单位。</p>
+<p><strong>最大睿频</strong>：睿频是指当启动一个运行程序后，处理器会自动加速到合适的频率，而原来的运行速度会提升 10%~20% 以保证程序流畅运行的一种技术。</p>
+<p><strong>核心数</strong>与<strong>线程数</strong>：核心数就相当于有多少只手，线程数就相当于你能同时干几样活，核心数*线程数=马路宽度，频率等于车速</p>
+<p><strong>架构</strong>：架构对性能的影响最大。一般来说，每一代CPU的架构都是一样的，</p>
+<p><strong>缓存</strong>：位于CPU与内存之间的临时存储器，它的容量比内存小但交换速度快。有一级缓存和二级缓存，一级缓存的容量基本在4KB~64KB，二级缓存的容量则分为128KB/256KB/512KB/1MB/2MB等，一级缓冲容量相差不大，二级缓存容量则是提高CPU内存的关键。</p>
+<p>如果玩游戏，就需要选主频高的，简单粗暴的进行计算。如果做图形渲染，建议多核心多线程的</p>
+<p><img src="https://img2018.cnblogs.com/blog/1433301/201909/1433301-20190929113926637-1532822600.png" alt></p>
+<p>CPU有两家厂商在做Intel和AMD，处理器有两种接口接口类型，<strong>AMD的CPU是针脚式</strong>，<strong>Intel的CPU是触点式</strong>，由于intelCPU采用了触点式所以intel主板就必须有针脚，而AMD则是与之相反，CPU使用针脚，主板采用触点式。虽然方式不同，但是从性能上完全没有区别，主要AMD的处理器针脚特别怕弯，弯了或者断了处理器基本就要凉凉了。而intel处理器就不会这样，不过intel主板的针脚也极易容易弯折。现在AMD也推出了自己的触点式处理器——线程撕裂者，以后AMD处理器也会朝着触点式发展。</p>
+<p><strong>Intel CPU</strong>：稳定性强，功耗低（发热量少，常规散热系统），兼容性强</p>
+<p><strong>AMD CPU</strong>：爆发力强，多线程（适合画图）、功耗高（发热量大，散热系统需要规划）</p>
+<p>Intel CPU和AMD CPU在相同性能下，价格往往AMD会更加实惠，换句话说相同价位的CPU，AMD的性能普遍更强，说虽然这么说，但是还是要看个人需求，毕竟这两款CPU的针对性不同，当然对于AMD的高端CPU散热量和Intel差不多，不用很担心AMD处理器散热问题。</p>
+<h2 id="Intel-CPU后面的数字"><a href="#Intel-CPU后面的数字" class="headerlink" title="Intel CPU后面的数字"></a>Intel CPU后面的数字</h2><p>　　以i5 3450U为例</p>
+<p><strong>第一位**</strong>数字 **是i 后面的数字代表的是家族名称。</p>
+<p><strong>第二位**</strong>数字 **“3”代表它是第几代架构的产品，后面的三位数字是CPU型号，一般越高越好，</p>
+<p><strong>第三位数字 </strong>“4”代表的是处理器等级。</p>
+<p><strong>第四位和第五位数字 </strong>“50”代表处理器的频率。如果后面还有@ 3.0GHz  @ 3.0GHz，前一个是主频后一个是睿频</p>
+<h2 id="Intel-CPU后面的字母"><a href="#Intel-CPU后面的字母" class="headerlink" title="Intel CPU后面的字母"></a>Intel CPU后面的字母</h2><p><strong>K</strong>代表不锁倍频的处理器；也就是可以超频；</p>
+<p><strong>M</strong>代表标准电压cpu，可以拆卸的；</p>
+<p><strong>U</strong>代表低电压节能的，可以拆卸的；</p>
+<p><strong>X</strong>代表高性能，可拆卸的；</p>
+<p><strong>Q</strong>代表至高性能级别；</p>
+<p><strong>H</strong>是高电压的，是焊接的，不能拆卸；</p>
+<p><strong>Y</strong>代表超低电压的，除了省电，没别的优点的了，是不能拆卸的；</p>
+<p><strong>F</strong>代表不带内置显卡(核显)</p>
+<p>两个字母的，属于上面这些特性的组合</p>
+<blockquote>
+<p>相同性能的CPU，Intel的CPU价格要比AMD贵，且Intel的CPU功耗比AMD处理器功耗低。如果手头预算不多，建议选择AMD的CPU，而手头宽裕的话，建议选择Intel的CPU。相比而言AMD 的CPU性价比较高。</p>
+</blockquote>
+<h2 id="AMD-CPU后面的数字"><a href="#AMD-CPU后面的数字" class="headerlink" title="AMD CPU后面的数字"></a>AMD CPU后面的数字</h2><p>　　以R5 1500X为例</p>
+<p><strong>第一位数字</strong> 是R 后面的数字代表的是家族名称。</p>
+<p><strong>第二位数字</strong> “1”代表它是第几代架构的产品，</p>
+<p>后面的三位数字是CPU型号，一般越高越好，</p>
+<p>X代表支持完整的XFR技术（带X的超频能力更强，而且超频是全自动智能的）。</p>
+<h2 id="CPU天梯图"><a href="#CPU天梯图" class="headerlink" title="CPU天梯图"></a>CPU天梯图</h2><p><img src="https://img2018.cnblogs.com/blog/1433301/201909/1433301-20190929140546242-149217135.png" alt></p>
+<p>想要看更详细的CPU性能天梯图请移步：<a href="http://www.mydrivers.com/zhuanti/tianti/cpu/index.html" target="_blank" rel="noopener">http://www.mydrivers.com/zhuanti/tianti/cpu/index.html</a></p>
+<p>中关村CPU性能天梯图：<a href="https://cpu.zol.com.cn/soc/" target="_blank" rel="noopener">https://cpu.zol.com.cn/soc/</a></p>
+<p>注意事项：选购CPU、主板的时候要特别注意接口时候匹配</p>
+<h2 id="CPU的主要厂商"><a href="#CPU的主要厂商" class="headerlink" title="CPU的主要厂商"></a><strong>CPU的主要厂商</strong></h2><ul>
+<li>Intel：主要有赛扬（Celeron）、奔腾（Pentinum）、酷睿2（Core2）、酷睿i（Core i）这三个系列，赛扬系列以低端产品为主，奔腾系列以低端和低中端产品为主，Core2以低端和中低端产品为主，Core i系列以中端和高端产品为主，酷睿i3 i5 i7 是英特尔主流的处理器家族。总的来说，性能强弱为赛扬&lt;奔腾&lt;酷睿2&lt;酷睿 i。但是不是绝对的，还要看该系列的产品是第几代的，比如酷睿2系列的CPU不一定就绝对地比奔腾系列的CPU性能强，从天梯排行中就可以看出来，Pentinum E5700&gt;Core2 duo E4300.</li>
+<li>AMD：主要有锐龙(Ryzen，性价比)、AMD FX(推土机，高端)、APU(以四核为主)、速龙（Athlon，性价比）、闪龙（Sempron），这几个系列，闪龙系列主要以低端产品为主，速龙以低端和低中端产品为主，弈龙主要以中端和高端产品为主，A系列（A系列集成了显卡芯片）主要以低中端和中低端产品为主，FX系列以中高端和高端产品为主。总的来说，性能强弱为：闪龙&lt;速龙&lt;A系列&lt;弈龙&lt;FX。但是这个也不是绝对的。比如弈龙1代的很多产品性能就比不上速龙2代的产品。AMD现在只有锐龙系列的CPU值得买</li>
+</ul>
+<h1 id="显卡"><a href="#显卡" class="headerlink" title="显卡 "></a>显卡 </h1><p><strong>显卡的性能指标</strong>：架构、流处理器个数、GPU频率、核心频率、显存带宽、显存大小（按重要程度排序）</p>
+<p>架构：越新越好</p>
+<p>流处理器：简称SP，也叫渲染管，是显卡最重要的参数，流处理器的数量直接影响显卡的性能，流处理器越多，显卡画图能力越强，速度越快(同一代的显卡比较流处理器才有意义)。</p>
+<p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114162727474-1218538472.png" alt></p>
+<p>GPU频率：GPU频率越高，性能越强，发热也越大，功耗越高；频率低，性能弱，发热也越小。</p>
+<p>显存带宽：显存带宽=显存位宽×显存频率，显存位宽就相当于公路路宽，显存频率就像汽车的速度，所以，显卡位宽和显存频率对显卡的性能影响很大。</p>
+<p>显存容量：显存能提供临时的存储功能。很多奸商会把显存当做显卡的卖点来忽悠小白，这里要说的是，大显存有用，但不是那么的重要。举个例子：显存是停车场，如果停车场的马路不够宽（位宽 bit），汽车的速度也不够快（显存频率MHz)，那么这个停车场的吞吐量就很小，修一个超大的停车场纯属浪费资源。</p>
+<h2 id="显卡品牌：N卡和A卡"><a href="#显卡品牌：N卡和A卡" class="headerlink" title="显卡品牌：N卡和A卡"></a>显卡品牌：N卡和A卡</h2><p><img src="https://img2018.cnblogs.com/blog/1433301/201909/1433301-20190929113017828-590241116.png" alt></p>
+<h3 id="Nvida-Geforce——N卡"><a href="#Nvida-Geforce——N卡" class="headerlink" title="Nvida Geforce——N卡"></a>Nvida Geforce——N卡</h3><p>N卡有GT、GTS、GTX这几个系列。</p>
+<p>GT是普通系列，而GTS和GTX是中高端系列的，如果后面跟了 Ti 表示是该型号的的加强版。</p>
+<p>在选择N卡来说，一般看第一位数字和第二位数字，</p>
+<p><strong>第一位数字</strong> 第几代显卡</p>
+<p><strong>第二位数字</strong> 表示是该系列的低端、中端还是高端。1，2，3的话表示是该系列的低端产品；4，5，6表示是中端产品，7，8，9表示是高端产品，比如GT610就是第六代的低端显卡，还有一点就是产品低一代的话，而第二个数字高一点的话，两个显卡的性能基本很接近的，比如GT640和GT550，GT640是第六代的显卡，GT550是第五代的显卡，而GT550第二位数字是5，GT640第二位数字是4，通常来说，像这样的情况下，两个显卡的性能是很接近的。</p>
+<p><strong>第三位数字</strong> “0”表示常规显卡，“5”表示升级版</p>
+<p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114164801692-196287110.png" alt></p>
+<p><strong>N卡优缺点</strong></p>
+<ul>
+<li>设计侧重点：3D性能和速度，</li>
+<li>性能运算：执行效率高，但运行能力较低</li>
+<li>视频处理：色彩稍淡，需要手动调节分辨率</li>
+</ul>
+<h3 id="ATI——A卡"><a href="#ATI——A卡" class="headerlink" title="ATI——A卡"></a><strong>ATI——</strong>A卡</h3><p><strong>ATI</strong>(已经被AMD收购)，<strong>A卡</strong>；N卡有镭、HD、R、X系列。</p>
+<p><strong>第一位数字</strong> 表示是第几代，</p>
+<p><strong>第二位数字</strong> 表示该系列的低端、中端还是高端。4，5的话表示是低端；6，7表示是中端；8，9表示是高端。</p>
+<p><strong>第三位数字</strong> “0”表示常规显卡，“5”表示升级版</p>
+<p><strong>A卡优缺点</strong></p>
+<ul>
+<li>设计侧重点：2D平面画质</li>
+<li>性能运算：运算能力强大，但执行效率不高，对于复杂的任务适应性不强，需要软件的支持</li>
+<li>视频处理：自动调节分辨率，色彩还原度高</li>
+</ul>
+<p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114164906037-1495443491.png" alt></p>
+<p>娱乐一下</p>
+<p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114163710411-1578557060.png" alt></p>
+<p>　　相同性能情况下N卡价格比A卡贵，A卡的性价比相对来说要高一点。现在来说，N卡和A卡区别不大，普通用户根本用不出来区别。但是A卡较N卡性价比高是真的。有时候我们看到一个显卡相同的型号，但是却买不同的价格，其主要原因是因为显卡的核心频率、散热设计等不同。</p>
+<h2 id="关于品牌-1"><a href="#关于品牌-1" class="headerlink" title="关于品牌"></a>关于品牌</h2><p>目前较大的显卡品牌有：华硕、技嘉、微星、蓝宝石、索泰、映众、七彩虹、影驰等。</p>
+<p><strong>华硕</strong>：三大显卡厂之一，显卡用料好、散热猛、售后好、价格高。<strong>ROG玩家国度系列在性能、散热、外观等各个方面都几乎完美</strong>，但是就是贵。</p>
+<p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114170114606-713450572.png" alt></p>
+<p><strong>技嘉</strong>：三大显卡厂之一，显卡做工用料都很好。<strong>旗下有AORUS系列，定位类似ROG玩家国度</strong>，价格和玩家国度也差不多。</p>
+<p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114170132809-1182807883.png" alt></p>
+<p><strong>微星</strong>：三大显卡厂之一，是<strong>三大厂中性价比最高的</strong>。微星红龙系列显卡性能和用料还是很强的，而且价格要便宜一些。</p>
+<p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114170143521-129482932.png" alt></p>
+<p><strong>蓝宝石</strong>：是AMD最忠实的合作伙伴，<strong>A卡最强厂家</strong>。</p>
+<p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114170150071-1375418241.png" alt></p>
+<p><strong>索泰</strong>：索泰和映众都是香港柏能旗下的品牌，索泰被称为“<strong>堆料狂魔</strong>”，显卡<strong>性能极强</strong>，核心频率调的很高，性能甚至超越三大厂，价格还便宜，但是高频带来的<strong>散热问题较大</strong>，可能会比较吵。</p>
+<p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114170155985-645292354.png" alt></p>
+<p><strong>映众</strong>：映众跟索泰的做法刚好相反，映众在显卡的核心频率上没索泰那么激进，为了<strong>散热和静音</strong>将显卡频率调低了一点点，牺牲了小部分性能。映众冰龙系列<strong>散热极佳，风扇非常静音</strong>，价格也较低。</p>
+<p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114170202171-45700482.png" alt></p>
+<p><strong>影驰</strong>：影驰的显卡其实也是非常不错的，<strong>名人堂系列</strong>显卡用料足，外观也很好看，但是价格非常非常高，性价比很低，感觉不如买三大厂的旗舰型号。</p>
+<p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114170218827-479568681.png" alt></p>
+<p><strong>七彩虹</strong>：七彩虹也被称为“凄惨红”，七彩虹在十年前的名声并不好，但是现在七彩虹的igame系列显卡做的还可以，价格和性能都中规中矩。如果<strong>遇上打折力度较大，也是可以选择的</strong>。</p>
+<p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114170213496-277375763.png" alt></p>
+<h2 id="核心显卡、主板集成显卡和独立显卡的区别"><a href="#核心显卡、主板集成显卡和独立显卡的区别" class="headerlink" title="核心显卡、主板集成显卡和独立显卡的区别"></a>核心显卡、主板集成显卡和独立显卡的区别</h2><p><strong>核心显卡：</strong>处理器集成显卡就是指集成在cpu内部的显卡</p>
+<p><strong>集成显卡：</strong>集成在主板北桥中的显卡，目前处理器核心显卡性能已经领先于主板集成的显卡，并且将显卡集成在CPU中比集成在主板中更有优势。新的主板厂商已经不会在主板上集成显卡了。</p>
+<p><strong>独立显卡：</strong>我们自己加的独立的显示芯片，采用PCI接口插槽。</p>
+<p>注意：下图左边NVIDIA卡的支持光追改成RTX了，不支持光追的还是GTX</p>
+<p><img src="https://img2018.cnblogs.com/blog/1433301/201909/1433301-20190929141351372-804157291.png" alt></p>
+<p>想要看更详细的显卡性能天梯图请移步：<a href="https://www.mydrivers.com/zhuanti/tianti/gpu/index.html" target="_blank" rel="noopener">https://www.mydrivers.com/zhuanti/tianti/gpu/index.html</a><a href="http://www.mydrivers.com/zhuanti/tianti/cpu/index.html" target="_blank" rel="noopener">  
+</a></p>
+<p>中关村显卡性能天梯图：<a href="http://vga.zol.com.cn/soc/" target="_blank" rel="noopener">http://vga.zol.com.cn/soc/</a></p>
+<h1 id="内存条"><a href="#内存条" class="headerlink" title="内存条"></a>内存条</h1><p>　　DDR内存，目前分为4代。每到新一代的内存的开发，都是为了解决上一代内存速度极限的问题，DDR2到了1066就不能再高了，而DDR3是从1066起步的，DDR3内存条基本上到了2400的频率，就上不去了。而DDR4代，从2400起步，同之前的内存是一样的。所以，这个其实是根本区别。再高的频率，意味着更大的带宽，就可以更好的适应新的CPU的要求。</p>
+<p><strong>DDR3 </strong>支持频率有6种：<strong>800Mhz</strong>(DDR2和DDR3换代时候的产品)、<strong>1066Mhz</strong>(DDR2和DDR3换代时候的产品)、<strong>1333Mhz</strong>(常见)、<strong>1600Mhz</strong>(常见)、<strong>1866Mhz</strong>(高端电脑配备)、<strong>2400Mhz</strong>(高端电脑配备)</p>
+<p><strong>DDR4 </strong>支持频率有6种：<strong>2133MHZ</strong>(常见)、<strong>2400MHz</strong>(常见)、<strong>2666MHz</strong>、<strong>2800MHz</strong>、<strong>3000MHz</strong>、<strong>3200MHZ</strong>、<strong>3300MHZ，</strong></p>
+<p>内存最高频率 &lt; 主板最大支持频率</p>
+<p><img src="https://img2018.cnblogs.com/blog/1433301/201910/1433301-20191008213214451-1909427204.png" alt></p>
+<p>　　内存是CPU与硬盘之间的传输的中间设备，以DDR4为例，内存条的读写速度相比于硬盘快很多很多很多。</p>
+<p><strong>内存的主要参数</strong>：频率、时延、颗粒、容量、下行速度（按重要程度排序）</p>
+<p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114185345848-1662642306.png" alt></p>
+<p><strong>频率和时序</strong>：我们经常看到的2133MHz、2400MHz、3200MHz就是内存条的频率，它可以看成是内存条数据的传输速度，超高频率的内存条固然能给游戏带来一点性能提升，但是需要更高端的主板和CPU的支持，普通用户选择2400MHz的也已经足够用了，频率是内存条最重要的参数。</p>
+<p>　　还有一个重要参数就是<strong>时延</strong>，一般用CL表示，时延就是寻址所需的时钟周期。同一频率的内存条时延越低越好。</p>
+<p>现在普通的DDR4代内存条一般为频率2400MHz，时序CL15-17左右。但是一些使用极品颗粒的超频内存条如三星的B-die颗粒就可以轻松做到频率3200MHz，而且时序只有CL12。这类极品内存条可以做到保证时序不超标的情况下，超频上4000MHz以上。</p>
+<p>几乎所有的<strong>DDR4代的内存条默认的频率只有2133MHz</strong>，所以即使你买的是高频内存条，也需要在<strong>主板BIOS设置中打开XMP</strong>（自动超频）或手动设置超频后才能达到商家所给出的频率，而且，<strong>很多主板并不支持超过2666MHz以上的频率</strong>，所以即使你的内存条是4000MHz的神条，也会自动降频到2666MHz使用，这个需要用户去看主板上的说明。</p>
+<p><strong>内存条颗粒</strong>：颗粒就是内存条的存储数据的东西，现在主流的颗粒生产商就是 <strong>三星</strong>、<strong>海力士</strong>、<strong>镁光</strong>这三家。由于颗粒在生产时候会有质量参差不齐的情况，所以一些成色极品的颗粒会被挑选出来做成高端超频内存条，而一些成色普通但合格的颗粒会被拿去做成普通内存条。至于怎么看颗粒的好坏，我们可以从内存条的频率和时序来做一个购买前的初步判断。</p>
+<p><strong>内存条容量</strong>：容量越大，存储的数据越多。每打开一个软件，这些软件的数据都会被保存到内存条中，如果内存条被塞满，我们继续打开其他软件的时候，CPU就只能从速度超慢的硬盘调取数据了</p>
+<h2 id="单通道与双通道"><a href="#单通道与双通道" class="headerlink" title="单通道与双通道"></a>单通道与双通道</h2><p>CPU与内存条之间需要交换数据，就有上行数据(内存条数据传入CPU)和下行数据(CPU数据传入内存条)  ，如果只有一根内存条，那么上行数据和下行数据的传输就需要占用一条通道，争抢通道的使用权限和带宽。如果有两根内存条组双通道，那么上行数据和下行数据的传输就可以分别在两根内存条之间分别传输，互不影响。</p>
+<p>　　一般来说，两根相同规格的内存条插在主板对应的位置上就可以组成双通道了（看B站<a href="https://space.bilibili.com/54245027/article" target="_blank" rel="noopener">斜耳朵</a>UP主说的）。</p>
+<p>双通道能够给计算机带来<strong>5%左右的性能提升</strong>，双通道最大受益者是集显/核显，因为CPU要同时负责程序数据和显示数据的处理，需要的数据流量更大，所以双通道带来的双倍带宽才能满足这么大的数据流量的需求。英特核显可以提高20％性能，amd核显可以提升30％-50％。</p>
+<p>内存条选择注意事项：</p>
+<ol>
+<li>对于普通用户，选择内存条的时候，一般来说4g就可以了，最多8g，16g的内存条看需求，如果自己也不知道自己需要多少容量的，可以先买一根8GB的使用，发现不够可以再买一根8GB组双通道。</li>
+<li>如果有两根或多根不同频率的内存条同时使用，会<strong>以频率最低的来统一频率</strong>。比如有一根2133MHz、一根2400MHz、一根3200MHz的内存条同时使用的话，所有内存条都是按照2133MHz来使用。所以一般组双通道建议购买两根相同规格的内存条插在主板对应的位置上。所以如果是升级内存条的用户，一定要看看已有的是多少频率的，不要盲目购买高频内存条。</li>
+<li>有4根内存插槽的主板，你把内存条插满它依然是双通道的</li>
+<li>关于内存条PCB板的层数，层数越多，电路板内部的电路走线层数增加，每一层的电路走线就不会那么拥挤了，这样会有更好的电气性能，使得超频更加稳定。</li>
+<li>AMD锐龙平台用户可以选择芝奇、英睿达等牌子的内存条，可以兼容。</li>
+<li>关于品牌：各个主流品牌之间内存条价格差距不大，普通用户建议在 <strong>芝奇</strong>、<strong>英睿达</strong>、<strong>海盗船</strong>、<strong>影驰</strong>、<strong>金士顿</strong>、<strong>威刚</strong>、<strong>阿斯加特</strong>、<strong>十铨</strong>、<strong>宇瞻</strong>等这几个品牌中对比挑选一款频率、时序、价格都不错的内存条，然后认准官方自营旗舰店、官方旗舰店，因为内存条官方都会终身质保。</li>
+</ol>
+<h1 id="硬盘"><a href="#硬盘" class="headerlink" title="硬盘"></a>硬盘</h1><p>　　我们都知道木桶的短板效应，就电脑的速度来说，<strong>CPU缓存、显卡缓存、甚至是内存条都是以至少十倍百倍以上的速度差距远远的超过了所有的机械硬盘</strong>的，这就一定会给电脑的性能带来一些瓶颈。固态硬盘的存储速度是机械硬盘的5-10倍左右，多少能弥补一些硬盘在速度上的短板，<strong>所以如果你觉得你的旧电脑有些卡，反应慢，换一块固态硬盘绝对能给你的旧电脑带来新的生命</strong>。</p>
+<p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114202727339-1973588211.png" alt></p>
+<h2 id="机械硬盘"><a href="#机械硬盘" class="headerlink" title="机械硬盘"></a>机械硬盘</h2><p>　　机械硬盘是<strong>利用磁性来记录信息数据</strong>，原理类似与小时候听歌用的磁带，如果我们需要找到某个数据，磁盘就会转动到记录这个信息的部位，然后由磁头感应磁性来读取数据。</p>
+<p>注意事项：硬盘建议选择西部数据和希捷的，我个人倾向于西部数据，相比而言稳定一点，硬盘的转速有7200转和5400转的，最好选择7200转的，西部数据硬盘有三种：黑盘，蓝盘和绿盘，在买硬盘的时候注意千万不要买绿盘，最好选择蓝盘或者黑盘（价格有点贵）。好像现在又出了红盘，具体不是很清楚。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1433301/201909/1433301-20190929150819499-2128493526.png" alt></p>
+<h2 id="固态硬盘"><a href="#固态硬盘" class="headerlink" title="固态硬盘"></a>固态硬盘</h2><p>　　固态硬盘（SSD）是<strong>利用电流来记录信息数据</strong>，原理类似与MP3，如果我们要找到某个数据，直接去找到存放数据的区域，就可以直接读取了。</p>
+<p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114203439951-325641122.png" alt>  <img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114203448104-2040709388.png" alt></p>
+<p>固态硬盘的性能参数：固态硬盘的颗粒、主控、缓存、3D NAND堆栈技术、接口\总线\协议、（按重要程度排序）</p>
+<h3 id="颗粒"><a href="#颗粒" class="headerlink" title="颗粒"></a>颗粒</h3><p>闪存颗粒是固态硬盘用来存储数据的东西，分为<strong>SLC</strong>、<strong>MLC</strong>、<strong>TLC</strong>三种，是挑选固态最重要的参数。</p>
+<p><strong>SLC</strong>：每个存储单元存储<strong>1bit</strong>的数据。这种存储方式稳定性最强，读写速度很快，而且不会出错，寿命长，但是成本高。</p>
+<p><strong>MLC</strong>：每个存储单元存储<strong>2bit</strong>的数据，速度会比SLC慢一点，稳定性较强，寿命还好，但是价格贵。</p>
+<p><strong>TLC</strong>：每个存储单元存储<strong>3bit</strong>的数据，效率低、速度慢、还容易出错、寿命相对于上面两种短一些,，说虽这么说，但是现在使用最多的还是TLC，重度使用5年是没有问题的，且价格相对便宜。</p>
+<p>现在世界上能自主生产颗粒的厂家有：intel、三星、闪迪、东芝、镁光（英睿达）、海力士。所有正规的固态硬盘使用的都是这几家的检验合格的原厂颗粒。如使用自家颗粒的intel、三星、闪迪、镁光（英睿达）、东芝等；还有虽然自己不会生产颗粒，但是使用从原厂购买颗粒的浦科特、海盗船、建兴等。</p>
+<h3 id="主控"><a href="#主控" class="headerlink" title="主控"></a><strong>主控</strong></h3><p>　　主控很重要，就相当于颗粒的管理员。比较好的主控品牌有：马牌（Marvell）、SandForce、三星、intel、东芝等</p>
+<h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a><strong>缓存</strong></h3><p>　　和前面一样，缓存就是CPU和固态硬盘之间的缓冲区，方便传输，缓存越大越好</p>
+<h3 id="总线"><a href="#总线" class="headerlink" title="总线"></a><strong>总线</strong></h3><p>　　总线有SATA总线、PCI-E总线(PCIE×1、PCIE×2、PCIE×4、PCIE×8、PCIE×16 数字越大，速度越快)目前固态硬盘用的都是PCIEx2和PCIEx4的总线，显卡是PCIEx16总线</p>
+<h3 id="传输协议"><a href="#传输协议" class="headerlink" title="传输协议"></a>传输协议</h3><p>　　传输协议有：IDE(老的机械硬盘)、AHCI(机械硬盘)、SATA(目前主流硬盘协议)和NVMe(高速度低延迟)。越后面传输速度越快，拥有NVME协议的固态硬盘速度比无NVME协议的固态硬盘快很多。</p>
+<h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><p>目前固态硬盘接口有：SATA、mSATA、M.2、PCI-E</p>
+<p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114205327799-2076300470.png" alt></p>
+<p><strong>SATA接口</strong>：属于老式的接口，分SATA 3GB和SATA6 GB，我们的机械硬盘使用的也是这种接口。这种接口速度稍慢，延迟稍高，最大速度不会超过600MB/s，</p>
+<p><strong>mSATA接口</strong>：这种接口不多，一般用在笔记本上</p>
+<p><strong>M.2接口</strong>有两种：B key和M key。</p>
+<p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114210747297-924690287.png" alt></p>
+<p><strong>B key M.2接口</strong>：又称“SOCKET 2”，豁口在左边，比较老，支持PCI-Ex2总线和SATA总线，速度比较慢</p>
+<p><strong>M key M.2接口</strong>：又称“SOCKET 3”，豁口在右边，目前主流，支持PCI-Ex4总线，速度比较快</p>
+<p>B&amp;M型接口的固态硬盘兼容性好，两种M.2的插槽都能用，性能和B key差不多。</p>
+<p><strong>PCI-E接口</strong>：一般这个插槽是给显卡用的，但也可以用它来插固态硬盘，这个长得跟显卡一样的固态硬盘也是 PCI-E ×4的接口，支持PCI-E ×4的总线。但是现在的主板大多数是没有PCIE-4的插槽的。所以一般都是接在显卡的插槽里使用的。</p>
+<p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191114212811099-1261214911.png" alt></p>
+<p><strong>4KB随机读写：</strong>固态硬盘虽然顺序读写速度超快，但是那是只有在读写一整个大文件（如一部电影）时才能体会到它的优势，而影响我们日常使用的是硬盘的4KB 随机读写速度</p>
+<p>排名</p>
+<p><img src="https://img2018.cnblogs.com/blog/1433301/201909/1433301-20190929141919965-1141374635.png" alt></p>
+<blockquote>
+<p>固态硬盘推荐：</p>
+<ul>
+<li>120GB装个系统，装几个日常软件、装一个大型游戏就差不多满了，建议首选240GB容量。</li>
+<li>新配电脑的用户建议选择M.2接口的硬盘，因为这是未来的主流。老电脑升级的用户要检查主板是否有M.2插槽。</li>
+<li>4k读写性能才是影响日常体验的重中之重，购买前需要重点关注。 </li>
+</ul>
+</blockquote>
+<h1 id="电源"><a href="#电源" class="headerlink" title="电源"></a>电源</h1><p>　　电源的选择是最容易被我们忽略，又非常重要的一项，我们的核心部件如：CPU、固态硬盘、内存条都是由额定电压的。如果如果供电不稳定忽高忽低，很容易造成元器件的损坏与老化。理想情况下，供电12V就是12V，但是市面上几乎没有一款真正能做到0偏差，intel CPU对电压的要求是偏差不超过±5±5\pm5%，电源的好坏和品牌没有绝对的关系，即便是品牌好的牌子如海盗船，也依然有差的电源，如：VS系列。</p>
+<h2 id="功率的选择"><a href="#功率的选择" class="headerlink" title="功率的选择"></a>功率的选择</h2><p>直流输出中+12V的，是给CPU和显卡供电的电压和电流。最好买单路12V的，因为双路12V的会限制CPU和显卡的使用功率，单路的直接给他们，谁需求多谁就取得多。买电源的时候，+12V的直流电源功率大于显卡和CPU的额定功率就不会出问题。</p>
+<h2 id="80Plus认证"><a href="#80Plus认证" class="headerlink" title="80Plus认证"></a><strong>80Plus认证</strong></h2><p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115093316122-42975311.png" alt></p>
+<p>80Plus认证是一个电源转换率标准，转化率越高，也就越省电。就是说，如果你的电源额定功率是500W的白牌电源（满载转化率为80%），那么当你的电源满载时，你家电表实际用电为：500÷80%=625W</p>
+<p>注意：80plus认证仅仅是转化率标准，不能直接反应电源的好坏，所以这个指标在购买时仅作为参考就行了。</p>
+<p><strong>电源用料</strong>：日系电容&gt;台系电容&gt;国产电容（大概排名，不绝对）</p>
+<h2 id="模组选择"><a href="#模组选择" class="headerlink" title="模组选择"></a><strong>模组选择</strong></h2><p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115093630340-1637950448.png" alt></p>
+<p><strong>非模组</strong>：非模组电源价格便宜，但是<strong>全部线材固定</strong>，多余线头不能拆卸，理线稍微麻烦一些。</p>
+<p><strong>半模组</strong>：比非模组贵一点，重要线材固定，<strong>部分线材可拆卸</strong>，可以去除多余线材。</p>
+<p><strong>全模组</strong>：价格最贵，全<strong>部线材可拆卸</strong>，美观，方便理线。</p>
+<h2 id="电源尺寸"><a href="#电源尺寸" class="headerlink" title="电源尺寸"></a>电源尺寸</h2><p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115093829824-233476730.png" alt></p>
+<p>一般来说选择ATX的电源就够了，SFX尺寸的电源一般用在MINI型机箱上面。</p>
+<h2 id="关于品牌-2"><a href="#关于品牌-2" class="headerlink" title="关于品牌"></a>关于品牌</h2><p><strong>振华（super flower）</strong>：台企，振华电源有战碟、金蝶、金蝶GX、Leadex这几个系列，建议从金蝶开始买起，</p>
+<p><strong>海韵</strong>：台企，海韵的电源清一色<strong>日系电容</strong>，用料很不错。</p>
+<p><strong>酷冷至尊</strong>：台企，<strong>全日系电容</strong>，全模组，性价比高，稳定性很好。</p>
+<p><strong>美商海盗船</strong>：美企，<strong>海盗船的电源一定要买高端的，也就是800元起步</strong>，低端的VS系列价格高，配置低，臭名在外；</p>
+<p><strong>EVGA</strong>：美企，EVGA的电源500元以下的都不建议买，性价比太低了。高端的如G、P、T系列都是全日系电容，主流的LLC半桥+ DC-DC 结构。质保7-10年，性价比稍低。</p>
+<p><strong>讯景（XFX）</strong>：讯景低端的XT2电源（价格在300左右）不建议买，因为虽然价格不低，但是电源方案很落后，高端点的XTR、XTS系列价格在500元以上，方案主流，可以购买，但性价比稍低。</p>
+<p><strong>台达</strong>：台企，台达是世界最大的电源生产商，<strong>主要是做服务器电源和高端专业的电源解决方案</strong>，在零售商做的不是很多。有几款在售的电源如NX系列和VX静音王系列价格便宜，全日系电容用料很不错，很耐用。</p>
+<p><strong>航嘉</strong>：深圳企业，国内老牌电源厂商，型号多，价格从100-1000都有。航嘉的电源是国内做工非常好的，低端电源也比国内杂牌好的很多，安全有保障，<strong>300元以内还是推荐买的，超过300的还是建议去买酷妈和振华</strong>。</p>
+<p><strong>鑫谷</strong>：东莞企业，国内老牌电源厂商，<strong>比较推荐的是GP 白金版，使用日系和台系电容，而且是白金牌认证，电压波形很稳，价格也很便宜，性价比很高</strong>。</p>
+<blockquote>
+<p>注意事项：</p>
+<ol>
+<li>不要不舍得为电源花钱，多花100块钱有时就能拯救你好几块儿机械硬盘。</li>
+<li>功率选择不要看厂家标多少瓦，主要看+12V，把显卡和CPU满载功耗加起来还有几十瓦余量就够了。</li>
+<li>80PLUS金银铜牌认证仅代表电源转化效率，高转化率更加省电，但是不能完全评判电源的好坏。</li>
+<li>建议购买使用 LLC半桥+ DC-DC方案，使用日系、台系电容的电源。</li>
+<li>尽量购买大品牌的电源，虽然贵一点点，安全有保障，不至于翻车烧坏主板。</li>
+</ol>
+<p><a href="http://www.huntkey.com.cn/service/calculator.html" target="_blank" rel="noopener">航嘉电源功率计算器</a>：航嘉电源功率计算器 输入你要买的主板、CPU、显卡型号 它就会自动计算出你电源的待机功率和最大功耗，然后推荐出适合你的电源型号</p>
+</blockquote>
+<h1 id="散热器"><a href="#散热器" class="headerlink" title="散热器"></a>散热器</h1><p>　　如果电脑散热不良，CPU的温度过高，CPU为了保护自己不被烧坏，首先会自动降低频率来减少发热，这会导致电脑性能下降，其次降频之后如果温度还是过高，CPU就会自动触发电脑死机来保护自己。所以保证良好的散热还是很有必要的。</p>
+<h2 id="散热器的工作原理"><a href="#散热器的工作原理" class="headerlink" title="散热器的工作原理"></a>散热器的工作原理</h2><p>传热底座与CPU紧密接触，通过导热装置，将CPU产生的热量传导至散热鳍片，然后由风扇吹走鳍片上的热量。</p>
+<p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115100121446-1174300693.png" alt></p>
+<p>导热装置有三种</p>
+<p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115100200434-70980180.png" alt></p>
+<p>①<strong>纯铜（纯铝）导热</strong>：这种方式导热效率比较低，但是结构简单，价格便宜，很多<strong>原装散热器都是这种方式</strong>。</p>
+<p>②<strong>导热铜管</strong>：这是现在最常用的方式，它的铜管是<strong>中空的，里面注有一种导热液</strong>，温度升高时铜管底部的液体蒸发吸收热量，将热量传递给散热鳍片后温度降低凝结成液体，流回铜管底部，如此循环，<strong>导热效率很高。所以现在的大部分散热器都是这种方式</strong>。</p>
+<p>③<strong>水冷散热</strong>：严格来说它并不是水，是一种导热率很高的液体。它是通过水将CPU的热量带走，然后高温的水在通过曲曲折折的冷排（结构跟家里的暖气片差不多）的时候被风扇吹走热量，变为凉水再次循环。</p>
+<h2 id="影响散热效果的因素（风冷）"><a href="#影响散热效果的因素（风冷）" class="headerlink" title="影响散热效果的因素（风冷）"></a>影响散热效果的因素（风冷）</h2><p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115100433217-1131807579.png" alt></p>
+<h2 id="热量传递的效率"><a href="#热量传递的效率" class="headerlink" title="热量传递的效率"></a>热量传递的效率</h2><p>热量的传递效率是散热的关键，影响热量传递效率的因素有以下4点。</p>
+<h3 id="热管的数量以及粗细"><a href="#热管的数量以及粗细" class="headerlink" title="热管的数量以及粗细"></a>热管的数量以及粗细</h3><p>热管根数越多越好，一般2根凑合，4根够用，6根及以上就是高端散热器了；热管越粗越好（大部分为6mm,也有8mm的）。</p>
+<p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115100544006-1531324743.png" alt></p>
+<h3 id="传热底座的工艺："><a href="#传热底座的工艺：" class="headerlink" title="传热底座的工艺："></a>传热底座的工艺：</h3><p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115100626116-53643246.png" alt></p>
+<p>①<strong>热管直触</strong>：这种方案的底座非常普遍，一般的百元及以下散热器都是这种的。这种方案为了保证与CPU接触面的平整，会把铜管拍扁、打磨，这使得本来就很薄的铜管更薄了，<strong>时间久了就会出现凹凸不平的现象</strong>，影响导热效率。正规大厂都会把铜管打磨的非常平整，这样就与CPU的接触面积更大，导热效率高。一些山寨厂家的铜管凹凸不平，导致有些铜管工作时根本接触不到CPU，所以再多铜管也只是花架子。</p>
+<p>②<strong>铜底焊接（镜面打磨）</strong>：这种方案的底座价格<strong>稍微贵</strong>一些，因为把传热底座直接做成镜面，接触面积更高，导热效果也更好。所以<strong>中高端的风冷散热器</strong>都是用这种方案。</p>
+<p>③<strong>均热板</strong>：这是一种很少很少见到的方案，<strong>原理类似于热管</strong>，也是通过液体遇热蒸发，然后遇冷液化来传递热量，这种方案导<strong>热均匀效率高，但是成本很高</strong>，所以很少见。</p>
+<h3 id="导热硅脂"><a href="#导热硅脂" class="headerlink" title="导热硅脂"></a>导热硅脂</h3><p>　　由于制造工艺问题，散热器底座与CPU之间不可能有完全平整的接触面（即使你看上去很平整，但是在放大镜下是能看到凹凸不平的），所以就需要涂一层导热系数较高的硅脂来填补这些凹凸不平的地方帮助导热。硅脂的导热系数比铜低很多，所以只要均匀的涂上薄薄的一层就好了，如果涂太厚，反倒影响散热了。一般好的硅脂的导热系数在5-8之间，也有非常昂贵的导热系数在10-15。</p>
+<h3 id="散热鳍片与热管交接处的工艺"><a href="#散热鳍片与热管交接处的工艺" class="headerlink" title="散热鳍片与热管交接处的工艺"></a>散热鳍片与热管交接处的工艺</h3><p>热管是穿插在鳍片之间的，要把热量传递到鳍片上，所以他们交接地方的处理工艺也会影响导热性，目前的处理工艺有两种</p>
+<p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115101011458-796024594.png" alt></p>
+<p>①回流焊：顾名思义就是将两者焊接到一起。这种方案成本较高，但是导热性能好，而且很牢固，不容易出现鳍片松动的现象。</p>
+<p>②穿fin：也叫“穿片”工艺。顾名思义就是在鳍片上开孔，然后借助外力将导热铜管插进鳍片里。这种工艺成本较低，虽然简单，但是要想做好却并不容易，因为要考虑接触不良、鳍片松动等问题（如果你随手一拨，鳍片就在热管上滑动，导热效果可想而知了）。</p>
+<h3 id="鳍片与空气的接触面积大小"><a href="#鳍片与空气的接触面积大小" class="headerlink" title="鳍片与空气的接触面积大小"></a>鳍片与空气的接触面积大小</h3><p>鳍片承担着散热的重任，<strong>它的任务是将热管送来的热量散发到空气中，所以鳍片必须尽可能多的与空气进行接触</strong>，有些厂家会细心的设计一些凸点来尽可能大的增加鳍片的表面积。</p>
+<h3 id="风量"><a href="#风量" class="headerlink" title="风量"></a>风量</h3><p><strong>风量表示每分钟风扇能送出风的总体积，一般用CFM表示</strong>。风量越大，散热也就越好。关于风扇的参数还有：转速、风压、扇叶尺寸、噪音等。现在大多数风扇都支持PWM智能调速，<strong>我们需要关注的也就是风量、噪音等</strong>。</p>
+<h2 id="风冷散热器的类型"><a href="#风冷散热器的类型" class="headerlink" title="风冷散热器的类型"></a>风冷散热器的类型</h2><p>风冷散热器有三种类型：被动式散热（无风扇设计）、塔式、下压式。</p>
+<p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115101232477-2103575610.png" alt></p>
+<p>1、<strong>被动式散热</strong>：它其实就是一个无风扇版的散热器，全靠空气流通带走鳍片上的热量。</p>
+<ul>
+<li>优点：完全没有噪音。</li>
+<li>缺点：散热性能差，适合发热量特别小的平台（我们的手机几乎都是被动式散热，甚至不如被动式散热）。</li>
+</ul>
+<p>2、<strong>下压式散热</strong>：这种散热器风扇是朝下吹的，所以在兼顾CPU散热的同时也可以惠顾到主板和内存条散热。但是散热效果稍差，而且会扰乱机箱风道，所以适合发热小的平台，同时由于体积小不占空间，所以是小机箱的福音。</p>
+<p>3、<strong>塔式散热</strong>：这种散热器高高耸立如高塔一般，故名塔式散热。这种散热器单向吹风，不会扰乱风道，而且鳍片和风扇可以做的比较大，因此散热性能最好。但是不能兼顾主板和内存散热，因此需要机箱上的风扇辅助才行。</p>
+<h2 id="关于品牌-3"><a href="#关于品牌-3" class="headerlink" title="关于品牌"></a>关于品牌</h2><p><strong>猫头鹰</strong>：来自奥地利的品牌，猫头鹰主要以静音风扇久负盛名。<strong>猫头鹰的散热器最主要的特点是静音，而且设计绝对没有光污染，坚持使用回流焊工艺，但是价格昂贵</strong>。如果只是追求静音，可以买稍微便宜的型号，但如果还想要一个不错的散热效果，那就只能放血了。</p>
+<p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115101608849-1079651925.png" alt></p>
+<p><strong>大镰刀</strong>：日本品牌，镰刀的散热器<strong>做工优秀，设计很人性化</strong>，扭曲式铜管设计可以避开内存条，所以<strong>不挡内存条</strong>。</p>
+<p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115101656393-388689453.png" alt></p>
+<p><strong>利民</strong>：中国台湾品牌，利民的散热器主要还是<strong>面对高端的超频用户</strong>，</p>
+<p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115101730429-670483489.png" alt></p>
+<p><strong>九州风神</strong>：国内品牌，九州风神最出名的就是玄冰400和大塔霜了。但是<strong>99元的玄冰400不推荐</strong>，因为特别难安装。229元的6热管的大塔霜性价比非常高，但是可能会出现挡一根内存的情况。</p>
+<p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115101826510-295289614.png" alt></p>
+<p><strong>酷冷至尊</strong>：台湾品牌，129元的T400，4热管，安装方便，比玄冰400要好，<strong>适合绝大多数人的装机需求</strong>。</p>
+<p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115101832099-717743911.png" alt></p>
+<p>ID-COOLING：深圳品牌，产品<strong>设计很棒</strong>，而且<strong>性价比高</strong>。<strong>主力产品是下压式散热器</strong>，ITX机箱用户可以选择199元的IS-VC45，采用均热板设计，厚度仅为45mm；159元的is-60，采用6热管设计，也是一款性价比很高的产品。</p>
+<p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115101838051-557647675.png" alt></p>
+<p><strong>超频三</strong>：深圳品牌，超频三的散热器<strong>性价比很高</strong>，最出名的就是红海mini了，不到40元的售价，2热管设计，不玩游戏的话足够了。东海X5和东海X6也都是很有性价比的选择。</p>
+<p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115101845293-427766019.png" alt></p>
+<blockquote>
+<p>总结：</p>
+<ol>
+<li>虽然热管数量很重要，但是吸热底座做工必须要足够好才行，如果做工不平整，再多的热管都没用，因此散热器拼的更多是做工。</li>
+<li>普通的i3、i5后面不带K的CPU和锐龙不带X的CPU，如i3 8100、i5 8500、锐龙1500 1600等选择4热管的散热器就足够了，比如99元的大镰刀STB120或双风扇的STB120 plus都能轻松应对。</li>
+<li>i3 i5 i7后面带K的CPU和锐龙带X的CPU，如i3-8350k、i5 8600k、i7 8700K、锐龙1600X等选择6热管就可以了，如大镰刀的千石船、九州风神的大塔霜、利民的TS140P等。</li>
+<li>选择散热器的时候一定要注意:①机箱限高和散热器的大小；②挡不挡内存条；③支不支持你的主板平台（大部分散热器都支持英特尔和AMD多平台）。</li>
+<li>硅脂也很重要，尽量选择导热系数在5以上的硅脂。这东西很便宜，确是散热很重要的一环，均匀的涂上薄薄的一层就可以了。</li>
+<li>不要迷信水冷。风冷才是最安全，最具性价比的选择。</li>
+</ol>
+</blockquote>
+<h1 id="显示器"><a href="#显示器" class="headerlink" title="显示器"></a>显示器</h1><p>不要以为显示器不重要，显示器总结影响用户体验呀，</p>
+<p><strong>主要参数</strong>：色域(能显示的色彩范围)、色深(bit)(色彩的精细程度)、色差(色彩还原的准确性)、对比度(对比度越高，越清晰)、分辨率(表示图像的清晰程度)、刷新率Hz(表示显示器1秒能刷新多少帧)、灰阶响应时间(画面延迟)</p>
+<h2 id="显示器接口"><a href="#显示器接口" class="headerlink" title="显示器接口"></a>显示器接口</h2><p><strong>DVI：只支持视频</strong></p>
+<p>DVI接口有两个标准，25针和29针，如下图所示。直观来说，这两种接口没有区别。DVI接口传输的是数字信号，可以传输大分辨率的视频信号。DVI连接计算机显卡和显示器时不用发生转换，所以<strong>信号没有损失</strong>。</p>
+<p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191124210206619-1900508646.png" alt></p>
+<p><strong>VGA：只支持视频</strong></p>
+<p>针数为15的视频接口，主要用于老式的电脑输出。VGA输出和传递的是模拟信号。大家都知道计算机显卡产生的是数字信号，显示器使用的也是数字信号。所以使用VGA的视频接口相当于是经历了一个数模转换和一次模数转换。信号损失，<strong>显示较为模糊</strong></p>
+<p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191124210233217-1469606628.png" alt></p>
+<p><strong>HDMI接口 支持音视频</strong></p>
+<p>HDMI既能传输高清图形画面信号，也能够传输音频信号，一般来说家里会接电视，而且抗干扰强。如数码相机的体积小，需要小的接口，可以使用micro HDMI。</p>
+<p> <img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191124210950851-885396265.png" alt></p>
+<p><strong>DP接口 支持音视频</strong></p>
+<p>DP即DisplayPort，是一种高清数字显示接口标准，可以连接电脑和显示器，也可以连接连接电脑和家庭影院。DP接口可以理解是HDMI的加强版，在音频和视频传输方面更加强悍。目前情况下，DP与HDMI在性能上没有多大区别。如果你使用3840*2160分辨率（4K），HDMI由于带宽不足，最大只能传送30帧，DP就没有问题。</p>
+<p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191124210726379-1756265637.png" alt> <img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191124210756518-1111947114.png" alt></p>
+<p><strong>VGA和DVI互转</strong>：模拟信号和数字信号的转换，视频信号损失，造成失真。最好不要这样转换。</p>
+<p><strong>DVI和HDMI互转</strong>：都是数字信号，转换不会发生是真。可以转换。但是从HDMI转换成DVI时会自动舍去音频信号。</p>
+<h2 id="液晶面板"><a href="#液晶面板" class="headerlink" title="液晶面板"></a>液晶面板</h2><h3 id="TN面板"><a href="#TN面板" class="headerlink" title="TN面板"></a>TN面板</h3><p>TN面板的优点是：液晶分子偏转速度非常快，所以<strong>灰阶响应时间很短</strong>。<strong>缺点是：色域窄，色彩差，画面色彩苍白，可视角度很小</strong>，有条件的可以用手机屏幕对比一下老式的便宜的笔记本电脑屏幕。这种屏幕本来快被市场淘汰了，但是随着电竞的火热，<strong>TN面板借着刷新率高，灰阶响应时间短的优点又重新回到市场</strong>，散发第二春。</p>
+<p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115104255253-388030584.png" alt></p>
+<h3 id="IPS面板"><a href="#IPS面板" class="headerlink" title="IPS面板"></a>IPS面板</h3><p>IPS面板的优点：<strong>色彩显示效果好，可视角度大</strong>，色彩准。缺点是：<strong>容易漏光，黑色不够纯正</strong>。这类显示器由于色彩好，可视角度大，所以也是现在应用最广的显示器面板。</p>
+<p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115104313254-1880343116.png" alt></p>
+<h3 id="VA面板"><a href="#VA面板" class="headerlink" title="VA面板"></a>VA面板</h3><p>VA面板有两种：MVA面板和PVA面板，PVA是三星改良的MVA面板。这类面板算是TN面板和IPS的折中方案，<strong>优点是色彩准确，对比度高，可视角度较大，漏光少，黑色纯正。缺点是响应时间比IPS还要长。</strong></p>
+<h3 id="PLS面板"><a href="#PLS面板" class="headerlink" title="PLS面板"></a>PLS面板</h3><p>PLS面板是三星独家研制的面板，<strong>类似IPS面板</strong>。</p>
+<p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115104424880-2089323325.png" alt></p>
+<h2 id="带鱼屏"><a href="#带鱼屏" class="headerlink" title="带鱼屏"></a>带鱼屏</h2><p>带鱼屏指屏幕比列为21：9或以上的显示器，特点是非常的长，跟带鱼一样，所以被调侃为“带鱼屏”。这种屏幕由于较长，所以一屏能显示更多的内容。</p>
+<p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115104828033-2044685536.png" alt></p>
+<p><strong>优点：</strong></p>
+<p>1.多开网页或者软件、游戏时，<strong>同屏能显示更多的内容，因此很适合用来工作</strong>。</p>
+<p>2.<strong>如果能找到21：9的电影片源，看电影会非常爽</strong>。（<strong>这种片源很少</strong>）</p>
+<p>3.支持市面主流网络和单机游戏。LOL和绝地求生、cs go等都<strong>能有效扩宽左右视野</strong>。</p>
+<p><strong>缺点：</strong></p>
+<p>1.由于直播、电视剧、综艺节目等片源大多是传统的16：9的，所以看这些内容，屏幕两边会有很宽的黑边。</p>
+<p>2.由于分辨率高，所以玩游戏时<strong>对显卡要求更高</strong>。</p>
+<p>3.虽然<strong>视野变宽了，但是左右看时需要左右扭头，累脖子</strong>，适合单机游戏娱乐，不适合电竞。</p>
+<p><img src="https://img2018.cnblogs.com/i1/1433301/201911/1433301-20191115104921450-1494442067.png" alt></p>
+<p>所以，对于有多开需求的用户来说，带鱼屏或许是个能提高效率的选择。</p>
+<blockquote>
+<p>总结：</p>
+<ol>
+<li>144hz/1ms的电竞显示器对<strong>CF、CS GO、绝地求生、守望先锋等PFS射击游戏来说</strong>，效果区别非常大，<strong>是那种用了之后眼睛就再也受不了60hz显示器的那种，当然前提是你的显卡得支持这么高的帧数</strong>。</li>
+<li><strong>一两千块钱的144hz/1ms电竞显示器都是TN面板的屏幕，色彩会很差</strong>，四五千的会好一些，但色彩依然比不过2千块的IPS。</li>
+<li><strong>IPS屏幕色彩很好，可视角度也很大，但漏光是IPS的通病</strong>，你买到的显示器漏光严重与否，很大程度看运气。而且轻微漏光日常使用看不出区别，所以不用太纠结。</li>
+<li>普通玩家选择IPS或者三星VA面板的显示器就够了，<strong>不是PFS射击类游戏玩家不用盲目追求144hz/1ms，效果不明显</strong>。</li>
+<li>带鱼屏细长，能同时显示多个窗口，<strong>对于多开多任务需求的用户来说帮助很大。游戏时虽然能提供更宽的视野，但是需要左右扭头，累脖子，适合单机游戏娱乐，不适合电竞</strong>。</li>
+</ol>
+</blockquote>
+<h1 id="机箱"><a href="#机箱" class="headerlink" title="机箱"></a>机箱</h1><p>散热器的选择也应该挑有品牌保障的产品，切勿贪图便宜，品牌产品不仅有售后保障，而且在设计时为了品牌发展也会下较大的成本，而非品牌产品则更加注重于散热器的外观，实际的散热性能会因为压缩成本而大打折扣。</p>
+<h1 id="搭配选择"><a href="#搭配选择" class="headerlink" title="搭配选择"></a>搭配选择</h1><p>家用：对配置要求不高，看电影、上上网之类的，选择入门级CPU和显卡即可</p>
+<p>打游戏：看游戏此配置情况选择显卡，游戏对显卡要求特别高，同时对CPU也有一定的要求。</p>
+<p>办公：办公时常需要多线程切换，因此选择一款多线程处理能力好的CPU，</p>
+<p>特殊领域：比如工程绘图或者图形渲染，深度学习等等，建议CPU和显卡都买比较好的</p>
+<p>参考来自中关村：<a href="http://www.zol.com.cn/" target="_blank" rel="noopener">http://www.zol.com.cn/</a></p>
+<p>推荐两个个自助装机的网站<a href="http://www.pc028.com/diy.php" target="_blank" rel="noopener">http://www.pc028.com/diy.php</a>和<a href="http://mydiy.pconline.com.cn/" target="_blank" rel="noopener">http://mydiy.pconline.com.cn/</a>，用户可以根据自己需要选择配置，而且会标出价格，配完之后可以在线咨询客服，更方面用户进行选择。</p>
+<p> <a href="https://www.cnblogs.com/fjfsu/p/10945866.html" target="_blank" rel="noopener">https://www.cnblogs.com/fjfsu/p/10945866.html</a></p>
+<h1 id="如果因为资金原因，那么哪些电脑配件可以选择二手的，哪些不能呢？"><a href="#如果因为资金原因，那么哪些电脑配件可以选择二手的，哪些不能呢？" class="headerlink" title="如果因为资金原因，那么哪些电脑配件可以选择二手的，哪些不能呢？"></a>如果因为资金原因，那么哪些电脑配件可以选择二手的，哪些不能呢？</h1><p><strong>可以买二手的电脑硬件部分</strong></p>
+<p><strong>处理器(CPU)</strong>：处理器做工非常精细，一般都是在机箱内部，多层维护，轻易是不会损坏的，除非是人为把针脚搞坏或者是其它损坏，如果CPU正常点亮的话，买二手的话，是可以的。</p>
+<p><strong>内存条</strong>：内存条也是如此，做工都是非常精细的，也是在机箱内部，不是人为损坏的话，除非你用力掰扯损坏或者是其它损坏。一般情况下正常用，买二手的都是没有问题的。</p>
+<p><strong>机箱</strong>：机箱对电脑的整体性能不大，只要能保证完整，可以用，那么机箱可以考虑买二手的。</p>
+<p><strong>显示器</strong>：显示器新的和旧的差别不太大，显示器保证正常，买二手的对于使用者来说完全没有问题。</p>
+<p><strong>不可以买二手的电脑硬件部分</strong></p>
+<p><strong>显卡(GPU)</strong>：显卡的性能和使用的程度是密切相关的，尤其是别人挖矿的显卡，长时间负载，元器件极易容易老化，影响较大，所以显卡最好买新的。</p>
+<p><strong>主板</strong>：主板上的电容 ，接口，线路较多，很容易损坏，旧的很容易老化有问题，建议买新的。</p>
+<p><strong>硬盘</strong>：无论是机械硬盘还是固态硬盘，它们都有一定的使用寿命与做擦写次数的问题，建议大家硬盘要买新的。</p>
+<p><strong>电源</strong>：电源是维持电脑稳定工作的必备之一，二手电源会有一定的老化损耗，电压容易不稳定，建议买新的而且要买额定功率大的电源，用来保证电脑正常工作。</p>
+<p><strong>散热器</strong>：二手的很多都是没有经过保养的，二手散热器经过长时间的使用会有磨损，使用时有明显的噪音，散热对电脑散热方面也是一个不可忽视的部分，所以建议大家散热，也要买新的。散热器的选择也应该挑有品牌保障的产品，切勿贪图便宜，品牌产品不仅有售后保障，而且在设计时为了品牌发展也会下较大的成本，而非品牌产品则更加注重于散热器的外观，实际的散热性能会因为压缩成本而大打折扣。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><h2 id="硬件知识"><a href="#硬件知识" class="headerlink" title="硬件知识"></a>硬件知识</h2><p>哔哩哔哩 古宇胡：<a href="https://www.bilibili.com/video/av65451124/?spm_id_from=trigger_reload" target="_blank" rel="noopener">https://www.bilibili.com/video/av65451124/?spm_id_from=trigger_reload</a></p>
+<p>哔哩哔哩 显卡吧DIY电脑团：<a href="https://www.bilibili.com/video/av68260293" target="_blank" rel="noopener">https://www.bilibili.com/video/av68260293</a></p>
+<p>B站UP主“<a href="https://space.bilibili.com/54245027/article" target="_blank" rel="noopener">斜耳朵</a>”的专栏（强烈建议大家可以关注他，很多内容转载他的文章，对本文帮助很大）</p>
+<p>J.Feng 博客园博客——<a href="https://www.cnblogs.com/fjfsu/p/10945866.html" target="_blank" rel="noopener">电脑组装知识</a></p>
+<h2 id="组装电脑"><a href="#组装电脑" class="headerlink" title="组装电脑"></a>组装电脑</h2><p><a href="https://www.cnblogs.com/dolphin0520/archive/2013/01/17/2861164.html" target="_blank" rel="noopener">Matrix海 子的博客园——如何组装配置属于自己的台式机</a></p>
+<p><a href="https://blog.csdn.net/billycoder/article/details/88987010" target="_blank" rel="noopener">CSDN博客——组装电脑的超详细步骤超级多图</a></p>
+<p><a href="https://blog.csdn.net/ifisher999/article/details/79620310" target="_blank" rel="noopener">CSDN博客——组装深度学习电脑</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&amp;mid=2247510319&amp;idx=1&amp;sn=db8db4cc6d329ce0bfcf3d52721b7596&amp;chksm=e8d01e5ddfa7974b30ed0b012140997dd8696f2fbad73c23cd0a583a22fc0c49d31858008f22&amp;scene=0&amp;xtrack=1#rd" target="_blank" rel="noopener">量子位的公众号文章——深度学习装机指南</a></p>
+<p>原作者：凌逆战</p>
+<p>转载地址：<a href="https://www.cnblogs.com/LXP-Never/p/11607551.html" title="view: 电脑组装之硬件选择" target="_blank" rel="noopener">https://www.cnblogs.com/LXP-Never/p/11607551.html</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div></div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.jpg" alt="Zhong Ning(钟宁) 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/computer/" rel="tag"># computer</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/57431/" rel="next" title="LeetCode 054 Spiral Matrix">
+                <i class="fa fa-chevron-left"></i> LeetCode 054 Spiral Matrix
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/19298/" rel="prev" title="访问图片出现403的解决办法">
+                访问图片出现403的解决办法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Zhong Ning(钟宁)">
+            
+              <p class="site-author-name" itemprop="name">Zhong Ning(钟宁)</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">60</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/zhongning" title="GitHub &rarr; https://github.com/zhongning" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:zhongning1989@gmail.com" title="E-Mail &rarr; mailto:zhongning1989@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#主板"><span class="nav-number">1.</span> <span class="nav-text">主板</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Intel芯片组主板"><span class="nav-number">1.1.</span> <span class="nav-text">Intel芯片组主板</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#型号字母"><span class="nav-number">1.1.1.</span> <span class="nav-text">型号字母</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字母后面的数字"><span class="nav-number">1.1.2.</span> <span class="nav-text">字母后面的数字</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AMD芯片组主板"><span class="nav-number">1.2.</span> <span class="nav-text">AMD芯片组主板</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#型号字母-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">型号字母</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字母后面的数字-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">字母后面的数字</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主板尺寸"><span class="nav-number">1.3.</span> <span class="nav-text">主板尺寸</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主板小板和大板的区别是什么？主板小板和大板优缺点分析："><span class="nav-number">1.3.1.</span> <span class="nav-text">主板小板和大板的区别是什么？主板小板和大板优缺点分析：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于品牌"><span class="nav-number">1.4.</span> <span class="nav-text">关于品牌</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CPU"><span class="nav-number">2.</span> <span class="nav-text">CPU</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#关键参数"><span class="nav-number">2.1.</span> <span class="nav-text">关键参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Intel-CPU后面的数字"><span class="nav-number">2.2.</span> <span class="nav-text">Intel CPU后面的数字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Intel-CPU后面的字母"><span class="nav-number">2.3.</span> <span class="nav-text">Intel CPU后面的字母</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AMD-CPU后面的数字"><span class="nav-number">2.4.</span> <span class="nav-text">AMD CPU后面的数字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CPU天梯图"><span class="nav-number">2.5.</span> <span class="nav-text">CPU天梯图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CPU的主要厂商"><span class="nav-number">2.6.</span> <span class="nav-text">CPU的主要厂商</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#显卡"><span class="nav-number">3.</span> <span class="nav-text">显卡 </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#显卡品牌：N卡和A卡"><span class="nav-number">3.1.</span> <span class="nav-text">显卡品牌：N卡和A卡</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Nvida-Geforce——N卡"><span class="nav-number">3.1.1.</span> <span class="nav-text">Nvida Geforce——N卡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ATI——A卡"><span class="nav-number">3.1.2.</span> <span class="nav-text">ATI——A卡</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于品牌-1"><span class="nav-number">3.2.</span> <span class="nav-text">关于品牌</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#核心显卡、主板集成显卡和独立显卡的区别"><span class="nav-number">3.3.</span> <span class="nav-text">核心显卡、主板集成显卡和独立显卡的区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内存条"><span class="nav-number">4.</span> <span class="nav-text">内存条</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#单通道与双通道"><span class="nav-number">4.1.</span> <span class="nav-text">单通道与双通道</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#硬盘"><span class="nav-number">5.</span> <span class="nav-text">硬盘</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#机械硬盘"><span class="nav-number">5.1.</span> <span class="nav-text">机械硬盘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#固态硬盘"><span class="nav-number">5.2.</span> <span class="nav-text">固态硬盘</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#颗粒"><span class="nav-number">5.2.1.</span> <span class="nav-text">颗粒</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主控"><span class="nav-number">5.2.2.</span> <span class="nav-text">主控</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存"><span class="nav-number">5.2.3.</span> <span class="nav-text">缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总线"><span class="nav-number">5.2.4.</span> <span class="nav-text">总线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传输协议"><span class="nav-number">5.2.5.</span> <span class="nav-text">传输协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接口"><span class="nav-number">5.2.6.</span> <span class="nav-text">接口</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#电源"><span class="nav-number">6.</span> <span class="nav-text">电源</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#功率的选择"><span class="nav-number">6.1.</span> <span class="nav-text">功率的选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#80Plus认证"><span class="nav-number">6.2.</span> <span class="nav-text">80Plus认证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模组选择"><span class="nav-number">6.3.</span> <span class="nav-text">模组选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#电源尺寸"><span class="nav-number">6.4.</span> <span class="nav-text">电源尺寸</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于品牌-2"><span class="nav-number">6.5.</span> <span class="nav-text">关于品牌</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#散热器"><span class="nav-number">7.</span> <span class="nav-text">散热器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#散热器的工作原理"><span class="nav-number">7.1.</span> <span class="nav-text">散热器的工作原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#影响散热效果的因素（风冷）"><span class="nav-number">7.2.</span> <span class="nav-text">影响散热效果的因素（风冷）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#热量传递的效率"><span class="nav-number">7.3.</span> <span class="nav-text">热量传递的效率</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#热管的数量以及粗细"><span class="nav-number">7.3.1.</span> <span class="nav-text">热管的数量以及粗细</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传热底座的工艺："><span class="nav-number">7.3.2.</span> <span class="nav-text">传热底座的工艺：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导热硅脂"><span class="nav-number">7.3.3.</span> <span class="nav-text">导热硅脂</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#散热鳍片与热管交接处的工艺"><span class="nav-number">7.3.4.</span> <span class="nav-text">散热鳍片与热管交接处的工艺</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#鳍片与空气的接触面积大小"><span class="nav-number">7.3.5.</span> <span class="nav-text">鳍片与空气的接触面积大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#风量"><span class="nav-number">7.3.6.</span> <span class="nav-text">风量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#风冷散热器的类型"><span class="nav-number">7.4.</span> <span class="nav-text">风冷散热器的类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于品牌-3"><span class="nav-number">7.5.</span> <span class="nav-text">关于品牌</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#显示器"><span class="nav-number">8.</span> <span class="nav-text">显示器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#显示器接口"><span class="nav-number">8.1.</span> <span class="nav-text">显示器接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#液晶面板"><span class="nav-number">8.2.</span> <span class="nav-text">液晶面板</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TN面板"><span class="nav-number">8.2.1.</span> <span class="nav-text">TN面板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IPS面板"><span class="nav-number">8.2.2.</span> <span class="nav-text">IPS面板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VA面板"><span class="nav-number">8.2.3.</span> <span class="nav-text">VA面板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PLS面板"><span class="nav-number">8.2.4.</span> <span class="nav-text">PLS面板</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#带鱼屏"><span class="nav-number">8.3.</span> <span class="nav-text">带鱼屏</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#机箱"><span class="nav-number">9.</span> <span class="nav-text">机箱</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搭配选择"><span class="nav-number">10.</span> <span class="nav-text">搭配选择</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如果因为资金原因，那么哪些电脑配件可以选择二手的，哪些不能呢？"><span class="nav-number">11.</span> <span class="nav-text">如果因为资金原因，那么哪些电脑配件可以选择二手的，哪些不能呢？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">12.</span> <span class="nav-text">参考</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#硬件知识"><span class="nav-number">12.1.</span> <span class="nav-text">硬件知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组装电脑"><span class="nav-number">12.2.</span> <span class="nav-text">组装电脑</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zhong Ning(钟宁)</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.0.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
