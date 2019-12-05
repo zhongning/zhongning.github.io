@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[访问图片出现403的解决办法]]></title>
     <url>%2Fposts%2F19298%2F</url>
-    <content type="text"><![CDATA[访问图片出现403的解决办法有时候在页面里用img标签访问页面图片返回403 forbidden，而浏览器可以直接打开。 是因为图片服务器加了防盗链，会检测访问图片的referer。 总结了一下,有两种方法是可以解决这个问题的: 使用images.weserv.nl方案 使用no-referrer方案 第一种:使用images.weserv.nl方案1234567getImage(url)&#123; console.log(url); // 把现在的图片连接传进来，返回一个不受限制的路径 if(url !== undefined)&#123; return url.replace(/^(http)[s]*(\:\/\/)/,'https://images.weserv.nl/?url='); &#125;&#125; 把图片路径直接传进去,替换一下原来url的http/https.或者直接在图片url前加上https://images.weserv.nl/?url=如: 1https://images.weserv.nl/?url=http://img.zcool.cn/community/01d881579dc3620000018c1b430c4b.JPG@3000w_1l_2o_100sh.jpg 原图片的http://是可以省略的(与上面的getImage函数是一样的结果) 1https://images.weserv.nl/?url=mg.zcool.cn/community/01d881579dc3620000018c1b430c4b.JPG@3000w_1l_2o_100sh.jpg 第二种:使用no-referrer方案http请求体的header中有一个referrer字段，用来表示发起http请求的源地址信息，这个referrer信息是可以省略但是不可修改的，就是说你只能设置是否带上这个referrer信息，不能定制referrer里面的值。 这种方案不仅针对图片的防盗链,还可以是其他标签。 在前端页面头部添加一个meta 1&lt;meta name="referrer" content="no-referrer" /&gt; referrer的几种状态 a标签的referrer 1&lt;a href="http://example.com" referrer="no-referrer|origin|unsafe-url"&gt;xxx&lt;/a&gt; img/image标签的referrer 12&lt;img referrer="no-referrer|origin|unsafe-url" src="&#123;&#123;item.src&#125;&#125;"/&gt;&lt;image referrer="no-referrer|origin|unsafe-url" src="&#123;&#123;item.src&#125;&#125;"&gt;&lt;/image&gt; 说明如果访问gif图片，使用第一种方案是没有gif效果的，只能显示静态图片，这个时候推荐大家使用第二种。]]></content>
+    <content type="text"><![CDATA[访问图片出现403的解决办法 有时候在页面里用img标签访问页面图片返回403 forbidden，而浏览器可以直接打开。 是因为图片服务器加了防盗链，会检测访问图片的referer。 总结了一下,有两种方法是可以解决这个问题的: 使用images.weserv.nl方案 使用no-referrer方案 第一种:使用images.weserv.nl方案1234567getImage(url)&#123; console.log(url); // 把现在的图片连接传进来，返回一个不受限制的路径 if(url !== undefined)&#123; return url.replace(/^(http)[s]*(\:\/\/)/,'https://images.weserv.nl/?url='); &#125;&#125; 把图片路径直接传进去,替换一下原来url的http/https.或者直接在图片url前加上https://images.weserv.nl/?url=如: 1https://images.weserv.nl/?url=http://img.zcool.cn/community/01d881579dc3620000018c1b430c4b.JPG@3000w_1l_2o_100sh.jpg 原图片的http://是可以省略的(与上面的getImage函数是一样的结果) 1https://images.weserv.nl/?url=mg.zcool.cn/community/01d881579dc3620000018c1b430c4b.JPG@3000w_1l_2o_100sh.jpg 第二种:使用no-referrer方案http请求体的header中有一个referrer字段，用来表示发起http请求的源地址信息，这个referrer信息是可以省略但是不可修改的，就是说你只能设置是否带上这个referrer信息，不能定制referrer里面的值。 这种方案不仅针对图片的防盗链,还可以是其他标签。 在前端页面头部添加一个meta 1&lt;meta name="referrer" content="no-referrer" /&gt; referrer的几种状态 a标签的referrer 1&lt;a href="http://example.com" referrer="no-referrer|origin|unsafe-url"&gt;xxx&lt;/a&gt; img/image标签的referrer 12&lt;img referrer="no-referrer|origin|unsafe-url" src="&#123;&#123;item.src&#125;&#125;"/&gt;&lt;image referrer="no-referrer|origin|unsafe-url" src="&#123;&#123;item.src&#125;&#125;"&gt;&lt;/image&gt; 说明如果访问gif图片，使用第一种方案是没有gif效果的，只能显示静态图片，这个时候推荐大家使用第二种。]]></content>
       <categories>
         <category>hexo</category>
       </categories>
@@ -85,9 +85,9 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-binary-search</tag>
         <tag>leetcode-medium</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-binary-search</tag>
       </tags>
   </entry>
   <entry>
@@ -166,8 +166,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-hard</tag>
         <tag>leetcode-dynamic-programming</tag>
         <tag>leetcode-backtracking</tag>
         <tag>leetcode-greedy</tag>
@@ -197,8 +197,8 @@
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-array</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-two-pointers</tag>
+        <tag>leetcode-hard</tag>
         <tag>leetcode-stack</tag>
       </tags>
   </entry>
@@ -307,8 +307,8 @@
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-array</tag>
-        <tag>leetcode-binary-search</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-binary-search</tag>
       </tags>
   </entry>
   <entry>
@@ -321,8 +321,8 @@
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-array</tag>
-        <tag>leetcode-binary-search</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-binary-search</tag>
       </tags>
   </entry>
   <entry>
@@ -334,8 +334,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-hard</tag>
         <tag>leetcode-dynamic-programming</tag>
       </tags>
   </entry>
@@ -362,9 +362,9 @@
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-hash-table</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-two-pointers</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-hard</tag>
       </tags>
   </entry>
   <entry>
@@ -376,9 +376,9 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-binary-search</tag>
         <tag>leetcode-medium</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-binary-search</tag>
       </tags>
   </entry>
   <entry>
@@ -432,8 +432,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-linked-list</tag>
+        <tag>leetcode-hard</tag>
       </tags>
   </entry>
   <entry>
@@ -458,9 +458,9 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>leetcode-linked-list</tag>
         <tag>leetcode-hard</tag>
         <tag>leetcode-divide-and-conquer</tag>
-        <tag>leetcode-linked-list</tag>
         <tag>leetcode-heap</tag>
       </tags>
   </entry>
@@ -640,8 +640,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-hard</tag>
         <tag>leetcode-dynamic-programming</tag>
         <tag>leetcode-backtracking</tag>
       </tags>
@@ -797,7 +797,7 @@
   <entry>
     <title><![CDATA[Markdown基本语法]]></title>
     <url>%2Fposts%2F48840%2F</url>
-    <content type="text"><![CDATA[Markdown基本语法，几乎所有Markdown应用程序都支持John Gruber原始设计文档中概述的基本语法。 标题在标题前插入1到6个#，表示6个不同级别的标题 123456# Heading level 1## Heading level 2### Heading level 3#### Heading level 4##### Heading level 5###### Heading level 6 段落段落之间用空行隔开，不能使用空格或者缩进 123I really like using Markdown.I think I&apos;ll use it to format all of my documents from now on. 换行符在文字中间插入&lt;br&gt;可以进行换行，或者两个空格再回车。 1This is the first line. &lt;br&gt; And this is the second line. This is the first line. And this is the second line. 强调加粗在文字的前后用两个*或者_可以加粗字体 123I just love **bold text**.I just love __bold text__.Love**is**bold I just love bold text.I just love bold text.Loveisbold 斜体在文字的前后用一个*或者_可以变成斜体 123Italicized text is the *cat&apos;s meow*.Italicized text is the _cat&apos;s meow_.A*cat*meow Italicized text is the cat’s meow.Italicized text is the cat’s meow.Acatmeow 同时加粗和斜体在文字的前后用三个*或者_可以同时加粗和变成斜体 12This text is ***really important***.This text is ___really important___. This text is really important.This text is really important. 引用在一段文字中的开头加上 &gt; 来表示一段引用文字 1&gt; Dorothy followed her through many of the beautiful rooms in her castle. Dorothy followed her through many of the beautiful rooms in her castle. 引用多个段落在每个段落及空行开头加上 &gt; 来表示引用多段文字 123&gt; Dorothy followed her through many of the beautiful rooms in her castle.&gt;&gt; The Witch bade her clean the pots and kettles and sweep the floor. Dorothy followed her through many of the beautiful rooms in her castle. The Witch bade her clean the pots and kettles and sweep the floor. 引用嵌套引用可以嵌套，在段落的开头加上&gt;&gt; 123&gt; Dorothy followed her through many of the beautiful rooms in her castle.&gt;&gt;&gt; The Witch bade her clean the pots and kettles and sweep the floor. Dorothy followed her through many of the beautiful rooms in her castle. The Witch bade her clean the pots and kettles and sweep the floor. 引用中使用其他元素引用中可以包含其他Markdown的元素，但并不是所有但元素都可以用 123456&gt; #### The quarterly results look great!&gt;&gt; - Revenue was off the chart.&gt; - Profits were higher than ever.&gt;&gt; *Everything* is going according to **plan**. The quarterly results look great! Revenue was off the chart. Profits were higher than ever. Everything is going according to plan. 列表列表可以分为有序列表和无序列表 有序列表有序列表在文字开头加上数字和点，数字并不要求按照顺序，但是起始应该是1 123456789101112131415161. First item2. Second item3. Third item4. Fourth item1. First item8. Second item3. Third item5. Fourth item1. First item2. Second item3. Third item 1. Indented item 2. Indented item4. Fourth item First item Second item Third item Indented item Indented item Fourth item 无序列表无序列表在每一行开头加上-、+、*，缩进去创建嵌套列表 123456789101112131415161718192021- First item- Second item- Third item- Fourth item* First item* Second item* Third item* Fourth item+ First item* Second item- Third item+ Fourth item- First item- Second item- Third item - Indented item - Indented item- Fourth item First item Second item Third item Indented item Indented item Fourth item 在列表中添加其他元素在列表中添加其他元素，要缩进4个空格或者1个tab 123456* This is the first list item.* Here&apos;s the second list item. I need to add another paragraph below the second list item.* And here&apos;s the third list item. This is the first list item. Here’s the second list item. I need to add another paragraph below the second list item. And here’s the third list item. 代码要表示一行代码，使用`来包裹 1At the command prompt, type `nano`. At the command prompt, type nano. 反引号转义在一行代码中如果代码本身也含有反引号，可以把最外层用两个反引号包裹 1``Use `code` in your Markdown file.`` Use `code` in your Markdown file. 代码块代码块的每行代码必须最少缩进4个空格或者1个tab 12345#### &lt;html&gt; &lt;head&gt; &lt;/head&gt; &lt;/html&gt; &lt;html&gt; &lt;head&gt; &lt;/head&gt; &lt;/html&gt; 分割线使用三个及以上的*、-、_表示分割线 12345***---_________________ 链接用[]包裹链接文字，随后用()包裹URL 1My favorite search engine is [Duck Duck Go](https://duckduckgo.com). My favorite search engine is Duck Duck Go. 链接添加提示1My favorite search engine is [Duck Duck Go](https://duckduckgo.com &quot;The best one&quot;). My favorite search engine is Duck Duck Go. 网页和邮箱为了快速将网页和邮箱转为链接，可以用&lt;&gt;包裹起来 12&lt;https://www.markdownguide.org&gt;&lt;fake@example.com&gt; https://www.markdownguide.org&#102;&#x61;&#107;&#101;&#64;&#x65;&#120;&#x61;&#109;&#112;&#108;&#101;&#46;&#x63;&#111;&#x6d; 格式化链接为了强调链接，可以在链接的前后加星号 12I love supporting **[EFF](https://eff.org)**.This is the *[Markdown Guide](https://www.markdownguide.org)*. I love supporting EFF.This is the Markdown Guide. 图片图片的插入方式是在最开始插入!，然后用[]包裹图片无法加载的描述，再把图片的地址用()包裹 1![Google](http://pngimg.com/uploads/google/google_PNG19631.png &quot;Google Search&quot;) 带链接的图片给图片加链接的方式是，把图片的Markdown用[]包裹，再在后面把链接地址用()包裹 1[![Google](http://pngimg.com/uploads/google/google_PNG19631.png &quot;Google Search&quot;)](https://www.google.com) 转义字符如果有些符号是Markdown使用的，但是又想显示，可以在字符前加\ 1\* Without the backslash, this would be a bullet in an unordered list. 转义字符列表 Character Name \ backslash ` tick mark * asterisk _ underscore {} curly braces [] brackets () parentheses # pound sign + plus sign - minus sign (hyphen) . dot ! exclamation mark]]></content>
+    <content type="text"><![CDATA[Markdown基本语法，几乎所有Markdown应用程序都支持John Gruber原始设计文档中概述的基本语法。 标题在标题前插入1到6个#，表示6个不同级别的标题 123456# Heading level 1## Heading level 2### Heading level 3#### Heading level 4##### Heading level 5###### Heading level 6 段落段落之间用空行隔开，不能使用空格或者缩进 123I really like using Markdown.I think I&apos;ll use it to format all of my documents from now on. 换行符在文字中间插入&lt;br&gt;可以进行换行，或者两个空格再回车。 1This is the first line. &lt;br&gt; And this is the second line. This is the first line. And this is the second line. 强调加粗在文字的前后用两个*或者_可以加粗字体 123I just love **bold text**.I just love __bold text__.Love**is**bold I just love bold text.I just love bold text.Loveisbold 斜体在文字的前后用一个*或者_可以变成斜体 123Italicized text is the *cat&apos;s meow*.Italicized text is the _cat&apos;s meow_.A*cat*meow Italicized text is the cat’s meow.Italicized text is the cat’s meow.Acatmeow 同时加粗和斜体在文字的前后用三个*或者_可以同时加粗和变成斜体 12This text is ***really important***.This text is ___really important___. This text is really important.This text is really important. 引用在一段文字中的开头加上 &gt; 来表示一段引用文字 1&gt; Dorothy followed her through many of the beautiful rooms in her castle. Dorothy followed her through many of the beautiful rooms in her castle. 引用多个段落在每个段落及空行开头加上 &gt; 来表示引用多段文字 123&gt; Dorothy followed her through many of the beautiful rooms in her castle.&gt;&gt; The Witch bade her clean the pots and kettles and sweep the floor. Dorothy followed her through many of the beautiful rooms in her castle. The Witch bade her clean the pots and kettles and sweep the floor. 引用嵌套引用可以嵌套，在段落的开头加上&gt;&gt; 123&gt; Dorothy followed her through many of the beautiful rooms in her castle.&gt;&gt;&gt; The Witch bade her clean the pots and kettles and sweep the floor. Dorothy followed her through many of the beautiful rooms in her castle. The Witch bade her clean the pots and kettles and sweep the floor. 引用中使用其他元素引用中可以包含其他Markdown的元素，但并不是所有但元素都可以用 123456&gt; #### The quarterly results look great!&gt;&gt; - Revenue was off the chart.&gt; - Profits were higher than ever.&gt;&gt; *Everything* is going according to **plan**. The quarterly results look great! Revenue was off the chart. Profits were higher than ever. Everything is going according to plan. 列表列表可以分为有序列表和无序列表 有序列表有序列表在文字开头加上数字和点，数字并不要求按照顺序，但是起始应该是1 123456789101112131415161. First item2. Second item3. Third item4. Fourth item1. First item8. Second item3. Third item5. Fourth item1. First item2. Second item3. Third item 1. Indented item 2. Indented item4. Fourth item First item Second item Third item Indented item Indented item Fourth item 无序列表无序列表在每一行开头加上-、+、*，缩进去创建嵌套列表 123456789101112131415161718192021- First item- Second item- Third item- Fourth item* First item* Second item* Third item* Fourth item+ First item* Second item- Third item+ Fourth item- First item- Second item- Third item - Indented item - Indented item- Fourth item First item Second item Third item Indented item Indented item Fourth item 在列表中添加其他元素在列表中添加其他元素，要缩进4个空格或者1个tab 123456* This is the first list item.* Here&apos;s the second list item. I need to add another paragraph below the second list item.* And here&apos;s the third list item. This is the first list item. Here’s the second list item. I need to add another paragraph below the second list item. And here’s the third list item. 代码要表示一行代码，使用`来包裹 1At the command prompt, type `nano`. At the command prompt, type nano. 反引号转义在一行代码中如果代码本身也含有反引号，可以把最外层用两个反引号包裹 1``Use `code` in your Markdown file.`` Use `code` in your Markdown file. 代码块代码块的每行代码必须最少缩进4个空格或者1个tab 12345#### &lt;html&gt; &lt;head&gt; &lt;/head&gt; &lt;/html&gt; &lt;html&gt; &lt;head&gt; &lt;/head&gt; &lt;/html&gt; 分割线使用三个及以上的*、-、_表示分割线 12345***---_________________ 链接用[]包裹链接文字，随后用()包裹URL 1My favorite search engine is [Duck Duck Go](https://duckduckgo.com). My favorite search engine is Duck Duck Go. 链接添加提示1My favorite search engine is [Duck Duck Go](https://duckduckgo.com &quot;The best one&quot;). My favorite search engine is Duck Duck Go. 网页和邮箱为了快速将网页和邮箱转为链接，可以用&lt;&gt;包裹起来 12&lt;https://www.markdownguide.org&gt;&lt;fake@example.com&gt; https://www.markdownguide.org&#102;&#97;&#107;&#101;&#x40;&#x65;&#x78;&#x61;&#x6d;&#112;&#108;&#x65;&#46;&#x63;&#111;&#x6d; 格式化链接为了强调链接，可以在链接的前后加星号 12I love supporting **[EFF](https://eff.org)**.This is the *[Markdown Guide](https://www.markdownguide.org)*. I love supporting EFF.This is the Markdown Guide. 图片图片的插入方式是在最开始插入!，然后用[]包裹图片无法加载的描述，再把图片的地址用()包裹 1![Google](http://pngimg.com/uploads/google/google_PNG19631.png &quot;Google Search&quot;) 带链接的图片给图片加链接的方式是，把图片的Markdown用[]包裹，再在后面把链接地址用()包裹 1[![Google](http://pngimg.com/uploads/google/google_PNG19631.png &quot;Google Search&quot;)](https://www.google.com) 转义字符如果有些符号是Markdown使用的，但是又想显示，可以在字符前加\ 1\* Without the backslash, this would be a bullet in an unordered list. 转义字符列表 Character Name \ backslash ` tick mark * asterisk _ underscore {} curly braces [] brackets () parentheses # pound sign + plus sign - minus sign (hyphen) . dot ! exclamation mark]]></content>
       <categories>
         <category>hexo</category>
       </categories>
