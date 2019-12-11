@@ -1,6 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>LeetCode 057 Insert Interval</title>
+    <url>/posts/25158/</url>
+    <content><![CDATA[<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given a set of non-overlapping intervals, insert a new interval into the intervals (merge if necessary).</p>
+<p>You may assume that the intervals were initially sorted according to their start times.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: intervals = [[1,3],[6,9]], newInterval = [2,5]</span><br><span class="line">Output: [[1,5],[6,9]]</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: intervals = [[1,2],[3,5],[6,7],[8,10],[12,16]], newInterval = [4,8]</span><br><span class="line">Output: [[1,2],[3,10],[12,16]]</span><br><span class="line">Explanation: Because the new interval [4,8] overlaps with [3,5],[6,7],[8,10].</span><br></pre></td></tr></table></figure>
+<p><strong>Difficulty: Hard</strong></p>
+<p><strong>Code:</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[][] insert(<span class="keyword">int</span>[][] intervals, <span class="keyword">int</span>[] newInterval) &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定一系列非重叠对区间，然后插入一个新区间，若和原有区间重叠，则要进行合并操作。</p>
+<a id="more"></a>
+<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>用变量cur来遍历所有区间，若当前区间cur的end比要插入区间的start小，说明没有重叠，直接将当前区间存入结果集。<br>直到cur到达末尾或者第一次遇到重叠，则退出上述循环。</p>
+<p>新进行循环，条件是当前区间cur的start要小于等于要插入区间的end，说明有重叠，那么更新新插入区间的start和end作为两个区间合并后的区间。<br>直到cur到达末尾或者已经没有重叠，则退出上述循环。</p>
+<p>之后将重叠部分合并后的区间即更新后的插入区间放入结果集，并将未遍历的区间也放入结果集。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[][] insert(<span class="keyword">int</span>[][] intervals, <span class="keyword">int</span>[] newInterval) &#123;</span><br><span class="line">        <span class="keyword">int</span> n = intervals.length;</span><br><span class="line">        List&lt;<span class="keyword">int</span>[]&gt; res = <span class="keyword">new</span> ArrayList&lt;<span class="keyword">int</span>[]&gt;();</span><br><span class="line">        <span class="keyword">int</span> cur = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(cur&lt;n &amp;&amp; intervals[cur][<span class="number">1</span>]&lt;newInterval[<span class="number">0</span>])&#123;</span><br><span class="line">            res.add(intervals[cur++]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(cur&lt;n &amp;&amp; intervals[cur][<span class="number">0</span>]&lt;=newInterval[<span class="number">1</span>])&#123;</span><br><span class="line">            newInterval[<span class="number">0</span>] = Math.min(intervals[cur][<span class="number">0</span>],newInterval[<span class="number">0</span>]);</span><br><span class="line">            newInterval[<span class="number">1</span>] = Math.max(intervals[cur][<span class="number">1</span>],newInterval[<span class="number">1</span>]);</span><br><span class="line">            cur++;</span><br><span class="line">        &#125;</span><br><span class="line">        res.add(newInterval);</span><br><span class="line">        <span class="keyword">while</span>(cur&lt;n)&#123;</span><br><span class="line">            res.add(intervals[cur++]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res.toArray(<span class="keyword">new</span> <span class="keyword">int</span>[res.size()][]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(n)。</p>
+<p><strong>空间复杂度:</strong> O(n)。</p>
+<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><p>使用for循环遍历所有区间，使用count表示合并后的区间插入的位置。</p>
+<p>若当前区间的end小于新插入区间的start，说明没有重叠，直接放入结果集并count+1。<br>若当前区间的start大于新插入区间的end，说明也没有重叠，直接放入结果集。<br>其他情况说明有重叠，更新新插入的区间的start和end去代表合并后的区间。</p>
+<p>最后将最终合并的区间放入结果集适当的位置，即count所在的位置。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[][] insert(<span class="keyword">int</span>[][] intervals, <span class="keyword">int</span>[] newInterval) &#123;</span><br><span class="line">        <span class="keyword">int</span> n = intervals.length;</span><br><span class="line">        List&lt;<span class="keyword">int</span>[]&gt; res = <span class="keyword">new</span> ArrayList&lt;<span class="keyword">int</span>[]&gt;();</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span>[] cur = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            cur = intervals[i];</span><br><span class="line">            <span class="keyword">if</span>(cur[<span class="number">1</span>]&lt;newInterval[<span class="number">0</span>])&#123;</span><br><span class="line">                res.add(cur);</span><br><span class="line">                count++;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(cur[<span class="number">0</span>]&gt;newInterval[<span class="number">1</span>])&#123;</span><br><span class="line">                res.add(cur);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                newInterval[<span class="number">0</span>]=Math.min(cur[<span class="number">0</span>],newInterval[<span class="number">0</span>]);</span><br><span class="line">                newInterval[<span class="number">1</span>]=Math.max(cur[<span class="number">1</span>],newInterval[<span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        res.add(count, newInterval);</span><br><span class="line">        <span class="keyword">return</span> res.toArray(<span class="keyword">new</span> <span class="keyword">int</span>[res.size()][]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(n)。</p>
+<p><strong>空间复杂度:</strong> O(n)。</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>leetcode-array</tag>
+        <tag>leetcode-hard</tag>
+        <tag>leetcode-sort</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>震惊！线上四台机器同一时间全部 OOM，到底发生了什么？</title>
+    <url>/posts/12092/</url>
+    <content><![CDATA[<h3 id="案发现场"><a href="#案发现场" class="headerlink" title="案发现场"></a>案发现场</h3><p>昨天晚上突然短信收到 APM （即 Application Performance Management 的简称），我们内部自己搭建了这样一套系统来对应用的性能、可靠性进行线上的监控和预警的一种机制）大量告警<br><strong>画外音: 监控是一种非常重要的发现问题的手段，没有的话一定要及时建立哦</strong></p>
+<p>紧接着运维打来电话告知线上部署的四台机器全部 OOM (out of memory, 内存不足)，服务全部不可用,赶紧查看问题!</p>
+<a id="more"></a>
+<h3 id="问题排查"><a href="#问题排查" class="headerlink" title="问题排查"></a>问题排查</h3><p>首先运维先重启了机器，保证线上服务可用，然后再仔细地看了下线上的日志，确实是因为 OOM 导致服务不可用<br><img src="https://www.markeditor.com/file/get/c368792a9589d699db0cb14ccea6ec2e.png" alt></p>
+<p>第一时间想到 dump 当时的内存状态，但由于为了让线上尽快恢复服务，运维重启了机器，导致无法 dump 出事发时的内存。所以我又看了下我们 APM 中对 JVM 的监控图表</p>
+<p><strong>画外音： 一种方式不行，尝试另外的角度切入！再次强调，监控非常重要！完善的监控能还原当时的事发现场，方便定位问题。</strong></p>
+<p><img src="https://www.markeditor.com/file/get/049e110afa45164bef07b432b4b1fe06.png" alt></p>
+<p>不看不知道，一看吓一跳，从 16：00 开始应用中创建的线程居然每时每刻都在上升，一直到 3w 左右，重启后（蓝色箭头），线程也一直在不断增长），正常情况下的线程数是多少呢，600！问题找到了，应该是在下午 16:00 左右发了一段有问题的代码，导致线程一直在创建，且创建的线程一直未消亡!查看发布记录,发现发布记录只有这么一段可疑的代码 diff：在 HttpClient 初始化的时候额外加了一个 <strong>evictExpiredConnections</strong> 配置</p>
+<p><img src="https://www.markeditor.com/file/get/a8c589f564f6232ef44d19dded63c419.png" alt></p>
+<p>问题定位了，应该是就是这个配置导致的！（线程上升的时间点和发布时间点完全吻合！），于是先把这个新加的配置给干掉上线，上线之后线程数果然恢复正常了。那 <strong>evictExpiredConnections</strong> 做了什么导致线程数每时每刻在上升呢？这个配置又是为了解决什么问题而加上的呢？于是找到了相关同事来了解加这个配置的前因后果</p>
+<h3 id="还原事发经过"><a href="#还原事发经过" class="headerlink" title="还原事发经过"></a>还原事发经过</h3><p>最近线上出现不少 <strong>NoHttpResponseException</strong> 的异常，那是什么导致了这个异常呢?</p>
+<p>在说这个问题之前我们得先了解一下 http 的 keep-alive 机制。</p>
+<p>先看下正常的一个 TCP 连接的生命周期<br><img src="https://www.markeditor.com/file/get/0d25bfbda6edc8c9ca8630e154ddee32.png" alt></p>
+<p>可以看到每个 TCP 连接都要经过<strong>三次握手</strong>建立连接后才能发送数据，要经过<strong>四次挥手</strong>才能断开连接，如果每个 TCP 连接在 server 返回 response 后都立马断开，则发起多个 HTTP 请求就要多次创建断开 TCP, 这在 <strong>Http 请求很多</strong>的情况下无疑是很耗性能的， 如果在 server 返回 response 不立即断开 TCP 链接，而是<strong>复用</strong>这条链接进行下一次的 Http 请求，则无形中省略了很多创建 / 断开 TCP 的开销，性能上无疑会有很大提升。</p>
+<p>如下图示，左图是不复用 TCP 发起多个 HTTP 请求的情况，右图是复用 TCP 的情况，可以看到发起三次 HTTP 请求，复用 TCP 的话可以省去两次建立 / 断开 TCP 的开销，理论上发起 一个应用只要启一个 TCP 连接即可，其他 HTTP 请求都可以复用这个 TCP 连接，这样 n 次 HTTP 请求可以省去 n-1 次创建 / 断开 TCP 的开销。这对性能的提升无疑是有巨大的帮助。</p>
+<p><img src="https://www.markeditor.com/file/get/1970dcdc8d61a37eb1bd7311b2a3bcae.png" alt></p>
+<p>回过头来看 keep-alive （又称持久连接，连接复用）做的就是复用连接， 保证连接持久有效。<br>画中音: Http 1.1 之后 keep-alive 才默认支持并开启，不过目前大部分网站都用了 http 1.1 了，也就是说大部分都默认支持链接复用了</p>
+<p><strong>天下没有免费的午餐</strong> ,虽然 keep-alive 省去了很多不必要的握手/挥手操作，但由于连接长期保活，如果一直没有 http 请求的话，这条连接也就长期闲着了，会占用系统资源,有时反而会比复用连接带来更大的性能消耗。 所以我们一般会为 keep-alive 设置一个 timeout, 这样如果连接在设置的 timeout 时间内一直处于空闲状态（未发生任何数据传输），经过 timeout 时间后，连接就会释放，就能节省系统开销。</p>
+<p>看起来给 keep-alive 加 timeout 是完美了，但是又引入了新的问题（一波已平，一波又起!）,考虑如下情况:</p>
+<p>如果服务端关闭连接，发送 FIN 包（注：在设置的 timeout 时间内服务端如果一直未收到客户端的请求，服务端会主动发起带 Fin 标志的请求以断开连接释放资源），在这个 FIN 包发送但是还未到达客户端期间，客户端如果继续复用这个 TCP 连接发送 HTTP 请求报文的话，服务端会因为在四次挥手期间不接收报文而发送 RST 报文给客户端，客户端收到 RST 报文就会提示异常 (即 <strong>NoHttpResponseException</strong>)</p>
+<p>我们再用流程图仔细梳理一下上述这种产生 <strong>NoHttpResponseException</strong> 的原因,这样能看得更明白一些</p>
+<p><img src="https://www.markeditor.com/file/get/1fe2358540883a03ba3c900efed13eef.png" alt></p>
+<p>费了这么大的功夫，我们终于知道了产生 ** <strong>NoHttpResponseException</strong>** 的原因，那该怎么解决呢，有两种策略</p>
+<ol>
+<li>重试，收到异常后，重试一两次，由于重试后客户端会用有效的连接去请求，所以可以避免这种情况，不过一次要注意重试次数，避免引起雪崩!</li>
+<li>设置一个定时线程，定时清理上述的闲置连接,可以将这个定时时间设置为 keep alive timeout 时间的一半以保证超时前回收。</li>
+</ol>
+<p><strong>evictExpiredConnections</strong> 就是用的上述第二种策略，来看下官方用法使用说明</p>
+<pre><code>Makes this instance of HttpClient proactively evict idle connections from the
+connection pool using a background thread.
+</code></pre><p>调用这个方法只会产生一个定时线程，那为啥应用中线程会一直增加呢,因为我们对每一个请求都创建了一个 HttpClient! 这样由于每一个 HttpClient 实例都会调用 <strong>evictExpiredConnections</strong> ,导致有多少请求都会创建多少个 定时线程！</p>
+<p>还有一个问题，为啥线上四台机器几乎同一时间点全挂呢？<br>因为由于负载均衡，这四台机器的权重是一样的，硬件配置也一样，收到的请求其实也可以认为是差不多的，这样这四台机器由于创建 HttpClient 而生成的后台线程也在同一时间达到最高点，然后同时 OOM。</p>
+<h3 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h3><p>所以针对以上提到的问题，我们首先把 HttpClient 改成了单例，这样保证服务启动后只会有一个定时清理线程，另外我们也让运维针对应用的线程数做了监控，如果超过某个阈值直接告警，这样能在应用 OOM 前及时发现处理。<br><strong>画外音：再次强调，监控相当重要，能把问题扼杀在摇篮里！</strong></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>本文通过线上四台机器同时 OOM 的现象，来详细剖析产定位了产生问题的原因，可以看到我们在应用某个库时首先要对这个库要有充分的了了解（上述 HttpClient 的创建不用单例显然是个问题），其次必要的网络知识还是需要的，所以要成为一个合格的程序员，不关对语言本身有所了解，还要对网络，数据库等也要有所涉猎，这些对排查问题以及性能调优等会有非常大的帮助，再次，完善的监控非常重要，通过触发某个阈值提前告警，可以将问题扼杀在摇篮里！</p>
+<p>作者：ErnestEvan</p>
+<p>原文链接：<a href="https://www.cnblogs.com/xiekun/p/12010337.html" target="_blank" rel="noopener">https://www.cnblogs.com/xiekun/p/12010337.html</a></p>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode 056 Merge Intervals</title>
     <url>/posts/8023/</url>
     <content><![CDATA[<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given a collection of intervals, merge all overlapping intervals.</p>
@@ -506,8 +590,8 @@
 <p><a href="https://blog.csdn.net/billycoder/article/details/88987010" target="_blank" rel="noopener">CSDN博客——组装电脑的超详细步骤超级多图</a></p>
 <p><a href="https://blog.csdn.net/ifisher999/article/details/79620310" target="_blank" rel="noopener">CSDN博客——组装深度学习电脑</a></p>
 <p><a href="http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&amp;mid=2247510319&amp;idx=1&amp;sn=db8db4cc6d329ce0bfcf3d52721b7596&amp;chksm=e8d01e5ddfa7974b30ed0b012140997dd8696f2fbad73c23cd0a583a22fc0c49d31858008f22&amp;scene=0&amp;xtrack=1#rd" target="_blank" rel="noopener">量子位的公众号文章——深度学习装机指南</a></p>
-<p>原作者：凌逆战</p>
-<p>转载地址：<a href="https://www.cnblogs.com/LXP-Never/p/11607551.html" title="view: 电脑组装之硬件选择" target="_blank" rel="noopener">https://www.cnblogs.com/LXP-Never/p/11607551.html</a></p>
+<p>作者：凌逆战</p>
+<p>原文链接：<a href="https://www.cnblogs.com/LXP-Never/p/11607551.html" title="view: 电脑组装之硬件选择" target="_blank" rel="noopener">https://www.cnblogs.com/LXP-Never/p/11607551.html</a></p>
 ]]></content>
       <categories>
         <category>知识百科</category>
@@ -963,8 +1047,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-hard</tag>
+        <tag>leetcode-string</tag>
         <tag>leetcode-dynamic-programming</tag>
         <tag>leetcode-backtracking</tag>
         <tag>leetcode-greedy</tag>
@@ -1047,8 +1131,8 @@
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-array</tag>
-        <tag>leetcode-two-pointers</tag>
         <tag>leetcode-hard</tag>
+        <tag>leetcode-two-pointers</tag>
         <tag>leetcode-stack</tag>
       </tags>
   </entry>
@@ -1448,8 +1532,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-hard</tag>
+        <tag>leetcode-string</tag>
         <tag>leetcode-dynamic-programming</tag>
       </tags>
   </entry>
@@ -1519,9 +1603,9 @@
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-hash-table</tag>
+        <tag>leetcode-hard</tag>
         <tag>leetcode-two-pointers</tag>
         <tag>leetcode-string</tag>
-        <tag>leetcode-hard</tag>
       </tags>
   </entry>
   <entry>
@@ -2298,8 +2382,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-hard</tag>
+        <tag>leetcode-string</tag>
         <tag>leetcode-dynamic-programming</tag>
         <tag>leetcode-backtracking</tag>
       </tags>
@@ -2947,7 +3031,7 @@
 <p>My favorite search engine is <a href="https://duckduckgo.com" title="The best one" target="_blank" rel="noopener">Duck Duck Go</a>.</p>
 <h3 id="网页和邮箱"><a href="#网页和邮箱" class="headerlink" title="网页和邮箱"></a>网页和邮箱</h3><p>为了快速将网页和邮箱转为链接，可以用<code>&lt;&gt;</code>包裹起来</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;https://www.markdownguide.org&gt;</span><br><span class="line">&lt;fake@example.com&gt;</span><br></pre></td></tr></table></figure>
-<p><a href="https://www.markdownguide.org" target="_blank" rel="noopener">https://www.markdownguide.org</a><br><a href="mailto:&#102;&#x61;&#x6b;&#x65;&#64;&#101;&#120;&#97;&#109;&#x70;&#108;&#101;&#x2e;&#99;&#x6f;&#x6d;" target="_blank" rel="noopener">&#102;&#x61;&#x6b;&#x65;&#64;&#101;&#120;&#97;&#109;&#x70;&#108;&#101;&#x2e;&#99;&#x6f;&#x6d;</a></p>
+<p><a href="https://www.markdownguide.org" target="_blank" rel="noopener">https://www.markdownguide.org</a><br><a href="mailto:&#102;&#x61;&#107;&#x65;&#64;&#x65;&#x78;&#x61;&#109;&#x70;&#x6c;&#101;&#46;&#99;&#x6f;&#109;" target="_blank" rel="noopener">&#102;&#x61;&#107;&#x65;&#64;&#x65;&#x78;&#x61;&#109;&#x70;&#x6c;&#101;&#46;&#99;&#x6f;&#109;</a></p>
 <h3 id="格式化链接"><a href="#格式化链接" class="headerlink" title="格式化链接"></a>格式化链接</h3><p>为了强调链接，可以在链接的前后加星号</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">I love supporting **[EFF](https://eff.org)**.</span><br><span class="line">This is the *[Markdown Guide](https://www.markdownguide.org)*.</span><br></pre></td></tr></table></figure>
 <p>I love supporting <strong><a href="https://eff.org" target="_blank" rel="noopener">EFF</a></strong>.<br>This is the <em><a href="https://www.markdownguide.org" target="_blank" rel="noopener">Markdown Guide</a></em>.</p>
