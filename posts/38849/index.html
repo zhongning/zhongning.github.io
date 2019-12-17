@@ -45,20 +45,22 @@
   };
 </script>
 
-  <meta name="description" content="DescriptionGiven a sorted array nums, remove the duplicates in-place such that each element appear only once and return the new length. Do not allocate extra space for another array, you must do this">
-<meta name="keywords" content="leetcode,leetcode-two-pointers,leetcode-array,leetcode-easy">
+  <meta name="description" content="DescriptionA robot is located at the top-left corner of a m x n grid (marked ‘Start’ in the diagram below). The robot can only move either down or right at any point in time. The robot is trying to re">
+<meta name="keywords" content="leetcode,leetcode-medium,leetcode-array,leetcode-dynamic-programming">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode 026 Remove Duplicates from Sorted Array">
-<meta property="og:url" content="http://yoursite.com/posts/12484/index.html">
+<meta property="og:title" content="LeetCode 062 Unique Paths">
+<meta property="og:url" content="http://yoursite.com/posts/38849/index.html">
 <meta property="og:site_name" content="Show me the code">
-<meta property="og:description" content="DescriptionGiven a sorted array nums, remove the duplicates in-place such that each element appear only once and return the new length. Do not allocate extra space for another array, you must do this">
+<meta property="og:description" content="DescriptionA robot is located at the top-left corner of a m x n grid (marked ‘Start’ in the diagram below). The robot can only move either down or right at any point in time. The robot is trying to re">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-06T10:12:50.566Z">
+<meta property="og:image" content="https://assets.leetcode.com/uploads/2018/10/22/robot_maze.png">
+<meta property="og:updated_time" content="2019-12-17T16:46:09.495Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode 026 Remove Duplicates from Sorted Array">
-<meta name="twitter:description" content="DescriptionGiven a sorted array nums, remove the duplicates in-place such that each element appear only once and return the new length. Do not allocate extra space for another array, you must do this">
+<meta name="twitter:title" content="LeetCode 062 Unique Paths">
+<meta name="twitter:description" content="DescriptionA robot is located at the top-left corner of a m x n grid (marked ‘Start’ in the diagram below). The robot can only move either down or right at any point in time. The robot is trying to re">
+<meta name="twitter:image" content="https://assets.leetcode.com/uploads/2018/10/22/robot_maze.png">
 
-<link rel="canonical" href="http://yoursite.com/posts/12484/">
+<link rel="canonical" href="http://yoursite.com/posts/38849/">
 
 
 <script id="page-configurations">
@@ -72,7 +74,7 @@
   };
 </script>
 
-  <title>LeetCode 026 Remove Duplicates from Sorted Array | Show me the code</title>
+  <title>LeetCode 062 Unique Paths | Show me the code</title>
   
 
 
@@ -211,7 +213,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/12484/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/38849/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -224,7 +226,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          LeetCode 026 Remove Duplicates from Sorted Array
+          LeetCode 062 Unique Paths
         </h1>
 
         <div class="post-meta">
@@ -234,14 +236,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-04-29 21:53:16" itemprop="dateCreated datePublished" datetime="2019-04-29T21:53:16+08:00">2019-04-29</time>
+              <time title="创建时间：2019-12-17 22:56:51" itemprop="dateCreated datePublished" datetime="2019-12-17T22:56:51+08:00">2019-12-17</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-06 18:12:50" itemprop="dateModified" datetime="2019-12-06T18:12:50+08:00">2019-12-06</time>
+                <time title="修改时间：2019-12-18 00:46:09" itemprop="dateModified" datetime="2019-12-18T00:46:09+08:00">2019-12-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -266,37 +268,37 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given a sorted array nums, remove the duplicates in-place such that each element appear only once and return the new length.</p>
-<p>Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.</p>
+        <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>A robot is located at the top-left corner of a m x n grid (marked ‘Start’ in the diagram below).</p>
+<p>The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid (marked ‘Finish’ in the diagram below).</p>
+<p>How many possible unique paths are there?</p>
+<p><img src="https://assets.leetcode.com/uploads/2018/10/22/robot_maze.png" alt></p>
+<p>Above is a 7 x 3 grid. How many possible unique paths are there?</p>
+<p><strong>Note:</strong> m and n will be at most 100.</p>
 <p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Given nums = [1,1,2],</span><br><span class="line"></span><br><span class="line">Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively.</span><br><span class="line"></span><br><span class="line">It doesn&apos;t matter what you leave beyond the returned length.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Input: m = 3, n = 2</span><br><span class="line">Output: 3</span><br><span class="line">Explanation:</span><br><span class="line">From the top-left corner, there are a total of 3 ways to reach the bottom-right corner:</span><br><span class="line">1. Right -&gt; Right -&gt; Down</span><br><span class="line">2. Right -&gt; Down -&gt; Right</span><br><span class="line">3. Down -&gt; Right -&gt; Right</span><br></pre></td></tr></table></figure>
 <p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Given nums = [0,0,1,1,1,2,2,3,3,4],</span><br><span class="line"></span><br><span class="line">Your function should return length = 5, with the first five elements of nums being modified to 0, 1, 2, 3, and 4 respectively.</span><br><span class="line"></span><br><span class="line">It doesn&apos;t matter what values are set beyond the returned length.</span><br></pre></td></tr></table></figure>
-<p><strong>Clarification:</strong></p>
-<p>Confused why the returned value is an integer but your answer is an array?</p>
-<p>Note that the input array is passed in by reference, which means modification to the input array will be known to the caller as well.</p>
-<p>Internally you can think of this:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// nums is passed in by reference. (i.e., without making a copy)</span><br><span class="line">int len = removeDuplicates(nums);</span><br><span class="line"></span><br><span class="line">// any modification to nums in your function would be known by the caller.</span><br><span class="line">// using the length returned by your function, it prints the first len elements.</span><br><span class="line">for (int i = 0; i &lt; len; i++) &#123;</span><br><span class="line">    print(nums[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>Difficulty: Easy</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: m = 7, n = 3</span><br><span class="line">Output: 28</span><br></pre></td></tr></table></figure>
+<p><strong>Difficulty: Medium</strong></p>
 <p><strong>Code:</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeDuplicates</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定一个有序的数字数组，移除重复的元素，并且返回新的长度。不允许分配额外的空间给另外一个数组，要直接修改输入数组达到O(1)的空间复杂度。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">uniquePaths</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>求机器人在长为m宽为n到格子中，从左上角走到右下角所有不重复路线的个数，每次只能向下或者向右移动。</p>
 <a id="more"></a>
-<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>使用双指针，left指向该数字出现的第一个位置，right初始指向left的下一位，len表示最终的长度。</p>
-<p>遍历数组，若right位置上的数字和left相同，则right往后移动一位，直到发现不同的数字或者达到末尾。</p>
-<p>当发现不同数字时，更新len，并将数组len-1上的值更新为最新发现的数字，同时left移动到right位置，right后移一位。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeDuplicates</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums.length&lt;=<span class="number">1</span>) <span class="keyword">return</span> nums.length;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> len = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(right&lt;nums.length)&#123;</span><br><span class="line">            <span class="keyword">while</span>(nums[right]==nums[left])&#123;</span><br><span class="line">                right++;</span><br><span class="line">                <span class="keyword">if</span>(right&gt;=nums.length)&#123;</span><br><span class="line">                    <span class="keyword">return</span> len;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; </span><br><span class="line">            len++;</span><br><span class="line">            nums[len-<span class="number">1</span>]=nums[right];</span><br><span class="line">            left=right;</span><br><span class="line">            right++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> len;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>时间复杂度:</strong> O()。</p>
-<p><strong>空间复杂度:</strong> O()。</p>
-<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><p>对解法1进行优化，left指向最终去重后对当前位置，right指向当前遍历对位置。</p>
-<p>当right位置上到元素和left不相等时，left后移一位，同时给left位置赋right的值，然后继续right后移一位。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeDuplicates</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums.length&lt;=<span class="number">1</span>) <span class="keyword">return</span> nums.length;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(++right &lt; nums.length)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[right]!=nums[left])&#123;</span><br><span class="line">                nums[++left]=nums[right];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> left+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>时间复杂度:</strong> O()。</p>
-<p><strong>空间复杂度:</strong> O()。</p>
-<h2 id="Solution-3"><a href="#Solution-3" class="headerlink" title="Solution 3"></a>Solution 3</h2><p>也可以如解法2，只使用左侧指针，右侧依靠for循环来取出当前位置的值。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeDuplicates</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> num:nums)&#123;</span><br><span class="line">            <span class="keyword">if</span>(n==<span class="number">0</span> || num!=nums[n-<span class="number">1</span>])&#123;</span><br><span class="line">                nums[n++]=num;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> n;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>时间复杂度:</strong> O()。</p>
-<p><strong>空间复杂度:</strong> O()。</p>
+<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>使用动态规划，dp[i][j]表示当前当前位置不同走法的个数。</p>
+<p>当i或者j为0时表示在第一行或者第一列，因为每次只能向下或者向右移动，所有这种情况下线路只有一条。</p>
+<p>否则dp[i][j]=dp[i-1][j]+dp[i][j-1]，即等于当前位置的正上方和正左侧的所有线路之和。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">uniquePaths</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[m][n];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">            dp[i][<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">            dp[<span class="number">0</span>][j]=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;m;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;n;j++)&#123;</span><br><span class="line">                dp[i][j]=dp[i-<span class="number">1</span>][j]+dp[i][j-<span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[m-<span class="number">1</span>][n-<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(m*n)。</p>
+<p><strong>空间复杂度:</strong> O(m*n)。</p>
+<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><p>上述解法还有另外一种写法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">uniquePaths</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[m][n];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(i==<span class="number">0</span>||j==<span class="number">0</span>)&#123;</span><br><span class="line">                    dp[i][j]=<span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    dp[i][j]=dp[i-<span class="number">1</span>][j]+dp[i][j-<span class="number">1</span>];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[m-<span class="number">1</span>][n-<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(m*n)。</p>
+<p><strong>空间复杂度:</strong> O(m*n)。</p>
+<h2 id="Solution-3"><a href="#Solution-3" class="headerlink" title="Solution 3"></a>Solution 3</h2><p>对7*3的格子来说，一共要向下走2步向右走6步，可以用任意的顺序，这是一个全排列。</p>
+<p>其中的一条线路如：D R R R D R R R，所有线路的条数为(m-1+n-1)!/((m-1)!*(n-1)!)</p>
+<p>若m比n大，则结果为排列组合C(n-1)(m+n-2)，即m<em>(m+1)</em>…(m+n-2)/1<em>2</em>(n-1)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">uniquePaths</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> res = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=Math.min(m-<span class="number">1</span>,n-<span class="number">1</span>);i++)&#123;</span><br><span class="line">            res=res*(m+n-<span class="number">1</span>-i)/i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>)res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(m+n)。</p>
+<p><strong>空间复杂度:</strong> O(1)。</p>
 
     </div>
 
@@ -322,9 +324,9 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/leetcode/" rel="tag"># leetcode</a>
-              <a href="/tags/leetcode-two-pointers/" rel="tag"># leetcode-two-pointers</a>
+              <a href="/tags/leetcode-medium/" rel="tag"># leetcode-medium</a>
               <a href="/tags/leetcode-array/" rel="tag"># leetcode-array</a>
-              <a href="/tags/leetcode-easy/" rel="tag"># leetcode-easy</a>
+              <a href="/tags/leetcode-dynamic-programming/" rel="tag"># leetcode-dynamic-programming</a>
           </div>
 
         
@@ -333,13 +335,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/posts/34575/" rel="prev" title="LeetCode 025 Reverse Nodes in k-Group">
-      <i class="fa fa-chevron-left"></i> LeetCode 025 Reverse Nodes in k-Group
+    <a href="/posts/50679/" rel="prev" title="LeetCode 061 Rotate List">
+      <i class="fa fa-chevron-left"></i> LeetCode 061 Rotate List
     </a></div>
-      <div class="post-nav-item">
-    <a href="/posts/39064/" rel="next" title="LeetCode 027 Remove Element">
-      LeetCode 027 Remove Element <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
