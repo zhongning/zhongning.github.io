@@ -29,8 +29,8 @@
 <p><strong>时间复杂度:</strong> O(m*n)。</p>
 <p><strong>空间复杂度:</strong> O(m*n)。</p>
 <h2 id="Solution-3"><a href="#Solution-3" class="headerlink" title="Solution 3"></a>Solution 3</h2><p>对7*3的格子来说，一共要向下走2步向右走6步，可以用任意的顺序，这是一个全排列。</p>
-<p>其中的一条线路如：D R R R D R R R，所有线路的条数为(m-1+n-1)!/((m-1)!*(n-1)!)</p>
-<p>若m比n大，则结果为排列组合C(n-1)(m+n-2)，即m<em>(m+1)</em>…(m+n-2)/1<em>2</em>(n-1)</p>
+<p>其中的一条线路如：D R R R D R R R，所有线路的条数为(m-1+n-1)!/((m-1)!(n-1)!)</p>
+<p>若m比n大，则结果为排列组合C(n-1)(m+n-2)，即m…(m+n-2)/1…(n-1)</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">uniquePaths</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> res = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=Math.min(m-<span class="number">1</span>,n-<span class="number">1</span>);i++)&#123;</span><br><span class="line">            res=res*(m+n-<span class="number">1</span>-i)/i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>)res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>时间复杂度:</strong> O(m+n)。</p>
 <p><strong>空间复杂度:</strong> O(1)。</p>
@@ -40,8 +40,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-medium</tag>
         <tag>leetcode-array</tag>
+        <tag>leetcode-medium</tag>
         <tag>leetcode-dynamic-programming</tag>
       </tags>
   </entry>
@@ -75,8 +75,8 @@
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-two-pointers</tag>
         <tag>leetcode-linked-list</tag>
+        <tag>leetcode-two-pointers</tag>
       </tags>
   </entry>
   <entry>
@@ -1807,8 +1807,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-medium</tag>
         <tag>leetcode-array</tag>
+        <tag>leetcode-medium</tag>
       </tags>
   </entry>
   <entry>
@@ -1850,8 +1850,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-easy</tag>
+        <tag>leetcode-string</tag>
       </tags>
   </entry>
   <entry>
@@ -1886,8 +1886,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-array</tag>
+        <tag>leetcode-hard</tag>
         <tag>leetcode-sort</tag>
       </tags>
   </entry>
@@ -1971,8 +1971,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-medium</tag>
         <tag>leetcode-array</tag>
+        <tag>leetcode-medium</tag>
         <tag>leetcode-sort</tag>
       </tags>
   </entry>
@@ -2014,8 +2014,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-medium</tag>
         <tag>leetcode-array</tag>
+        <tag>leetcode-medium</tag>
         <tag>leetcode-greedy</tag>
       </tags>
   </entry>
@@ -2483,8 +2483,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-medium</tag>
         <tag>leetcode-array</tag>
+        <tag>leetcode-medium</tag>
       </tags>
   </entry>
   <entry>
@@ -2518,10 +2518,10 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>leetcode-easy</tag>
         <tag>leetcode-array</tag>
         <tag>leetcode-divide-and-conquer</tag>
         <tag>leetcode-dynamic-programming</tag>
-        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -2676,8 +2676,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-medium</tag>
         <tag>leetcode-hash-table</tag>
+        <tag>leetcode-medium</tag>
         <tag>leetcode-string</tag>
       </tags>
   </entry>
@@ -2724,8 +2724,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-medium</tag>
         <tag>leetcode-array</tag>
+        <tag>leetcode-medium</tag>
       </tags>
   </entry>
   <entry>
@@ -2824,8 +2824,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-array</tag>
+        <tag>leetcode-hard</tag>
         <tag>leetcode-greedy</tag>
       </tags>
   </entry>
@@ -2942,8 +2942,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-string</tag>
       </tags>
   </entry>
   <entry>
@@ -2984,9 +2984,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-two-pointers</tag>
         <tag>leetcode-hard</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-stack</tag>
       </tags>
   </entry>
@@ -3019,8 +3019,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-array</tag>
+        <tag>leetcode-hard</tag>
       </tags>
   </entry>
   <entry>
@@ -3055,8 +3055,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-medium</tag>
         <tag>leetcode-array</tag>
+        <tag>leetcode-medium</tag>
         <tag>leetcode-backtracking</tag>
       </tags>
   </entry>
@@ -3096,8 +3096,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-medium</tag>
         <tag>leetcode-array</tag>
+        <tag>leetcode-medium</tag>
         <tag>leetcode-backtracking</tag>
       </tags>
   </entry>
@@ -3134,8 +3134,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-easy</tag>
+        <tag>leetcode-string</tag>
       </tags>
   </entry>
   <entry>
@@ -3234,8 +3234,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-medium</tag>
         <tag>leetcode-hash-table</tag>
+        <tag>leetcode-medium</tag>
       </tags>
   </entry>
   <entry>
@@ -3267,9 +3267,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>leetcode-easy</tag>
         <tag>leetcode-array</tag>
         <tag>leetcode-binary-search</tag>
-        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -3301,8 +3301,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-medium</tag>
         <tag>leetcode-array</tag>
+        <tag>leetcode-medium</tag>
         <tag>leetcode-binary-search</tag>
       </tags>
   </entry>
@@ -3341,8 +3341,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-medium</tag>
         <tag>leetcode-array</tag>
+        <tag>leetcode-medium</tag>
         <tag>leetcode-binary-search</tag>
       </tags>
   </entry>
@@ -3419,8 +3419,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-medium</tag>
         <tag>leetcode-array</tag>
+        <tag>leetcode-medium</tag>
       </tags>
   </entry>
   <entry>
@@ -3535,9 +3535,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>leetcode-easy</tag>
         <tag>leetcode-two-pointers</tag>
         <tag>leetcode-string</tag>
-        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -3572,9 +3572,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-two-pointers</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-easy</tag>
+        <tag>leetcode-array</tag>
+        <tag>leetcode-two-pointers</tag>
       </tags>
   </entry>
   <entry>
@@ -3617,9 +3617,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-two-pointers</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-easy</tag>
+        <tag>leetcode-array</tag>
+        <tag>leetcode-two-pointers</tag>
       </tags>
   </entry>
   <entry>
@@ -3796,8 +3796,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-linked-list</tag>
         <tag>leetcode-easy</tag>
+        <tag>leetcode-linked-list</tag>
       </tags>
   </entry>
   <entry>
@@ -3839,8 +3839,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-easy</tag>
+        <tag>leetcode-string</tag>
         <tag>leetcode-stack</tag>
       </tags>
   </entry>
@@ -3872,8 +3872,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-two-pointers</tag>
         <tag>leetcode-linked-list</tag>
+        <tag>leetcode-two-pointers</tag>
       </tags>
   </entry>
   <entry>
@@ -3904,10 +3904,10 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-medium</tag>
-        <tag>leetcode-hash-table</tag>
-        <tag>leetcode-two-pointers</tag>
         <tag>leetcode-array</tag>
+        <tag>leetcode-hash-table</tag>
+        <tag>leetcode-medium</tag>
+        <tag>leetcode-two-pointers</tag>
       </tags>
   </entry>
   <entry>
@@ -3968,9 +3968,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
         <tag>leetcode-two-pointers</tag>
-        <tag>leetcode-array</tag>
       </tags>
   </entry>
   <entry>
@@ -4001,9 +4001,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
         <tag>leetcode-two-pointers</tag>
-        <tag>leetcode-array</tag>
       </tags>
   </entry>
   <entry>
@@ -4036,8 +4036,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-easy</tag>
+        <tag>leetcode-string</tag>
       </tags>
   </entry>
   <entry>
@@ -4082,9 +4082,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-string</tag>
-        <tag>leetcode-math</tag>
         <tag>leetcode-easy</tag>
+        <tag>leetcode-math</tag>
+        <tag>leetcode-string</tag>
       </tags>
   </entry>
   <entry>
@@ -4138,8 +4138,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-string</tag>
       </tags>
   </entry>
   <entry>
@@ -4170,9 +4170,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
         <tag>leetcode-two-pointers</tag>
-        <tag>leetcode-array</tag>
       </tags>
   </entry>
   <entry>
@@ -4273,8 +4273,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-math</tag>
         <tag>leetcode-easy</tag>
+        <tag>leetcode-math</tag>
       </tags>
   </entry>
   <entry>
@@ -4348,8 +4348,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-string</tag>
       </tags>
   </entry>
   <entry>
@@ -4388,8 +4388,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-math</tag>
         <tag>leetcode-easy</tag>
+        <tag>leetcode-math</tag>
       </tags>
   </entry>
   <entry>
@@ -4570,8 +4570,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-array</tag>
+        <tag>leetcode-hard</tag>
         <tag>leetcode-binary-search</tag>
         <tag>leetcode-divide-and-conquer</tag>
       </tags>
@@ -4612,8 +4612,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-medium</tag>
         <tag>leetcode-hash-table</tag>
+        <tag>leetcode-medium</tag>
         <tag>leetcode-two-pointers</tag>
         <tag>leetcode-string</tag>
         <tag>leetcode-sliding-window</tag>
@@ -4674,9 +4674,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hash-table</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-easy</tag>
+        <tag>leetcode-array</tag>
+        <tag>leetcode-hash-table</tag>
       </tags>
   </entry>
   <entry>
@@ -4885,7 +4885,7 @@ connection pool using a background thread.
 <p>My favorite search engine is <a href="https://duckduckgo.com" title="The best one" target="_blank" rel="noopener">Duck Duck Go</a>.</p>
 <h3 id="网页和邮箱"><a href="#网页和邮箱" class="headerlink" title="网页和邮箱"></a>网页和邮箱</h3><p>为了快速将网页和邮箱转为链接，可以用<code>&lt;&gt;</code>包裹起来</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;https://www.markdownguide.org&gt;</span><br><span class="line">&lt;fake@example.com&gt;</span><br></pre></td></tr></table></figure>
-<p><a href="https://www.markdownguide.org" target="_blank" rel="noopener">https://www.markdownguide.org</a><br><a href="mailto:&#x66;&#97;&#107;&#x65;&#64;&#101;&#x78;&#97;&#109;&#x70;&#108;&#101;&#46;&#99;&#111;&#x6d;" target="_blank" rel="noopener">&#x66;&#97;&#107;&#x65;&#64;&#101;&#x78;&#97;&#109;&#x70;&#108;&#101;&#46;&#99;&#111;&#x6d;</a></p>
+<p><a href="https://www.markdownguide.org" target="_blank" rel="noopener">https://www.markdownguide.org</a><br><a href="mailto:&#102;&#97;&#107;&#101;&#64;&#101;&#x78;&#97;&#109;&#x70;&#108;&#101;&#x2e;&#x63;&#x6f;&#109;" target="_blank" rel="noopener">&#102;&#97;&#107;&#101;&#64;&#101;&#x78;&#97;&#109;&#x70;&#108;&#101;&#x2e;&#x63;&#x6f;&#109;</a></p>
 <h3 id="格式化链接"><a href="#格式化链接" class="headerlink" title="格式化链接"></a>格式化链接</h3><p>为了强调链接，可以在链接的前后加星号</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">I love supporting **[EFF](https://eff.org)**.</span><br><span class="line">This is the *[Markdown Guide](https://www.markdownguide.org)*.</span><br></pre></td></tr></table></figure>
 <p>I love supporting <strong><a href="https://eff.org" target="_blank" rel="noopener">EFF</a></strong>.<br>This is the <em><a href="https://www.markdownguide.org" target="_blank" rel="noopener">Markdown Guide</a></em>.</p>
