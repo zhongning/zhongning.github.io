@@ -1,6 +1,341 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Docker实战总结</title>
+    <url>/posts/33867/</url>
+    <content><![CDATA[<meta name="referrer" content="no-referrer">
+
+<h2 id="Docker简介"><a href="#Docker简介" class="headerlink" title="Docker简介"></a>Docker简介</h2><p>Docker是一个开源的应用容器引擎，开发者可以打包自己的应用到容器里面，然后迁移到其他机器的docker应用中，可以实现快速部署。</p>
+<p>简单的理解，docker就是一个软件集装箱化平台，就像船只、火车、卡车运输集装箱而不论其内部的货物一样，软件容器充当软件部署的标准单元，其中可以包含不同的代码和依赖项。</p>
+<p>按照这种方式容器化软件，开发人员和 IT 专业人员只需进行极少修改或不修改，即可将其部署到不同的环境，如果出现的故障，也可以通过镜像，快速恢复服务。</p>
+<p><img src="https://img2018.cnblogs.com/common/1059616/201911/1059616-20191109172555889-1603196756.png" alt></p>
+<a id="more"></a>
+<h2 id="Docker优势"><a href="#Docker优势" class="headerlink" title="Docker优势"></a>Docker优势</h2><h3 id="特性优势"><a href="#特性优势" class="headerlink" title="特性优势"></a>特性优势</h3><p><img src="https://img2018.cnblogs.com/common/1059616/201911/1059616-20191109172604637-1990244867.png" alt></p>
+<h3 id="资源优势"><a href="#资源优势" class="headerlink" title="资源优势"></a>资源优势</h3><p><img src="https://img2018.cnblogs.com/common/1059616/201911/1059616-20191112151326588-965047543.png" alt></p>
+<h2 id="Docker基本概念"><a href="#Docker基本概念" class="headerlink" title="Docker基本概念"></a>Docker基本概念</h2><p><strong>Client（客户端）</strong>：是Docker的用户端，可以接受用户命令和配置标识，并与Docker daemon通信。</p>
+<p><strong>Images（镜像）</strong>：是一个只读模板，含创建Docker容器的说明，它与操作系统的安装光盘有点像。</p>
+<p><strong>Containers（容器）</strong>：镜像的运行实例，镜像与容器的关系类比面向对象中的类和对象。</p>
+<p><strong>Registry（仓库）</strong>：是一个集中存储与分发镜像的服务。最常用的Registry是官方的Docker Hub 。</p>
+<p><img src="https://img2018.cnblogs.com/common/1059616/201911/1059616-20191109172624159-620464653.png" alt></p>
+<h2 id="Docker安装使用"><a href="#Docker安装使用" class="headerlink" title="Docker安装使用"></a>Docker安装使用</h2><h3 id="操作系统：CentOS-7"><a href="#操作系统：CentOS-7" class="headerlink" title="操作系统：CentOS 7"></a>操作系统：CentOS 7</h3><p><strong>1、安装依赖</strong></p>
+<blockquote>
+<p>yum install -y yum-utils device-mapper-persistent-data lvm2</p>
+</blockquote>
+<p><strong>2、添加软件源</strong></p>
+<blockquote>
+<p>yum-config-manager –add-repo <a href="http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo" target="_blank" rel="noopener">http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</a>　　# 指定阿里云镜像源</p>
+</blockquote>
+<p><strong>3、安装docker-ce</strong>（对系统内核有一定要求，centos6不支持）</p>
+<blockquote>
+<p>yum clean all  yum makecache fast        # 重新生成缓存</p>
+<p><strong>yum -y install docker-ce docker-ce-cli containerd.io</strong></p>
+</blockquote>
+<p><strong>4、设置自启并启动</strong></p>
+<blockquote>
+<p><strong>systemctl enable docker</strong></p>
+<p><strong>systemctl start docker</strong></p>
+</blockquote>
+<p><strong>5、查看版本</strong></p>
+<blockquote>
+<p>docker version</p>
+</blockquote>
+<p><img src="https://img2018.cnblogs.com/common/1059616/201911/1059616-20191112154320701-108250532.png" alt></p>
+<h3 id="运行示例：Nginx"><a href="#运行示例：Nginx" class="headerlink" title="运行示例：Nginx"></a>运行示例：Nginx</h3><h4 id="搜索并下载镜像"><a href="#搜索并下载镜像" class="headerlink" title="搜索并下载镜像"></a>搜索并下载镜像</h4><blockquote>
+<p>docker search nginx</p>
+<p>docker pull nginx</p>
+</blockquote>
+<p><img src="https://img2018.cnblogs.com/common/1059616/201911/1059616-20191112154517806-1605394976.png" alt></p>
+<h4 id="启动一个容器并映射端口到本地"><a href="#启动一个容器并映射端口到本地" class="headerlink" title="启动一个容器并映射端口到本地"></a>启动一个容器并映射端口到本地</h4><blockquote>
+<p>docker run -d -p 8080:80 –name Nginx nginx　　　　# 参数详解见下文</p>
+</blockquote>
+<p><img src="https://img2018.cnblogs.com/common/1059616/201911/1059616-20191112154526743-736147967.png" alt></p>
+<h4 id="访问本地映射端口"><a href="#访问本地映射端口" class="headerlink" title="访问本地映射端口"></a>访问本地映射端口</h4><p><img src="https://img2018.cnblogs.com/common/1059616/201911/1059616-20191112154531659-814379855.png" alt></p>
+<h2 id="Docker常用命令"><a href="#Docker常用命令" class="headerlink" title="Docker常用命令"></a>Docker常用命令</h2><h3 id="镜像控制"><a href="#镜像控制" class="headerlink" title="镜像控制"></a>镜像控制</h3><blockquote>
+<p><strong>搜索镜像</strong>：docker  search  [OPTIONS]  TERM</p>
+<p><strong>上传镜像</strong>：docker  push  [OPTIONS]  NAME[:TAG]</p>
+<p><strong>下载镜像</strong>：docker  pull  [OPTIONS]  NAME[:TAG]</p>
+<p><strong>提交镜像</strong>：docker  commit [OPTIONS]  CONTAINER  NAME[:TAG]</p>
+<p><strong>构建镜像</strong>：docker  build  [OPTIONS]  PATH</p>
+<p><strong>删除镜像</strong>：docker  rmi [OPTIONS]  IMAGE  [IMAGE…]</p>
+<p><strong>增加镜像标签</strong>：docker  tag  SOURCE_IMAGE[:TAG]  TARGET_IMAGE[:TAG]</p>
+<p><strong>查看所有镜像</strong>：docker  images  [OPTIONS]  [REPOSITORY[:TAG]]</p>
+</blockquote>
+<p><img src="https://img2018.cnblogs.com/common/1059616/201911/1059616-20191112155412834-338762946.png" alt></p>
+<h3 id="容器控制"><a href="#容器控制" class="headerlink" title="容器控制"></a>容器控制</h3><blockquote>
+<p><strong>启动/重启容器</strong>：docker start/restart CONTAINER</p>
+<p><strong>停止/强停容器</strong>：docker stop/kill CONTAINER</p>
+<p><strong>删除容器</strong>：docker rm [OPTIONS] CONTAINER [CONTAINER…]</p>
+<p><strong>重命名容器</strong>：docker rename CONTAINER CONTAINER_NEW</p>
+<p><strong>进入容器</strong>：docker attach CONTAINER</p>
+<p><strong>执行容器命令</strong>：docker exec CONTAINER COMMAND</p>
+<p><strong>查看容器日志</strong>：docker logs [OPTIONS] CONTAINER</p>
+<p><strong>查看容器列表</strong>：docker ps [OPTIONS]</p>
+</blockquote>
+<p><img src="https://img2018.cnblogs.com/common/1059616/201911/1059616-20191112155423874-350386050.png" alt></p>
+<h3 id="容器启动"><a href="#容器启动" class="headerlink" title="容器启动"></a>容器启动</h3><blockquote>
+<p>docker  run  [OPTIONS]  IMAGE  [COMMAND]  [ARG…]</p>
+</blockquote>
+<p><strong>-d</strong>: 后台运行容器，并返回容器ID</p>
+<p><strong>-i</strong>：以交互模式运行容器，通常与 -t 同时使用</p>
+<p><strong>-t</strong>：为容器重新分配一个伪输入终端，通常与 -i 同时使用</p>
+<p><strong>-v</strong>：绑定挂载目录</p>
+<p><strong>–name=”mycontainer”</strong>: 为容器指定一个名称</p>
+<p><strong>–net=”bridge”</strong>: 指定容器的网络连接类型，支持如下：</p>
+<p>   　　bridge / host / none / container:&lt;name|id&gt;</p>
+<p><strong>-p/-P</strong>:端口映射，格式如图：</p>
+<p><img src="https://img2018.cnblogs.com/common/1059616/201911/1059616-20191112155237442-1935865842.png" alt></p>
+<h3 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h3><blockquote>
+<p>查看docker信息：docker info</p>
+<p>docker命令帮助：docker run –help</p>
+<p>复制文件到容器：docker cp custom.conf Nginx:/etc/nginx/conf.d/</p>
+<p>更新容器启动项：docker container update –restart=always nginx</p>
+<p>查看docker日志：tail -f /var/log/messages</p>
+</blockquote>
+<p><img src="https://img2018.cnblogs.com/common/1059616/201911/1059616-20191112161415759-1267729284.png" alt></p>
+<p>>&gt;&gt; 更多可以参考官网：<a href="https://docs.docker.com/engine/reference/commandline/cli/" target="_blank" rel="noopener">https://docs.docker.com/engine/reference/commandline/cli/</a></p>
+<p><img src="https://img2018.cnblogs.com/i-beta/1059616/201912/1059616-20191214150000098-1909876776.png" alt></p>
+<h2 id="Docker镜像构建"><a href="#Docker镜像构建" class="headerlink" title="Docker镜像构建"></a>Docker镜像构建</h2><h3 id="Docker-commit（1运行2修改3保存）"><a href="#Docker-commit（1运行2修改3保存）" class="headerlink" title="Docker commit（1运行2修改3保存）"></a>Docker commit（1运行2修改3保存）</h3><p><strong>a）   运行容器</strong></p>
+<blockquote>
+<p>docker run -dit -p 8080:80 –name Nginx nginx</p>
+</blockquote>
+<p><strong>b）   修改容器</strong>（这里我只是做个演示，所以就复制一下文件，具体修改需要根据你实际情况）</p>
+<blockquote>
+<p>docker cp custom.conf Nginx:/etc/nginx/conf.d/</p>
+</blockquote>
+<p><strong>c）   将容器保存为新的镜像</strong></p>
+<blockquote>
+<p>docker commit Nginx zwx/nginx</p>
+</blockquote>
+<p><img src="https://img2018.cnblogs.com/common/1059616/201911/1059616-20191112155640841-516876073.png" alt></p>
+<h3 id="Dockerfile（1编写2构建）"><a href="#Dockerfile（1编写2构建）" class="headerlink" title="Dockerfile（1编写2构建）"></a>Dockerfile（1编写2构建）</h3><p><strong>a）   编写Dockerfile文件</strong></p>
+<blockquote>
+<p>vim Dockerfile</p>
+</blockquote>
+<p><img src="https://img2018.cnblogs.com/common/1059616/201911/1059616-20191112155736158-842820092.png" alt></p>
+<p><strong>b）   执行Dockerfile文件</strong></p>
+<blockquote>
+<p>docker build -t zwx/nginx <strong>.　　　　</strong># 后面有个点，代表当前目录下dockerfile文件</p>
+</blockquote>
+<p><img src="https://img2018.cnblogs.com/common/1059616/201911/1059616-20191112155724434-463914884.png" alt></p>
+<h3 id="Dockerfile常用指令"><a href="#Dockerfile常用指令" class="headerlink" title="Dockerfile常用指令"></a>Dockerfile常用指令</h3><p><img src="https://img2018.cnblogs.com/common/1059616/201911/1059616-20191112155749441-1705248710.png" alt></p>
+<p>>&gt;&gt; 更多可以参考：<a href="https://www.cnblogs.com/leozhanggg/p/11820214.html" target="_blank" rel="noopener">【转载】Dockerfile文件详解</a></p>
+<h2 id="Docker本地仓库"><a href="#Docker本地仓库" class="headerlink" title="Docker本地仓库"></a>Docker本地仓库</h2><p><strong>1、拉取镜像仓库</strong></p>
+<blockquote>
+<p>docker search registry</p>
+<p>docker pull registry</p>
+</blockquote>
+<p><strong>2、启动镜像服务</strong></p>
+<blockquote>
+<p>docker run -dit \</p>
+<p>–name=Registry \　　　　# 指定容器名称</p>
+<p>-p 5000:5000 \　　　　　　# 仓库默认端口是5000，映射到宿主机，这样可以使用宿主机地址访问</p>
+<p>–restart=always \                # 自动重启，这样每次docker重启后仓库容器也会自动启动</p>
+<p>–privileged=true \              # 增加安全权限，一般可不加</p>
+<p>-v /usr/local/my_registry:/var/lib/registry  \　　　　# 把仓库镜像数据保存到宿主机</p>
+<p>registry</p>
+</blockquote>
+<p><strong>3、注册https协议</strong>（需要通过本地仓库下载镜像，均需要配置）</p>
+<blockquote>
+<p>vim /etc/docker/daemon.json　　　　　　　　# 默认无此文件，需自行添加，有则追加一下内容。</p>
+<p>   { “insecure-registries”:[“ xx.xx.xx.xx:5000”] }　　# 指定ip地址或域名</p>
+</blockquote>
+<p><strong>4、新增tag指明仓库地址</strong></p>
+<blockquote>
+<p>docker <strong>tag</strong> zwx/nginx x.xx.xx.xx:5000/zwx/nginx　　# 如果构建时已经指定仓库地址，则可以省略</p>
+</blockquote>
+<p><strong>5、上传镜像到本地仓库</strong></p>
+<blockquote>
+<p>docker <strong>push</strong> x.xx.xx.xx:5000/zwx/nginx</p>
+</blockquote>
+<p><strong>6、查看本地仓库</strong></p>
+<blockquote>
+<p>curl -XGET <a href="http://x.xx.xx.xx:5000/v2/_catalog" target="_blank" rel="noopener">http://x.xx.xx.xx:5000/v2/_catalog</a></p>
+</blockquote>
+<p><img src="https://img2018.cnblogs.com/common/1059616/201911/1059616-20191112160214624-1466104232.png" alt></p>
+<p>>&gt;&gt; 更多可以参考：<a href="https://www.jianshu.com/p/8f38f198724e" target="_blank" rel="noopener">docker 搭建本地私有仓库</a></p>
+<h2 id="Docker与图形管理工具Portainer"><a href="#Docker与图形管理工具Portainer" class="headerlink" title="Docker与图形管理工具Portainer"></a>Docker与图形管理工具Portainer</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Portainer是Docker的图形化管理工具，提供状态显示面板、应用模板快速部署、容器镜像网络数据卷的基本操作（包括上传下载镜像，创建容器等操作）、</p>
+<p>事件日志显示、容器控制台操作、Swarm集群和服务等集中管理和操作、登录用户管理和控制等功能。功能十分全面，基本能满足中小型单位对容器管理的全部需求。</p>
+<p><img src="https://img2018.cnblogs.com/i-beta/1059616/201911/1059616-20191112153539731-1511928488.png" alt></p>
+<h3 id="安装使用"><a href="#安装使用" class="headerlink" title="安装使用"></a>安装使用</h3><p><strong>a） 搜索并下载镜像</strong></p>
+<blockquote>
+<p>docker search portainer</p>
+<p>docker pull portainer/portainer</p>
+</blockquote>
+<p><strong>b） 单机方式运行</strong></p>
+<blockquote>
+<p>docker run -d \</p>
+<p>-p 9000:9000 \　　　# portainer默认端口是9000，映射到本地9000端口，通过本地地址访问</p>
+<p>–restart=always \　　# 设置自动重启</p>
+<p>-v /var/run/docker.sock:/var/run/docker.sock \　　# 单机必须指定docker.sock</p>
+<p>–name Prtainer portainer/portainer</p>
+</blockquote>
+<p><strong>c） 访问<a href="http://localhost:9000" target="_blank" rel="noopener">http://localhost:9000</a></strong></p>
+<p>首次登陆需要注册用户，给admin用户设置密码，然后单机版选择local连接即可。</p>
+<p><img src="https://img2018.cnblogs.com/common/1059616/201911/1059616-20191112153230740-1138499583.png" alt></p>
+<p><strong>d） 控制管理</strong></p>
+<p><img src="https://img2018.cnblogs.com/common/1059616/201911/1059616-20191112153611631-1158270908.png" alt></p>
+<p>>&gt;&gt; 更多可以参考：<a href="https://www.cnblogs.com/river2005/p/8283700.html" target="_blank" rel="noopener">Portainer介绍</a></p>
+<h2 id="Docker与集群管理工具Swarm"><a href="#Docker与集群管理工具Swarm" class="headerlink" title="Docker与集群管理工具Swarm"></a>Docker与集群管理工具Swarm</h2><h3 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h3><p>Swarm是Docker官方提供的一款集群管理工具，其主要作用是把若干台Docker主机抽象为一个整体，并且通过一个入口统一管理这些Docker主机上的各种Docker资源。</p>
+<p><img src="https://img2018.cnblogs.com/common/1059616/201911/1059616-20191112152657240-1084437635.png" alt></p>
+<h3 id="安装使用-1"><a href="#安装使用-1" class="headerlink" title="安装使用"></a>安装使用</h3><p>Swarm 在 Docker 1.12 版本之前属于一个独立的项目，在 Docker 1.12 版本发布之后，该项目合并到了 Docker 中，成为 Docker 的一个子命令。</p>
+<p><strong>a)　　启动swarm集群只需要执行初始化命令即可：</strong></p>
+<blockquote>
+<p>docker swarm <strong>init</strong> \　　　　　　　# 默认初始化节点为管理节点<br>–advertise-addr xx.xx.xx.xx \　　　#指定使用的ip<br>–listen-addr xx.xx.xx.xx:2377　　　#指定监听ip和port，默认为2377</p>
+</blockquote>
+<p><img src="https://img2018.cnblogs.com/common/1059616/201911/1059616-20191128171456606-615353300.png" alt></p>
+<p><strong>b) 　　设置manager节点</strong></p>
+<blockquote>
+<p>docker swarm join-token <strong>manager</strong>　　　　#获取管理节点token，放入下面命令</p>
+<p>docker swarm join \<br>–advertise-addr xx.xx.xx.xx \<br>–listen-addr xx.xx.xx.xx:2377 \<br>–token SWMTKN-1-29ynh5uyfiiospy4fsm4pd4xucyji2rn0oj4b4ak4s7a37syf9-ajkrv2ctjr5cmxzuij75tbrmz \<br>xx.xx.xx.xx:2377</p>
+</blockquote>
+<p><strong>c) 　　设置worker节点</strong></p>
+<blockquote>
+<p>docker swarm join-token <strong>worker</strong>　　　　#获取工作节点token，放入下面命令</p>
+<p>docker swarm join \<br>–advertise-addr xx.xx.xx.xx \<br>–listen-addr xx.xx.xx.xx:2377 \<br>–token SWMTKN-1-29ynh5uyfiiospy4fsm4pd4xucyji2rn0oj4b4ak4s7a37syf9-ajkrv2ctjr5cmxzuij75tbrmz \<br>xx.xx.xx.xx:2377</p>
+</blockquote>
+<p><strong>c) 　　查看节点</strong></p>
+<blockquote>
+<p> <strong><code>docker node ls</code></strong></p>
+</blockquote>
+<p><img src="https://img2018.cnblogs.com/i-beta/1059616/201911/1059616-20191128172311278-1473171098.png" alt></p>
+<p><strong>d) 　　创建服务</strong></p>
+<blockquote>
+<p><strong><code>docker service create [OPTIONS] IMAGE [COMMAND] [ARG...]</code></strong></p>
+<p><strong><code>--detach , -d</code>: </strong> 指定容器运行于前台还是后台，默认为false</p>
+<p><strong><code>--name</code>: </strong> 服务名称</p>
+<p><strong><code>--network</code>: </strong> 网络连接</p>
+<p><strong><code>--publish , -p</code>: </strong> 端口映射</p>
+<p><strong><code>--env , -e</code>:</strong>  设置环境变量</p>
+<p><strong><code>--tty , -t</code>:</strong>  分配tty设备，该可以支持终端登录</p>
+<p><strong><code>--mount</code>: </strong> 文件挂载</p>
+<p><strong><code>--replicas</code>: </strong> 指定任务数量</p>
+</blockquote>
+<p>>&gt;&gt;更多参考：<a href="https://www.jianshu.com/p/028b40ca4f2a" target="_blank" rel="noopener">Docker Swarm集群部署实践</a>  　　<a href="https://www.cnblogs.com/xiangsikai/p/9935814.html" target="_blank" rel="noopener">Docker Swarm 常用命令</a></p>
+<h3 id="对比K8s究竟有何异同"><a href="#对比K8s究竟有何异同" class="headerlink" title="对比K8s究竟有何异同?"></a>对比K8s究竟有何异同?</h3><p><strong>a）出生不同</strong></p>
+<p>Google根据其在Linux上容器管理经验，改造到docker管理上，就是kubernetes。他的在许多方面表现良好,最重要的是构造于Google多年的宝贵经验只上。<br>kubernetes并不是为了docker写的,kubernetes把集群带到了一个全新的高度，代价是学习曲线比较陡。docker-swarm 使用了一个不同的方式,它是docker原生的集群工具。<br>最方便的部分是它暴露了docker标准的编程接口，意味着你之前一直在使用的任何与docker沟通的工具（docker CLI,  docker compose等），都可以无缝的在docker swarm上使用。</p>
+<p><strong>b）安装配置不同</strong></p>
+<p>安装设置swarm非常简单，简单明了并且很灵活。我们需要做的就是安装一个服务发现工具，然后在所有的节点上安装swarm容器。<br>相比较而言，kubernetes的安装就有点复杂晦涩了。不同的操作系统上安装都不同。每个操作系统都有自己的独立安装指令。</p>
+<p><strong>c）运行方式不同</strong></p>
+<p>使用Swarm和使用容器没有什么不同。比如，你习惯于使用Docker CLI（命令行接口），你可以继续使用几乎相同的命令。<br>如果你习惯于使用Docker Componse来运行容器，你可以继续在Swarm集群中使用。不管你之前习惯于怎么使用容器，你仍旧可以使用，只是在更大级别的集群中使用。<br>Kubernetes要求你去学习它自己的CLI（命令行接口）和配置。你不能使用你之前创建的docker-compose.yml配置，你必须要去新建与Kubernetes对应的配置。<br>你也不能使用之前学习的Docker CLI（命令行接口）。你必须要去学习 Kubernetes CLI（命令行接口）</p>
+<p>最后，当需要在Docker Swarm 和 Kubernetes做出选择时，可以考虑如下几点：<br>你是否想依赖于Docker自己来解决集群的问题。如果是，选择Swarm。如果某些功能在Docker中不支持，那它也非常可能在Swarm中找不到，因为Swarm是依赖于Docker API的。<br>另外一方面，如果你想要一个工具可以解决Docker的限制，Kubernetes将是不错的选择。Kubernetes不是基于Docker，而是基于Google多年对于管理容器的经验。它是按照自己的方式来行事。</p>
+<h2 id="Docker运维流程图"><a href="#Docker运维流程图" class="headerlink" title="Docker运维流程图"></a>Docker运维流程图</h2><p><img src="https://img2018.cnblogs.com/common/1059616/201911/1059616-20191112152457727-1393157662.png" alt></p>
+<h2 id="Docker配置管理"><a href="#Docker配置管理" class="headerlink" title="Docker配置管理"></a>Docker配置管理</h2><p><strong>1.　　用了容器以后，还需要配置管理吗？</strong></p>
+<p>起初我们跟Docker官方一样，属于理想主义派。天真的认为容器就应该是inmutable的，当需要配置变更的时候，重新构建镜像重新部署。</p>
+<p>基于这一思路，我们在cSphere中添加了个镜像自动构建模块，用户可以配置代码仓库的地址。<br>服务的配置文件保存于Git或者SVN库中，需要配置变更时，向版本库中Push一下，自动通过hook触发镜像构建，并自动完成线上容器的重建。</p>
+<p>通过这套系统，用户可以非常方便的批量更新线上的服务，并不局限于配置文件的变更，代码的变更也天生支持。<br>经过实际使用，这套系统能够很好的满足开发和测试环境的需求，提升工作效率。</p>
+<p>但是，在生产环境中使用的时候，我们发现这种流程其实并不那么完美，主要表现在：<br>镜像构建和部署虽然自动化了，但构建是针对VCS中的某个仓库的，改一行配置就得整体重新构建一下，在更新容器时还需要把镜像重新分发到所有机器上，配置变更速度太慢。<br>这种方式的配置变更会涉及到服务的重启，这在生产环境某些场景下是不可接受的 ，有可能引起短暂的服务中断。</p>
+<p><strong>2.　　应用配置文件应该需要做到什么？</strong></p>
+<p>Docker应用配置文件能够保持能够支持针对不同环境作出更改。另外配置文件支持在线更改，重启就生效。一般分为以下两种方式。</p>
+<p><strong>a） Docker环境变量</strong></p>
+<p>需要在制作镜像的时候就需要提前想好，有哪些参数是部署容器的时候会经常更改，<br>然后把这些参数抽出来做成容器的环境变量，然后在部署的容器的时候填入不同的参数即可。<br>但是如果后续发现有一些参数不同场景下部署的时候也会修改，那就需要再重新制作镜像了。</p>
+<p><strong>b）应用配置文件</strong></p>
+<p>上述的管理方式不太灵活，灵活的管理方式是将配置文件和镜像剥离开，这样就不会被镜像给绑定了。</p>
+<p>注：最新版本可以参考docker config命令管理</p>
+<h2 id="Docker后续问题"><a href="#Docker后续问题" class="headerlink" title="Docker后续问题"></a>Docker后续问题</h2><ul>
+<li>集群环境</li>
+<li>网络安全</li>
+<li>存储管理</li>
+<li>日志收集</li>
+<li>实时监控</li>
+<li>性能调优</li>
+<li>……</li>
+</ul>
+<h2 id="Docker报错解决"><a href="#Docker报错解决" class="headerlink" title="Docker报错解决"></a>Docker报错解决</h2><p><a href="https://www.cnblogs.com/leozhanggg/p/11730189.html" target="_blank" rel="noopener">【解决】Got permission denied while trying to connect to the Docker daemon socket at……dial unix /var/run/docker.sock: permission denied</a></p>
+<p><a href="https://www.cnblogs.com/leozhanggg/p/12031433.html" target="_blank" rel="noopener">【解决】error pulling image configuration: Get https:// …… x509: certificate has expired or is not yet valid</a></p>
+<p><a href="https://www.cnblogs.com/leozhanggg/p/12023531.html" target="_blank" rel="noopener">【解决】image … could not be accessed on a registry to record its digest.</a> </p>
+<p><a href="https://www.cnblogs.com/leozhanggg/p/12023456.html" target="_blank" rel="noopener">【解决】http: server gave HTTP response to HTTPS client</a></p>
+<p><a href="https://www.cnblogs.com/leozhanggg/p/12023429.html" target="_blank" rel="noopener">【解决】OCI runtime exec failed……executable file not found in $PATH”: unknown</a></p>
+<p>更多报错解决方案持续更新中：<a href="https://www.cnblogs.com/leozhanggg/p/11796810.html" target="_blank" rel="noopener">【解决】Docker Errors</a></p>
+<p>作者：LeoZhanggg</p>
+<p>原文链接：<a href="https://www.cnblogs.com/leozhanggg/p/12039953.html" target="_blank" rel="noopener">https://www.cnblogs.com/leozhanggg/p/12039953.html</a></p>
+]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode 064 Minimum Path Sum</title>
+    <url>/posts/27000/</url>
+    <content><![CDATA[<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right which minimizes the sum of all numbers along its path.</p>
+<p><strong>Note:</strong> You can only move either down or right at any point in time.</p>
+<p><strong>Example:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input:</span><br><span class="line">[</span><br><span class="line">  [1,3,1],</span><br><span class="line">  [1,5,1],</span><br><span class="line">  [4,2,1]</span><br><span class="line">]</span><br><span class="line">Output: 7</span><br><span class="line">Explanation: Because the path 1→3→1→1→1 minimizes the sum.</span><br></pre></td></tr></table></figure>
+<p><strong>Difficulty: Medium</strong></p>
+<p><strong>Code:</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minPathSum</span><span class="params">(<span class="keyword">int</span>[][] grid)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定m x n的网格，填充的都是非负数，从左上角到右下角找出一条线路，使路径上数字之和最小，并返回这个最小和的值。</p>
+<p>每次只能向下或者向右移动。</p>
+<a id="more"></a>
+<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>使用动态规划dp[i][j]，表示在当前位置时所有路径数字之和最小的值，初始化起始位置dp[0][0]。</p>
+<p>当i=0表示在第一行，那么dp[i][j] = dp[i][j-1]+grid[i][j]，即等于左侧位置最小和加上当前位置数字。</p>
+<p>当j=0表示在第一列，dp[i][j] = dp[i-1][j]+grid[i][j]，即等于上方位置最小和加上当前位置数字。</p>
+<p>其他情况下dp[i][j] = Math.min(dp[i-1][j],dp[i][j-1])+grid[i][j]，即上方或者左侧最小和取其中较小的，在加当前位置数字。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minPathSum</span><span class="params">(<span class="keyword">int</span>[][] grid)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = grid.length;</span><br><span class="line">        <span class="keyword">int</span> n = grid[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[m][n];</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>] = grid[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(i==<span class="number">0</span>&amp;&amp;j==<span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">if</span>(i==<span class="number">0</span>)&#123;</span><br><span class="line">                    dp[i][j] = dp[i][j-<span class="number">1</span>]+grid[i][j];</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(j==<span class="number">0</span>)&#123;</span><br><span class="line">                    dp[i][j] = dp[i-<span class="number">1</span>][j]+grid[i][j];</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    dp[i][j] = Math.min(dp[i-<span class="number">1</span>][j],dp[i][j-<span class="number">1</span>])+grid[i][j];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[m-<span class="number">1</span>][n-<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(m*n)。</p>
+<p><strong>空间复杂度:</strong> O(m*n)。</p>
+<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><p>上述动态规划也可用一维数组实现，dp[j]表示在当前行第j列的最小路径和。</p>
+<p>当j为0时表示第一列，dp[j]等于前一行第一列的路径和dp[j]加上当前位置的数字。</p>
+<p>若i为0时表示第一行，则dp[j]等于左侧位置最小路径和加上当前位置的数字。</p>
+<p>其他情况下，dp[j]等于左侧位置最小路径和上方位置最小路径中的较小值，再加上当前位置数字。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minPathSum</span><span class="params">(<span class="keyword">int</span>[][] grid)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = grid.length;</span><br><span class="line">        <span class="keyword">int</span> n = grid[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        dp[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(j==<span class="number">0</span>)&#123;</span><br><span class="line">                    dp[j]+=grid[i][j];</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(i==<span class="number">0</span>)&#123;</span><br><span class="line">                    dp[j]=dp[j-<span class="number">1</span>]+grid[i][j];</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    dp[j]=Math.min(dp[j-<span class="number">1</span>],dp[j])+grid[i][j];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n-<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(m*n)。</p>
+<p><strong>空间复杂度:</strong> O(n)。</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>leetcode-array</tag>
+        <tag>leetcode-medium</tag>
+        <tag>leetcode-dynamic-programming</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode 063 Unique Paths II</title>
+    <url>/posts/61593/</url>
+    <content><![CDATA[<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>A robot is located at the top-left corner of a m x n grid (marked ‘Start’ in the diagram below).</p>
+<p>The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid (marked ‘Finish’ in the diagram below).</p>
+<p>Now consider if some obstacles are added to the grids. How many unique paths would there be?</p>
+<p><img src="https://assets.leetcode.com/uploads/2018/10/22/robot_maze.png" alt></p>
+<p>An obstacle and empty space is marked as 1 and 0 respectively in the grid.</p>
+<p><strong>Note:</strong> m and n will be at most 100.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input:</span><br><span class="line">[</span><br><span class="line">  [0,0,0],</span><br><span class="line">  [0,1,0],</span><br><span class="line">  [0,0,0]</span><br><span class="line">]</span><br><span class="line">Output: 2</span><br><span class="line">Explanation:</span><br><span class="line">There is one obstacle in the middle of the 3x3 grid above.</span><br><span class="line">There are two ways to reach the bottom-right corner:</span><br><span class="line">1. Right -&gt; Right -&gt; Down -&gt; Down</span><br><span class="line">2. Down -&gt; Down -&gt; Right -&gt; Right</span><br></pre></td></tr></table></figure>
+<p><strong>Difficulty: Medium</strong></p>
+<p><strong>Code:</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">uniquePathsWithObstacles</span><span class="params">(<span class="keyword">int</span>[][] obstacleGrid)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>求机器人在长为m宽为n到格子中，从左上角走到右下角所有不重复路线的个数，每次只能向下或者向右移动。</p>
+<p>考虑到在格子中添加一些障碍物，障碍物用1表示，空格子用0表示。</p>
+<a id="more"></a>
+<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>使用动态规划，dp[i][j]代表到达位置行i列j的路线个数，一般来说等于当前位置的正上方和正左侧的所有线路之和。</p>
+<p>遍历行m列n，若当前位置有障碍物，则dp[i][j]=0；对起始位置来说没有障碍物的话就是1。</p>
+<p>当i或者j为0时，只能一直在第一行或者第一列移动，那么其取决于左侧或上方的值。</p>
+<p>其他情况下dp[i][j]=dp[i-1][j]+dp[i][j-1];    </p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">uniquePathsWithObstacles</span><span class="params">(<span class="keyword">int</span>[][] obstacleGrid)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = obstacleGrid.length;</span><br><span class="line">        <span class="keyword">int</span> n = obstacleGrid[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[m][n];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(obstacleGrid[i][j]==<span class="number">1</span>)&#123;</span><br><span class="line">                    dp[i][j]=<span class="number">0</span>;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(i==<span class="number">0</span>&amp;&amp;j==<span class="number">0</span>)&#123;</span><br><span class="line">                    dp[i][j]=<span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(i==<span class="number">0</span>)&#123;</span><br><span class="line">                    dp[i][j]=dp[i][j-<span class="number">1</span>];</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(j==<span class="number">0</span>)&#123;</span><br><span class="line">                    dp[i][j]=dp[i-<span class="number">1</span>][j];</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    dp[i][j] = dp[i-<span class="number">1</span>][j]+dp[i][j-<span class="number">1</span>];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[m-<span class="number">1</span>][n-<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(m*n)。</p>
+<p><strong>空间复杂度:</strong> O(m*n)。</p>
+<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><p>上述动态规划也可使用一维数组来保存，dp[j]表示当前行在列j的线路条数。</p>
+<p>遍历数组，在同一行上，若当前位置有障碍则dp[j]为0；否则当j&gt;0时，dp[j]+=dp[j-1]。</p>
+<p>因为对下一行来说，其在位置j上的线路包含上一行位置j的线路个数，再加上本行左侧j-1线路个数。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">uniquePathsWithObstacles</span><span class="params">(<span class="keyword">int</span>[][] obstacleGrid)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = obstacleGrid.length;</span><br><span class="line">        <span class="keyword">int</span> n = obstacleGrid[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        dp[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(obstacleGrid[i][j]==<span class="number">1</span>)&#123;</span><br><span class="line">                    dp[j]=<span class="number">0</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(j&gt;<span class="number">0</span>)&#123;</span><br><span class="line">                    dp[j]+=dp[j-<span class="number">1</span>];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n-<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(m*n)。</p>
+<p><strong>空间复杂度:</strong> O(n)。</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>leetcode-array</tag>
+        <tag>leetcode-medium</tag>
+        <tag>leetcode-dynamic-programming</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode 062 Unique Paths</title>
     <url>/posts/38849/</url>
     <content><![CDATA[<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>A robot is located at the top-left corner of a m x n grid (marked ‘Start’ in the diagram below).</p>
@@ -75,8 +410,8 @@
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-linked-list</tag>
         <tag>leetcode-two-pointers</tag>
+        <tag>leetcode-linked-list</tag>
       </tags>
   </entry>
   <entry>
@@ -1850,8 +2185,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -1886,8 +2221,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-hard</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-sort</tag>
       </tags>
   </entry>
@@ -2518,10 +2853,10 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-array</tag>
         <tag>leetcode-divide-and-conquer</tag>
         <tag>leetcode-dynamic-programming</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -2639,9 +2974,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>leetcode-binary-search</tag>
         <tag>leetcode-medium</tag>
         <tag>leetcode-math</tag>
-        <tag>leetcode-binary-search</tag>
       </tags>
   </entry>
   <entry>
@@ -2676,8 +3011,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hash-table</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-hash-table</tag>
         <tag>leetcode-string</tag>
       </tags>
   </entry>
@@ -2824,8 +3159,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-hard</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-greedy</tag>
       </tags>
   </entry>
@@ -2901,8 +3236,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-hard</tag>
+        <tag>leetcode-string</tag>
         <tag>leetcode-dynamic-programming</tag>
         <tag>leetcode-backtracking</tag>
         <tag>leetcode-greedy</tag>
@@ -2942,8 +3277,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-math</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-math</tag>
       </tags>
   </entry>
   <entry>
@@ -2984,9 +3319,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>leetcode-hard</tag>
         <tag>leetcode-array</tag>
         <tag>leetcode-two-pointers</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-stack</tag>
       </tags>
   </entry>
@@ -3019,8 +3354,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-hard</tag>
+        <tag>leetcode-array</tag>
       </tags>
   </entry>
   <entry>
@@ -3134,8 +3469,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -3175,8 +3510,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hash-table</tag>
         <tag>leetcode-hard</tag>
+        <tag>leetcode-hash-table</tag>
         <tag>leetcode-backtracking</tag>
       </tags>
   </entry>
@@ -3234,8 +3569,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hash-table</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-hash-table</tag>
       </tags>
   </entry>
   <entry>
@@ -3267,9 +3602,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-array</tag>
         <tag>leetcode-binary-search</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -3302,8 +3637,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-array</tag>
-        <tag>leetcode-medium</tag>
         <tag>leetcode-binary-search</tag>
+        <tag>leetcode-medium</tag>
       </tags>
   </entry>
   <entry>
@@ -3342,8 +3677,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-array</tag>
-        <tag>leetcode-medium</tag>
         <tag>leetcode-binary-search</tag>
+        <tag>leetcode-medium</tag>
       </tags>
   </entry>
   <entry>
@@ -3386,8 +3721,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-hard</tag>
+        <tag>leetcode-string</tag>
         <tag>leetcode-dynamic-programming</tag>
       </tags>
   </entry>
@@ -3456,10 +3791,10 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>leetcode-hard</tag>
         <tag>leetcode-hash-table</tag>
         <tag>leetcode-two-pointers</tag>
         <tag>leetcode-string</tag>
-        <tag>leetcode-hard</tag>
       </tags>
   </entry>
   <entry>
@@ -3498,9 +3833,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>leetcode-binary-search</tag>
         <tag>leetcode-medium</tag>
         <tag>leetcode-math</tag>
-        <tag>leetcode-binary-search</tag>
       </tags>
   </entry>
   <entry>
@@ -3535,9 +3870,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-two-pointers</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -3572,9 +3907,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-array</tag>
         <tag>leetcode-two-pointers</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -3617,9 +3952,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-array</tag>
         <tag>leetcode-two-pointers</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -3663,8 +3998,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-linked-list</tag>
         <tag>leetcode-hard</tag>
+        <tag>leetcode-linked-list</tag>
       </tags>
   </entry>
   <entry>
@@ -3731,9 +4066,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-linked-list</tag>
         <tag>leetcode-hard</tag>
         <tag>leetcode-divide-and-conquer</tag>
+        <tag>leetcode-linked-list</tag>
         <tag>leetcode-heap</tag>
       </tags>
   </entry>
@@ -3796,8 +4131,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-linked-list</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -3839,8 +4174,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-easy</tag>
         <tag>leetcode-stack</tag>
       </tags>
   </entry>
@@ -3872,8 +4207,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-linked-list</tag>
         <tag>leetcode-two-pointers</tag>
+        <tag>leetcode-linked-list</tag>
       </tags>
   </entry>
   <entry>
@@ -3905,8 +4240,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-array</tag>
-        <tag>leetcode-hash-table</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-hash-table</tag>
         <tag>leetcode-two-pointers</tag>
       </tags>
   </entry>
@@ -4036,8 +4371,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -4082,9 +4417,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
-        <tag>leetcode-math</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-math</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -4138,8 +4473,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-math</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-math</tag>
       </tags>
   </entry>
   <entry>
@@ -4236,8 +4571,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-hard</tag>
+        <tag>leetcode-string</tag>
         <tag>leetcode-dynamic-programming</tag>
         <tag>leetcode-backtracking</tag>
       </tags>
@@ -4273,8 +4608,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -4348,8 +4683,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-math</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-math</tag>
       </tags>
   </entry>
   <entry>
@@ -4388,8 +4723,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -4570,8 +4905,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-hard</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-binary-search</tag>
         <tag>leetcode-divide-and-conquer</tag>
       </tags>
@@ -4612,8 +4947,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hash-table</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-hash-table</tag>
         <tag>leetcode-two-pointers</tag>
         <tag>leetcode-string</tag>
         <tag>leetcode-sliding-window</tag>
@@ -4674,9 +5009,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-array</tag>
         <tag>leetcode-hash-table</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -4885,7 +5220,7 @@ connection pool using a background thread.
 <p>My favorite search engine is <a href="https://duckduckgo.com" title="The best one" target="_blank" rel="noopener">Duck Duck Go</a>.</p>
 <h3 id="网页和邮箱"><a href="#网页和邮箱" class="headerlink" title="网页和邮箱"></a>网页和邮箱</h3><p>为了快速将网页和邮箱转为链接，可以用<code>&lt;&gt;</code>包裹起来</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;https://www.markdownguide.org&gt;</span><br><span class="line">&lt;fake@example.com&gt;</span><br></pre></td></tr></table></figure>
-<p><a href="https://www.markdownguide.org" target="_blank" rel="noopener">https://www.markdownguide.org</a><br><a href="mailto:&#102;&#97;&#107;&#101;&#64;&#101;&#x78;&#97;&#109;&#x70;&#108;&#101;&#x2e;&#x63;&#x6f;&#109;" target="_blank" rel="noopener">&#102;&#97;&#107;&#101;&#64;&#101;&#x78;&#97;&#109;&#x70;&#108;&#101;&#x2e;&#x63;&#x6f;&#109;</a></p>
+<p><a href="https://www.markdownguide.org" target="_blank" rel="noopener">https://www.markdownguide.org</a><br><a href="mailto:&#x66;&#x61;&#107;&#101;&#x40;&#x65;&#120;&#97;&#109;&#x70;&#108;&#x65;&#x2e;&#99;&#111;&#109;" target="_blank" rel="noopener">&#x66;&#x61;&#107;&#101;&#x40;&#x65;&#120;&#97;&#109;&#x70;&#108;&#x65;&#x2e;&#99;&#111;&#109;</a></p>
 <h3 id="格式化链接"><a href="#格式化链接" class="headerlink" title="格式化链接"></a>格式化链接</h3><p>为了强调链接，可以在链接的前后加星号</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">I love supporting **[EFF](https://eff.org)**.</span><br><span class="line">This is the *[Markdown Guide](https://www.markdownguide.org)*.</span><br></pre></td></tr></table></figure>
 <p>I love supporting <strong><a href="https://eff.org" target="_blank" rel="noopener">EFF</a></strong>.<br>This is the <em><a href="https://www.markdownguide.org" target="_blank" rel="noopener">Markdown Guide</a></em>.</p>
