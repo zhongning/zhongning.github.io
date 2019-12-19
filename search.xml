@@ -1,6 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>LeetCode 065 Valid Number</title>
+    <url>/posts/55807/</url>
+    <content><![CDATA[<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Validate if a given string can be interpreted as a decimal number.</p>
+<p>Some examples:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;0&quot; =&gt; true</span><br><span class="line">&quot; 0.1 &quot; =&gt; true</span><br><span class="line">&quot;abc&quot; =&gt; false</span><br><span class="line">&quot;1 a&quot; =&gt; false</span><br><span class="line">&quot;2e10&quot; =&gt; true</span><br><span class="line">&quot; -90e3   &quot; =&gt; true</span><br><span class="line">&quot; 1e&quot; =&gt; false</span><br><span class="line">&quot;e3&quot; =&gt; false</span><br><span class="line">&quot; 6e-1&quot; =&gt; true</span><br><span class="line">&quot; 99e2.5 &quot; =&gt; false</span><br><span class="line">&quot;53.5e93&quot; =&gt; true</span><br><span class="line">&quot; --6 &quot; =&gt; false</span><br><span class="line">&quot;-+3&quot; =&gt; false</span><br><span class="line">&quot;95a54e53&quot; =&gt; false</span><br></pre></td></tr></table></figure>
+<p>Note: It is intended for the problem statement to be ambiguous.<br>You should gather all requirements up front before implementing one.<br>However, here is a list of characters that can be in a valid decimal number:</p>
+<ul>
+<li>Numbers 0-9</li>
+<li>Exponent - “e”</li>
+<li>Positive/negative sign - “+”/“-“</li>
+<li>Decimal point - “.”</li>
+</ul>
+<p>Of course, the context of these characters also matters in the input.</p>
+<p><strong>Difficulty: Hard</strong></p>
+<p><strong>Code:</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isNumber</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>验证给定的字符串是否能够转成数字。</p>
+<a id="more"></a>
+<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>分开头中间结尾三个位置来讨论情况：</p>
+<ol>
+<li>先对字符串首位空格做预处理，可以使用两个指针分别指向开头结尾，遇到空格则跳过</li>
+<li>对首字符的处理，首字符只能是数字、小数点或者+/-，定义三个flag表示是否之前是否检测到小数点、数字、指数。<br>首字符若是数字、小数点或正负号，修改对应flag，否则直接返回false</li>
+<li>对中间字符的处理，会出现数字、小数点、指数、正负号、其他字符<ol>
+<li>若是数字，标记flag并通过</li>
+<li>若是指数，则必须是第一次出现指数，前一个字符不能是正负号并且之前要出现过数字，才能标记flag并通过</li>
+<li>若是正负号，则之前的字符必须是指数，才能标记flag并通过</li>
+<li>若是小数点，则必须是第一次出现小数点，并且指数没有出现过，才能标记flag并通过</li>
+<li>其他字符返回false</li>
+</ol>
+</li>
+<li>对结尾字符的处理，最后一个字符只能是数字或者小数点，其他返回false<ol>
+<li>若是数字，返回true</li>
+<li>若是小数点，则必须是第一次出现，前面必须是数字并且指数之前没有出现过，才能返回true</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isNumber</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s==<span class="keyword">null</span> || s.isEmpty()) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">int</span> len = s.length();</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = len-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">boolean</span> eExisted=<span class="keyword">false</span>, dotExisted=<span class="keyword">false</span>, numExisted=<span class="keyword">false</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(left&lt;right&amp;&amp;s.charAt(left)==<span class="string">' '</span>) left++;</span><br><span class="line">        <span class="keyword">while</span>(left&lt;right&amp;&amp;s.charAt(right)==<span class="string">' '</span>) right--;</span><br><span class="line">        <span class="keyword">if</span>(left&gt;=right &amp;&amp; (s.charAt(left)&lt;<span class="string">'0'</span>||s.charAt(left)&gt;<span class="string">'9'</span>)) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(s.charAt(left)==<span class="string">'.'</span>)&#123;</span><br><span class="line">            dotExisted=<span class="keyword">true</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(s.charAt(left)&gt;=<span class="string">'0'</span>&amp;&amp;s.charAt(left)&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">            numExisted=<span class="keyword">true</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(s.charAt(left)!=<span class="string">'+'</span>&amp;&amp;s.charAt(left)!=<span class="string">'-'</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=left+<span class="number">1</span>;i&lt;=right-<span class="number">1</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">char</span> curr = s.charAt(i), prev = s.charAt(i-<span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span>(curr&gt;=<span class="string">'0'</span>&amp;&amp;curr&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">                numExisted=<span class="keyword">true</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(curr==<span class="string">'e'</span>||curr==<span class="string">'E'</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(!eExisted &amp;&amp; prev!=<span class="string">'+'</span> &amp;&amp; prev!=<span class="string">'-'</span> &amp;&amp; numExisted)&#123;</span><br><span class="line">                    eExisted=<span class="keyword">true</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(curr==<span class="string">'+'</span>||curr==<span class="string">'-'</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(prev!=<span class="string">'e'</span>&amp;&amp;prev!=<span class="string">'E'</span>)&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(curr==<span class="string">'.'</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(!dotExisted &amp;&amp; !eExisted)&#123;</span><br><span class="line">                    dotExisted=<span class="keyword">true</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(s.charAt(right)&gt;=<span class="string">'0'</span>&amp;&amp;s.charAt(right)&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(s.charAt(right)==<span class="string">'.'</span>&amp;&amp;!dotExisted&amp;&amp;!eExisted&amp;&amp;numExisted)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(n)。</p>
+<p><strong>空间复杂度:</strong> O(1)。</p>
+<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><p>对上述情况进行简化，定义四个flag分别表示检测到小数点、指数、数字、指数后的数字，先删除掉首尾两端空格。</p>
+<p>从头到尾遍历剩下的字符：</p>
+<ol>
+<li>数字，标记num和numAfterE为true</li>
+<li>小数点，如果之前出现过小数点或者指数则返回false，否则标记dot为true</li>
+<li>指数，如果之前出现过指数或者没出现数字则返回false，否则标记e为true，numAfterE为false</li>
+<li>正负号，如果不是出现在第一位或者前一位不是指数则返回false</li>
+<li>其他字符返回false</li>
+</ol>
+<p>最后返回num&amp;&amp;numAfterE，即字符串包含数字，并且在有指数的情况下指数后面有数字。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isNumber</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s==<span class="keyword">null</span>||s.isEmpty()) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        s=s.trim();</span><br><span class="line">        <span class="keyword">boolean</span> dot=<span class="keyword">false</span>,e=<span class="keyword">false</span>,num=<span class="keyword">false</span>,numAfterE=<span class="keyword">true</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length();i++)&#123;</span><br><span class="line">            <span class="keyword">char</span> curr = s.charAt(i);</span><br><span class="line">            <span class="keyword">if</span>(curr&gt;=<span class="string">'0'</span>&amp;&amp;curr&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">                num=<span class="keyword">true</span>;</span><br><span class="line">                numAfterE=<span class="keyword">true</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(curr==<span class="string">'.'</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(e||dot)&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    dot=<span class="keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(curr==<span class="string">'e'</span>||curr==<span class="string">'E'</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(!num||e)&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    e=<span class="keyword">true</span>;</span><br><span class="line">                    numAfterE=<span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(curr==<span class="string">'+'</span>||curr==<span class="string">'-'</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(i!=<span class="number">0</span>&amp;&amp;(s.charAt(i-<span class="number">1</span>)!=<span class="string">'e'</span>&amp;&amp;s.charAt(i-<span class="number">1</span>)!=<span class="string">'E'</span>))&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> num &amp;&amp; numAfterE;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(n)。</p>
+<p><strong>空间复杂度:</strong> O(1)。</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>leetcode-math</tag>
+        <tag>leetcode-hard</tag>
+        <tag>leetcode-string</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Docker实战总结</title>
     <url>/posts/33867/</url>
     <content><![CDATA[<meta name="referrer" content="no-referrer">
@@ -410,8 +474,8 @@
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-two-pointers</tag>
         <tag>leetcode-linked-list</tag>
+        <tag>leetcode-two-pointers</tag>
       </tags>
   </entry>
   <entry>
@@ -2185,8 +2249,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-easy</tag>
+        <tag>leetcode-string</tag>
       </tags>
   </entry>
   <entry>
@@ -2221,8 +2285,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-array</tag>
+        <tag>leetcode-hard</tag>
         <tag>leetcode-sort</tag>
       </tags>
   </entry>
@@ -2853,10 +2917,10 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>leetcode-easy</tag>
         <tag>leetcode-array</tag>
         <tag>leetcode-divide-and-conquer</tag>
         <tag>leetcode-dynamic-programming</tag>
-        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -2974,9 +3038,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-binary-search</tag>
         <tag>leetcode-medium</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-binary-search</tag>
       </tags>
   </entry>
   <entry>
@@ -3011,8 +3075,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-medium</tag>
         <tag>leetcode-hash-table</tag>
+        <tag>leetcode-medium</tag>
         <tag>leetcode-string</tag>
       </tags>
   </entry>
@@ -3159,8 +3223,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-array</tag>
+        <tag>leetcode-hard</tag>
         <tag>leetcode-greedy</tag>
       </tags>
   </entry>
@@ -3277,8 +3341,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-string</tag>
       </tags>
   </entry>
   <entry>
@@ -3319,8 +3383,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-array</tag>
+        <tag>leetcode-hard</tag>
         <tag>leetcode-two-pointers</tag>
         <tag>leetcode-stack</tag>
       </tags>
@@ -3354,8 +3418,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-array</tag>
+        <tag>leetcode-hard</tag>
       </tags>
   </entry>
   <entry>
@@ -3469,8 +3533,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-easy</tag>
+        <tag>leetcode-string</tag>
       </tags>
   </entry>
   <entry>
@@ -3510,8 +3574,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-hash-table</tag>
+        <tag>leetcode-hard</tag>
         <tag>leetcode-backtracking</tag>
       </tags>
   </entry>
@@ -3569,8 +3633,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-medium</tag>
         <tag>leetcode-hash-table</tag>
+        <tag>leetcode-medium</tag>
       </tags>
   </entry>
   <entry>
@@ -3602,9 +3666,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>leetcode-easy</tag>
         <tag>leetcode-array</tag>
         <tag>leetcode-binary-search</tag>
-        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -3637,8 +3701,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-array</tag>
-        <tag>leetcode-binary-search</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-binary-search</tag>
       </tags>
   </entry>
   <entry>
@@ -3677,8 +3741,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-array</tag>
-        <tag>leetcode-binary-search</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-binary-search</tag>
       </tags>
   </entry>
   <entry>
@@ -3791,8 +3855,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-hash-table</tag>
+        <tag>leetcode-hard</tag>
         <tag>leetcode-two-pointers</tag>
         <tag>leetcode-string</tag>
       </tags>
@@ -3833,9 +3897,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-binary-search</tag>
         <tag>leetcode-medium</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-binary-search</tag>
       </tags>
   </entry>
   <entry>
@@ -3870,9 +3934,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>leetcode-easy</tag>
         <tag>leetcode-two-pointers</tag>
         <tag>leetcode-string</tag>
-        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -3907,9 +3971,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>leetcode-easy</tag>
         <tag>leetcode-array</tag>
         <tag>leetcode-two-pointers</tag>
-        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -3952,9 +4016,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>leetcode-easy</tag>
         <tag>leetcode-array</tag>
         <tag>leetcode-two-pointers</tag>
-        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -3998,8 +4062,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-linked-list</tag>
+        <tag>leetcode-hard</tag>
       </tags>
   </entry>
   <entry>
@@ -4066,9 +4130,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>leetcode-linked-list</tag>
         <tag>leetcode-hard</tag>
         <tag>leetcode-divide-and-conquer</tag>
-        <tag>leetcode-linked-list</tag>
         <tag>leetcode-heap</tag>
       </tags>
   </entry>
@@ -4131,8 +4195,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-linked-list</tag>
         <tag>leetcode-easy</tag>
+        <tag>leetcode-linked-list</tag>
       </tags>
   </entry>
   <entry>
@@ -4174,8 +4238,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-easy</tag>
+        <tag>leetcode-string</tag>
         <tag>leetcode-stack</tag>
       </tags>
   </entry>
@@ -4207,8 +4271,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-two-pointers</tag>
         <tag>leetcode-linked-list</tag>
+        <tag>leetcode-two-pointers</tag>
       </tags>
   </entry>
   <entry>
@@ -4240,8 +4304,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-array</tag>
-        <tag>leetcode-medium</tag>
         <tag>leetcode-hash-table</tag>
+        <tag>leetcode-medium</tag>
         <tag>leetcode-two-pointers</tag>
       </tags>
   </entry>
@@ -4371,8 +4435,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-easy</tag>
+        <tag>leetcode-string</tag>
       </tags>
   </entry>
   <entry>
@@ -4417,9 +4481,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-string</tag>
-        <tag>leetcode-math</tag>
         <tag>leetcode-easy</tag>
+        <tag>leetcode-math</tag>
+        <tag>leetcode-string</tag>
       </tags>
   </entry>
   <entry>
@@ -4473,8 +4537,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-string</tag>
       </tags>
   </entry>
   <entry>
@@ -4608,8 +4672,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-math</tag>
         <tag>leetcode-easy</tag>
+        <tag>leetcode-math</tag>
       </tags>
   </entry>
   <entry>
@@ -4683,8 +4747,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-string</tag>
       </tags>
   </entry>
   <entry>
@@ -4723,8 +4787,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-math</tag>
         <tag>leetcode-easy</tag>
+        <tag>leetcode-math</tag>
       </tags>
   </entry>
   <entry>
@@ -4905,8 +4969,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-array</tag>
+        <tag>leetcode-hard</tag>
         <tag>leetcode-binary-search</tag>
         <tag>leetcode-divide-and-conquer</tag>
       </tags>
@@ -4947,8 +5011,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-medium</tag>
         <tag>leetcode-hash-table</tag>
+        <tag>leetcode-medium</tag>
         <tag>leetcode-two-pointers</tag>
         <tag>leetcode-string</tag>
         <tag>leetcode-sliding-window</tag>
@@ -5009,9 +5073,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>leetcode-easy</tag>
         <tag>leetcode-array</tag>
         <tag>leetcode-hash-table</tag>
-        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -5220,7 +5284,7 @@ connection pool using a background thread.
 <p>My favorite search engine is <a href="https://duckduckgo.com" title="The best one" target="_blank" rel="noopener">Duck Duck Go</a>.</p>
 <h3 id="网页和邮箱"><a href="#网页和邮箱" class="headerlink" title="网页和邮箱"></a>网页和邮箱</h3><p>为了快速将网页和邮箱转为链接，可以用<code>&lt;&gt;</code>包裹起来</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;https://www.markdownguide.org&gt;</span><br><span class="line">&lt;fake@example.com&gt;</span><br></pre></td></tr></table></figure>
-<p><a href="https://www.markdownguide.org" target="_blank" rel="noopener">https://www.markdownguide.org</a><br><a href="mailto:&#x66;&#x61;&#107;&#101;&#x40;&#x65;&#120;&#97;&#109;&#x70;&#108;&#x65;&#x2e;&#99;&#111;&#109;" target="_blank" rel="noopener">&#x66;&#x61;&#107;&#101;&#x40;&#x65;&#120;&#97;&#109;&#x70;&#108;&#x65;&#x2e;&#99;&#111;&#109;</a></p>
+<p><a href="https://www.markdownguide.org" target="_blank" rel="noopener">https://www.markdownguide.org</a><br><a href="mailto:&#102;&#x61;&#107;&#x65;&#64;&#x65;&#x78;&#x61;&#x6d;&#112;&#x6c;&#x65;&#x2e;&#99;&#x6f;&#109;" target="_blank" rel="noopener">&#102;&#x61;&#107;&#x65;&#64;&#x65;&#x78;&#x61;&#x6d;&#112;&#x6c;&#x65;&#x2e;&#99;&#x6f;&#109;</a></p>
 <h3 id="格式化链接"><a href="#格式化链接" class="headerlink" title="格式化链接"></a>格式化链接</h3><p>为了强调链接，可以在链接的前后加星号</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">I love supporting **[EFF](https://eff.org)**.</span><br><span class="line">This is the *[Markdown Guide](https://www.markdownguide.org)*.</span><br></pre></td></tr></table></figure>
 <p>I love supporting <strong><a href="https://eff.org" target="_blank" rel="noopener">EFF</a></strong>.<br>This is the <em><a href="https://www.markdownguide.org" target="_blank" rel="noopener">Markdown Guide</a></em>.</p>
