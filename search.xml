@@ -1,6 +1,252 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>LeetCode 067 Add Binary</title>
+    <url>/posts/56763/</url>
+    <content><![CDATA[<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given two binary strings, return their sum (also a binary string).</p>
+<p>The input strings are both non-empty and contains only characters 1 or 0.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: a = &quot;11&quot;, b = &quot;1&quot;</span><br><span class="line">Output: &quot;100&quot;</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: a = &quot;1010&quot;, b = &quot;1011&quot;</span><br><span class="line">Output: &quot;10101&quot;</span><br></pre></td></tr></table></figure>
+<p><strong>Difficulty: Easy</strong></p>
+<p><strong>Code:</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">addBinary</span><span class="params">(String a, String b)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>对两个二进制字符串进行加法运算，并返回结果字符串。</p>
+<a id="more"></a>
+<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>令进位carry初始化为0，i、j分别代表a、b字符串要遍历的位置，从两个字符串最后一位开始往前遍历。</p>
+<p>若i、j都大于等于0，则用其位置上都数字iNum、jNum，否则取0。</p>
+<p>用iNum、jNum和carry相加之和，用和对2求余添加到结果字符串末尾，carry更新为和除2。</p>
+<p>直到i、j都小于0，退出循环，说明两个字符串都遍历完毕。</p>
+<p>遍历完后若carry不等于0，则将carry加入字符串末尾。</p>
+<p>最后返回结果字符串到反转即可。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">addBinary</span><span class="params">(String a, String b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> carry = <span class="number">0</span>, i = a.length()-<span class="number">1</span>, j = b.length()-<span class="number">1</span>;</span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">while</span>(i&gt;=<span class="number">0</span> || j&gt;=<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> iNum = i&gt;=<span class="number">0</span> ? (a.charAt(i)-<span class="string">'0'</span>) : <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> jNum = j&gt;=<span class="number">0</span> ? (b.charAt(j)-<span class="string">'0'</span>) : <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> sum = iNum + jNum + carry;</span><br><span class="line">            sb.append(sum%<span class="number">2</span>);</span><br><span class="line">            carry=sum/<span class="number">2</span>;</span><br><span class="line">            i--;</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(carry!=<span class="number">0</span>) sb.append(carry);</span><br><span class="line">        <span class="keyword">return</span> sb.reverse().toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(n)。</p>
+<p><strong>空间复杂度:</strong> O(n)。</p>
+<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><p>同上述解法相似，只是不使用StringBuilder，不需要反转字符串。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">addBinary</span><span class="params">(String a, String b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> carry = <span class="number">0</span>, i = a.length()-<span class="number">1</span>, j = b.length()-<span class="number">1</span>;</span><br><span class="line">        String res = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">while</span>(i&gt;=<span class="number">0</span> || j&gt;=<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> iNum = i&gt;=<span class="number">0</span> ? (a.charAt(i--)-<span class="string">'0'</span>) : <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> jNum = j&gt;=<span class="number">0</span> ? (b.charAt(j--)-<span class="string">'0'</span>) : <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> sum = iNum + jNum + carry;</span><br><span class="line">            res = sum%<span class="number">2</span> + res;</span><br><span class="line">            carry=sum/<span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(carry!=<span class="number">0</span>) res=<span class="string">"1"</span>+res;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(n)。</p>
+<p><strong>空间复杂度:</strong> O(n)。</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>leetcode-easy</tag>
+        <tag>leetcode-string</tag>
+        <tag>leetcode-math</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode 066 Plus One</title>
+    <url>/posts/11445/</url>
+    <content><![CDATA[<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given a non-empty array of digits representing a non-negative integer, plus one to the integer.</p>
+<p>The digits are stored such that the most significant digit is at the head of the list, and each element in the array contain a single digit.</p>
+<p>You may assume the integer does not contain any leading zero, except the number 0 itself.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: [1,2,3]</span><br><span class="line">Output: [1,2,4]</span><br><span class="line">Explanation: The array represents the integer 123.</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: [4,3,2,1]</span><br><span class="line">Output: [4,3,2,2]</span><br><span class="line">Explanation: The array represents the integer 4321.</span><br></pre></td></tr></table></figure>
+<p><strong>Difficulty: Easy</strong></p>
+<p><strong>Code:</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] plusOne(<span class="keyword">int</span>[] digits) &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定一个非空非负的数字数组，其表示一个int数字，对这个数字加一。这个int数字最前面没有0，除非它本身是0。</p>
+<a id="more"></a>
+<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>令进位数字为carry初始化为1，然后从最后一位向前遍历。</p>
+<p>若当前carry为0表示此位没有进位，则直接返回digits；否则更新当前位数字和carry。</p>
+<p>退出循环后若carry不为0，则说明最前面要多一位数字1，考虑到一开始只加1，那么说明最开始所有的数字都是9，最终结果开头为1后面为0。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] plusOne(<span class="keyword">int</span>[] digits) &#123;</span><br><span class="line">        <span class="keyword">int</span> len = digits.length, carry = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=len-<span class="number">1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">            <span class="keyword">if</span>(carry==<span class="number">0</span>) <span class="keyword">return</span> digits;</span><br><span class="line">            <span class="keyword">int</span> sum = digits[i]+carry;</span><br><span class="line">            digits[i]=sum%<span class="number">10</span>;</span><br><span class="line">            carry=sum/<span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span> [len+<span class="number">1</span>];</span><br><span class="line">        res[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> carry==<span class="number">0</span> ? digits : res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(n)。</p>
+<p><strong>空间复杂度:</strong> O(n)。</p>
+<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><p>针对加1这个情景，从最后一位数字开始遍历，重点考察是否为9，因为只有是9才需要进位。</p>
+<p>当前位置的数字若比9小，则加1后直接返回。</p>
+<p>当前位置的数字是9，则加1后当前位置数字变成0，前一位数字要加1，重复上述操作。</p>
+<p>遍历到第一位后也没有返回，说明第一位有进位，考虑到一开始只加1，那么说明所有的数字都是9，结果开头为1后面为0。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] plusOne(<span class="keyword">int</span>[] digits) &#123;</span><br><span class="line">        <span class="keyword">int</span> len = digits.length;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=len-<span class="number">1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">            <span class="keyword">if</span>(digits[i]&lt;<span class="number">9</span>)&#123;</span><br><span class="line">                digits[i]+=<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">return</span> digits;</span><br><span class="line">            &#125;</span><br><span class="line">            digits[i]=<span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span> [len+<span class="number">1</span>];</span><br><span class="line">        res[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(n)。</p>
+<p><strong>空间复杂度:</strong> O(1)。</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>leetcode-easy</tag>
+        <tag>leetcode-array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Paxos共识算法详解</title>
+    <url>/posts/35567/</url>
+    <content><![CDATA[<meta name="referrer" content="no-referrer">
+
+<p>在一个分布式系统中，由于节点故障、网络延迟等各种原因，根据CAP理论，我们只能保证<strong>一致性（Consistency）、可用性（Availability）、分区容错性（Partition Tolerance）</strong> 中的两个。</p>
+<p>对于一致性要求高的系统，比如银行取款机，就会选择牺牲可用性，故障时拒绝服务。MongoDB、Redis、MapReduce使用这种方案。</p>
+<p>对于静态网站、实时性较弱的查询类数据库，会牺牲一致性，允许一段时间内不一致。简单分布式协议Gossip，数据库CouchDB、Cassandra使用这种方案。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/4/12/16a0fa27901a1597?imageView2/0/w/1280/h/960/ignore-error/1" alt="图1"></p>
+<blockquote>
+<p>图1</p>
+</blockquote>
+<p>如图1所示，一致性问题，可以根据是否存在恶意节点分类两类。无恶意节点，是指节点会丢失、重发、不响应消息，但不会篡改消息。而恶意节点可能会篡改消息。有恶意节点的问题称为拜占庭将军问题，不在今天的讨论范围。Paxos很好地解决了无恶意节点的分布式一致性问题。</p>
+<a id="more"></a>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>1990年，Leslie Lamport在论文《The Part-Time Parliament》中提出Paxos算法。由于论文使用故事的方式，没有使用数学证明，起初并没有得到重视。直到1998年该论文才被正式接受。后来2001年Lamport又重新组织了论文，发表了<a href="https://lamport.azurewebsites.net/pubs/paxos-simple.pdf" target="_blank" rel="noopener">《Paxos Made Simple》</a>。作为分布式系统领域的早期贡献者，Lamport获得了2013年图灵奖。</p>
+<p>Paxos算法广泛应用在分布式系统中，Google Chubby的作者Mike Burrows说：“这个世界上只有一种一致性算法，那就是 Paxos（There is only one consensus protocol, and that’s Paxos）”。</p>
+<p>后来的Raft算法、是对Paxos的简化和改进，变得更加容易理解和实现。</p>
+<h2 id="Paxos类型"><a href="#Paxos类型" class="headerlink" title="Paxos类型"></a>Paxos类型</h2><p>Paxos本来是虚构故事中的一个小岛，议会通过表决来达成共识。但是议员可能离开，信使可能走丢，或者重复传递消息。对应到分布式系统的节点故障和网络故障。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/4/12/16a0fab685f8bbfb?imageView2/0/w/1280/h/960/ignore-error/1" alt="图2"></p>
+<blockquote>
+<p>图2</p>
+</blockquote>
+<p>如图2所示，假设议员要提议中午吃什么。如果有一个或者多个人同时提议，但一次只能通过一个提议，这就是Basic Paxos，是Paxos中最基础的协议。</p>
+<p>显然Basic Paxos是不够高效的，如果将Basic Paxos并行起来，同时提出多个提议，比如中午吃什么、吃完去哪里嗨皮、谁请客等提议，议员也可以同时通过多个提议。这就是Multi-Paxos协议。</p>
+<h2 id="Basic-Paxos"><a href="#Basic-Paxos" class="headerlink" title="Basic Paxos"></a>Basic Paxos</h2><h3 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h3><p>Paxos算法存在3种角色：Proposer、Acceptor、Learner，在实现中一个节点可以担任多个角色。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/4/12/16a0fabcefe3ad7f?imageView2/0/w/1280/h/960/ignore-error/1" alt></p>
+<blockquote>
+<p>图3</p>
+</blockquote>
+<ul>
+<li>Proposer负责提出提案</li>
+<li>Acceptor负责对提案进行投票</li>
+<li>Learner获取投票结果，并帮忙传播</li>
+</ul>
+<p>Learner不参与投票过程，为了简化描述，我们直接忽略掉这个角色。</p>
+<h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><p>运行过程分为两个阶段，Prepare阶段和Accept阶段。</p>
+<p>Proposer需要发出两次请求，Prepare请求和Accept请求。Acceptor根据其收集的信息，接受或者拒绝提案。</p>
+<p><strong>Prepare阶段</strong></p>
+<ul>
+<li>Proposer选择一个提案编号n，发送Prepare(n)请求给超过半数（或更多）的Acceptor。</li>
+<li>Acceptor收到消息后，如果n比它之前见过的编号大，就回复这个消息，而且以后不会接受小于n的提案。另外，如果之前已经接受了小于n的提案，回复那个提案编号和内容给Proposer。</li>
+</ul>
+<p><strong>Accept阶段</strong></p>
+<ul>
+<li>当Proposer收到超过半数的回复时，就可以发送Accept(n, value)请求了。 n就是自己的提案编号，value是Acceptor回复的最大提案编号对应的value，如果Acceptor没有回复任何提案，value就是Proposer自己的提案内容。</li>
+<li>Acceptor收到消息后，如果n大于等于之前见过的最大编号，就记录这个提案编号和内容，回复请求表示接受。</li>
+<li>当Proposer收到超过半数的回复时，说明自己的提案已经被接受。否则回到第一步重新发起提案。</li>
+</ul>
+<p>完整算法如图4所示：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/4/12/16a0fac250ca2a82?imageView2/0/w/1280/h/960/ignore-error/1" alt></p>
+<blockquote>
+<p>图4， 第4步判断条件应该是n &gt;= minProposal</p>
+</blockquote>
+<p>Acceptor需要持久化存储minProposal、acceptedProposal、acceptedValue这3个值。</p>
+<h3 id="三种情况"><a href="#三种情况" class="headerlink" title="三种情况"></a>三种情况</h3><p>Basic Paxos共识过程一共有三种可能的情况。下面分别进行介绍。</p>
+<h4 id="情况1：提案已接受"><a href="#情况1：提案已接受" class="headerlink" title="情况1：提案已接受"></a>情况1：提案已接受</h4><p>如图5所示。X、Y代表客户端，S1到S5是服务端，既代表Proposer又代表Acceptor。为了防止重复，Proposer提出的编号由两部分组成：</p>
+<p><code>序列号.Server ID</code></p>
+<p>例如S1提出的提案编号，就是1.1、2.1、3.1……</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/4/12/16a0fac9204f5244?imageView2/0/w/1280/h/960/ignore-error/1" alt></p>
+<blockquote>
+<p>图5 以上图片来自<a href="https://ramcloud.stanford.edu/~ongaro/userstudy/paxos.pdf" target="_blank" rel="noopener">Paxos lecture (Raft user study)</a>第13页</p>
+</blockquote>
+<p>这个过程表示，S1收到客户端的提案X，于是S1作为Proposer，给S1-S3发送Prepare(3.1)请求，由于Acceptor S1-S3没有接受过任何提案，所以接受该提案。然后Proposer S1-S3发送Accept(3.1, X)请求，提案X成功被接受。</p>
+<p>在提案X被接受后，S5收到客户端的提案Y，S5给S3-S5发送Prepare(4.5)请求。对S3来说，4.5比3.1大，且已经接受了X，它会回复这个提案 (3.1, X)。S5收到S3-S5的回复后，使用X替换自己的Y，于是发送Accept(4.5, X)请求。S3-S5接受提案。最终所有Acceptor达成一致，都拥有相同的值X。</p>
+<p>这种情况的结果是：<strong>新Proposer会使用已接受的提案</strong></p>
+<h4 id="情况2：提案未接受，新Proposer可见"><a href="#情况2：提案未接受，新Proposer可见" class="headerlink" title="情况2：提案未接受，新Proposer可见"></a>情况2：提案未接受，新Proposer可见</h4><p><img src="https://user-gold-cdn.xitu.io/2019/4/12/16a0facfea7c6fb4?imageView2/0/w/1280/h/960/ignore-error/1" alt></p>
+<blockquote>
+<p>图6 以上图片来自<a href="https://ramcloud.stanford.edu/~ongaro/userstudy/paxos.pdf" target="_blank" rel="noopener">Paxos lecture (Raft user study)</a>第14页</p>
+</blockquote>
+<p>如图6所示，S3接受了提案(3.1, X)，但S1-S2还没有收到请求。此时S3-S5收到Prepare(4.5)，S3会回复已经接受的提案(3.1, X)，S5将提案值Y替换成X，发送Accept(4.5, X)给S3-S5，对S3来说，编号4.5大于3.1，所以会接受这个提案。</p>
+<p>然后S1-S2接受Accept(3.1, X)，最终所有Acceptor达成一致。</p>
+<p>这种情况的结果是：<strong>新Proposer会使用已提交的值，两个提案都能成功</strong></p>
+<h4 id="情况3：提案未接受，新Proposer不可见"><a href="#情况3：提案未接受，新Proposer不可见" class="headerlink" title="情况3：提案未接受，新Proposer不可见"></a>情况3：提案未接受，新Proposer不可见</h4><p><img src="https://user-gold-cdn.xitu.io/2019/4/12/16a0fad41ceaf3e5?imageView2/0/w/1280/h/960/ignore-error/1" alt></p>
+<blockquote>
+<p>图7 以上图片来自<a href="https://ramcloud.stanford.edu/~ongaro/userstudy/paxos.pdf" target="_blank" rel="noopener">Paxos lecture (Raft user study)</a>第15页</p>
+</blockquote>
+<p>如图7所示，S1接受了提案(3.1, X)，S3先收到Prepare(4.5)，后收到Accept(3.1, X)，由于3.1小于4.5，会直接拒绝这个提案。所以提案X无法收到超过半数的回复，这个提案就被阻止了。提案Y可以顺利通过。</p>
+<p>这种情况的结果是：<strong>新Proposer使用自己的提案，旧提案被阻止</strong></p>
+<h3 id="活锁-livelock"><a href="#活锁-livelock" class="headerlink" title="活锁 (livelock)"></a>活锁 (livelock)</h3><p>活锁发生的几率很小，但是会严重影响性能。就是两个或者多个Proposer在Prepare阶段发生互相抢占的情形。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/4/12/16a0fad792b19024?imageView2/0/w/1280/h/960/ignore-error/1" alt></p>
+<blockquote>
+<p>图8 以上图片来自<a href="https://ramcloud.stanford.edu/~ongaro/userstudy/paxos.pdf" target="_blank" rel="noopener">Paxos lecture (Raft user study)</a>第16页</p>
+</blockquote>
+<p>解决方案是Proposer失败之后给一个随机的等待时间，这样就减少同时请求的可能。</p>
+<h2 id="Multi-Paxos"><a href="#Multi-Paxos" class="headerlink" title="Multi-Paxos"></a>Multi-Paxos</h2><p>上一小节提到的活锁，也可以使用Multi-Paxos来解决。它会从Proposer中选出一个Leader，只由Leader提交Proposal，还可以省去Prepare阶段，减少了性能损失。当然，直接把Basic Paxos的多个Proposer的机制搬过来也是可以的，只是性能不够高。</p>
+<p>将Basic Paxos并行之后，就可以同时处理多个提案了，因此要能存储不同的提案，也要保证提案的顺序。</p>
+<p>Acceptor的结构如图9所示，每个方块代表一个Entry，用于存储提案值。用递增的Index来区分Entry。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/4/12/16a0fadb498e9c76?imageView2/0/w/1280/h/960/ignore-error/1" alt></p>
+<blockquote>
+<p>图9</p>
+</blockquote>
+<p>Multi-Paxos需要解决几个问题，我们逐个来看。</p>
+<h3 id="1-Leader选举"><a href="#1-Leader选举" class="headerlink" title="1. Leader选举"></a>1. Leader选举</h3><p>一个最简单的选举方法，就是Server ID最大的当Leader。</p>
+<p>每个Server间隔T时间向其他Server发送心跳包，如果一个Server在2T时间内没有收到来自更高ID的心跳，那么它就成为Leader。</p>
+<p>其他Proposer，必须拒绝客户端的请求，或将请求转发给Leader。</p>
+<p>当然，还可以使用其他更复杂的选举方法，这里不再详述。</p>
+<h3 id="2-省略Prepare阶段"><a href="#2-省略Prepare阶段" class="headerlink" title="2. 省略Prepare阶段"></a>2. 省略Prepare阶段</h3><p>Prepare的作用是阻止旧的提案，以及检查是否有已接受的提案值。</p>
+<p>当只有一个Leader发送提案的时候，Prepare是不会产生冲突的，可以省略Prepare阶段，这样就可以减少一半RPC请求。</p>
+<p>Prepare请求的逻辑修改为：</p>
+<ul>
+<li>Acceptor记录一个全局的最大提案编号</li>
+<li>回复最大提案编号，如果当前entry以及之后的所有entry都没有接受任何提案，回复noMoreAccepted</li>
+</ul>
+<p>当Leader收到超过半数的noMoreAccepted回复，之后就不需要Prepare阶段了，只需要发送Accept请求。直到Accept被拒绝，就重新需要Prepare阶段。</p>
+<h3 id="3-完整信息流"><a href="#3-完整信息流" class="headerlink" title="3. 完整信息流"></a>3. 完整信息流</h3><p>目前为止信息是不完整的。</p>
+<ul>
+<li>Basic Paxos只需超过半数的节点达成一致。但是在Multi-Paxos中，这种方式可能会使一些节点无法得到完整的entry信息。我们希望每个节点都拥有全部的信息。</li>
+<li>只有Proposer知道一个提案是否被接受了（根据收到的回复），而Acceptor无法得知此信息。</li>
+</ul>
+<p>第1个问题的解决方案很简单，就是Proposer给全部节点发送Accept请求。</p>
+<p>第2个问题稍微复杂一些。首先，我们可以增加一个Success RPC，让Proposer显式地告诉Acceptor，哪个提案已经被接受了，这个是完全可行的，只不过还可以优化一下，减少请求次数。</p>
+<p>我们在Accept请求中，增加一个firstUnchosenIndex参数，表示Proposer的第一个未接受的Index，这个参数隐含的意思是，对该Proposer来说，小于Index的提案都已经被接受了。因此Acceptor可以利用这个信息，把小于Index的提案标记为已接受。另外要注意的是，只能标记该Proposer的提案，因为如果发生Leader切换，不同的Proposer拥有的信息可能不同，不区分Proposer直接标记的话可能会不一致。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/4/12/16a0fadee976d006?imageView2/0/w/1280/h/960/ignore-error/1" alt></p>
+<blockquote>
+<p>图10</p>
+</blockquote>
+<p>如图10所示，Proposer正在准备提交Index=2的Accept请求，0和1是已接受的提案，因此firstUnchosenIndex=2。当Acceptor收到请求后，比较Index，就可以将Dumplings提案标记为已接受。</p>
+<p>由于之前提到的Leader切换的情况，仍然需要显式请求才能获得完整信息。在Acceptor回复Accept消息时，带上自己的firstUnchosenIndex。如果比Proposer的小，那么就需要发送Success(index, value)，Acceptor将收到的index标记为已接受，再回复新的firstUnchosenIndex，如此往复直到两者的index相等。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Paxos是分布式一致性问题中的重要共识算法。这篇文章分别介绍了最基础的Basic Paxos，和能够并行的Multi-Paxos。</p>
+<p>在Basic Paxos中，介绍了3种基本角色Proposer、Acceptor、Learner，以及提案时可能发生的3种基本情况。在Multi-Paxos中，介绍了3个需要解决的问题：Leader选举、Prepare省略、完整信息流。</p>
+<h2 id="附Paxos算法推导过程"><a href="#附Paxos算法推导过程" class="headerlink" title="附Paxos算法推导过程"></a>附Paxos算法推导过程</h2><p>Paxos算法的设计过程就是从正确性开始的，对于分布式一致性问题，很多进程提出（Propose）不同的值，共识算法保证最终只有其中一个值被选定，Safety表述如下：</p>
+<ul>
+<li>只有被提出（Propose）的值才可能被最终选定（Chosen）。</li>
+<li>只有<strong>一</strong>个值会被选定（Chosen）。</li>
+<li>进程只会获知到已经确认被选定（Chosen）的值。</li>
+</ul>
+<p>Paxos以这几条约束作为出发点进行设计，只要算法最终满足这几点，正确性就不需要证明了。Paxos算法中共分为三种参与者：Proposer、Acceptor以及Learner，通常实现中每个进程都同时扮演这三个角色。</p>
+<p>Proposers向Acceptors提出Proposal，为了保证最多只有<strong>一</strong>个值被选定（Chosen），Proposal必须被超过一半的Acceptors所接受（Accept），且每个Acceptor只能接受一个值。</p>
+<p>为了保证正常运行（必须有值被接受），所以Paxos算法中：</p>
+<p><strong>P1：Acceptor必须接受（Accept）它所收到的第一个Proposal。</strong></p>
+<p>先来先服务，合情合理。但这样产生一个问题，如果多个Proposers同时提出Proposal，很可能会导致无法达成一致，因为没有Propopal被超过一半Acceptors的接受，因此，Acceptor必须能够接受多个Proposal，不同的Proposal由不同的编号进行区分，当某个Proposal被超过一半的Acceptors接受后，这个Proposal就被选定了。</p>
+<p>既然允许Acceptors接受多个Proposal就有可能出现多个不同值都被最终选定的情况，这违背了Safety要求，为了保证Safety要求，Paxos进一步提出：</p>
+<p><strong>P2：如果值为v的Proposal被选定（Chosen），则任何被选定（Chosen）的具有更高编号的Proposal值也一定为v。</strong></p>
+<p>只要算法同时满足<strong>P1</strong>和<strong>P2</strong>，就保证了Safety。<strong>P2</strong>是一个比较宽泛的约定，完全没有算法细节，我们对其进一步延伸：</p>
+<p><strong>P2a：如果值为v的Proposal被选定（Chosen），则对所有的Acceptors，它们接受（Accept）的任何具有更高编号的Proposal值也一定为v。</strong></p>
+<p>如果满足<strong>P2a</strong>则一定满足<strong>P2</strong>，显然，因为只有首先被接受才有可能被最终选定。但是<strong>P2a</strong>依然难以实现，因为acceptor很有可能并不知道之前被选定的Proposal（恰好不在接受它的多数派中），因此进一步延伸：</p>
+<p><strong>P2b：如果值为v的Proposal被选定（Chosen），则对所有的Proposer，它们提出的的任何具有更高编号的Proposal值也一定为v。</strong></p>
+<p>更进一步的：</p>
+<p><strong>P2c：为了提出值为v且编号为n的Proposal，必须存在一个包含超过一半Acceptors的集合S，满足(1) 没有任何S中的Acceptors曾经接受（Accept）过编号比n小的Proposal，或者(2) v和S中的Acceptors所接受过(Accept)的编号最大且小于n的Proposal值一致。</strong></p>
+<p>满足<strong>P2c</strong>即满足<strong>P2b</strong>即满足<strong>P2a</strong>即满足<strong>P2</strong>。至此Paxos提出了Proposer的执行流程，以满足<strong>P2c</strong>：</p>
+<ol>
+<li>Proposer选择一个新的编号n，向超过一半的Acceptors发送请求消息，Acceptor回复: (a)承诺不会接受编号比n小的proposal，以及(b)它所接受过的编号比n小的最大Proposal（如果有）。该请求称为Prepare请求。</li>
+<li>如果Proposer收到超过一半Acceptors的回复，它就可以提出Proposal，Proposal的值为收到回复中编号最大的Proposal的值，如果没有这样的值，则可以自由提出任何值。</li>
+<li>向收到回复的Acceptors发送Accept请求，请求对方接受提出的Proposal。</li>
+</ol>
+<p>仔细品味Proposer的执行流程，其完全吻合<strong>P2c</strong>中的要求，但你可能也发现了，当多个Proposer同时运行时，有可能出现没有任何Proposal可以成功被接受的情况（编号递增的交替完成第一步），这就是Paxos算法的Liveness问题，或者叫“活锁”，论文中建议通过对Proposers引入选主算法选出Distinguished Proposer来全权负责提出Proposal来解决这个问题，但是即使在出现多个Proposers同时提出Proposal的情况时，Paxos算法也可以保证Safety。</p>
+<p>接下来看看Acceptors的执行过程，和我们对<strong>P2</strong>做的事情一样，我们对<strong>P1</strong>进行延伸：</p>
+<p><strong>P1a：Acceptor可以接受（Accept）编号为n的Proposal当且仅当它没有回复过一个具有更大编号的Prepare消息。</strong></p>
+<p>易见，<strong>P1a</strong>包含了<strong>P1</strong>，对于Acceptors：</p>
+<ol>
+<li>当收到Prepare请求时，如果其编号n大于之前所收到的Prepare消息，则回复。</li>
+<li>当收到Accept请求时，仅当它没有回复过一个具有更大编号的Prepare消息，接受该Proposal并回复。</li>
+</ol>
+<p>以上涵盖了满足<strong>P1a</strong>和<strong>P2b</strong>的一套完整一致性算法。</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://draveness.me/consensus" target="_blank" rel="noopener">分布式一致性与共识算法</a></p>
+<p><a href="https://yeasy.gitbooks.io/blockchain_guide/content/distribute_system/paxos.html" target="_blank" rel="noopener">Paxos 算法与 Raft 算法</a></p>
+<p><a href="https://en.wikipedia.org/wiki/Paxos_(computer_science" target="_blank" rel="noopener">Paxos</a></p>
+<p><a href="https://lamport.azurewebsites.net/pubs/paxos-simple.pdf" target="_blank" rel="noopener">Paxos Made Simple</a></p>
+<p><a href="https://ramcloud.stanford.edu/~ongaro/userstudy/paxos.pdf" target="_blank" rel="noopener">Paxos lecture (Raft user study)</a></p>
+<p><a href="https://www.youtube.com/watch?v=JEpsBg0AO6o" target="_blank" rel="noopener">YouTube | Paxos lecture (Raft user study)</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/31780743" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/31780743</a></p>
+<p><a href="https://segmentfault.com/a/1190000018844326" target="_blank" rel="noopener">https://segmentfault.com/a/1190000018844326</a></p>
+]]></content>
+      <categories>
+        <category>paxos</category>
+      </categories>
+      <tags>
+        <tag>paxos</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode 065 Valid Number</title>
     <url>/posts/55807/</url>
     <content><![CDATA[<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Validate if a given string can be interpreted as a decimal number.</p>
@@ -59,9 +305,9 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>leetcode-string</tag>
         <tag>leetcode-math</tag>
         <tag>leetcode-hard</tag>
-        <tag>leetcode-string</tag>
       </tags>
   </entry>
   <entry>
@@ -474,8 +720,8 @@
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-linked-list</tag>
         <tag>leetcode-two-pointers</tag>
+        <tag>leetcode-linked-list</tag>
       </tags>
   </entry>
   <entry>
@@ -2847,7 +3093,7 @@ connection pool using a background thread.
 <p>原文链接：<a href="https://www.cnblogs.com/LXP-Never/p/11607551.html" title="view: 电脑组装之硬件选择" target="_blank" rel="noopener">https://www.cnblogs.com/LXP-Never/p/11607551.html</a></p>
 ]]></content>
       <categories>
-        <category>知识百科</category>
+        <category>computer</category>
       </categories>
       <tags>
         <tag>computer</tag>
@@ -3300,8 +3546,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-hard</tag>
         <tag>leetcode-dynamic-programming</tag>
         <tag>leetcode-backtracking</tag>
         <tag>leetcode-greedy</tag>
@@ -3341,8 +3587,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-math</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-math</tag>
       </tags>
   </entry>
   <entry>
@@ -3384,8 +3630,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-array</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-two-pointers</tag>
+        <tag>leetcode-hard</tag>
         <tag>leetcode-stack</tag>
       </tags>
   </entry>
@@ -3785,8 +4031,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-hard</tag>
         <tag>leetcode-dynamic-programming</tag>
       </tags>
   </entry>
@@ -3856,9 +4102,9 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-hash-table</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-two-pointers</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-hard</tag>
       </tags>
   </entry>
   <entry>
@@ -4271,8 +4517,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-linked-list</tag>
         <tag>leetcode-two-pointers</tag>
+        <tag>leetcode-linked-list</tag>
       </tags>
   </entry>
   <entry>
@@ -4482,8 +4728,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-easy</tag>
-        <tag>leetcode-math</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-math</tag>
       </tags>
   </entry>
   <entry>
@@ -4537,8 +4783,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-math</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-math</tag>
       </tags>
   </entry>
   <entry>
@@ -4635,8 +4881,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-hard</tag>
         <tag>leetcode-dynamic-programming</tag>
         <tag>leetcode-backtracking</tag>
       </tags>
@@ -4747,8 +4993,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-math</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-math</tag>
       </tags>
   </entry>
   <entry>
@@ -5284,7 +5530,7 @@ connection pool using a background thread.
 <p>My favorite search engine is <a href="https://duckduckgo.com" title="The best one" target="_blank" rel="noopener">Duck Duck Go</a>.</p>
 <h3 id="网页和邮箱"><a href="#网页和邮箱" class="headerlink" title="网页和邮箱"></a>网页和邮箱</h3><p>为了快速将网页和邮箱转为链接，可以用<code>&lt;&gt;</code>包裹起来</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;https://www.markdownguide.org&gt;</span><br><span class="line">&lt;fake@example.com&gt;</span><br></pre></td></tr></table></figure>
-<p><a href="https://www.markdownguide.org" target="_blank" rel="noopener">https://www.markdownguide.org</a><br><a href="mailto:&#102;&#x61;&#107;&#x65;&#64;&#x65;&#x78;&#x61;&#x6d;&#112;&#x6c;&#x65;&#x2e;&#99;&#x6f;&#109;" target="_blank" rel="noopener">&#102;&#x61;&#107;&#x65;&#64;&#x65;&#x78;&#x61;&#x6d;&#112;&#x6c;&#x65;&#x2e;&#99;&#x6f;&#109;</a></p>
+<p><a href="https://www.markdownguide.org" target="_blank" rel="noopener">https://www.markdownguide.org</a><br><a href="mailto:&#102;&#97;&#107;&#101;&#x40;&#101;&#120;&#x61;&#x6d;&#112;&#x6c;&#x65;&#x2e;&#x63;&#x6f;&#x6d;" target="_blank" rel="noopener">&#102;&#97;&#107;&#101;&#x40;&#101;&#120;&#x61;&#x6d;&#112;&#x6c;&#x65;&#x2e;&#x63;&#x6f;&#x6d;</a></p>
 <h3 id="格式化链接"><a href="#格式化链接" class="headerlink" title="格式化链接"></a>格式化链接</h3><p>为了强调链接，可以在链接的前后加星号</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">I love supporting **[EFF](https://eff.org)**.</span><br><span class="line">This is the *[Markdown Guide](https://www.markdownguide.org)*.</span><br></pre></td></tr></table></figure>
 <p>I love supporting <strong><a href="https://eff.org" target="_blank" rel="noopener">EFF</a></strong>.<br>This is the <em><a href="https://www.markdownguide.org" target="_blank" rel="noopener">Markdown Guide</a></em>.</p>
