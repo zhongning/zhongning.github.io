@@ -1,6 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>LeetCode 069 Sqrt(x)</title>
+    <url>/posts/64536/</url>
+    <content><![CDATA[<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Implement int sqrt(int x).</p>
+<p>Compute and return the square root of x, where x is guaranteed to be a non-negative integer.</p>
+<p>Since the return type is an integer, the decimal digits are truncated and only the integer part of the result is returned.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: 4</span><br><span class="line">Output: 2</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: 8</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: The square root of 8 is 2.82842..., and since </span><br><span class="line">             the decimal part is truncated, 2 is returned.</span><br></pre></td></tr></table></figure>
+<p><strong>Difficulty: Easy</strong></p>
+<p><strong>Code:</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">mySqrt</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>实现求x的平方根，x为非负整数，返回结果也为整数，小数位截取掉。</p>
+<a id="more"></a>
+<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>对小于等于1的情况做特殊处理，令left为二分查找的左边界，right为右边界。</p>
+<p>while循环条件为left&lt;=right，当left==right还没找到时，则因为舍弃小数部分最终结果为left的前一个数。</p>
+<p>当left&lt;right时，mid为left和right的中间数：</p>
+<ol>
+<li>若mid的平方等于x则直接返回mid</li>
+<li>若mid的平方大于x则说明结果在左半侧，令right=mid-1</li>
+<li>若mid的平方小于x则说明结果在右半侧，令left=mid+1</li>
+</ol>
+<p>注意，判断mid平方时要考虑int的平方会溢出，所以使用mid&gt;x/mid这种判断方式。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">mySqrt</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(x&lt;=<span class="number">1</span>) <span class="keyword">return</span> x;</span><br><span class="line">        <span class="keyword">int</span> left=<span class="number">0</span>, right=x;</span><br><span class="line">        <span class="keyword">while</span>(left&lt;=right)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid=(left+right)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(mid==x/mid)&#123;</span><br><span class="line">                <span class="keyword">return</span> mid;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(mid&gt;x/mid)&#123;</span><br><span class="line">                right=mid-<span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                left=mid+<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> left-<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(log n)。</p>
+<p><strong>空间复杂度:</strong> O(1)。</p>
+<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><p>上述解法的另外换一种形式，当mid的平方小于等于x时，判断mid+1的平方是不是大于x，若是则直接返回mid。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">mySqrt</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x &lt;= <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> x;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">1</span>, right = x;</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = left + (right - left)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (mid &gt; x/mid) &#123;</span><br><span class="line">                right = mid - <span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (mid + <span class="number">1</span> &gt; x/(mid + <span class="number">1</span>))</span><br><span class="line">                    <span class="keyword">return</span> mid;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(log n)。</p>
+<p><strong>空间复杂度:</strong> O(1)。</p>
+<h2 id="Solution-3"><a href="#Solution-3" class="headerlink" title="Solution 3"></a>Solution 3</h2><p>参见牛顿迭代法，用逼近法求方程根。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">mySqrt</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> r = x;</span><br><span class="line">        <span class="keyword">while</span>( r*r &gt; x)&#123;</span><br><span class="line">            r = (r + x/r)/<span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>)r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(log n)。</p>
+<p><strong>空间复杂度:</strong> O(1)。</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>leetcode-math</tag>
+        <tag>leetcode-easy</tag>
+        <tag>leetcode-binary-search</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode 068 Text Justification</title>
+    <url>/posts/30697/</url>
+    <content><![CDATA[<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given an array of words and a width maxWidth, format the text such that each line has exactly maxWidth characters and is fully (left and right) justified.</p>
+<p>You should pack your words in a greedy approach; that is, pack as many words as you can in each line. Pad extra spaces ‘ ‘ when necessary so that each line has exactly maxWidth characters.</p>
+<p>Extra spaces between words should be distributed as evenly as possible. If the number of spaces on a line do not divide evenly between words, the empty slots on the left will be assigned more spaces than the slots on the right.</p>
+<p>For the last line of text, it should be left justified and no extra space is inserted between words.</p>
+<p><strong>Note:</strong></p>
+<ul>
+<li>A word is defined as a character sequence consisting of non-space characters only.</li>
+<li>Each word’s length is guaranteed to be greater than 0 and not exceed maxWidth.</li>
+<li>The input array words contains at least one word.</li>
+</ul>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input:</span><br><span class="line">words = [&quot;This&quot;, &quot;is&quot;, &quot;an&quot;, &quot;example&quot;, &quot;of&quot;, &quot;text&quot;, &quot;justification.&quot;]</span><br><span class="line">maxWidth = 16</span><br><span class="line">Output:</span><br><span class="line">[</span><br><span class="line">   &quot;This    is    an&quot;,</span><br><span class="line">   &quot;example  of text&quot;,</span><br><span class="line">   &quot;justification.  &quot;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input:</span><br><span class="line">words = [&quot;What&quot;,&quot;must&quot;,&quot;be&quot;,&quot;acknowledgment&quot;,&quot;shall&quot;,&quot;be&quot;]</span><br><span class="line">maxWidth = 16</span><br><span class="line">Output:</span><br><span class="line">[</span><br><span class="line">  &quot;What   must   be&quot;,</span><br><span class="line">  &quot;acknowledgment  &quot;,</span><br><span class="line">  &quot;shall be        &quot;</span><br><span class="line">]</span><br><span class="line">Explanation: Note that the last line is &quot;shall be    &quot; instead of &quot;shall     be&quot;,</span><br><span class="line">             because the last line must be left-justified instead of fully-justified.</span><br><span class="line">             Note that the second line is also left-justified becase it contains only one word.</span><br></pre></td></tr></table></figure>
+<p><strong>Example 3:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input:</span><br><span class="line">words = [&quot;Science&quot;,&quot;is&quot;,&quot;what&quot;,&quot;we&quot;,&quot;understand&quot;,&quot;well&quot;,&quot;enough&quot;,&quot;to&quot;,&quot;explain&quot;,</span><br><span class="line">         &quot;to&quot;,&quot;a&quot;,&quot;computer.&quot;,&quot;Art&quot;,&quot;is&quot;,&quot;everything&quot;,&quot;else&quot;,&quot;we&quot;,&quot;do&quot;]</span><br><span class="line">maxWidth = 20</span><br><span class="line">Output:</span><br><span class="line">[</span><br><span class="line">  &quot;Science  is  what we&quot;,</span><br><span class="line">  &quot;understand      well&quot;,</span><br><span class="line">  &quot;enough to explain to&quot;,</span><br><span class="line">  &quot;a  computer.  Art is&quot;,</span><br><span class="line">  &quot;everything  else  we&quot;,</span><br><span class="line">  &quot;do                  &quot;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p><strong>Difficulty: Hard</strong></p>
+<p><strong>Code:</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">fullJustify</span><span class="params">(String[] words, <span class="keyword">int</span> maxWidth)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>在给定每行宽度为maxWidth实现文本左右对齐，空格要尽量均匀的分布。</p>
+<p>若一行只有一个单词或者最后一行则左对齐，单词间隔为1个空格，没达到宽度则补全空格。</p>
+<p>若空格在单词间不能均匀分布，则左侧的空格要比右侧多谢。</p>
+<a id="more"></a>
+<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>令res表示最终结果集，line表示当前行所包含对单词，count为当前行的最小长度为n个单词加上n-1个空格长度。</p>
+<p>首先确定每行能放下的单词列表，若当前行count小于等于maxWidth，则继续遍历后续单词，并将其加入line更新count。<br>若大于，则说明当前行不能再添加单词，调用helper对此行进行处理。处理结束后清空line，重置count，i–。</p>
+<p>调用helper去对非最后行进行处理时，若只有一个单词，则直接处理返回。<br>否则计算出所有空格数，求出单词间隔对平均空格数interval，并用remain标记不能剩余空格数。<br>对单词列表进行遍历，将单词添加到行结果中，若到最后一个单词则直接返回，否在单词后加上interval个空格。同时若remain–大于零还要多加一个空格。</p>
+<p>最后对结尾行进行左对齐处理。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">fullJustify</span><span class="params">(String[] words, <span class="keyword">int</span> maxWidth)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; res = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">        List&lt;String&gt; line = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>, len=words.length;;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">            String cur = words[i];</span><br><span class="line">            <span class="keyword">if</span>(count+cur.length()&gt;maxWidth)&#123;</span><br><span class="line">                helper(res,line,maxWidth,count);</span><br><span class="line">                line.clear();</span><br><span class="line">                count=<span class="number">0</span>;</span><br><span class="line">                i--;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                line.add(cur);</span><br><span class="line">                count+=<span class="number">1</span>+cur.length();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        String tmp = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">for</span> (String str : line) &#123;</span><br><span class="line">            tmp += str + <span class="string">" "</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(tmp.length()&gt;maxWidth)&#123;</span><br><span class="line">            tmp=tmp.substring(<span class="number">0</span>,tmp.length()-<span class="number">1</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">int</span> remain = maxWidth - tmp.length();</span><br><span class="line">            <span class="keyword">while</span>(remain--&gt;<span class="number">0</span>)&#123;</span><br><span class="line">                tmp+=<span class="string">" "</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        res.add(tmp);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">helper</span><span class="params">(List&lt;String&gt; res, List&lt;String&gt; line, <span class="keyword">int</span> maxWidth, <span class="keyword">int</span> count)</span></span>&#123;</span><br><span class="line">        String tmp = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">if</span>(line.size()==<span class="number">1</span>)&#123;</span><br><span class="line">            tmp = line.get(<span class="number">0</span>);</span><br><span class="line">            <span class="keyword">while</span>(maxWidth!=tmp.length())&#123;</span><br><span class="line">                tmp = tmp + <span class="string">" "</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            res.add(tmp);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> space = maxWidth-count+line.size();</span><br><span class="line">        <span class="keyword">int</span> interval = space/(line.size()-<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">int</span> remain = space%(line.size()-<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;line.size();i++)&#123;</span><br><span class="line">            tmp+=line.get(i);</span><br><span class="line">            <span class="keyword">if</span>(i==line.size()-<span class="number">1</span>) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> c = interval + (remain--&gt;<span class="number">0</span>?<span class="number">1</span>:<span class="number">0</span>);</span><br><span class="line">            <span class="keyword">while</span>(c--&gt;<span class="number">0</span>)&#123;</span><br><span class="line">                tmp+=<span class="string">" "</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        res.add(tmp);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(n)。</p>
+<p><strong>空间复杂度:</strong> O(n)。</p>
+<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><p>上述代码的另外一种写法，使用双层while循环，index为当前行的起始位置，last为下一行的起始位置。</p>
+<p>里面一层循环是为了根据单词和空格对最小长度去决定last的位置，外面一层循环是当找到index和last后，对当前行进行调整。</p>
+<p>对当前行进行调整时，若是最后一行或者该行只有一个单词，则左对齐，单词间距1个空格，结尾用空格补齐。</p>
+<p>否则是左右对齐，计算出单词间空格对平均长度spaces以及不能整除剩余的空格r，对该行调整。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">fullJustify</span><span class="params">(String[] words, <span class="keyword">int</span> maxWidth)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; lines = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (index &lt; words.length) &#123;</span><br><span class="line">            <span class="keyword">int</span> count = words[index].length();</span><br><span class="line">            <span class="keyword">int</span> last = index + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span> (last &lt; words.length) &#123;</span><br><span class="line">                <span class="keyword">if</span> (words[last].length() + count + <span class="number">1</span> &gt; maxWidth) <span class="keyword">break</span>;</span><br><span class="line">                count += words[last].length() + <span class="number">1</span>;</span><br><span class="line">                last++;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            StringBuilder builder = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">            <span class="keyword">int</span> diff = last - index - <span class="number">1</span>;</span><br><span class="line">            <span class="comment">// if last line or number of words in the line is 1, left-justified</span></span><br><span class="line">            <span class="keyword">if</span> (last == words.length || diff == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = index; i &lt; last; i++) &#123;</span><br><span class="line">                    builder.append(words[i] + <span class="string">" "</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                builder.deleteCharAt(builder.length() - <span class="number">1</span>);</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = builder.length(); i &lt; maxWidth; i++) &#123;</span><br><span class="line">                    builder.append(<span class="string">" "</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// middle justified</span></span><br><span class="line">                <span class="keyword">int</span> spaces = (maxWidth - count) / diff;</span><br><span class="line">                <span class="keyword">int</span> r = (maxWidth - count) % diff;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = index; i &lt; last; i++) &#123;</span><br><span class="line">                    builder.append(words[i]);</span><br><span class="line">                    <span class="keyword">if</span> (i &lt; last - <span class="number">1</span>) &#123;</span><br><span class="line">                        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= (spaces + ((i - index) &lt; r ? <span class="number">1</span> : <span class="number">0</span>)); j++) &#123;</span><br><span class="line">                            builder.append(<span class="string">" "</span>);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            lines.add(builder.toString());</span><br><span class="line">            index = last;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> lines;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(n)。</p>
+<p><strong>空间复杂度:</strong> O(n)。</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>leetcode-string</tag>
+        <tag>leetcode-hard</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode 067 Add Binary</title>
     <url>/posts/56763/</url>
     <content><![CDATA[<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given two binary strings, return their sum (also a binary string).</p>
@@ -33,9 +129,9 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-string</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -305,8 +401,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-string</tag>
         <tag>leetcode-hard</tag>
       </tags>
   </entry>
@@ -599,8 +695,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-dynamic-programming</tag>
       </tags>
   </entry>
@@ -640,8 +736,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-dynamic-programming</tag>
       </tags>
   </entry>
@@ -685,8 +781,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-dynamic-programming</tag>
       </tags>
   </entry>
@@ -720,8 +816,8 @@
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-two-pointers</tag>
         <tag>leetcode-linked-list</tag>
+        <tag>leetcode-two-pointers</tag>
       </tags>
   </entry>
   <entry>
@@ -2452,8 +2548,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
       </tags>
   </entry>
   <entry>
@@ -2495,8 +2591,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -2616,8 +2712,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-sort</tag>
       </tags>
   </entry>
@@ -2659,8 +2755,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-greedy</tag>
       </tags>
   </entry>
@@ -3128,8 +3224,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
       </tags>
   </entry>
   <entry>
@@ -3165,8 +3261,8 @@ connection pool using a background thread.
         <tag>leetcode</tag>
         <tag>leetcode-easy</tag>
         <tag>leetcode-array</tag>
-        <tag>leetcode-divide-and-conquer</tag>
         <tag>leetcode-dynamic-programming</tag>
+        <tag>leetcode-divide-and-conquer</tag>
       </tags>
   </entry>
   <entry>
@@ -3321,8 +3417,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hash-table</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-hash-table</tag>
         <tag>leetcode-string</tag>
       </tags>
   </entry>
@@ -3369,8 +3465,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
       </tags>
   </entry>
   <entry>
@@ -3547,8 +3643,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-string</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-dynamic-programming</tag>
+        <tag>leetcode-hard</tag>
         <tag>leetcode-backtracking</tag>
         <tag>leetcode-greedy</tag>
       </tags>
@@ -3587,8 +3683,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-string</tag>
       </tags>
   </entry>
   <entry>
@@ -3629,8 +3725,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-two-pointers</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-hard</tag>
         <tag>leetcode-stack</tag>
       </tags>
@@ -3700,8 +3796,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-backtracking</tag>
       </tags>
   </entry>
@@ -3741,8 +3837,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-backtracking</tag>
       </tags>
   </entry>
@@ -3779,8 +3875,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -3879,8 +3975,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hash-table</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-hash-table</tag>
       </tags>
   </entry>
   <entry>
@@ -3946,8 +4042,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-binary-search</tag>
       </tags>
   </entry>
@@ -3986,8 +4082,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-binary-search</tag>
       </tags>
   </entry>
@@ -4032,8 +4128,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-string</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-dynamic-programming</tag>
+        <tag>leetcode-hard</tag>
       </tags>
   </entry>
   <entry>
@@ -4064,8 +4160,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
       </tags>
   </entry>
   <entry>
@@ -4180,9 +4276,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-two-pointers</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -4217,9 +4313,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>leetcode-two-pointers</tag>
         <tag>leetcode-easy</tag>
         <tag>leetcode-array</tag>
-        <tag>leetcode-two-pointers</tag>
       </tags>
   </entry>
   <entry>
@@ -4262,9 +4358,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>leetcode-two-pointers</tag>
         <tag>leetcode-easy</tag>
         <tag>leetcode-array</tag>
-        <tag>leetcode-two-pointers</tag>
       </tags>
   </entry>
   <entry>
@@ -4441,8 +4537,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-linked-list</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -4484,8 +4580,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-easy</tag>
         <tag>leetcode-stack</tag>
       </tags>
   </entry>
@@ -4517,8 +4613,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-two-pointers</tag>
         <tag>leetcode-linked-list</tag>
+        <tag>leetcode-two-pointers</tag>
       </tags>
   </entry>
   <entry>
@@ -4549,10 +4645,10 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
-        <tag>leetcode-hash-table</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-hash-table</tag>
         <tag>leetcode-two-pointers</tag>
+        <tag>leetcode-array</tag>
       </tags>
   </entry>
   <entry>
@@ -4613,9 +4709,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
         <tag>leetcode-two-pointers</tag>
+        <tag>leetcode-array</tag>
       </tags>
   </entry>
   <entry>
@@ -4646,9 +4742,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
         <tag>leetcode-two-pointers</tag>
+        <tag>leetcode-array</tag>
       </tags>
   </entry>
   <entry>
@@ -4681,8 +4777,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -4727,9 +4823,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-string</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -4783,8 +4879,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-string</tag>
       </tags>
   </entry>
   <entry>
@@ -4815,9 +4911,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
         <tag>leetcode-two-pointers</tag>
+        <tag>leetcode-array</tag>
       </tags>
   </entry>
   <entry>
@@ -4882,8 +4978,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-string</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-dynamic-programming</tag>
+        <tag>leetcode-hard</tag>
         <tag>leetcode-backtracking</tag>
       </tags>
   </entry>
@@ -4918,8 +5014,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -4993,8 +5089,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-string</tag>
       </tags>
   </entry>
   <entry>
@@ -5033,8 +5129,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -5257,8 +5353,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hash-table</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-hash-table</tag>
         <tag>leetcode-two-pointers</tag>
         <tag>leetcode-string</tag>
         <tag>leetcode-sliding-window</tag>
@@ -5319,9 +5415,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>leetcode-hash-table</tag>
         <tag>leetcode-easy</tag>
         <tag>leetcode-array</tag>
-        <tag>leetcode-hash-table</tag>
       </tags>
   </entry>
   <entry>
@@ -5530,7 +5626,7 @@ connection pool using a background thread.
 <p>My favorite search engine is <a href="https://duckduckgo.com" title="The best one" target="_blank" rel="noopener">Duck Duck Go</a>.</p>
 <h3 id="网页和邮箱"><a href="#网页和邮箱" class="headerlink" title="网页和邮箱"></a>网页和邮箱</h3><p>为了快速将网页和邮箱转为链接，可以用<code>&lt;&gt;</code>包裹起来</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;https://www.markdownguide.org&gt;</span><br><span class="line">&lt;fake@example.com&gt;</span><br></pre></td></tr></table></figure>
-<p><a href="https://www.markdownguide.org" target="_blank" rel="noopener">https://www.markdownguide.org</a><br><a href="mailto:&#102;&#97;&#107;&#101;&#x40;&#101;&#120;&#x61;&#x6d;&#112;&#x6c;&#x65;&#x2e;&#x63;&#x6f;&#x6d;" target="_blank" rel="noopener">&#102;&#97;&#107;&#101;&#x40;&#101;&#120;&#x61;&#x6d;&#112;&#x6c;&#x65;&#x2e;&#x63;&#x6f;&#x6d;</a></p>
+<p><a href="https://www.markdownguide.org" target="_blank" rel="noopener">https://www.markdownguide.org</a><br><a href="mailto:&#102;&#97;&#x6b;&#101;&#x40;&#x65;&#x78;&#97;&#109;&#112;&#108;&#101;&#x2e;&#x63;&#111;&#x6d;" target="_blank" rel="noopener">&#102;&#97;&#x6b;&#101;&#x40;&#x65;&#x78;&#97;&#109;&#112;&#108;&#101;&#x2e;&#x63;&#111;&#x6d;</a></p>
 <h3 id="格式化链接"><a href="#格式化链接" class="headerlink" title="格式化链接"></a>格式化链接</h3><p>为了强调链接，可以在链接的前后加星号</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">I love supporting **[EFF](https://eff.org)**.</span><br><span class="line">This is the *[Markdown Guide](https://www.markdownguide.org)*.</span><br></pre></td></tr></table></figure>
 <p>I love supporting <strong><a href="https://eff.org" target="_blank" rel="noopener">EFF</a></strong>.<br>This is the <em><a href="https://www.markdownguide.org" target="_blank" rel="noopener">Markdown Guide</a></em>.</p>

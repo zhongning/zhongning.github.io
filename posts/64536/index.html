@@ -45,20 +45,20 @@
   };
 </script>
 
-  <meta name="description" content="DescriptionGiven two binary strings, return their sum (also a binary string). The input strings are both non-empty and contains only characters 1 or 0. Example 1: 12Input: a = &amp;quot;11&amp;quot;, b = &amp;quo">
-<meta name="keywords" content="leetcode,leetcode-math,leetcode-string,leetcode-easy">
+  <meta name="description" content="DescriptionImplement int sqrt(int x). Compute and return the square root of x, where x is guaranteed to be a non-negative integer. Since the return type is an integer, the decimal digits are truncated">
+<meta name="keywords" content="leetcode,leetcode-math,leetcode-easy,leetcode-binary-search">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode 067 Add Binary">
-<meta property="og:url" content="http://yoursite.com/posts/56763/index.html">
+<meta property="og:title" content="LeetCode 069 Sqrt(x)">
+<meta property="og:url" content="http://yoursite.com/posts/64536/index.html">
 <meta property="og:site_name" content="Show me the code">
-<meta property="og:description" content="DescriptionGiven two binary strings, return their sum (also a binary string). The input strings are both non-empty and contains only characters 1 or 0. Example 1: 12Input: a = &amp;quot;11&amp;quot;, b = &amp;quo">
+<meta property="og:description" content="DescriptionImplement int sqrt(int x). Compute and return the square root of x, where x is guaranteed to be a non-negative integer. Since the return type is an integer, the decimal digits are truncated">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-20T15:35:37.880Z">
+<meta property="og:updated_time" content="2019-12-23T16:13:54.473Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode 067 Add Binary">
-<meta name="twitter:description" content="DescriptionGiven two binary strings, return their sum (also a binary string). The input strings are both non-empty and contains only characters 1 or 0. Example 1: 12Input: a = &amp;quot;11&amp;quot;, b = &amp;quo">
+<meta name="twitter:title" content="LeetCode 069 Sqrt(x)">
+<meta name="twitter:description" content="DescriptionImplement int sqrt(int x). Compute and return the square root of x, where x is guaranteed to be a non-negative integer. Since the return type is an integer, the decimal digits are truncated">
 
-<link rel="canonical" href="http://yoursite.com/posts/56763/">
+<link rel="canonical" href="http://yoursite.com/posts/64536/">
 
 
 <script id="page-configurations">
@@ -72,7 +72,7 @@
   };
 </script>
 
-  <title>LeetCode 067 Add Binary | Show me the code</title>
+  <title>LeetCode 069 Sqrt(x) | Show me the code</title>
   
 
 
@@ -211,7 +211,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/56763/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/64536/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -224,7 +224,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          LeetCode 067 Add Binary
+          LeetCode 069 Sqrt(x)
         </h1>
 
         <div class="post-meta">
@@ -233,10 +233,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2019-12-20 23:05:37 / 修改时间：23:35:37" itemprop="dateCreated datePublished" datetime="2019-12-20T23:05:37+08:00">2019-12-20</time>
+              <time title="创建时间：2019-12-23 23:22:12" itemprop="dateCreated datePublished" datetime="2019-12-23T23:22:12+08:00">2019-12-23</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-24 00:13:54" itemprop="dateModified" datetime="2019-12-24T00:13:54+08:00">2019-12-24</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -260,30 +266,38 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given two binary strings, return their sum (also a binary string).</p>
-<p>The input strings are both non-empty and contains only characters 1 or 0.</p>
+        <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Implement int sqrt(int x).</p>
+<p>Compute and return the square root of x, where x is guaranteed to be a non-negative integer.</p>
+<p>Since the return type is an integer, the decimal digits are truncated and only the integer part of the result is returned.</p>
 <p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: a = &quot;11&quot;, b = &quot;1&quot;</span><br><span class="line">Output: &quot;100&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: 4</span><br><span class="line">Output: 2</span><br></pre></td></tr></table></figure>
 <p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: a = &quot;1010&quot;, b = &quot;1011&quot;</span><br><span class="line">Output: &quot;10101&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: 8</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: The square root of 8 is 2.82842..., and since </span><br><span class="line">             the decimal part is truncated, 2 is returned.</span><br></pre></td></tr></table></figure>
 <p><strong>Difficulty: Easy</strong></p>
 <p><strong>Code:</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">addBinary</span><span class="params">(String a, String b)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>对两个二进制字符串进行加法运算，并返回结果字符串。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">mySqrt</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>实现求x的平方根，x为非负整数，返回结果也为整数，小数位截取掉。</p>
 <a id="more"></a>
-<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>令进位carry初始化为0，i、j分别代表a、b字符串要遍历的位置，从两个字符串最后一位开始往前遍历。</p>
-<p>若i、j都大于等于0，则用其位置上都数字iNum、jNum，否则取0。</p>
-<p>用iNum、jNum和carry相加之和，用和对2求余添加到结果字符串末尾，carry更新为和除2。</p>
-<p>直到i、j都小于0，退出循环，说明两个字符串都遍历完毕。</p>
-<p>遍历完后若carry不等于0，则将carry加入字符串末尾。</p>
-<p>最后返回结果字符串到反转即可。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">addBinary</span><span class="params">(String a, String b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> carry = <span class="number">0</span>, i = a.length()-<span class="number">1</span>, j = b.length()-<span class="number">1</span>;</span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">while</span>(i&gt;=<span class="number">0</span> || j&gt;=<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> iNum = i&gt;=<span class="number">0</span> ? (a.charAt(i)-<span class="string">'0'</span>) : <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> jNum = j&gt;=<span class="number">0</span> ? (b.charAt(j)-<span class="string">'0'</span>) : <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> sum = iNum + jNum + carry;</span><br><span class="line">            sb.append(sum%<span class="number">2</span>);</span><br><span class="line">            carry=sum/<span class="number">2</span>;</span><br><span class="line">            i--;</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(carry!=<span class="number">0</span>) sb.append(carry);</span><br><span class="line">        <span class="keyword">return</span> sb.reverse().toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>时间复杂度:</strong> O(n)。</p>
-<p><strong>空间复杂度:</strong> O(n)。</p>
-<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><p>同上述解法相似，只是不使用StringBuilder，不需要反转字符串。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">addBinary</span><span class="params">(String a, String b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> carry = <span class="number">0</span>, i = a.length()-<span class="number">1</span>, j = b.length()-<span class="number">1</span>;</span><br><span class="line">        String res = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">while</span>(i&gt;=<span class="number">0</span> || j&gt;=<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> iNum = i&gt;=<span class="number">0</span> ? (a.charAt(i--)-<span class="string">'0'</span>) : <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> jNum = j&gt;=<span class="number">0</span> ? (b.charAt(j--)-<span class="string">'0'</span>) : <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> sum = iNum + jNum + carry;</span><br><span class="line">            res = sum%<span class="number">2</span> + res;</span><br><span class="line">            carry=sum/<span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(carry!=<span class="number">0</span>) res=<span class="string">"1"</span>+res;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>时间复杂度:</strong> O(n)。</p>
-<p><strong>空间复杂度:</strong> O(n)。</p>
+<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>对小于等于1的情况做特殊处理，令left为二分查找的左边界，right为右边界。</p>
+<p>while循环条件为left&lt;=right，当left==right还没找到时，则因为舍弃小数部分最终结果为left的前一个数。</p>
+<p>当left&lt;right时，mid为left和right的中间数：</p>
+<ol>
+<li>若mid的平方等于x则直接返回mid</li>
+<li>若mid的平方大于x则说明结果在左半侧，令right=mid-1</li>
+<li>若mid的平方小于x则说明结果在右半侧，令left=mid+1</li>
+</ol>
+<p>注意，判断mid平方时要考虑int的平方会溢出，所以使用mid&gt;x/mid这种判断方式。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">mySqrt</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(x&lt;=<span class="number">1</span>) <span class="keyword">return</span> x;</span><br><span class="line">        <span class="keyword">int</span> left=<span class="number">0</span>, right=x;</span><br><span class="line">        <span class="keyword">while</span>(left&lt;=right)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid=(left+right)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(mid==x/mid)&#123;</span><br><span class="line">                <span class="keyword">return</span> mid;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(mid&gt;x/mid)&#123;</span><br><span class="line">                right=mid-<span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                left=mid+<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> left-<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(log n)。</p>
+<p><strong>空间复杂度:</strong> O(1)。</p>
+<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><p>上述解法的另外换一种形式，当mid的平方小于等于x时，判断mid+1的平方是不是大于x，若是则直接返回mid。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">mySqrt</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x &lt;= <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> x;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">1</span>, right = x;</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = left + (right - left)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (mid &gt; x/mid) &#123;</span><br><span class="line">                right = mid - <span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (mid + <span class="number">1</span> &gt; x/(mid + <span class="number">1</span>))</span><br><span class="line">                    <span class="keyword">return</span> mid;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(log n)。</p>
+<p><strong>空间复杂度:</strong> O(1)。</p>
+<h2 id="Solution-3"><a href="#Solution-3" class="headerlink" title="Solution 3"></a>Solution 3</h2><p>参见牛顿迭代法，用逼近法求方程根。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">mySqrt</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> r = x;</span><br><span class="line">        <span class="keyword">while</span>( r*r &gt; x)&#123;</span><br><span class="line">            r = (r + x/r)/<span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>)r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(log n)。</p>
+<p><strong>空间复杂度:</strong> O(1)。</p>
 
     </div>
 
@@ -310,8 +324,8 @@
           <div class="post-tags">
               <a href="/tags/leetcode/" rel="tag"># leetcode</a>
               <a href="/tags/leetcode-math/" rel="tag"># leetcode-math</a>
-              <a href="/tags/leetcode-string/" rel="tag"># leetcode-string</a>
               <a href="/tags/leetcode-easy/" rel="tag"># leetcode-easy</a>
+              <a href="/tags/leetcode-binary-search/" rel="tag"># leetcode-binary-search</a>
           </div>
 
         
@@ -320,13 +334,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/posts/11445/" rel="prev" title="LeetCode 066 Plus One">
-      <i class="fa fa-chevron-left"></i> LeetCode 066 Plus One
+    <a href="/posts/30697/" rel="prev" title="LeetCode 068 Text Justification">
+      <i class="fa fa-chevron-left"></i> LeetCode 068 Text Justification
     </a></div>
-      <div class="post-nav-item">
-    <a href="/posts/30697/" rel="next" title="LeetCode 068 Text Justification">
-      LeetCode 068 Text Justification <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -364,7 +375,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题意"><span class="nav-number">2.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-1"><span class="nav-number">3.</span> <span class="nav-text">Solution 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-2"><span class="nav-number">4.</span> <span class="nav-text">Solution 2</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题意"><span class="nav-number">2.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-1"><span class="nav-number">3.</span> <span class="nav-text">Solution 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-2"><span class="nav-number">4.</span> <span class="nav-text">Solution 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-3"><span class="nav-number">5.</span> <span class="nav-text">Solution 3</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
