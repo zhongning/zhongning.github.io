@@ -1,6 +1,332 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>看涨期权和看跌期权的图解</title>
+    <url>/posts/8686/</url>
+    <content><![CDATA[<p>在金融世界中，也有这么一款对未来做承诺的金融工具，它的名字叫做option，这里的option是<strong>期权</strong>的意思，</p>
+<p>是一种赋予<strong>期权买方</strong>在约定日期以<strong>约定</strong>的价格买入或卖出<strong>约定</strong>数量<strong>标的资产</strong>的权利的合约，而期权卖方必须履行承诺。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190919164713845.jpeg" alt></p>
+<a id="more"></a>
+<p>我们来看个例子，</p>
+<p><img src="https://img-blog.csdnimg.cn/20190919164713900.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvbGlqdW5zaHk=,size_16,color_FFFFFF,t_70" alt></p>
+<p>这里的草鞋，</p>
+<p>相当于期权合约中的“<strong>标的资产</strong>”，比如股票等。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190919164713975.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvbGlqdW5zaHk=,size_16,color_FFFFFF,t_70" alt></p>
+<p>这里的10元定金相当于期权中的<strong>权利金</strong>，即期权的买方为获得<strong>权利</strong>支付给卖方的<strong>一定费用</strong>。</p>
+<p><img src="https://img-blog.csdnimg.cn/2019091916471432.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvbGlqdW5zaHk=,size_16,color_FFFFFF,t_70" alt></p>
+<p>这里的180元相当于期权<strong>执行价格</strong>，即期权合约中指明的资产在未来买入或卖出的<strong>价格</strong>。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190919164714684.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvbGlqdW5zaHk=,size_16,color_FFFFFF,t_70" alt></p>
+<p>等到约定的期限，</p>
+<p>若草鞋的市场价格确实如预期<strong>上涨</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/20190919164715787.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvbGlqdW5zaHk=,size_16,color_FFFFFF,t_70" alt></p>
+<p>但若市场价格未涨<strong>反跌</strong>，则权利方会做出如下选择，</p>
+<p><img src="https://img-blog.csdnimg.cn/20190919164744336.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvbGlqdW5zaHk=,size_16,color_FFFFFF,t_70" alt></p>
+<p>期权的买方可以选择<strong>行权</strong>，当然也可以<strong>放弃</strong>行权。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190919164744425.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvbGlqdW5zaHk=,size_16,color_FFFFFF,t_70" alt></p>
+<p>我们模拟的上述过程，属于期权中的<strong>认购期权</strong>，</p>
+<p>是期权买方有权在约定时间以约定价格从卖方<strong>买进</strong>一定数量标的资产的期权。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190919164744381.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvbGlqdW5zaHk=,size_16,color_FFFFFF,t_70" alt></p>
+<p>因为<strong>认购期权</strong>的买方是预估标的资产<strong>会涨</strong>，</p>
+<p>所以也被称为</p>
+<p><img src="https://img-blog.csdnimg.cn/20190919164744823.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvbGlqdW5zaHk=,size_16,color_FFFFFF,t_70" alt></p>
+<p>草鞋市场价格越高，</p>
+<p>认购期权的<strong>买方</strong>潜在<strong>收益越大</strong>，</p>
+<p>其收益图如下</p>
+<p><img src="https://img-blog.csdnimg.cn/20190919164744524.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvbGlqdW5zaHk=,size_16,color_FFFFFF,t_70" alt></p>
+<p>对于认购期权的<strong>卖方</strong>，则刚好相反，</p>
+<p><img src="https://img-blog.csdnimg.cn/20190919164744608.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvbGlqdW5zaHk=,size_16,color_FFFFFF,t_70" alt></p>
+<p>对于认购期权的买方而言，该期权是否有价值，就要看<strong>执行价格</strong>和<strong>市场价格</strong>孰高孰低，</p>
+<p><img src="https://img-blog.csdnimg.cn/20190919164801250.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvbGlqdW5zaHk=,size_16,color_FFFFFF,t_70" alt></p>
+<p>因此对于<strong>认购期权</strong>，</p>
+<p>当鞋子<strong>市场价格</strong>&gt;约定的<strong>执行价格</strong>的时候，</p>
+<p>我们称之为<strong>实值期权</strong>，</p>
+<p><img src="https://img-blog.csdnimg.cn/20190919164801373.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvbGlqdW5zaHk=,size_16,color_FFFFFF,t_70" alt></p>
+<p>当鞋子<strong>市场价格</strong>&lt;约定的<strong>执行价格</strong>的时候，</p>
+<p>我们称之为<strong>虚值期权</strong>，</p>
+<p><img src="https://img-blog.csdnimg.cn/20190919164801374.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvbGlqdW5zaHk=,size_16,color_FFFFFF,t_70" alt></p>
+<p>当鞋子<strong>市场价格</strong>=约定的<strong>执行价格</strong>的时候，</p>
+<p>我们称之为<strong>平值期权</strong>。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190919164801420.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvbGlqdW5zaHk=,size_16,color_FFFFFF,t_70" alt></p>
+<p><img src="https://img-blog.csdnimg.cn/20190919164820351.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvbGlqdW5zaHk=,size_16,color_FFFFFF,t_70" alt></p>
+<p>了解了<strong>认购期权</strong>，</p>
+<p>我们再来看另一种情况，</p>
+<p>就是<strong>认沽期权</strong>，</p>
+<p><img src="https://img-blog.csdnimg.cn/20190919164820449.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvbGlqdW5zaHk=,size_16,color_FFFFFF,t_70" alt></p>
+<p>这是期权买方有权在约定时间以约定价格向卖方<strong>卖出</strong>一定数量标的资产的期权。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190919164820493.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvbGlqdW5zaHk=,size_16,color_FFFFFF,t_70" alt></p>
+<p>等到约定的期限后，也会出现两种情况：</p>
+<p>要么市场价格如刘备预期的<strong>下跌</strong>，</p>
+<p><img src="https://img-blog.csdnimg.cn/20190919164820581.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvbGlqdW5zaHk=,size_16,color_FFFFFF,t_70" alt></p>
+<p>要么价格<strong>上涨</strong>，</p>
+<p><img src="https://img-blog.csdnimg.cn/20190919164820628.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvbGlqdW5zaHk=,size_16,color_FFFFFF,t_70" alt></p>
+<p>因为<strong>认沽期权</strong>的买方是预估标的资产<strong>会跌</strong>，</p>
+<p>所以又被称为</p>
+<p><img src="https://img-blog.csdnimg.cn/20190919164820683.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvbGlqdW5zaHk=,size_16,color_FFFFFF,t_70" alt></p>
+<p>看跌期权的流程图如下，</p>
+<p><img src="https://img-blog.csdnimg.cn/20190919164842910.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvbGlqdW5zaHk=,size_16,color_FFFFFF,t_70" alt></p>
+<p>草鞋市场价格下降的越多，</p>
+<p><strong>认沽期权买方</strong>的潜在收益越大，</p>
+<p>其收益图如下，</p>
+<p><img src="https://img-blog.csdnimg.cn/20190919164842974.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvbGlqdW5zaHk=,size_16,color_FFFFFF,t_70" alt></p>
+<p>对<strong>认沽期权</strong>的卖方则相反，</p>
+<p><img src="https://img-blog.csdnimg.cn/2019091916484333.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvbGlqdW5zaHk=,size_16,color_FFFFFF,t_70" alt></p>
+<p><strong>认沽期权</strong>的买方决定是否执行期权，卖出标的资产，也和<strong>市场价格</strong>有关，</p>
+<p><img src="https://img-blog.csdnimg.cn/20190919164843578.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvbGlqdW5zaHk=,size_16,color_FFFFFF,t_70" alt></p>
+<p>因此对于<strong>认沽期权</strong>，</p>
+<p>当鞋子<strong>市场价格</strong>&lt;约定的<strong>执行价格</strong>的时候，</p>
+<p>我们称之为<strong>实值期权</strong>，</p>
+<p><img src="https://img-blog.csdnimg.cn/20190919164843164.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvbGlqdW5zaHk=,size_16,color_FFFFFF,t_70" alt></p>
+<p>当鞋子<strong>市场价格</strong>&gt;约定的<strong>执行价格</strong>的时候，</p>
+<p>我们称之为<strong>虚值期权</strong>，</p>
+<p><img src="https://img-blog.csdnimg.cn/20190919164843270.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvbGlqdW5zaHk=,size_16,color_FFFFFF,t_70" alt></p>
+<p>当鞋子<strong>市场价格</strong>=约定的<strong>执行价格</strong>的时候，</p>
+<p>我们称之为<strong>平值期权</strong>。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190919164843302.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvbGlqdW5zaHk=,size_16,color_FFFFFF,t_70" alt></p>
+<p><img src="https://img-blog.csdnimg.cn/20190919164843391.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvbGlqdW5zaHk=,size_16,color_FFFFFF,t_70" alt></p>
+<p><img src="https://img-blog.csdnimg.cn/20190919164843423.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvbGlqdW5zaHk=,size_16,color_FFFFFF,t_70" alt></p>
+<p>不一定哦，</p>
+<p>按照期权买方执行期权的<strong>时限</strong>分为:</p>
+<p><img src="https://img-blog.csdnimg.cn/20190919164843501.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvbGlqdW5zaHk=,size_16,color_FFFFFF,t_70" alt></p>
+<p><img src="https://img-blog.csdnimg.cn/20190919164843651.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvbGlqdW5zaHk=,size_16,color_FFFFFF,t_70" alt></p>
+<p>这种分法与交易地理位置没有关系。</p>
+<p><strong>欧式期权</strong>是期权买方只能在期权的<strong>到期日</strong>才能行权的期权。</p>
+<p>这就好像，你预定了一年后的演唱会门票，只能在当天使用，在这个日期之前是不能使用的。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190919164908598.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvbGlqdW5zaHk=,size_16,color_FFFFFF,t_70" alt></p>
+<p>当然，过了这个期限又<strong>无效</strong>，</p>
+<p><img src="https://img-blog.csdnimg.cn/20190919164908680.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvbGlqdW5zaHk=,size_16,color_FFFFFF,t_70" alt></p>
+<p><strong>美式期权</strong>就不一样啦，期权买方可以在到期日之前的<strong>任一交易日</strong>或<strong>到期日</strong>行权的期权。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190919164908730.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvbGlqdW5zaHk=,size_16,color_FFFFFF,t_70" alt></p>
+<p>这就好比，</p>
+<p>一张一年内到期的面包券，在到期之前<strong>任何一天</strong>都可以使用。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190919164908799.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvbGlqdW5zaHk=,size_16,color_FFFFFF,t_70" alt></p>
+<p><img src="https://img-blog.csdnimg.cn/20190919164908874.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvbGlqdW5zaHk=,size_16,color_FFFFFF,t_70" alt></p>
+<p>按照<strong>标的资产</strong>不同，</p>
+<p>期权又可以分为：</p>
+<p><img src="https://img-blog.csdnimg.cn/20190919164908916.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvbGlqdW5zaHk=,size_16,color_FFFFFF,t_70" alt></p>
+<p>好了，我们就不详细展开了。</p>
+]]></content>
+      <categories>
+        <category>finance</category>
+      </categories>
+      <tags>
+        <tag>option</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>看涨期权和看跌期权</title>
+    <url>/posts/930/</url>
+    <content><![CDATA[<h2 id="期权分类"><a href="#期权分类" class="headerlink" title="期权分类"></a>期权分类</h2><p>期权(Option)，是一种选择权，指是一种能在未来某特定时间以特定价格买入或卖出一定数量的某种特定商品的权利。它是在期货基础上产生的一种金融工具，给予买方(或持有者)购买或出售标的资产(underlying asset)的权利。期权的持有者可以在该项期权规定的时间内选择买或不买、卖或不卖的权利，可以实施该权利，也可以放弃该权利，而期权的出卖者则只负有期权合约规定的义务。</p>
+<h3 id="1-按期权的权利划分，有看涨期权和看跌期权两种类型："><a href="#1-按期权的权利划分，有看涨期权和看跌期权两种类型：" class="headerlink" title="1. 按期权的权利划分，有看涨期权和看跌期权两种类型："></a>1. 按期权的权利划分，有看涨期权和看跌期权两种类型：</h3><ol>
+<li>看涨期权(Call Options)是指期权的买方向期权的卖方支付一定数额的权利金后，即拥有在期权合约的有效期内，按事先约定的价格向期权卖方买入一定数量的期权合约规定的特定商品的权利，但不负有必须买进的义务。而期权卖方有义务在期权规定的有效期内，应期权买方的要求，以期权合约事先规定的价格卖出期权合约规定的特定商品；</li>
+<li>看跌期权(Put Options)是指期权的买方向期权的卖方支付一定数额的权利金后，即拥有在期权合约的有效期内，按事先约定的价格向期权卖方卖出一定数量的期权合约规定的特定商品的权利，但不负有必须卖出的义务。而期权卖方有义务在期权规定的有效期内，应期权买方的要求，以期权合约事先规定的价格买入期权合约规定的特定商品。</li>
+</ol>
+<a id="more"></a>
+<h3 id="2-按期权的交割时间划分，有美式期权和欧式期权两种类型："><a href="#2-按期权的交割时间划分，有美式期权和欧式期权两种类型：" class="headerlink" title="2. 按期权的交割时间划分，有美式期权和欧式期权两种类型："></a>2. 按期权的交割时间划分，有美式期权和欧式期权两种类型：</h3><ul>
+<li>美式期权是指在期权合约规定的有效期内任何时候都可以行使权利；</li>
+<li>欧式期权是指在期权合约规定的到期日方可行使权利，期权的买方在合约到期日之前不能行使权利，过了期限，合约则自动作废。</li>
+</ul>
+<h3 id="3-按期权合约上的标的划分，有股票期权、股指期权、利率期权、商品期权以及外汇期权等种类。"><a href="#3-按期权合约上的标的划分，有股票期权、股指期权、利率期权、商品期权以及外汇期权等种类。" class="headerlink" title="3. 按期权合约上的标的划分，有股票期权、股指期权、利率期权、商品期权以及外汇期权等种类。"></a>3. 按期权合约上的标的划分，有股票期权、股指期权、利率期权、商品期权以及外汇期权等种类。</h3><h2 id="期权重要术语"><a href="#期权重要术语" class="headerlink" title="期权重要术语"></a>期权重要术语</h2><ul>
+<li>1. 执行价格(Strike Price，又称为行权价)，如果X股票的市价为$10，你买了$15的看涨期权，$15就是行权价。</li>
+<li>2. 执行日(Expiration Date，又称为行权日)，如果你买的是2015年12月18日到期的期权，那么这天就是行权日。</li>
+<li>3. Open Interest：还没到期以及没被执行的合约数量。</li>
+<li>4. 合约(Contract)，期权的单位为合约，每张合约为100股股票的权利。</li>
+</ul>
+<h2 id="期权交易的4种基本类型"><a href="#期权交易的4种基本类型" class="headerlink" title="期权交易的4种基本类型"></a>期权交易的4种基本类型</h2><h3 id="1-买进看涨期权-Buy-Call"><a href="#1-买进看涨期权-Buy-Call" class="headerlink" title="1. 买进看涨期权(Buy Call)"></a>1. 买进看涨期权(Buy Call)</h3><ul>
+<li>看涨股票时，可以买入看涨期权</li>
+<li>盈利 = 市场价 – 行权价 – 期权的费用</li>
+<li>最大损失 = 期权费用</li>
+<li>若交易者买进看涨期权，之后市场价格果然上涨，且升至执行价格之上，则交易者可执行期权从而获利；</li>
+<li>若行权日之前股票价格一直未升到执行价格之上，则交易者放弃期权，最大损失为期权费。</li>
+<li>举例：你在2011年12月29日GOOG的价格为$636时候，以每合约$15.15的价格买入了GOOG的2012年1月的行权价为$650的看涨期权。你的操作是：”buy to open GOOG-JAN-2012-$650-Calls”。代表你看涨GOOG，认为在2012年1月的行权日前GOOG会涨到$650以上。</li>
+<li>在行权日前随着GOOG股票价格上涨，看涨期权价格也在上涨。你可以选择提前执行你的看涨期权而获利。</li>
+<li>执行：如果到了行权日GOOG股票价格达到$700,你选择执行你的看涨期权：你可以以$650买入GOOG的股票。</li>
+<li>过期失效：如果到了行权日GOOG股票低于$650,你可以选择让看涨期权过期失效，你会损失每合约$15.15。</li>
+</ul>
+<h3 id="2-买进看跌期权-Buy-Put"><a href="#2-买进看跌期权-Buy-Put" class="headerlink" title="2. 买进看跌期权(Buy Put)"></a>2. 买进看跌期权(Buy Put)</h3><ul>
+<li>看跌股票时，可以买入看跌期权；</li>
+<li>盈利 = 行权价 – 市价 – 期权费用</li>
+<li>最大损失 = 期权费用</li>
+<li>若交易者买进看跌期权，之后市场价格果然下跌，且跌至执行价格之下，则交易者执行期权从而获利。由于价格不可能跌到负数，所以买入看跌期权的最大盈利为执行价格减去期权费之差；</li>
+<li>若行权日之前股票并没跌到执行价格之下，则交易者放弃期权，最大损失为期权费。</li>
+</ul>
+<h3 id="3-卖出看涨期权-Sell-Call"><a href="#3-卖出看涨期权-Sell-Call" class="headerlink" title="3. 卖出看涨期权(Sell Call)"></a>3. 卖出看涨期权(Sell Call)</h3><ul>
+<li>看跌股票时，可以卖出看涨期权；</li>
+<li>若交易者卖出看涨期权，在执行日之前价格都没能涨到执行价格之上，则交易者获得期权费作为利润；</li>
+<li>反之，在执行日之前价格涨到执行价格之上，交易者将损失期权费，和价差(市场价格-执行价格)。</li>
+<li>注意：作为卖出看涨期权者，最大盈利为期权费，盈利范围的值为负。</li>
+</ul>
+<h3 id="4-卖出看跌期权-Sell-Put"><a href="#4-卖出看跌期权-Sell-Put" class="headerlink" title="4. 卖出看跌期权(Sell Put)"></a>4. 卖出看跌期权(Sell Put)</h3><ul>
+<li>看涨股票时，可以卖出看跌期权；</li>
+<li>若交易者卖出看跌期权，在执行日到期之前股价没有跌到执行价格之下，则交易者获得期权费作为利润；</li>
+<li>反之，在执行日到期前股价跌到执行价格之下，交易者将损失期权费，和价差(执行价格-市场价格)。</li>
+<li>注意：作为卖出看跌期权者，最大盈利为期权费，盈利范围的值为负。</li>
+</ul>
+<h3 id="买入看跌期权-Buy-Put"><a href="#买入看跌期权-Buy-Put" class="headerlink" title="买入看跌期权(Buy Put)"></a><strong>买入看跌期权(Buy Put)</strong></h3><p>如果股票X的现价为$10，我花$1每股权利买入本月中(12月18日)到期的、执行价为$10的看跌期权(Put)。首先，我一共花了$100买这张合约(因为$1每股权利，一张合约100股权利)。</p>
+<p>假设：两周之后，X股价跌到了$8，我卖出了这张合约，我一共获利$100 [(10-8)*100-100]=$100](不包含手续费)。</p>
+<p>假设：两周之后，X股价涨到了$15，我选择止损将期权卖出，因此我损失$100(不包含佣金)。</p>
+<h3 id="卖出看涨期权-Sell-Call"><a href="#卖出看涨期权-Sell-Call" class="headerlink" title="卖出看涨期权(Sell Call)"></a><strong>卖出看涨期权(Sell Call)</strong></h3><p>如果股票X的现价为$10，我认为不可能涨到$12以上，于是花$1每股权利卖出本月中(12月18日)到期的、执行价为$12的看涨期权(Call)。这样我将先收入$100，但是这$100还不属于我的，当行权日之前，股价没有超过$12，这$100才是我的。</p>
+<p>但是如果行权日之前，股价超过了$12，我将会被迫行权(拥有这个卖出权利的人会要求)，以市场价买回一张合约，这里最大的风险是市场价格不确定，中间的差价将是我的亏损。所以当价格涨到接近$12是，我会先行权，买回合约，避免后面买回的价格过高。</p>
+<h3 id="卖出看跌期权-Sell-Put"><a href="#卖出看跌期权-Sell-Put" class="headerlink" title="卖出看跌期权(Sell Put)"></a><strong>卖出看跌期权(Sell Put)</strong></h3><p>如果股票X的现价为$10，我认为股不可能跌到$8以下，于是花$1每股权利卖出本月中(12月18日)到期的、执行价为$8的看跌期权(Put)。这样我将先收入$100，但是这$100还不属于我的，当行权日之前，股价没有低于$8，这$100才是我的。</p>
+<p>但是如果股价跌到$8以下，我就会被迫行权，比如价格跌到$7，我的损失是$200(不包括期权佣金)。</p>
+<h2 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h2><p>看涨期权是买入权，看跌期权是卖出权。</p>
+<h3 id="看涨期权"><a href="#看涨期权" class="headerlink" title="看涨期权"></a>看涨期权</h3><p>买入看涨期权表示你从别人那买入，卖出看涨期权表示别人从你那买入。</p>
+<p>比如买入看涨期权，执行价格为50元，如果未来市场价格上涨到60元，你就可以以50元从别人那里买入，然后以60元市场价格卖出，你赚10元。价格越高你赚得越多；如果未来价格跌至40元，你当然不会把从别人买入50元的东西市场上卖40元，于是你放弃行权，损失了期权费。</p>
+<p>比如卖出看涨期权，执行价格为50元，如果未来市场价格上涨到60元，别人就可以以50元从你那里买入，然后以60元市场价格卖出，价格越高你亏的越多；如果未来价格跌倒40元，别人当然不会把从你那里买入50元的东西市场上卖40元，于是别人放弃行权，你获得了期权费。</p>
+<h3 id="看跌期权"><a href="#看跌期权" class="headerlink" title="看跌期权"></a>看跌期权</h3><p>买入看跌期权表示你卖给别人，卖出看跌期权表示别人卖给你。</p>
+<p>比如买入看跌期权，执行价格为50元，如果未来价格跌到40元，你可以从市场上40元买进然后以50元卖给别人，你赚10元，价格越低，你赚得越多；相反，如果未来价格上升至60元，你当然不会把市场60元的东西卖给别人50元，于是你放弃行权，损失期权费。</p>
+<p>比如卖出看跌期权，执行价格为50元，如果未来价格跌到40元，别人就可以从市场上40元买进然后以50元卖给你，你损失10元，价格越低，你亏的越多；相反，如果未来价格上升至60元，别人当然不会把市场60元的东西卖你50元，于是别人放弃行权，你获得期权费。</p>
+<h2 id="国内期权"><a href="#国内期权" class="headerlink" title="国内期权"></a>国内期权</h2><p>有人问卖方最多才能挣个保证金，是不是吃亏了？不能够，卖方一般都是大机构，有专业的给算，公式里都带着风险系数物的波动率什么的，保证金是在此基础上算得，在保证金定价的时候已经把一定时期内的风险都给预估了，基本稳赚不赔。</p>
+<p>就股票期权这一块，国内除了50ETF，目前只能做场外。就这一块普及一下：首先咱们要明确一点，期权属于金融衍生品，核心功能就两点：加大杠杆和降低风险。这两个相对的概念，可以通过金融衍生品来进行一定程度的结合，而期权就是这样一个很好的金融衍生工具。</p>
+<p>另外下面说的期权都是指最简单的平值香草期权。核心：用有限的资金来撬动更多的钱炒股，最大损失就是期权费，理论收益无限大。期权里面两个概念，叫做名义本金和期权费。</p>
+<p>期权费就是你需要给做市商的钱，名义本金就是你付了期权费以后可以用的钱。一般现在的市场价格是1000万的名义本金需要10%~15%的期权费。所以这就很清楚了，假设10%的期权费，就相当于你用1:9的配资在炒股，但是，你的最大损失就是期权费。这就很逆天了，所以期权实际上就是相当于一个风险超低的杠杆。</p>
+<p>所谓看涨期权就是你看好这个票未来要涨，你在T日做了看涨期权，期权费为100万，实际可以撬动的资金是1000万，假设股票在期权到期的时候涨了30%，这个时候把期权卖掉，你就赚了1300-1000-100=200万的收益。</p>
+<p>看跌期权就是反过来，你看空这个票，本质就是做空，所以A股市场没法直接做。目前都是以股票借贷来变相做空，这里就不讨论了。</p>
+]]></content>
+      <categories>
+        <category>finance</category>
+      </categories>
+      <tags>
+        <tag>option</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java进程CPU过高分析</title>
+    <url>/posts/35377/</url>
+    <content><![CDATA[<meta name="referrer" content="no-referrer">
+
+<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>记得前段时间，同事说他们测试环境的服务器cpu使用率一直处于100%，本地又没有什么接口调用，为什么会这样？cpu使用率居高不下，自然是有某些线程一直占用着cpu资源，那又如何查看占用cpu较高的线程？</p>
+<a id="more"></a>
+<p><img src="//upload-images.jianshu.io/upload_images/2184951-d0d2990160a6c935.png?imageMogr2/auto-orient/strip%7CimageView2/2" alt>  </p>
+<p>当然一个正常的程序员不会写出上述代码，这里只是为了让一个线程占用较高的cpu资源。</p>
+<h3 id="top命令"><a href="#top命令" class="headerlink" title="top命令"></a>top命令</h3><p>在linux环境下，可以通过<code>top</code>命令查看各个进程的cpu使用情况，默认按cpu使用率排序</p>
+<p><img src="//upload-images.jianshu.io/upload_images/2184951-b61659815716a054.png?imageMogr2/auto-orient/strip%7CimageView2/2" alt>  </p>
+<p>1、上图中可以看出pid为23344的java进程占用了较多的cpu资源；<br>2、通过<code>top -Hp 23344</code>可以查看该进程下各个线程的cpu使用情况；</p>
+<p><img src="//upload-images.jianshu.io/upload_images/2184951-831f6716e5801e63.png?imageMogr2/auto-orient/strip%7CimageView2/2" alt>  </p>
+<p>上图中可以看出pid为25077的线程占了较多的cpu资源，利用jstack命令可以继续查看该线程当前的堆栈状态。</p>
+<h3 id="jstack命令"><a href="#jstack命令" class="headerlink" title="jstack命令"></a>jstack命令</h3><p>通过top命令定位到cpu占用率较高的线程之后，继续使用<code>jstack pid</code>命令查看当前java进程的堆栈状态</p>
+<p><img src="//upload-images.jianshu.io/upload_images/2184951-4abd1324fb6e8b7f.png?imageMogr2/auto-orient/strip%7CimageView2/2" alt>  </p>
+<p>jstack命令生成的thread dump信息包含了JVM中所有存活的线程，为了分析指定线程，必须找出对应线程的调用栈，<strong>应该如何找？</strong></p>
+<p>在top命令中，已经获取到了占用cpu资源较高的线程pid，将该pid转成16进制的值，例如<code>printf &quot;%x\n&quot; 21553</code>，在thread dump中每个线程都有一个nid，找到对应的nid即可；隔段时间再执行一次stack命令获取thread dump，区分两份dump是否有差别，在nid=0x246c的线程调用栈中，发现该线程一直在执行JstackCase类第33行的calculate方法，得到这个信息，就可以检查对应的代码是否有问题。</p>
+<h3 id="通过thread-dump分析线程状态"><a href="#通过thread-dump分析线程状态" class="headerlink" title="通过thread dump分析线程状态"></a>通过thread dump分析线程状态</h3><p>除了上述的分析，大多数情况下会基于thead dump分析当前各个线程的运行情况，如是否存在死锁、是否存在一个线程长时间持有锁不放等等。</p>
+<p>在dump中，线程一般存在如下几种状态：<br>1、RUNNABLE，线程处于执行中<br>2、BLOCKED，线程被阻塞<br>3、WAITING，线程正在等待</p>
+<h6 id="实例1：多线程竞争synchronized锁"><a href="#实例1：多线程竞争synchronized锁" class="headerlink" title="实例1：多线程竞争synchronized锁"></a>实例1：多线程竞争synchronized锁</h6><p><img src="//upload-images.jianshu.io/upload_images/2184951-311ab1b4ea7dde3e.png?imageMogr2/auto-orient/strip%7CimageView2/2" alt>  </p>
+<p>很明显：线程1获取到锁，处于RUNNABLE状态，线程2处于BLOCK状态<br>1、<code>locked &lt;0x000000076bf62208&gt;</code>说明线程1对地址为0x000000076bf62208对象进行了加锁；<br>2、<code>waiting to lock &lt;0x000000076bf62208&gt;</code> 说明线程2在等待地址为0x000000076bf62208对象上的锁；<br>3、<code>waiting for monitor entry [0x000000001e21f000]</code>说明线程1是通过synchronized关键字进入了监视器的临界区，并处于”Entry Set”队列，等待monitor，具体实现可以参考<a href="http://www.jianshu.com/p/c5058b6fe8e5" target="_blank" rel="noopener">深入分析synchronized的JVM实现</a>；</p>
+<h6 id="实例2：通过wait挂起线程"><a href="#实例2：通过wait挂起线程" class="headerlink" title="实例2：通过wait挂起线程"></a>实例2：通过wait挂起线程</h6><pre><code>static class Task implements Runnable {
+    @Override
+    public void run() {
+        synchronized (lock) {
+            try {
+                lock.wait();
+                //TimeUnit.SECONDS.sleep(100000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+</code></pre><h6 id="dump结果"><a href="#dump结果" class="headerlink" title="dump结果"></a>dump结果</h6><p><img src="//upload-images.jianshu.io/upload_images/2184951-18d46d5260925392.png?imageMogr2/auto-orient/strip%7CimageView2/2" alt>  </p>
+<p>线程1和2都处于WAITING状态<br>1、线程1和2都是先<code>locked &lt;0x000000076bf62500&gt;</code>，再<code>waiting on &lt;0x000000076bf62500&gt;</code>，之所以先锁再等同一个对象，是因为wait方法需要先通过synchronized获得该地址对象的monitor；<br>2、<code>waiting on &lt;0x000000076bf62500&gt;</code>说明线程执行了wait方法之后，释放了monitor，进入到”Wait Set”队列，等待其它线程执行地址为0x000000076bf62500对象的notify方法，并唤醒自己，具体实现可以参考<a href="http://www.jianshu.com/p/f4454164c017" target="_blank" rel="noopener">深入分析Object.wait/notify实现机制</a>；</p>
+<p>转载：<a href="http://www.jianshu.com/p/6690f7e92f27" target="_blank" rel="noopener">http://www.jianshu.com/p/6690f7e92f27</a></p>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux进程和线程pid</title>
+    <url>/posts/28138/</url>
+    <content><![CDATA[<meta name="referrer" content="no-referrer">
+
+<h3 id="Linux的进程和线程"><a href="#Linux的进程和线程" class="headerlink" title="Linux的进程和线程"></a>Linux的进程和线程</h3><p>Linux的进程和线程有很多异同点，可以Google下。但只要能清楚地理解一下几点，则足够理解Linux中各种ID的含义。</p>
+<ul>
+<li><strong>进程是资源分配的基本单位，线程是调度的基本单位</strong></li>
+<li>进程是资源的集合，这些资源包括内存地址空间，文件描述符等等，一个进程中的多个线程共享这些资源。</li>
+<li>CPU对任务进行调度时，可调度的基本单位 (dispatchable entity)是线程。如果一个进程中没有其他线程，可以理解成这个进程中只有一个主线程，这个主进程独享进程中的所有资源。</li>
+<li>进程的个体间是完全独立的，而线程间是彼此依存，并且共享资源。多进程环境中，任何一个进程的终止，不会影响到其他非子进程。而多线程环境中，父线程终止，全部子线程被迫终止(没有了资源)。</li>
+</ul>
+<a id="more"></a>
+<p>上述第一点说明是最基础的，也是最重要的。</p>
+<p>初步理解各种ID。基本上按照重要程度从高到低，在分割线下方的IDs不太重要。</p>
+<ul>
+<li><strong>pid</strong>: 进程ID。</li>
+<li><strong>lwp</strong>: 线程ID。在用户态的命令(比如ps)中常用的显示方式。</li>
+<li><strong>tid</strong>: 线程ID，等于lwp。tid在系统提供的接口函数中更常用，比如syscall(SYS_gettid)和syscall(__NR_gettid)。</li>
+<li><strong>tgid</strong>: 线程组ID，也就是线程组leader的进程ID，等于pid。</li>
+<li>——分割线——</li>
+<li><strong>pgid</strong>: 进程组ID，也就是进程组leader的进程ID。</li>
+<li><strong>pthread id</strong>: pthread库提供的ID，生效范围不在系统级别，可以忽略。</li>
+<li><strong>sid</strong>: session ID for the session leader。</li>
+<li><p><strong>tpgid</strong>: tty process group ID for the process group leader。</p>
+<p>从上面的列表看出，各种ID最后都归结到pid和lwp(tid)上。所以理解各种ID，最终归结为理解pid和lwp(tid)的联系和区别。</p>
+</li>
+</ul>
+<p>引用原文</p>
+<blockquote>
+<p>The four threads will have the same PID but only when viewed from above. What you (as a user) call a PID is not what the kernel (looking from below) calls a PID.</p>
+<p>In the kernel, each thread has it’s own ID, called a PID (although it would possibly make more sense to call this a TID, or thread ID) and they also have a TGID (thread group ID) which is the PID of the thread that started the whole process.</p>
+<p>Simplistically, when a new process is created, it appears as a thread where both the PID and TGID are the same (new) number.</p>
+<p>When a thread starts another thread, that started thread gets its own PID (so the scheduler can schedule it independently) but it inherits the TGID from the original thread.</p>
+<p>That way, the kernel can happily schedule threads independent of what process they belong to, while processes (thread group IDs) are reported to you.</p>
+</blockquote>
+<p>关于线程继承关系图如下：</p>
+<pre><code>               USER VIEW
+ &lt;-- PID 43 --&gt; &lt;----------------- PID 42 -----------------&gt;
+                     +---------+
+                     | process |
+                    _| pid=42  |_
+                  _/ | tgid=42 | \_ (new thread) _
+       _ (fork) _/   +---------+                  \
+      /                                        +---------+
++---------+                                    | process |
+| process |                                    | pid=44  |
+| pid=43  |                                    | tgid=42 |
+| tgid=43 |                                    +---------+
++---------+
+ &lt;-- PID 43 --&gt; &lt;--------- PID 42 --------&gt; &lt;--- PID 44 ---&gt;
+                     KERNEL VIEW
+</code></pre><p>在这里你可以清晰的看到，创建一个新的进程会给一个新的PID和TGID，并且2个值相同，<br>当创建一个新的线程的时候，会给你一个新的PID，并且TGID和之前开始的进程一致。</p>
+<p>上图很好地描述了用户视角(user view)和内核视角(kernel view)看到线程的差别：</p>
+<ul>
+<li>从用户视角出发，在pid 42中产生的tid 44线程，属于tgid(线程组leader的进程ID) 42。甚至用ps和top的默认参数，你都无法看到tid 44线程。</li>
+<li>从内核视角出发，tid 42和tid 44是独立的调度单元，可以把他们视为”pid 42”和”pid 44”。</li>
+</ul>
+<p>需要指出的是，有时候在Linux中进程和线程的区分也是不是十分严格的。即使线程和进程混用，pid和tid混用，根据上下文，还是可以清楚地区分对方想要表达的意思。上图中，从内核视角出发看到了pid 44，是从调度单元的角度出发，但是在top或ps命令中，你是绝对找不到一个pid为44的进程的，只能看到一个lwp(tid)为44的线程。</p>
+<h3 id="Linux查看某个进程的线程"><a href="#Linux查看某个进程的线程" class="headerlink" title="Linux查看某个进程的线程"></a>Linux查看某个进程的线程</h3><p>线程是现代操作系统上进行并行执行的一个流行的编程方面的抽象概念。当一个程序内有多个线程被叉分出用以执行多个流时，这些线程就会在它们之间共享特定的资源（如，内存地址空间、打开的文件），以使叉分开销最小化，并避免大量高成本的IPC（进程间通信）通道。这些功能让线程在并发执行时成为一个高效的机制。</p>
+<p>在Linux中，程序中创建的线程（也称为轻量级进程，LWP）会具有和程序的PID相同的“线程组ID”。然后，各个线程会获得其自身的线程ID（TID）。对于Linux内核调度器而言，线程不过是恰好共享特定资源的标准的进程而已。经典的命令行工具，如ps或top，都可以用来显示线程级别的信息，只是默认情况下它们显示进程级别的信息。</p>
+<p>这里提供了在Linux上显示某个进程的线程的几种方式。Linux通过进程查看线程的方法 1).htop按t(显示进程线程嵌套关系)和H(显示线程) ，然后F4过滤进程名。2).ps -eLf | grep java(快照，带线程命令，e是显示全部进程，L是显示线程，f全格式输出) 3).pstree -p <pid>(显示进程树，不加pid显示所有) 4).top -Hp <pid> (实时) 5).ps -T -p <pid>(快照) 推荐程度按数字从小到大。</pid></pid></pid></p>
+<p><strong>方法一：PS</strong></p>
+<p>在ps命令中，“-T”选项可以开启线程查看。下面的命令列出了由进程号为<pid>的进程创建的所有线程。</pid></p>
+<p>ps -T -p <pid></pid></p>
+<p><img src="https://images2017.cnblogs.com/blog/417876/201712/417876-20171224154237818-2089734676.png" alt></p>
+<p>“SID”栏表示线程ID，而“CMD”栏则显示了线程名称。</p>
+<p><strong>方法二： Top</strong></p>
+<p>top命令可以实时显示各个线程情况。要在top输出中开启线程查看，请调用top命令的“-H”选项，该选项会列出所有Linux线程。在top运行时，你也可以通过按“H”键将线程查看模式切换为开或关。</p>
+<p>top -H</p>
+<p><img src="https://images2017.cnblogs.com/blog/417876/201712/417876-20171224154304740-1853439090.png" alt></p>
+<p>要让top输出某个特定进程<pid>并检查该进程内运行的线程状况：</pid></p>
+<p>top -H -p <pid></pid></p>
+<p><img src="https://images2017.cnblogs.com/blog/417876/201712/417876-20171224154321475-969285560.png" alt></p>
+<p><strong>方法三： Htop</strong></p>
+<p>一个对用户更加友好的方式是，通过htop查看单个进程的线程，它是一个基于ncurses的交互进程查看器。该程序允许你在树状视图中监控单个独立线程。</p>
+<p>要在htop中启用线程查看，请开启htop，然后按<f2>来进入htop的设置菜单。选择“设置”栏下面的“显示选项”，然后开启“树状视图”和“显示自定义线程名”选项。按<f10>退出设置。</f10></f2></p>
+<p><img src="https://images2017.cnblogs.com/blog/417876/201712/417876-20171224154341771-1447632241.png" alt></p>
+<p>现在，你就会看到下面这样单个进程的线程视图。</p>
+<p><img src="https://images2017.cnblogs.com/blog/417876/201712/417876-20171224154352225-1958827666.png" alt></p>
+<h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><p><a href="https://www.linuxidc.com/Linux/2019-03/157819.htm" target="_blank" rel="noopener">https://www.linuxidc.com/Linux/2019-03/157819.htm</a></p>
+<p><a href="https://www.cnblogs.com/EasonJim/p/8098217.html" target="_blank" rel="noopener">https://www.cnblogs.com/EasonJim/p/8098217.html</a></p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Mac终端代理和git代理设置</title>
     <url>/posts/53106/</url>
     <content><![CDATA[<h2 id="一、直接设置系统环境变量"><a href="#一、直接设置系统环境变量" class="headerlink" title="一、直接设置系统环境变量"></a>一、直接设置系统环境变量</h2><h3 id="1-临时代理"><a href="#1-临时代理" class="headerlink" title="1. 临时代理"></a>1. 临时代理</h3><p>在终端中输入</p>
@@ -569,8 +895,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-hard</tag>
+        <tag>leetcode-string</tag>
       </tags>
   </entry>
   <entry>
@@ -607,8 +933,8 @@
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-easy</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-string</tag>
       </tags>
   </entry>
   <entry>
@@ -878,9 +1204,9 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-math</tag>
         <tag>leetcode-hard</tag>
+        <tag>leetcode-string</tag>
       </tags>
   </entry>
   <entry>
@@ -1293,8 +1619,8 @@
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-two-pointers</tag>
         <tag>leetcode-linked-list</tag>
+        <tag>leetcode-two-pointers</tag>
       </tags>
   </entry>
   <entry>
@@ -3808,8 +4134,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-backtracking</tag>
         <tag>leetcode-hard</tag>
+        <tag>leetcode-backtracking</tag>
       </tags>
   </entry>
   <entry>
@@ -4119,10 +4445,10 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-string</tag>
-        <tag>leetcode-backtracking</tag>
         <tag>leetcode-hard</tag>
+        <tag>leetcode-string</tag>
         <tag>leetcode-dynamic-programming</tag>
+        <tag>leetcode-backtracking</tag>
         <tag>leetcode-greedy</tag>
       </tags>
   </entry>
@@ -4160,8 +4486,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-string</tag>
       </tags>
   </entry>
   <entry>
@@ -4203,9 +4529,9 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-array</tag>
+        <tag>leetcode-hard</tag>
         <tag>leetcode-two-pointers</tag>
         <tag>leetcode-stack</tag>
-        <tag>leetcode-hard</tag>
       </tags>
   </entry>
   <entry>
@@ -4394,8 +4720,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-hash-table</tag>
-        <tag>leetcode-backtracking</tag>
         <tag>leetcode-hard</tag>
+        <tag>leetcode-backtracking</tag>
       </tags>
   </entry>
   <entry>
@@ -4604,8 +4930,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-hard</tag>
+        <tag>leetcode-string</tag>
         <tag>leetcode-dynamic-programming</tag>
       </tags>
   </entry>
@@ -4675,9 +5001,9 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-hash-table</tag>
+        <tag>leetcode-hard</tag>
         <tag>leetcode-two-pointers</tag>
         <tag>leetcode-string</tag>
-        <tag>leetcode-hard</tag>
       </tags>
   </entry>
   <entry>
@@ -5090,8 +5416,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-two-pointers</tag>
         <tag>leetcode-linked-list</tag>
+        <tag>leetcode-two-pointers</tag>
       </tags>
   </entry>
   <entry>
@@ -5301,8 +5627,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-easy</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-string</tag>
       </tags>
   </entry>
   <entry>
@@ -5356,8 +5682,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-string</tag>
       </tags>
   </entry>
   <entry>
@@ -5454,10 +5780,10 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-string</tag>
-        <tag>leetcode-backtracking</tag>
         <tag>leetcode-hard</tag>
+        <tag>leetcode-string</tag>
         <tag>leetcode-dynamic-programming</tag>
+        <tag>leetcode-backtracking</tag>
       </tags>
   </entry>
   <entry>
@@ -5566,8 +5892,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-string</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-string</tag>
       </tags>
   </entry>
   <entry>
@@ -5790,8 +6116,8 @@ connection pool using a background thread.
         <tag>leetcode</tag>
         <tag>leetcode-array</tag>
         <tag>leetcode-hard</tag>
-        <tag>leetcode-divide-and-conquer</tag>
         <tag>leetcode-binary-search</tag>
+        <tag>leetcode-divide-and-conquer</tag>
       </tags>
   </entry>
   <entry>
@@ -6103,7 +6429,7 @@ connection pool using a background thread.
 <p>My favorite search engine is <a href="https://duckduckgo.com" title="The best one" target="_blank" rel="noopener">Duck Duck Go</a>.</p>
 <h3 id="网页和邮箱"><a href="#网页和邮箱" class="headerlink" title="网页和邮箱"></a>网页和邮箱</h3><p>为了快速将网页和邮箱转为链接，可以用<code>&lt;&gt;</code>包裹起来</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;https://www.markdownguide.org&gt;</span><br><span class="line">&lt;fake@example.com&gt;</span><br></pre></td></tr></table></figure>
-<p><a href="https://www.markdownguide.org" target="_blank" rel="noopener">https://www.markdownguide.org</a><br><a href="mailto:&#x66;&#97;&#x6b;&#x65;&#x40;&#101;&#x78;&#x61;&#x6d;&#112;&#108;&#101;&#46;&#99;&#x6f;&#x6d;" target="_blank" rel="noopener">&#x66;&#97;&#x6b;&#x65;&#x40;&#101;&#x78;&#x61;&#x6d;&#112;&#108;&#101;&#46;&#99;&#x6f;&#x6d;</a></p>
+<p><a href="https://www.markdownguide.org" target="_blank" rel="noopener">https://www.markdownguide.org</a><br><a href="mailto:&#x66;&#x61;&#x6b;&#101;&#64;&#x65;&#x78;&#x61;&#109;&#x70;&#x6c;&#101;&#46;&#99;&#111;&#109;" target="_blank" rel="noopener">&#x66;&#x61;&#x6b;&#101;&#64;&#x65;&#x78;&#x61;&#109;&#x70;&#x6c;&#101;&#46;&#99;&#111;&#109;</a></p>
 <h3 id="格式化链接"><a href="#格式化链接" class="headerlink" title="格式化链接"></a>格式化链接</h3><p>为了强调链接，可以在链接的前后加星号</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">I love supporting **[EFF](https://eff.org)**.</span><br><span class="line">This is the *[Markdown Guide](https://www.markdownguide.org)*.</span><br></pre></td></tr></table></figure>
 <p>I love supporting <strong><a href="https://eff.org" target="_blank" rel="noopener">EFF</a></strong>.<br>This is the <em><a href="https://www.markdownguide.org" target="_blank" rel="noopener">Markdown Guide</a></em>.</p>

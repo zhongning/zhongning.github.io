@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.8.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://yoursite.com').hostname,
+    root: '/',
+    scheme: 'Mist',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"hide","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="期权分类期权(Option)，是一种选择权，指是一种能在未来某特定时间以特定价格买入或卖出一定数量的某种特定商品的权利。它是在期货基础上产生的一种金融工具，给予买方(或持有者)购买或出售标的资产(underlying asset)的权利。期权的持有者可以在该项期权规定的时间内选择买或不买、卖或不卖的权利，可以实施该权利，也可以放弃该权利，而期权的出卖者则只负有期权合约规定的义务。 1. 按期权的权">
+<meta name="keywords" content="option">
+<meta property="og:type" content="article">
+<meta property="og:title" content="看涨期权和看跌期权">
+<meta property="og:url" content="http://yoursite.com/posts/930/index.html">
+<meta property="og:site_name" content="Show me the code">
+<meta property="og:description" content="期权分类期权(Option)，是一种选择权，指是一种能在未来某特定时间以特定价格买入或卖出一定数量的某种特定商品的权利。它是在期货基础上产生的一种金融工具，给予买方(或持有者)购买或出售标的资产(underlying asset)的权利。期权的持有者可以在该项期权规定的时间内选择买或不买、卖或不卖的权利，可以实施该权利，也可以放弃该权利，而期权的出卖者则只负有期权合约规定的义务。 1. 按期权的权">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-12-30T15:30:10.603Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="看涨期权和看跌期权">
+<meta name="twitter:description" content="期权分类期权(Option)，是一种选择权，指是一种能在未来某特定时间以特定价格买入或卖出一定数量的某种特定商品的权利。它是在期货基础上产生的一种金融工具，给予买方(或持有者)购买或出售标的资产(underlying asset)的权利。期权的持有者可以在该项期权规定的时间内选择买或不买、卖或不卖的权利，可以实施该权利，也可以放弃该权利，而期权的出卖者则只负有期权合约规定的义务。 1. 按期权的权">
+
+<link rel="canonical" href="http://yoursite.com/posts/930/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>看涨期权和看跌期权 | Show me the code</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Show me the code</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="搜索..." spellcheck="false" type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/zhongning" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/930/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Zhong Ning(钟宁)">
+      <meta itemprop="description" content>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Show me the code">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          看涨期权和看跌期权
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-12-30 23:00:46 / 修改时间：23:30:10" itemprop="dateCreated datePublished" datetime="2019-12-30T23:00:46+08:00">2019-12-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/finance/" itemprop="url" rel="index">
+                    <span itemprop="name">finance</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="期权分类"><a href="#期权分类" class="headerlink" title="期权分类"></a>期权分类</h2><p>期权(Option)，是一种选择权，指是一种能在未来某特定时间以特定价格买入或卖出一定数量的某种特定商品的权利。它是在期货基础上产生的一种金融工具，给予买方(或持有者)购买或出售标的资产(underlying asset)的权利。期权的持有者可以在该项期权规定的时间内选择买或不买、卖或不卖的权利，可以实施该权利，也可以放弃该权利，而期权的出卖者则只负有期权合约规定的义务。</p>
+<h3 id="1-按期权的权利划分，有看涨期权和看跌期权两种类型："><a href="#1-按期权的权利划分，有看涨期权和看跌期权两种类型：" class="headerlink" title="1. 按期权的权利划分，有看涨期权和看跌期权两种类型："></a>1. 按期权的权利划分，有看涨期权和看跌期权两种类型：</h3><ol>
+<li>看涨期权(Call Options)是指期权的买方向期权的卖方支付一定数额的权利金后，即拥有在期权合约的有效期内，按事先约定的价格向期权卖方买入一定数量的期权合约规定的特定商品的权利，但不负有必须买进的义务。而期权卖方有义务在期权规定的有效期内，应期权买方的要求，以期权合约事先规定的价格卖出期权合约规定的特定商品；</li>
+<li>看跌期权(Put Options)是指期权的买方向期权的卖方支付一定数额的权利金后，即拥有在期权合约的有效期内，按事先约定的价格向期权卖方卖出一定数量的期权合约规定的特定商品的权利，但不负有必须卖出的义务。而期权卖方有义务在期权规定的有效期内，应期权买方的要求，以期权合约事先规定的价格买入期权合约规定的特定商品。</li>
+</ol>
+<a id="more"></a>
+<h3 id="2-按期权的交割时间划分，有美式期权和欧式期权两种类型："><a href="#2-按期权的交割时间划分，有美式期权和欧式期权两种类型：" class="headerlink" title="2. 按期权的交割时间划分，有美式期权和欧式期权两种类型："></a>2. 按期权的交割时间划分，有美式期权和欧式期权两种类型：</h3><ul>
+<li>美式期权是指在期权合约规定的有效期内任何时候都可以行使权利；</li>
+<li>欧式期权是指在期权合约规定的到期日方可行使权利，期权的买方在合约到期日之前不能行使权利，过了期限，合约则自动作废。</li>
+</ul>
+<h3 id="3-按期权合约上的标的划分，有股票期权、股指期权、利率期权、商品期权以及外汇期权等种类。"><a href="#3-按期权合约上的标的划分，有股票期权、股指期权、利率期权、商品期权以及外汇期权等种类。" class="headerlink" title="3. 按期权合约上的标的划分，有股票期权、股指期权、利率期权、商品期权以及外汇期权等种类。"></a>3. 按期权合约上的标的划分，有股票期权、股指期权、利率期权、商品期权以及外汇期权等种类。</h3><h2 id="期权重要术语"><a href="#期权重要术语" class="headerlink" title="期权重要术语"></a>期权重要术语</h2><ul>
+<li>1. 执行价格(Strike Price，又称为行权价)，如果X股票的市价为$10，你买了$15的看涨期权，$15就是行权价。</li>
+<li>2. 执行日(Expiration Date，又称为行权日)，如果你买的是2015年12月18日到期的期权，那么这天就是行权日。</li>
+<li>3. Open Interest：还没到期以及没被执行的合约数量。</li>
+<li>4. 合约(Contract)，期权的单位为合约，每张合约为100股股票的权利。</li>
+</ul>
+<h2 id="期权交易的4种基本类型"><a href="#期权交易的4种基本类型" class="headerlink" title="期权交易的4种基本类型"></a>期权交易的4种基本类型</h2><h3 id="1-买进看涨期权-Buy-Call"><a href="#1-买进看涨期权-Buy-Call" class="headerlink" title="1. 买进看涨期权(Buy Call)"></a>1. 买进看涨期权(Buy Call)</h3><ul>
+<li>看涨股票时，可以买入看涨期权</li>
+<li>盈利 = 市场价 – 行权价 – 期权的费用</li>
+<li>最大损失 = 期权费用</li>
+<li>若交易者买进看涨期权，之后市场价格果然上涨，且升至执行价格之上，则交易者可执行期权从而获利；</li>
+<li>若行权日之前股票价格一直未升到执行价格之上，则交易者放弃期权，最大损失为期权费。</li>
+<li>举例：你在2011年12月29日GOOG的价格为$636时候，以每合约$15.15的价格买入了GOOG的2012年1月的行权价为$650的看涨期权。你的操作是：”buy to open GOOG-JAN-2012-$650-Calls”。代表你看涨GOOG，认为在2012年1月的行权日前GOOG会涨到$650以上。</li>
+<li>在行权日前随着GOOG股票价格上涨，看涨期权价格也在上涨。你可以选择提前执行你的看涨期权而获利。</li>
+<li>执行：如果到了行权日GOOG股票价格达到$700,你选择执行你的看涨期权：你可以以$650买入GOOG的股票。</li>
+<li>过期失效：如果到了行权日GOOG股票低于$650,你可以选择让看涨期权过期失效，你会损失每合约$15.15。</li>
+</ul>
+<h3 id="2-买进看跌期权-Buy-Put"><a href="#2-买进看跌期权-Buy-Put" class="headerlink" title="2. 买进看跌期权(Buy Put)"></a>2. 买进看跌期权(Buy Put)</h3><ul>
+<li>看跌股票时，可以买入看跌期权；</li>
+<li>盈利 = 行权价 – 市价 – 期权费用</li>
+<li>最大损失 = 期权费用</li>
+<li>若交易者买进看跌期权，之后市场价格果然下跌，且跌至执行价格之下，则交易者执行期权从而获利。由于价格不可能跌到负数，所以买入看跌期权的最大盈利为执行价格减去期权费之差；</li>
+<li>若行权日之前股票并没跌到执行价格之下，则交易者放弃期权，最大损失为期权费。</li>
+</ul>
+<h3 id="3-卖出看涨期权-Sell-Call"><a href="#3-卖出看涨期权-Sell-Call" class="headerlink" title="3. 卖出看涨期权(Sell Call)"></a>3. 卖出看涨期权(Sell Call)</h3><ul>
+<li>看跌股票时，可以卖出看涨期权；</li>
+<li>若交易者卖出看涨期权，在执行日之前价格都没能涨到执行价格之上，则交易者获得期权费作为利润；</li>
+<li>反之，在执行日之前价格涨到执行价格之上，交易者将损失期权费，和价差(市场价格-执行价格)。</li>
+<li>注意：作为卖出看涨期权者，最大盈利为期权费，盈利范围的值为负。</li>
+</ul>
+<h3 id="4-卖出看跌期权-Sell-Put"><a href="#4-卖出看跌期权-Sell-Put" class="headerlink" title="4. 卖出看跌期权(Sell Put)"></a>4. 卖出看跌期权(Sell Put)</h3><ul>
+<li>看涨股票时，可以卖出看跌期权；</li>
+<li>若交易者卖出看跌期权，在执行日到期之前股价没有跌到执行价格之下，则交易者获得期权费作为利润；</li>
+<li>反之，在执行日到期前股价跌到执行价格之下，交易者将损失期权费，和价差(执行价格-市场价格)。</li>
+<li>注意：作为卖出看跌期权者，最大盈利为期权费，盈利范围的值为负。</li>
+</ul>
+<h3 id="买入看跌期权-Buy-Put"><a href="#买入看跌期权-Buy-Put" class="headerlink" title="买入看跌期权(Buy Put)"></a><strong>买入看跌期权(Buy Put)</strong></h3><p>如果股票X的现价为$10，我花$1每股权利买入本月中(12月18日)到期的、执行价为$10的看跌期权(Put)。首先，我一共花了$100买这张合约(因为$1每股权利，一张合约100股权利)。</p>
+<p>假设：两周之后，X股价跌到了$8，我卖出了这张合约，我一共获利$100 [(10-8)*100-100]=$100](不包含手续费)。</p>
+<p>假设：两周之后，X股价涨到了$15，我选择止损将期权卖出，因此我损失$100(不包含佣金)。</p>
+<h3 id="卖出看涨期权-Sell-Call"><a href="#卖出看涨期权-Sell-Call" class="headerlink" title="卖出看涨期权(Sell Call)"></a><strong>卖出看涨期权(Sell Call)</strong></h3><p>如果股票X的现价为$10，我认为不可能涨到$12以上，于是花$1每股权利卖出本月中(12月18日)到期的、执行价为$12的看涨期权(Call)。这样我将先收入$100，但是这$100还不属于我的，当行权日之前，股价没有超过$12，这$100才是我的。</p>
+<p>但是如果行权日之前，股价超过了$12，我将会被迫行权(拥有这个卖出权利的人会要求)，以市场价买回一张合约，这里最大的风险是市场价格不确定，中间的差价将是我的亏损。所以当价格涨到接近$12是，我会先行权，买回合约，避免后面买回的价格过高。</p>
+<h3 id="卖出看跌期权-Sell-Put"><a href="#卖出看跌期权-Sell-Put" class="headerlink" title="卖出看跌期权(Sell Put)"></a><strong>卖出看跌期权(Sell Put)</strong></h3><p>如果股票X的现价为$10，我认为股不可能跌到$8以下，于是花$1每股权利卖出本月中(12月18日)到期的、执行价为$8的看跌期权(Put)。这样我将先收入$100，但是这$100还不属于我的，当行权日之前，股价没有低于$8，这$100才是我的。</p>
+<p>但是如果股价跌到$8以下，我就会被迫行权，比如价格跌到$7，我的损失是$200(不包括期权佣金)。</p>
+<h2 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h2><p>看涨期权是买入权，看跌期权是卖出权。</p>
+<h3 id="看涨期权"><a href="#看涨期权" class="headerlink" title="看涨期权"></a>看涨期权</h3><p>买入看涨期权表示你从别人那买入，卖出看涨期权表示别人从你那买入。</p>
+<p>比如买入看涨期权，执行价格为50元，如果未来市场价格上涨到60元，你就可以以50元从别人那里买入，然后以60元市场价格卖出，你赚10元。价格越高你赚得越多；如果未来价格跌至40元，你当然不会把从别人买入50元的东西市场上卖40元，于是你放弃行权，损失了期权费。</p>
+<p>比如卖出看涨期权，执行价格为50元，如果未来市场价格上涨到60元，别人就可以以50元从你那里买入，然后以60元市场价格卖出，价格越高你亏的越多；如果未来价格跌倒40元，别人当然不会把从你那里买入50元的东西市场上卖40元，于是别人放弃行权，你获得了期权费。</p>
+<h3 id="看跌期权"><a href="#看跌期权" class="headerlink" title="看跌期权"></a>看跌期权</h3><p>买入看跌期权表示你卖给别人，卖出看跌期权表示别人卖给你。</p>
+<p>比如买入看跌期权，执行价格为50元，如果未来价格跌到40元，你可以从市场上40元买进然后以50元卖给别人，你赚10元，价格越低，你赚得越多；相反，如果未来价格上升至60元，你当然不会把市场60元的东西卖给别人50元，于是你放弃行权，损失期权费。</p>
+<p>比如卖出看跌期权，执行价格为50元，如果未来价格跌到40元，别人就可以从市场上40元买进然后以50元卖给你，你损失10元，价格越低，你亏的越多；相反，如果未来价格上升至60元，别人当然不会把市场60元的东西卖你50元，于是别人放弃行权，你获得期权费。</p>
+<h2 id="国内期权"><a href="#国内期权" class="headerlink" title="国内期权"></a>国内期权</h2><p>有人问卖方最多才能挣个保证金，是不是吃亏了？不能够，卖方一般都是大机构，有专业的给算，公式里都带着风险系数物的波动率什么的，保证金是在此基础上算得，在保证金定价的时候已经把一定时期内的风险都给预估了，基本稳赚不赔。</p>
+<p>就股票期权这一块，国内除了50ETF，目前只能做场外。就这一块普及一下：首先咱们要明确一点，期权属于金融衍生品，核心功能就两点：加大杠杆和降低风险。这两个相对的概念，可以通过金融衍生品来进行一定程度的结合，而期权就是这样一个很好的金融衍生工具。</p>
+<p>另外下面说的期权都是指最简单的平值香草期权。核心：用有限的资金来撬动更多的钱炒股，最大损失就是期权费，理论收益无限大。期权里面两个概念，叫做名义本金和期权费。</p>
+<p>期权费就是你需要给做市商的钱，名义本金就是你付了期权费以后可以用的钱。一般现在的市场价格是1000万的名义本金需要10%~15%的期权费。所以这就很清楚了，假设10%的期权费，就相当于你用1:9的配资在炒股，但是，你的最大损失就是期权费。这就很逆天了，所以期权实际上就是相当于一个风险超低的杠杆。</p>
+<p>所谓看涨期权就是你看好这个票未来要涨，你在T日做了看涨期权，期权费为100万，实际可以撬动的资金是1000万，假设股票在期权到期的时候涨了30%，这个时候把期权卖掉，你就赚了1300-1000-100=200万的收益。</p>
+<p>看跌期权就是反过来，你看空这个票，本质就是做空，所以A股市场没法直接做。目前都是以股票借贷来变相做空，这里就不讨论了。</p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="Zhong Ning(钟宁) 微信支付">
+        <p>微信支付</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/option/" rel="tag"># option</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/35377/" rel="prev" title="Java进程CPU过高分析">
+      <i class="fa fa-chevron-left"></i> Java进程CPU过高分析
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/8686/" rel="next" title="看涨期权和看跌期权的图解">
+      看涨期权和看跌期权的图解 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#期权分类"><span class="nav-number">1.</span> <span class="nav-text">期权分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-按期权的权利划分，有看涨期权和看跌期权两种类型："><span class="nav-number">1.1.</span> <span class="nav-text">1. 按期权的权利划分，有看涨期权和看跌期权两种类型：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-按期权的交割时间划分，有美式期权和欧式期权两种类型："><span class="nav-number">1.2.</span> <span class="nav-text">2. 按期权的交割时间划分，有美式期权和欧式期权两种类型：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-按期权合约上的标的划分，有股票期权、股指期权、利率期权、商品期权以及外汇期权等种类。"><span class="nav-number">1.3.</span> <span class="nav-text">3. 按期权合约上的标的划分，有股票期权、股指期权、利率期权、商品期权以及外汇期权等种类。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#期权重要术语"><span class="nav-number">2.</span> <span class="nav-text">期权重要术语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#期权交易的4种基本类型"><span class="nav-number">3.</span> <span class="nav-text">期权交易的4种基本类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-买进看涨期权-Buy-Call"><span class="nav-number">3.1.</span> <span class="nav-text">1. 买进看涨期权(Buy Call)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-买进看跌期权-Buy-Put"><span class="nav-number">3.2.</span> <span class="nav-text">2. 买进看跌期权(Buy Put)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-卖出看涨期权-Sell-Call"><span class="nav-number">3.3.</span> <span class="nav-text">3. 卖出看涨期权(Sell Call)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-卖出看跌期权-Sell-Put"><span class="nav-number">3.4.</span> <span class="nav-text">4. 卖出看跌期权(Sell Put)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#买入看跌期权-Buy-Put"><span class="nav-number">3.5.</span> <span class="nav-text">买入看跌期权(Buy Put)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#卖出看涨期权-Sell-Call"><span class="nav-number">3.6.</span> <span class="nav-text">卖出看涨期权(Sell Call)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#卖出看跌期权-Sell-Put"><span class="nav-number">3.7.</span> <span class="nav-text">卖出看跌期权(Sell Put)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#举例"><span class="nav-number">4.</span> <span class="nav-text">举例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#看涨期权"><span class="nav-number">4.1.</span> <span class="nav-text">看涨期权</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#看跌期权"><span class="nav-number">4.2.</span> <span class="nav-text">看跌期权</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#国内期权"><span class="nav-number">5.</span> <span class="nav-text">国内期权</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zhong Ning(钟宁)" src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Zhong Ning(钟宁)</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">90</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zhongning" title="GitHub → https://github.com/zhongning" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zhongning1989@gmail.com" title="E-Mail → mailto:zhongning1989@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zhong Ning(钟宁)</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.6.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
