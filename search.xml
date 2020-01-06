@@ -1,6 +1,191 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>LeetCode 071 Simplify Path</title>
+    <url>/posts/8718/</url>
+    <content><![CDATA[<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given an absolute path for a file (Unix-style), simplify it. Or in other words, convert it to the canonical path.</p>
+<p>In a UNIX-style file system, a period . refers to the current directory. Furthermore, a double period .. moves the directory up a level. For more information, see: Absolute path vs relative path in Linux/Unix</p>
+<p>Note that the returned canonical path must always begin with a slash /, and there must be only a single slash / between two directory names.<br>The last directory name (if it exists) must not end with a trailing /. Also, the canonical path must be the shortest string representing the absolute path.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: &quot;/home/&quot;</span><br><span class="line">Output: &quot;/home&quot;</span><br><span class="line">Explanation: Note that there is no trailing slash after the last directory name.</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: &quot;/../&quot;</span><br><span class="line">Output: &quot;/&quot;</span><br><span class="line">Explanation: Going one level up from the root directory is a no-op, as the root level is the highest level you can go.</span><br></pre></td></tr></table></figure>
+<p><strong>Example 3:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: &quot;/home//foo/&quot;</span><br><span class="line">Output: &quot;/home/foo&quot;</span><br><span class="line">Explanation: In the canonical path, multiple consecutive slashes are replaced by a single one.</span><br></pre></td></tr></table></figure>
+<p><strong>Example 4:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: &quot;/a/./b/../../c/&quot;</span><br><span class="line">Output: &quot;/c&quot;</span><br></pre></td></tr></table></figure>
+<p><strong>Example 5:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: &quot;/a/../../b/../c//.//&quot;</span><br><span class="line">Output: &quot;/c&quot;</span><br></pre></td></tr></table></figure>
+<p><strong>Example 6:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: &quot;/a//b////c/d//././/..&quot;</span><br><span class="line">Output: &quot;/a/b/c&quot;</span><br></pre></td></tr></table></figure>
+<p><strong>Difficulty: Medium</strong></p>
+<p><strong>Code:</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">simplifyPath</span><span class="params">(String path)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>简化linux的文件绝对路径。</p>
+<a id="more"></a>
+<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>先用斜线对路径进行分割，然后从左到右一级级遍历所有的目录，进行压栈处理。</p>
+<p>若当前目录是符号<code>.</code>或者空字符串，则忽略；</p>
+<p>若当前目录是符号<code>..</code>，当栈不为空时弹出最上面当元素，即当前目录当上一级目录；</p>
+<p>其他情况下将目录存入栈中保存。</p>
+<p>然后对栈进行遍历，最上面对元素要放在结果路径的最后面。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">simplifyPath</span><span class="params">(String path)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(path==<span class="keyword">null</span>||path.length()&lt;=<span class="number">1</span>) <span class="keyword">return</span> path;</span><br><span class="line">        String[] dirs = path.split(<span class="string">"/"</span>);</span><br><span class="line">        String res = <span class="string">""</span>;</span><br><span class="line">        Stack&lt;String&gt; stack = <span class="keyword">new</span> Stack&lt;String&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;dirs.length;i++)&#123;</span><br><span class="line">            String dir = dirs[i];</span><br><span class="line">            <span class="keyword">if</span>(dir.equals(<span class="string">"."</span>)||dir.isEmpty())&#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(dir.equals(<span class="string">".."</span>))&#123;</span><br><span class="line">                <span class="keyword">if</span>(!stack.isEmpty()) stack.pop();</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                stack.push(dir);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(!stack.isEmpty())&#123;</span><br><span class="line">            res = <span class="string">"/"</span> + stack.pop() + res;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(res.length()==<span class="number">0</span>) <span class="keyword">return</span> <span class="string">"/"</span>;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(n)。</p>
+<p><strong>空间复杂度:</strong> O(n)。</p>
+<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><p>上述解法的优化。</p>
+<p>只有当前目录不为空、符号<code>.</code>、符号<code>..</code>才放入栈中；</p>
+<p>当遇到符号为<code>..</code>且栈不为空时出栈。</p>
+<p>最后用栈构建字符串List并用斜线连接。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">simplifyPath</span><span class="params">(String path)</span> </span>&#123;</span><br><span class="line">        Stack&lt;String&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">        String[] p = path.split(<span class="string">"/"</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; p.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!stack.empty() &amp;&amp; p[i].equals(<span class="string">".."</span>))</span><br><span class="line">                stack.pop();</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (!p[i].equals(<span class="string">"."</span>) &amp;&amp; !p[i].equals(<span class="string">""</span>) &amp;&amp; !p[i].equals(<span class="string">".."</span>))</span><br><span class="line">                stack.push(p[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        List&lt;String&gt; list = <span class="keyword">new</span> ArrayList(stack);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"/"</span>+String.join(<span class="string">"/"</span>, list);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(n)。</p>
+<p><strong>空间复杂度:</strong> O(n)。</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>leetcode-medium</tag>
+        <tag>leetcode-string</tag>
+        <tag>leetcode-stack</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>期权隐含波动率</title>
+    <url>/posts/45711/</url>
+    <content><![CDATA[<p>对于很多期权投资者来说，波动率是一个既熟悉又陌生的名词，太多的期权相关文章里都会反复提及它，那么波动率是什么？如何理解波动率这个东西呢？</p>
+<p><img src="http://n.sinaimg.cn/translate/4/w925h679/20191017/dff6-ifzxhxm5342034.png" alt></p>
+<a id="more"></a>
+<h2 id="何为波动率"><a href="#何为波动率" class="headerlink" title="何为波动率"></a>何为波动率</h2><p>波动率定义：波动率是金融资产价格的波动程度，是对资产收益率不确定性的衡量，用于反映金融资产的风险水平。</p>
+<p>波动率越高，金融资产价格的波动越剧烈，资产收益率的不确定性就越强；波动率越低，金融资产价格的波动越平缓，资产收益率的确定性就越强。</p>
+<p>注意：波动率只体现价格波动的剧烈程度，而不考虑行情价格变动的方向。</p>
+<p>波动率在期权投资中是很重要的，期权权利金和波动率是呈现正比关系的，当其他因素不变时，波动率越高期权的价格也越高，波动率越低则期权价格越低，即与期权权利金成正相关关系。</p>
+<p>也就是：波动率高与低=期权贵不贵</p>
+<p>波动率的高低，会告诉你应该怎么做期权，贵了当然是卖出（做义务仓），便宜了当然是买入（做权利仓）！</p>
+<p><img src="http://n.sinaimg.cn/translate/791/w1080h511/20191017/35f6-ifzxhxm5342038.jpg" alt></p>
+<h2 id="波动率对期权价格的影响"><a href="#波动率对期权价格的影响" class="headerlink" title="波动率对期权价格的影响"></a>波动率对期权价格的影响</h2><p>如果波动率上涨，那么无论是认购期权，还是认沽期权，当你判断对了方向，赚的话会让你赚的更多，而错了亏的话，会亏的更少。</p>
+<p>如果波动率下跌，那么无论是认购期权，还是认沽期权，当你判断对了方向，赚的话，会赚的更少，而做错了亏的话，会亏的更多。</p>
+<p>当波动率处于较高的水平时，那么下跌的概率就偏大了，此时可以选择卖出平值或虚值期权，一旦波动率下跌，行情没有明显涨跌或横盘整理的情况，此卖出策略可以获得不错的时间价值收益。</p>
+<p>当波动率处于较低水平，谨慎使用卖出策略，可以选择买入实值合约，待行情走出来，波动率上涨可以移仓至平值、或虚值一档两档，利用更高的杠杆率博取更大的上涨利润。</p>
+<p>所以投资者在参与期权交易时选择何种开仓策略可以考量波动率指标的影响！来决定做以小博大的买方还是多赚时间价值的卖方。</p>
+<p><img src="http://n.sinaimg.cn/translate/96/w1080h616/20191017/b3f7-ifzxhxm5342107.jpg" alt></p>
+<p>我们以比较特殊的横盘来举例说明</p>
+<p>在横盘的时候，先排除时间价值因素。按常理来说，无论是认购期权，还是认沽期权，都是横盘，期权价格应当不赚不亏。</p>
+<p>如果波动率处于高位下跌的情况，对买方是不利的，对卖方是有利的。</p>
+<p>体现在期权合约上就是，认购也要亏钱，认沽也要亏钱。形成沽购双杀。</p>
+<p>那如果波动率处于低位上涨的情况，对买方是有利的，对卖方是不利的。</p>
+<p>体现在期权合约上就是，认购会赚钱，认沽也会赚钱。形成沽购双红。</p>
+<h2 id="隐含波动率"><a href="#隐含波动率" class="headerlink" title="隐含波动率"></a>隐含波动率</h2><p>历史波动率反映标的股价在过去一段时间的波动幅度，权证发行商与投资者在权证发行初期只能利用历史波动率作参考。</p>
+<p>隐含波动率(Implied Volatility)是将市场上的期权或权证交易价格代入权证理论价格模型&lt;Black-Scholes模型&gt;，反推出来的波动率数值。<br>由于期权定价模型(如BS模型)给出了期权价格与五个基本参数(标的股价、执行价格、利率、到期时间、波动率)之间的定量关系，只要将其中前4个基本参数及期权的实际市场价格作为已知量代入定价公式，就可以从中解出惟一的未知量，其大小就是隐含波动率。</p>
+<p>期权的隐含波动率可以相当于股票的市盈率。股票的市盈率越高，代表市场交易者对该股票的风险偏好越高，估值越高。<br>期权的隐含波动率也是如此，对于期权投资者，当他们心中觉得标的资产未来的风险度会变高时，他们就会提高对隐含波动率的估计，从而提高了对期权的定价。因此，我们可以把期权的隐含波动率比喻成是期权的“市盈率”。</p>
+<p>那么，期权的隐波有着怎样的变化特征呢？通过长期的观察，我们可以得到这样一个统计性的结论：期权的隐含波动率中长期有一个中值回归的特征，而短期受到许多市场其他因素的影响并没有明显的规律可循。这一点和股票的市盈率是一样的。</p>
+<p>每个期权合约就像每只股票一样，都有着自己的隐含波动率（市盈率），同样地，一般情况下，同一行业的股票之间市盈率就不会差距大的特别离谱，因此，每个期权合约的隐含波动率之间也不会毫无约束，否则就会出现套利机会，在高频交易者面前会被迅速抹平。</p>
+<p>隐含波动率会用直接的方式影响着单个认购和认沽期权的价格，也就是说，隐含波动率的增长会导致期权价格的上升，而隐含波动率的下降会导致期权价格的下跌。</p>
+<p>如果你买入认购期权，这时隐含波动率出现快速的上涨，那么投资者就会盈利丰厚。但如果此时你是卖出该认购期权，那么投资者就会亏损惨重。</p>
+<p>话说回来，波动率终究还是一个无法提前预测的量，只能根据大致历史走势来做为先前的一个参考。</p>
+<h2 id="隐含波动率的应用"><a href="#隐含波动率的应用" class="headerlink" title="隐含波动率的应用"></a>隐含波动率的应用</h2><p>期权隐含波动率无论是在度量市场情绪还是指导投资者交易中都发挥的很重要的作用，卖出高波动率的期权、买入低波动率的期权，已经成为了期权交易的准则之一。</p>
+<p>波动率是具有均值回复的特性的，隐含波动率同样也一样，所以说投资者通过分析隐含波动率的历史数据，大致就确定其波动范围，这里要排除后期标的资产超预期波动，否则隐含波动率有很大的概率在该范围内波动。</p>
+<p>投资者可以将隐含波动率按照分为高中低三个级别，当隐含波动率位于高级别时，可以认为此时波动率是比较偏高的，相应的期权价格偏高，并且可以相信未来波动率会有下降的趋势，适合做卖出期权操作。</p>
+<p>同理当隐含波动率位于低级别区域的时候，可以认在此时波动率是比较偏低的，相应的期权价格偏低，有理由相信未来波动率还会有有上涨趋势，适合做买入期权操作。</p>
+<h2 id="隐含波动率额外说明"><a href="#隐含波动率额外说明" class="headerlink" title="隐含波动率额外说明"></a>隐含波动率额外说明</h2><p>第一点，严格来说隐含波动率其实并不是波动率，而是一个大杂烩。</p>
+<p>因为在通过市场价格反推隐含波动率的时候假定了影响期权合约市场价格的因素只有标的物当前价、合约行权价、标的物的波动率、合约的存续期以及市场中的无风险利率，所以去掉另外四个因素的影响，剩下的就都算在了波动率的头上。</p>
+<p>可是现实条件下影响期权合约市场价格的因素不只这五个，类似于交易者风险偏好、交易规则上的一些限制、市场情绪、合约的流动性状况，甚至乌龙指都在影响着期权合约价格。</p>
+<p>这些没有被纳入到期权定价公式中的影响因素，在通过市场价格反推隐含波动率的时候就都被算作是隐含波动率了。</p>
+<p>第二点，按理来说波动率是标的物的波动率，一个标的物在一段时间内的波动率只能是一个值。</p>
+<p>可是隐含波动率是通过市场价格反推出来的波动率取值，所以每个期权合约都会有一个隐含波动率的值。</p>
+<p>波动率对于权利仓还是义务仓的选择、合约的选择有很大的参考价值，当然在盘中随着行情的变化与波动率的涨跌情况对于“移仓、加仓、减仓等操作同样有很大的参考意义。</p>
+]]></content>
+      <categories>
+        <category>finance</category>
+      </categories>
+      <tags>
+        <tag>option</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>期权定价</title>
+    <url>/posts/13381/</url>
+    <content><![CDATA[<p>期权定价将学到:</p>
+<ul>
+<li>权利金</li>
+<li>期权定价模型</li>
+<li>实值、平值和虚值合约</li>
+<li>时间价值和波动率</li>
+</ul>
+<h2 id="权利金"><a href="#权利金" class="headerlink" title="权利金"></a>权利金</h2><p>期权权利金即买卖期权合约的价格，是惟一的变量，其他要素都是标准化的。</p>
+<p>权利金是期权的买方为获取期权合约所赋予的权利而必须支付给卖方的费用，其多少取决于敲定价格、到期时间以及整个期权合约。</p>
+<p>对期权的卖方来说，权利金是卖出期权的报酬，也就是期权交易的成交价。</p>
+<p>如果期权买方能够获利时，则可以选择在期权到期日或有效期内按敲定价格行使权利，如果蒙受损失，就会选择放弃权利，其所付出的最大代价便是权利金。</p>
+<p>因此，对于期权买方来说其风险是有限的和预知的，所以进行期权交易时期权买方不需要交纳保证金。</p>
+<p>期权的卖方在期权交易中面临与进行期货交易同样大的风险，而期货价格走势又是无法确切预知的，所以期权的卖方必须交纳一定金额的保证金，以表明其具有应付潜在履约义务的能力。</p>
+<a id="more"></a>
+<h2 id="布莱克-斯科尔斯模型"><a href="#布莱克-斯科尔斯模型" class="headerlink" title="布莱克-斯科尔斯模型"></a>布莱克-斯科尔斯模型</h2><p>布莱克 - 斯科尔斯公式</p>
+<p>C=S·N(D1)-L·(E^(-γT))*N(D2)</p>
+<p>其中:</p>
+<p>D1=(ln(S/L)+(γ+(σ^2)/2)<em>T)/(σ</em>T^(1/2))</p>
+<p>D2=D1-σ*T^(1/2)</p>
+<p>C—期权初始合理价格</p>
+<p>L—期权的行权价格</p>
+<p>S—标的证券当前价格</p>
+<p>T—距离期权到期日的时间</p>
+<p>γ—连续复利计的无风险利率</p>
+<p>σ—标的证券连续复利(对数)回报率的年度波动率(标准差)</p>
+<p>N()—正态分布变量的累积概率分布函数</p>
+<p>1973 年发表的布莱克-斯科尔斯模型是期权定价的革命性变化，实际上这个最终获得 诺贝尔奖的公式创造了期权市场。</p>
+<h2 id="期权定价的要素"><a href="#期权定价的要素" class="headerlink" title="期权定价的要素"></a>期权定价的要素</h2><p>让我们来分析决定期权理论价值的要素: </p>
+<ul>
+<li>标的证券的价格</li>
+<li>期权的行权价格</li>
+<li>期权的有效期</li>
+<li>资金成本(利率减去分红率) </li>
+<li>标的证券价格的波动率</li>
+</ul>
+<p>假设研究如下因素对沪深300指数看涨期权和看跌期权价格影响：沪深300指数点位、无风险利率、距离到期日时间长短，行权价格、连续分红率与波动率。</p>
+<h3 id="标的证券的价格的影响"><a href="#标的证券的价格的影响" class="headerlink" title="标的证券的价格的影响"></a>标的证券的价格的影响</h3><p>标的证券的价格上涨，那么看涨期权价格可能上涨，看跌期权价格可能下跌，反之相反。标的证券的价格可能是影响期权价值最重要的因素。</p>
+<h3 id="期权的行权价格的影响"><a href="#期权的行权价格的影响" class="headerlink" title="期权的行权价格的影响"></a>期权的行权价格的影响</h3><p>行权价是允许投资者行权的价格，即买或卖标的证券的价格。</p>
+<p>看涨期权是买入的权利，因此行权价比目前指数还低的看涨期权明显具有价值。如果指数目前在2100点，那么行权价2050点的看涨期权比行权价2150点的看涨期权价值大很多。</p>
+<p>对于看跌期权，情况相反。行权价比标的指数高的看跌期权价值更大，因为他们是卖出的权利。</p>
+<h3 id="期权的有效期的影响"><a href="#期权的有效期的影响" class="headerlink" title="期权的有效期的影响"></a>期权的有效期的影响</h3><p>到期时间是当前距离期权到期日所剩的时间。市场上还有90天到期的期权比还剩30天的价值一定更大。</p>
+<h3 id="无风险利率的影响"><a href="#无风险利率的影响" class="headerlink" title="无风险利率的影响"></a>无风险利率的影响</h3><p>利率很重要，因为货币总是可以获得无风险收益率。</p>
+<p>当期权定价时，由于期权的创造者往往要融资买入或卖出沪深300指数，而融来的资金需要支付借款利息。因此期权价格中将包括融入借款利息的成本。</p>
+<p>随着利率上升，看涨期权价值上升，看跌期权价值下降，因为卖出看涨期权的人需要 提前买入标的证券，需要从银行借款，这就产生了利息。由于他们需要支付利息，这部分成本就转嫁到了看涨期权上。</p>
+<h3 id="分红率的影响"><a href="#分红率的影响" class="headerlink" title="分红率的影响"></a>分红率的影响</h3><p>假设一位看涨期权卖出者通过卖出看涨期权和持有标的证券来对冲证券下跌风险，买入标的证券的钱是从银行借来的。</p>
+<p>投资者需要支付利息，但由于持有标的证券，投资者可获得在这段时间的分红收益，这样就降低了利息支付。</p>
+<p>期权根据对冲者在交易中的成本来公平地定价，剩余的利润空间留给市场中期权波动。</p>
+<h3 id="波动率的影响"><a href="#波动率的影响" class="headerlink" title="波动率的影响"></a>波动率的影响</h3><p>波动率影响着证券在一天、一周或一年中波动情况的。同时，它也是定价公式、交易策略、整个市场中唯一一个未知的变量。</p>
+<p>对于沪深300指数8%的波动率，含义是:当目前点位是2100点时，在大部分情况下，指数将在1932点到2268点的范围内交易。这可能正确，可能错误，随着波动性的增加，看涨期权和看跌期权的价值都将增加。</p>
+<h2 id="实值、平价和虚值期权"><a href="#实值、平价和虚值期权" class="headerlink" title="实值、平价和虚值期权"></a>实值、平价和虚值期权</h2><p>实值期权是指:行权价格低于标的证券市场价格的看涨期权;行权价格高于标的证券市场价格的看跌期权。</p>
+<p>虚值期权是指:行权价格高于标的证券市场价格的看涨期权;行权价格低于标的证券 市场价格的看跌期权。</p>
+<p>平价期权是指:行权价格等于市场价格的看涨或看跌期权。</p>
+<h3 id="内在价值和时间价值"><a href="#内在价值和时间价值" class="headerlink" title="内在价值和时间价值"></a>内在价值和时间价值</h3><p>把期权分为实值、平价和虚值期权是很重要的，因为这有助于理解内在价值和时间价值的概念。</p>
+<p>期权价格，可以把这个数值分为两个部分:</p>
+<ul>
+<li>内在价值，即期权价格的实值部分;</li>
+<li>时间价值，即期权在未来变得值钱的机会价值。</li>
+</ul>
+<p>只有实值期权有内在价值，对于一个行权价格为2100点、而市价为2200点的指数来说，这个看涨期权至少100点的对应价值，持有者可立刻执行期权的权利，以2100点的价格买入指数，按2200点的价格卖出，赚100点。</p>
+<p>但期权的价值不止于此，这是因为无论是实值、平价和虚值期权，都有时间价值。时间价值是由于标的证券可能的价格波动产生的额外的价值。</p>
+<p>如果一个行权价格为2100点的看涨期权的权利金是120点对应价值，而指数的市场价格是2200点，那么内在价值或者说实值部分对应100点，剩余的那20点就是时间价值。<br>也就是说，期权值120点，尽管它当前的内在价值仅对应100点的价值。这额外的20点，是得益于指数潜在的波动性(也就是说它可能还上涨)。</p>
+<p>如果标的指数2100点，行权价格为2100点的看涨期权的权利金是60点，这60点对应的全是时间价值;同理，标的指数2100点，行权价2200点的看涨期权的权利金是20点，这20点也对应时间价值。</p>
+<p>期权的价值不可能为负，内在价值和时间价值都不可能为负。</p>
+<h2 id="时间价值-时间损耗"><a href="#时间价值-时间损耗" class="headerlink" title="时间价值(时间损耗)"></a>时间价值(时间损耗)</h2><p>期权合约所议定的有效期越长，期权权利金也就多。因为期货产生源于对未来意外事件抱有的不确定性预期。</p>
+<p>未来时间距离越近，可预见性越大，依靠期权获利的机会较小I如果未来距离越远，不确定性也随之增大，买进期权者获利的机会增大，卖出期权者所面临风险也越大。</p>
+<p>时间会影响期权的价格。事实上，如果指数点位不变，期权价值会随着到期日的临近而降低。这个概念就叫做时间损耗。</p>
+<p>作为期权的多头或空头，您在期权交易时必须考虑期权价值的时间损耗，以便选择最符合您的交易策略的期权。</p>
+<h2 id="波动率"><a href="#波动率" class="headerlink" title="波动率"></a>波动率</h2><p>标的证券价格反复波动的程度越大，期权权利金就越高。这是由于标的证券价格波动越大，期货期权转向实值的可能性也越大。</p>
+<p>这样，期货期权买方行使期权所赋予的权利的机会就越多，他也就愿意支付较高的权利金；对于期货期权卖方来说，市场价格的大幅度波动使其面临的市场风险增大，因此他就会提出较高的权利金要求。</p>
+<p>对于指数来说，价格波动是按波动的方向和波动的幅度来衡量。对于期权来说，我们只关注价格波动的幅度，而不是方向。波动率反映平均和预期价格变动幅度的一个百分数。</p>
+<p>较低的波动率意味着股价的波动较小，较高的波动率意味着股价的波动较大。</p>
+<p>如果一个期权隐含的波动率较小，说明标的物价格不太可能有大的波动。 </p>
+<p>如果一个期权隐含的波动率较大，说明标的物价格可能有大的波动。</p>
+]]></content>
+      <categories>
+        <category>finance</category>
+      </categories>
+      <tags>
+        <tag>option</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>看涨期权和看跌期权的图解</title>
     <url>/posts/8686/</url>
     <content><![CDATA[<p>在金融世界中，也有这么一款对未来做承诺的金融工具，它的名字叫做option，这里的option是<strong>期权</strong>的意思，</p>
@@ -6429,7 +6614,7 @@ connection pool using a background thread.
 <p>My favorite search engine is <a href="https://duckduckgo.com" title="The best one" target="_blank" rel="noopener">Duck Duck Go</a>.</p>
 <h3 id="网页和邮箱"><a href="#网页和邮箱" class="headerlink" title="网页和邮箱"></a>网页和邮箱</h3><p>为了快速将网页和邮箱转为链接，可以用<code>&lt;&gt;</code>包裹起来</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;https://www.markdownguide.org&gt;</span><br><span class="line">&lt;fake@example.com&gt;</span><br></pre></td></tr></table></figure>
-<p><a href="https://www.markdownguide.org" target="_blank" rel="noopener">https://www.markdownguide.org</a><br><a href="mailto:&#x66;&#x61;&#x6b;&#101;&#64;&#x65;&#x78;&#x61;&#109;&#x70;&#x6c;&#101;&#46;&#99;&#111;&#109;" target="_blank" rel="noopener">&#x66;&#x61;&#x6b;&#101;&#64;&#x65;&#x78;&#x61;&#109;&#x70;&#x6c;&#101;&#46;&#99;&#111;&#109;</a></p>
+<p><a href="https://www.markdownguide.org" target="_blank" rel="noopener">https://www.markdownguide.org</a><br><a href="mailto:&#102;&#97;&#107;&#101;&#x40;&#x65;&#x78;&#97;&#109;&#112;&#108;&#x65;&#x2e;&#99;&#x6f;&#109;" target="_blank" rel="noopener">&#102;&#97;&#107;&#101;&#x40;&#x65;&#x78;&#97;&#109;&#112;&#108;&#x65;&#x2e;&#99;&#x6f;&#109;</a></p>
 <h3 id="格式化链接"><a href="#格式化链接" class="headerlink" title="格式化链接"></a>格式化链接</h3><p>为了强调链接，可以在链接的前后加星号</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">I love supporting **[EFF](https://eff.org)**.</span><br><span class="line">This is the *[Markdown Guide](https://www.markdownguide.org)*.</span><br></pre></td></tr></table></figure>
 <p>I love supporting <strong><a href="https://eff.org" target="_blank" rel="noopener">EFF</a></strong>.<br>This is the <em><a href="https://www.markdownguide.org" target="_blank" rel="noopener">Markdown Guide</a></em>.</p>
