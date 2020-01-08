@@ -1,6 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>LeetCode 073 Set Matrix Zeroes</title>
+    <url>/posts/53382/</url>
+    <content><![CDATA[<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given a m x n matrix, if an element is 0, set its entire row and column to 0. Do it in-place.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: </span><br><span class="line">[</span><br><span class="line">  [1,1,1],</span><br><span class="line">  [1,0,1],</span><br><span class="line">  [1,1,1]</span><br><span class="line">]</span><br><span class="line">Output: </span><br><span class="line">[</span><br><span class="line">  [1,0,1],</span><br><span class="line">  [0,0,0],</span><br><span class="line">  [1,0,1]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: </span><br><span class="line">[</span><br><span class="line">  [0,1,2,0],</span><br><span class="line">  [3,4,5,2],</span><br><span class="line">  [1,3,1,5]</span><br><span class="line">]</span><br><span class="line">Output: </span><br><span class="line">[</span><br><span class="line">  [0,0,0,0],</span><br><span class="line">  [0,4,5,0],</span><br><span class="line">  [0,3,1,0]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p><strong>Follow Up</strong></p>
+<ul>
+<li>A straight forward solution using O(mn) space is probably a bad idea.</li>
+<li>A simple improvement uses O(m + n) space, but still not the best solution.</li>
+<li>Could you devise a constant space solution?</li>
+</ul>
+<p><strong>Difficulty: Medium</strong></p>
+<p><strong>Code:</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setZeroes</span><span class="params">(<span class="keyword">int</span>[][] matrix)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>对于一个m乘n的矩阵，若某个元素为0，将其所在行和列都置成0。</p>
+<a id="more"></a>
+<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>使用另外一个m乘n的数组res去标记最终结果中该位置是否是0，用1表示为0。</p>
+<p>遍历矩阵数组，当前位置为0时，对该行该列所有元素在res用1标记。</p>
+<p>最后再次遍历矩阵数组，若对应res中为1，则将其值置为0。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setZeroes</span><span class="params">(<span class="keyword">int</span>[][] matrix)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = matrix.length, n = matrix[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">int</span>[][] res = <span class="keyword">new</span> <span class="keyword">int</span>[m][n];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(matrix[i][j]==<span class="number">0</span>)&#123;</span><br><span class="line">                    helper(matrix,res,i,j);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(res[i][j]==<span class="number">1</span>)&#123;</span><br><span class="line">                    matrix[i][j]=<span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">helper</span><span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span>[][] res, <span class="keyword">int</span> row, <span class="keyword">int</span> col)</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;matrix.length;i++)&#123;</span><br><span class="line">            res[i][col]=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;matrix[<span class="number">0</span>].length;i++)&#123;</span><br><span class="line">            res[row][i]=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(mn)。</p>
+<p><strong>空间复杂度:</strong> O(mn)。</p>
+<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><p>将其优化到O(m+n)的方法是，用一个长度为m的一维数组记录各行中是否有0，用一个长度为n的一维数组记录各列中是否有0，最后直接更新matrix数组即可。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setZeroes</span><span class="params">(<span class="keyword">int</span>[][] matrix)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m=matrix.length, n=matrix[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">boolean</span>[] rowFlag = <span class="keyword">new</span> <span class="keyword">boolean</span>[m];</span><br><span class="line">        <span class="keyword">boolean</span>[] colFlag = <span class="keyword">new</span> <span class="keyword">boolean</span>[n];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(matrix[i][j]==<span class="number">0</span>)&#123;</span><br><span class="line">                    rowFlag[i]=<span class="keyword">true</span>;</span><br><span class="line">                    colFlag[j]=<span class="keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(rowFlag[i]||colFlag[j]) matrix[i][j]=<span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(mn)。</p>
+<p><strong>空间复杂度:</strong> O(m+n)。</p>
+<h2 id="Solution-3"><a href="#Solution-3" class="headerlink" title="Solution 3"></a>Solution 3</h2><p>在上述解法的基础上继续优化空间为O(1)，用每一行的第一个元素标识该行是否有0，使用每一列的第一个元素标识该列是否有0。</p>
+<p>但是这样的话第一行和第一列会在左上角有冲突，那么另外定义变量col0表示第一列自身是否有0。</p>
+<p>先从第一行往最后一行从左到右遍历，碰到元素为0，修改一行和第一列对应的标识为0。</p>
+<p>然后从最后一行到第一行从右向左遍历，若第一行和第一列对应的标识为0，则将其置为0，同时对第一列根据col0修改。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setZeroes</span><span class="params">(<span class="keyword">int</span>[][] matrix)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m=matrix.length, n=matrix[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">int</span> col0 = <span class="number">1</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(matrix[i][<span class="number">0</span>]==<span class="number">0</span>) col0=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;n;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(matrix[i][j]==<span class="number">0</span>)&#123;</span><br><span class="line">                    matrix[i][<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">                    matrix[<span class="number">0</span>][j]=<span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=m-<span class="number">1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=n-<span class="number">1</span>;j&gt;=<span class="number">1</span>;j--)&#123;</span><br><span class="line">                <span class="keyword">if</span>(matrix[i][<span class="number">0</span>]==<span class="number">0</span>||matrix[<span class="number">0</span>][j]==<span class="number">0</span>) matrix[i][j]=<span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(col0==<span class="number">0</span>) matrix[i][<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(mn)。</p>
+<p><strong>空间复杂度:</strong> O(1)。</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode 072 Edit Distance</title>
+    <url>/posts/44378/</url>
+    <content><![CDATA[<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given two words word1 and word2, find the minimum number of operations required to convert word1 to word2.</p>
+<p>You have the following 3 operations permitted on a word:</p>
+<ol>
+<li>Insert a character</li>
+<li>Delete a character</li>
+<li>Replace a character</li>
+</ol>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: word1 = &quot;horse&quot;, word2 = &quot;ros&quot;</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: </span><br><span class="line">horse -&gt; rorse (replace &apos;h&apos; with &apos;r&apos;)</span><br><span class="line">rorse -&gt; rose (remove &apos;r&apos;)</span><br><span class="line">rose -&gt; ros (remove &apos;e&apos;)</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: word1 = &quot;intention&quot;, word2 = &quot;execution&quot;</span><br><span class="line">Output: 5</span><br><span class="line">Explanation: </span><br><span class="line">intention -&gt; inention (remove &apos;t&apos;)</span><br><span class="line">inention -&gt; enention (replace &apos;i&apos; with &apos;e&apos;)</span><br><span class="line">enention -&gt; exention (replace &apos;n&apos; with &apos;x&apos;)</span><br><span class="line">exention -&gt; exection (replace &apos;n&apos; with &apos;c&apos;)</span><br><span class="line">exection -&gt; execution (insert &apos;u&apos;)</span><br></pre></td></tr></table></figure>
+<p><strong>Difficulty: Hard</strong></p>
+<p><strong>Code:</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minDistance</span><span class="params">(String word1, String word2)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>这道题让求从一个字符串转变到另一个字符串需要的变换步骤，共有三种变换方式，插入一个字符，删除一个字符，和替换一个字符。</p>
+<a id="more"></a>
+<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>根据以往的经验，对于字符串相关的题目且求极值的问题，十有八九都是用动态规划 Dynamic Programming 来解，这道题也不例外。</p>
+<p>使用动态规划dp[i,j]表示把word1的前i个字符转变成word2的前j个字符所需要的最少步骤。</p>
+<p>当word1[i]==word2[j]，dp[i+1][j+1]=dp[i][j];</p>
+<p>当word1[i]!=word2[j]，可以进行插入、删除、替换操作，dp[i+1][j+1]=1+min{dp[i+1][j], dp[i][j+1], dp[i][j]}</p>
+<ol>
+<li>dp[i+1][j]表示在word1位置i后新插入word2位置j上的字符，则word1的前i+1个字符必然要转成word2的前j个字符</li>
+<li>dp[i][j+1]表示将word1位置i上的字符删除，则word1的前i个字符必然要转成word2的前j+1个字符</li>
+<li>dp[i-1][j-1]表示将word1位置i替换为word2位置j上的字符，则word1的前i个字符必然要转成word2的前j个字符</li>
+</ol>
+<p>初始值dp[0,k]=dp[k,0]=k</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minDistance</span><span class="params">(String word1, String word2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = word1.length(), n = word2.length();</span><br><span class="line">        <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[m+<span class="number">1</span>][n+<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=m;i++)&#123;</span><br><span class="line">            dp[i][<span class="number">0</span>]=i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=n;j++)&#123;</span><br><span class="line">            dp[<span class="number">0</span>][j]=j;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(word1.charAt(i)==word2.charAt(j))&#123;</span><br><span class="line">                    dp[i+<span class="number">1</span>][j+<span class="number">1</span>]=dp[i][j];</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">int</span> insert = dp[i+<span class="number">1</span>][j];</span><br><span class="line">                <span class="keyword">int</span> delete = dp[i][j+<span class="number">1</span>];</span><br><span class="line">                <span class="keyword">int</span> replace = dp[i][j];</span><br><span class="line">                <span class="keyword">int</span> min = Math.min(Math.min(insert,delete),replace);</span><br><span class="line">                dp[i+<span class="number">1</span>][j+<span class="number">1</span>]=<span class="number">1</span>+min;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[m][n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(nm)。</p>
+<p><strong>空间复杂度:</strong> O(nm)。</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>leetcode-hard</tag>
+        <tag>leetcode-dynamic-programming</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode 071 Simplify Path</title>
     <url>/posts/8718/</url>
     <content><![CDATA[<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given an absolute path for a file (Unix-style), simplify it. Or in other words, convert it to the canonical path.</p>
@@ -1029,8 +1117,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-easy</tag>
         <tag>leetcode-binary-search</tag>
       </tags>
   </entry>
@@ -1080,8 +1168,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-hard</tag>
       </tags>
   </entry>
   <entry>
@@ -1117,8 +1205,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-easy</tag>
         <tag>leetcode-string</tag>
       </tags>
   </entry>
@@ -1390,8 +1478,8 @@
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-math</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-hard</tag>
       </tags>
   </entry>
   <entry>
@@ -1683,8 +1771,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-dynamic-programming</tag>
       </tags>
   </entry>
@@ -1724,8 +1812,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-dynamic-programming</tag>
       </tags>
   </entry>
@@ -1769,8 +1857,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-dynamic-programming</tag>
       </tags>
   </entry>
@@ -3536,8 +3624,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
       </tags>
   </entry>
   <entry>
@@ -3700,8 +3788,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-sort</tag>
       </tags>
   </entry>
@@ -3743,8 +3831,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-greedy</tag>
       </tags>
   </entry>
@@ -4212,8 +4300,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
       </tags>
   </entry>
   <entry>
@@ -4249,8 +4337,8 @@ connection pool using a background thread.
         <tag>leetcode</tag>
         <tag>leetcode-easy</tag>
         <tag>leetcode-array</tag>
-        <tag>leetcode-divide-and-conquer</tag>
         <tag>leetcode-dynamic-programming</tag>
+        <tag>leetcode-divide-and-conquer</tag>
       </tags>
   </entry>
   <entry>
@@ -4405,8 +4493,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hash-table</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-hash-table</tag>
         <tag>leetcode-string</tag>
       </tags>
   </entry>
@@ -4453,8 +4541,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
       </tags>
   </entry>
   <entry>
@@ -4630,8 +4718,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-hard</tag>
         <tag>leetcode-dynamic-programming</tag>
         <tag>leetcode-backtracking</tag>
         <tag>leetcode-greedy</tag>
@@ -4784,8 +4872,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-backtracking</tag>
       </tags>
   </entry>
@@ -4825,8 +4913,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-backtracking</tag>
       </tags>
   </entry>
@@ -4963,8 +5051,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hash-table</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-hash-table</tag>
       </tags>
   </entry>
   <entry>
@@ -5030,8 +5118,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-binary-search</tag>
       </tags>
   </entry>
@@ -5070,8 +5158,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-binary-search</tag>
       </tags>
   </entry>
@@ -5115,8 +5203,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-hard</tag>
         <tag>leetcode-dynamic-programming</tag>
       </tags>
   </entry>
@@ -5148,8 +5236,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
       </tags>
   </entry>
   <entry>
@@ -5186,9 +5274,9 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-hash-table</tag>
+        <tag>leetcode-string</tag>
         <tag>leetcode-hard</tag>
         <tag>leetcode-two-pointers</tag>
-        <tag>leetcode-string</tag>
       </tags>
   </entry>
   <entry>
@@ -5265,8 +5353,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-easy</tag>
-        <tag>leetcode-two-pointers</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-two-pointers</tag>
       </tags>
   </entry>
   <entry>
@@ -5525,8 +5613,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-linked-list</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -5633,9 +5721,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>leetcode-medium</tag>
         <tag>leetcode-array</tag>
         <tag>leetcode-hash-table</tag>
-        <tag>leetcode-medium</tag>
         <tag>leetcode-two-pointers</tag>
       </tags>
   </entry>
@@ -5697,8 +5785,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-two-pointers</tag>
       </tags>
   </entry>
@@ -5730,8 +5818,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-two-pointers</tag>
       </tags>
   </entry>
@@ -5811,8 +5899,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-easy</tag>
         <tag>leetcode-string</tag>
       </tags>
   </entry>
@@ -5899,8 +5987,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-array</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-array</tag>
         <tag>leetcode-two-pointers</tag>
       </tags>
   </entry>
@@ -5965,8 +6053,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-hard</tag>
         <tag>leetcode-dynamic-programming</tag>
         <tag>leetcode-backtracking</tag>
       </tags>
@@ -6002,8 +6090,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -6117,8 +6205,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-easy</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-easy</tag>
       </tags>
   </entry>
   <entry>
@@ -6301,8 +6389,8 @@ connection pool using a background thread.
         <tag>leetcode</tag>
         <tag>leetcode-array</tag>
         <tag>leetcode-hard</tag>
-        <tag>leetcode-binary-search</tag>
         <tag>leetcode-divide-and-conquer</tag>
+        <tag>leetcode-binary-search</tag>
       </tags>
   </entry>
   <entry>
@@ -6341,10 +6429,10 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hash-table</tag>
         <tag>leetcode-medium</tag>
-        <tag>leetcode-two-pointers</tag>
+        <tag>leetcode-hash-table</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-two-pointers</tag>
         <tag>leetcode-sliding-window</tag>
       </tags>
   </entry>
@@ -6614,7 +6702,7 @@ connection pool using a background thread.
 <p>My favorite search engine is <a href="https://duckduckgo.com" title="The best one" target="_blank" rel="noopener">Duck Duck Go</a>.</p>
 <h3 id="网页和邮箱"><a href="#网页和邮箱" class="headerlink" title="网页和邮箱"></a>网页和邮箱</h3><p>为了快速将网页和邮箱转为链接，可以用<code>&lt;&gt;</code>包裹起来</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;https://www.markdownguide.org&gt;</span><br><span class="line">&lt;fake@example.com&gt;</span><br></pre></td></tr></table></figure>
-<p><a href="https://www.markdownguide.org" target="_blank" rel="noopener">https://www.markdownguide.org</a><br><a href="mailto:&#102;&#97;&#107;&#101;&#x40;&#x65;&#x78;&#97;&#109;&#112;&#108;&#x65;&#x2e;&#99;&#x6f;&#109;" target="_blank" rel="noopener">&#102;&#97;&#107;&#101;&#x40;&#x65;&#x78;&#97;&#109;&#112;&#108;&#x65;&#x2e;&#99;&#x6f;&#109;</a></p>
+<p><a href="https://www.markdownguide.org" target="_blank" rel="noopener">https://www.markdownguide.org</a><br><a href="mailto:&#102;&#x61;&#107;&#101;&#64;&#101;&#120;&#97;&#x6d;&#112;&#x6c;&#101;&#46;&#99;&#x6f;&#109;" target="_blank" rel="noopener">&#102;&#x61;&#107;&#101;&#64;&#101;&#120;&#97;&#x6d;&#112;&#x6c;&#101;&#46;&#99;&#x6f;&#109;</a></p>
 <h3 id="格式化链接"><a href="#格式化链接" class="headerlink" title="格式化链接"></a>格式化链接</h3><p>为了强调链接，可以在链接的前后加星号</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">I love supporting **[EFF](https://eff.org)**.</span><br><span class="line">This is the *[Markdown Guide](https://www.markdownguide.org)*.</span><br></pre></td></tr></table></figure>
 <p>I love supporting <strong><a href="https://eff.org" target="_blank" rel="noopener">EFF</a></strong>.<br>This is the <em><a href="https://www.markdownguide.org" target="_blank" rel="noopener">Markdown Guide</a></em>.</p>
