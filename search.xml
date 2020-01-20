@@ -1,6 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>LeetCode 075 Sort Colors</title>
+    <url>/posts/29179/</url>
+    <content><![CDATA[<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given an array with n objects colored red, white or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white and blue.</p>
+<p>Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively.</p>
+<p><strong>Note:</strong> You are not suppose to use the library’s sort function for this problem.</p>
+<p><strong>Example:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: [2,0,2,1,1,0]</span><br><span class="line">Output: [0,0,1,1,2,2]</span><br></pre></td></tr></table></figure>
+<p><strong>Follow up:</strong></p>
+<ul>
+<li>A rather straight forward solution is a two-pass algorithm using counting sort.<br>First, iterate the array counting number of 0’s, 1’s, and 2’s, then overwrite array with total number of 0’s, then 1’s and followed by 2’s.</li>
+<li>Could you come up with a one-pass algorithm using only constant space?</li>
+</ul>
+<p><strong>Difficulty: Medium</strong></p>
+<p><strong>Code:</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sortColors</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>一个数组用数字表示颜色，0表示红色，1表示白色，2表示蓝色，将数字按照从0到1到顺序排序。要求不能使用排序API，看能否只遍历一遍数组。</p>
+<a id="more"></a>
+<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>定义int数组res表示各种颜色的个数：</p>
+<ol>
+<li>首先遍历一遍数组，分别记录三种颜色对应的个数</li>
+<li>根据res去从头到尾更新，按照个数分别赋予0、1、2</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sortColors</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> num:nums)&#123;</span><br><span class="line">            res[num]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>,cur=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;res[i];j++)&#123;</span><br><span class="line">                nums[cur++]=i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(n)。</p>
+<p><strong>空间复杂度:</strong> O(1)。</p>
+<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><p>使用双指针，red指向开头位置，blue指向结尾位置，表示下一个0或者1要放置到下标。</p>
+<p>从头开始遍历，若遇到0，则交换nums[i]和nums[red]的值，并将red++；</p>
+<p>若遇到2，则交换nums[i]和nums[blue]的值，并将blue–，但由于从后面blue交换过来的值没有排过序，所以将i–</p>
+<p>若遇到1，则不处理继续遍历。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sortColors</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums.length;</span><br><span class="line">        <span class="keyword">int</span> red=<span class="number">0</span>, blue=n-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=blue;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> cur = nums[i];</span><br><span class="line">            <span class="keyword">if</span>(cur==<span class="number">0</span>)&#123;</span><br><span class="line">                nums[i]=nums[red];</span><br><span class="line">                nums[red]=<span class="number">0</span>;</span><br><span class="line">                red++;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(cur==<span class="number">2</span>)&#123;</span><br><span class="line">                nums[i]=nums[blue];</span><br><span class="line">                nums[blue]=<span class="number">2</span>;</span><br><span class="line">                blue--;</span><br><span class="line">                i--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(n)。</p>
+<p><strong>空间复杂度:</strong> O(1)。</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>leetcode-array</tag>
+        <tag>leetcode-medium</tag>
+        <tag>leetcode-two-pointers</tag>
+        <tag>leetcode-sort</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode 074 Search a 2D Matrix</title>
     <url>/posts/5854/</url>
     <content><![CDATA[<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Write an efficient algorithm that searches for a value in an m x n matrix. This matrix has the following properties:</p>
@@ -34,7 +79,22 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">searchMatrix</span><span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(matrix==<span class="keyword">null</span> || matrix.length==<span class="number">0</span> || matrix[<span class="number">0</span>].length==<span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">int</span> m = matrix.length, n = matrix[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">if</span>(matrix[<span class="number">0</span>][<span class="number">0</span>]&gt;target||matrix[m-<span class="number">1</span>][n-<span class="number">1</span>]&lt;target) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">int</span> row = searchRow(matrix, target, <span class="number">0</span>, m-<span class="number">1</span>);</span><br><span class="line">        Integer col = searchCol(matrix, target, row, <span class="number">0</span>, n-<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span>(col==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchRow</span><span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> target, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span></span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(start&lt;end)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid = (start+end+<span class="number">1</span>)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">int</span> val = matrix[mid][<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">if</span>(val==target)&#123;</span><br><span class="line">                <span class="keyword">return</span> mid;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(val&gt;target)&#123;</span><br><span class="line">                end=mid-<span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                start=mid;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> start;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">searchCol</span><span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> target, <span class="keyword">int</span> row, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span></span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(start&lt;=end)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid = (start+end)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">int</span> val = matrix[row][mid];</span><br><span class="line">            <span class="keyword">if</span>(val==target)&#123;</span><br><span class="line">                <span class="keyword">return</span> mid;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(val&gt;target)&#123;</span><br><span class="line">                end=mid-<span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                start=mid+<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>时间复杂度:</strong> O(log2 mn)。</p>
 <p><strong>空间复杂度:</strong> O(1)。</p>
-<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><p>直接将整个矩阵当作有序数组，最左侧是右下角元素下标为0，最右侧是右下角元素下标为m*n-1。</p>
+<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><p>同样在第一列上先用一次二分查找法找到目标值所在的行的位置，然后在该行上再用一次二分查找法来找是否存在目标值。</p>
+<p>如果是查找第一个不小于目标值的数，当target在第一列时，会返回target所在的行，但若target不在的话，有可能会返回下一行，不好统一。所以可以查找第一个大于目标值的数，这样只要回退一个，就一定是target所在的行。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">searchMatrix</span><span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(matrix==<span class="keyword">null</span> || matrix.length==<span class="number">0</span> || matrix[<span class="number">0</span>].length==<span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">int</span> m = matrix.length, n = matrix[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">if</span>(matrix[<span class="number">0</span>][<span class="number">0</span>]&gt;target||matrix[m-<span class="number">1</span>][n-<span class="number">1</span>]&lt;target) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">int</span> row = searchRow(matrix, target, <span class="number">0</span>, m-<span class="number">1</span>);</span><br><span class="line">        Integer col = searchCol(matrix, target, row, <span class="number">0</span>, n-<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span>(col==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchRow</span><span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> target, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span></span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(start&lt;end)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid = (start+end+<span class="number">1</span>)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">int</span> val = matrix[mid][<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">if</span>(val==target)&#123;</span><br><span class="line">                <span class="keyword">return</span> mid;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(val&gt;target)&#123;</span><br><span class="line">                end=mid-<span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                start=mid;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> start;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">searchCol</span><span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> target, <span class="keyword">int</span> row, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span></span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(start&lt;=end)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid = (start+end)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">int</span> val = matrix[row][mid];</span><br><span class="line">            <span class="keyword">if</span>(val==target)&#123;</span><br><span class="line">                <span class="keyword">return</span> mid;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(val&gt;target)&#123;</span><br><span class="line">                end=mid-<span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                start=mid+<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(log2 mn)。</p>
+<p><strong>空间复杂度:</strong> O(1)。</p>
+<h2 id="Solution-3"><a href="#Solution-3" class="headerlink" title="Solution 3"></a>Solution 3</h2><p>使用双指针也是可以的，初始化时i指向第一行，j指向最后一列。</p>
+<ul>
+<li>若matrix[i][j]与target相等直接返回true</li>
+<li>若matrix[i][j]小于target则要递增一行i++</li>
+<li>若大于target则说明只会在当前行对前部出现，往前移动j–</li>
+</ul>
+<p>最后若退出循环也没找到则说明不存在返回false。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">searchMatrix</span><span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(matrix==<span class="keyword">null</span> || matrix.length==<span class="number">0</span> || matrix[<span class="number">0</span>].length==<span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">int</span> m = matrix.length, n = matrix[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">int</span> i=<span class="number">0</span>, j=n-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(i&lt;m&amp;&amp;j&gt;=<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> cur = matrix[i][j];</span><br><span class="line">            <span class="keyword">if</span>(cur==target) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            <span class="keyword">if</span>(cur&gt;target)&#123;</span><br><span class="line">                j--;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(m+n)。</p>
+<p><strong>空间复杂度:</strong> O(1)。</p>
+<h2 id="Solution-4"><a href="#Solution-4" class="headerlink" title="Solution 4"></a>Solution 4</h2><p>直接将整个矩阵当作有序数组，最左侧是右下角元素下标为0，最右侧是右下角元素下标为m*n-1。</p>
 <p>mid设为(left+right)/2，其在矩阵中对位置为<code>matrix[mid/n][mid%n]</code>，然后据此进行二分查找。</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">searchMatrix</span><span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(matrix==<span class="keyword">null</span> || matrix.length==<span class="number">0</span> || matrix[<span class="number">0</span>].length==<span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">int</span> m = matrix.length, n = matrix[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = m*n-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(left&lt;=right)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid=(left+right)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">int</span> val = matrix[mid/n][mid%n];</span><br><span class="line">            <span class="keyword">if</span>(val==target)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(val&gt;target)&#123;</span><br><span class="line">                right=mid-<span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                left=mid+<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>时间复杂度:</strong> O(log2 mn)。</p>
@@ -46,8 +106,8 @@
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-array</tag>
-        <tag>leetcode-binary-search</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-binary-search</tag>
       </tags>
   </entry>
   <entry>
@@ -134,8 +194,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-dynamic-programming</tag>
+        <tag>leetcode-hard</tag>
       </tags>
   </entry>
   <entry>
@@ -1168,8 +1228,8 @@
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-easy</tag>
-        <tag>leetcode-binary-search</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-binary-search</tag>
       </tags>
   </entry>
   <entry>
@@ -1218,8 +1278,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-hard</tag>
       </tags>
   </entry>
   <entry>
@@ -1527,9 +1587,9 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-math</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-hard</tag>
       </tags>
   </entry>
   <entry>
@@ -4387,8 +4447,8 @@ connection pool using a background thread.
         <tag>leetcode</tag>
         <tag>leetcode-easy</tag>
         <tag>leetcode-array</tag>
-        <tag>leetcode-divide-and-conquer</tag>
         <tag>leetcode-dynamic-programming</tag>
+        <tag>leetcode-divide-and-conquer</tag>
       </tags>
   </entry>
   <entry>
@@ -4506,9 +4566,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-binary-search</tag>
         <tag>leetcode-medium</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-binary-search</tag>
       </tags>
   </entry>
   <entry>
@@ -4768,9 +4828,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-string</tag>
         <tag>leetcode-dynamic-programming</tag>
+        <tag>leetcode-hard</tag>
         <tag>leetcode-backtracking</tag>
         <tag>leetcode-greedy</tag>
       </tags>
@@ -4852,8 +4912,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-array</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-two-pointers</tag>
+        <tag>leetcode-hard</tag>
         <tag>leetcode-stack</tag>
       </tags>
   </entry>
@@ -5169,8 +5229,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-array</tag>
-        <tag>leetcode-binary-search</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-binary-search</tag>
       </tags>
   </entry>
   <entry>
@@ -5209,8 +5269,8 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-array</tag>
-        <tag>leetcode-binary-search</tag>
         <tag>leetcode-medium</tag>
+        <tag>leetcode-binary-search</tag>
       </tags>
   </entry>
   <entry>
@@ -5253,9 +5313,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-string</tag>
         <tag>leetcode-dynamic-programming</tag>
+        <tag>leetcode-hard</tag>
       </tags>
   </entry>
   <entry>
@@ -5324,9 +5384,9 @@ connection pool using a background thread.
       <tags>
         <tag>leetcode</tag>
         <tag>leetcode-hash-table</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-two-pointers</tag>
         <tag>leetcode-string</tag>
+        <tag>leetcode-hard</tag>
       </tags>
   </entry>
   <entry>
@@ -5365,9 +5425,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-binary-search</tag>
         <tag>leetcode-medium</tag>
         <tag>leetcode-math</tag>
+        <tag>leetcode-binary-search</tag>
       </tags>
   </entry>
   <entry>
@@ -5530,8 +5590,8 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-linked-list</tag>
+        <tag>leetcode-hard</tag>
       </tags>
   </entry>
   <entry>
@@ -5598,9 +5658,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>leetcode-linked-list</tag>
         <tag>leetcode-hard</tag>
         <tag>leetcode-divide-and-conquer</tag>
-        <tag>leetcode-linked-list</tag>
         <tag>leetcode-heap</tag>
       </tags>
   </entry>
@@ -6103,9 +6163,9 @@ connection pool using a background thread.
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>leetcode-hard</tag>
         <tag>leetcode-string</tag>
         <tag>leetcode-dynamic-programming</tag>
+        <tag>leetcode-hard</tag>
         <tag>leetcode-backtracking</tag>
       </tags>
   </entry>
@@ -6752,7 +6812,7 @@ connection pool using a background thread.
 <p>My favorite search engine is <a href="https://duckduckgo.com" title="The best one" target="_blank" rel="noopener">Duck Duck Go</a>.</p>
 <h3 id="网页和邮箱"><a href="#网页和邮箱" class="headerlink" title="网页和邮箱"></a>网页和邮箱</h3><p>为了快速将网页和邮箱转为链接，可以用<code>&lt;&gt;</code>包裹起来</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;https://www.markdownguide.org&gt;</span><br><span class="line">&lt;fake@example.com&gt;</span><br></pre></td></tr></table></figure>
-<p><a href="https://www.markdownguide.org" target="_blank" rel="noopener">https://www.markdownguide.org</a><br><a href="mailto:&#x66;&#x61;&#107;&#101;&#64;&#x65;&#120;&#97;&#x6d;&#112;&#x6c;&#101;&#46;&#99;&#x6f;&#x6d;" target="_blank" rel="noopener">&#x66;&#x61;&#107;&#101;&#64;&#x65;&#120;&#97;&#x6d;&#112;&#x6c;&#101;&#46;&#99;&#x6f;&#x6d;</a></p>
+<p><a href="https://www.markdownguide.org" target="_blank" rel="noopener">https://www.markdownguide.org</a><br><a href="mailto:&#x66;&#97;&#x6b;&#101;&#64;&#101;&#x78;&#x61;&#109;&#112;&#108;&#101;&#46;&#99;&#111;&#109;" target="_blank" rel="noopener">&#x66;&#97;&#x6b;&#101;&#64;&#101;&#x78;&#x61;&#109;&#112;&#108;&#101;&#46;&#99;&#111;&#109;</a></p>
 <h3 id="格式化链接"><a href="#格式化链接" class="headerlink" title="格式化链接"></a>格式化链接</h3><p>为了强调链接，可以在链接的前后加星号</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">I love supporting **[EFF](https://eff.org)**.</span><br><span class="line">This is the *[Markdown Guide](https://www.markdownguide.org)*.</span><br></pre></td></tr></table></figure>
 <p>I love supporting <strong><a href="https://eff.org" target="_blank" rel="noopener">EFF</a></strong>.<br>This is the <em><a href="https://www.markdownguide.org" target="_blank" rel="noopener">Markdown Guide</a></em>.</p>

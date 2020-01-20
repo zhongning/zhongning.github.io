@@ -45,20 +45,20 @@
   };
 </script>
 
-  <meta name="description" content="一、直接设置系统环境变量1. 临时代理在终端中输入 1234export http_proxy=&quot;http://127.0.0.1:1087&quot;   export https_proxy=&quot;http://127.0.0.1:1087&quot;或者直接export all_proxy=&quot;http://127.0.0.1:1087&quot;// 这是直接设置了http/https省得麻烦，当然你要是有分开设置的需求就分">
-<meta name="keywords" content="proxy">
+  <meta name="description" content="DescriptionGiven an array with n objects colored red, white or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white and blue. Here, we will">
+<meta name="keywords" content="leetcode,leetcode-array,leetcode-medium,leetcode-two-pointers,leetcode-sort">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mac终端代理和git代理设置">
-<meta property="og:url" content="http://yoursite.com/posts/53106/index.html">
+<meta property="og:title" content="LeetCode 075 Sort Colors">
+<meta property="og:url" content="http://yoursite.com/posts/29179/index.html">
 <meta property="og:site_name" content="Show me the code">
-<meta property="og:description" content="一、直接设置系统环境变量1. 临时代理在终端中输入 1234export http_proxy=&quot;http://127.0.0.1:1087&quot;   export https_proxy=&quot;http://127.0.0.1:1087&quot;或者直接export all_proxy=&quot;http://127.0.0.1:1087&quot;// 这是直接设置了http/https省得麻烦，当然你要是有分开设置的需求就分">
+<meta property="og:description" content="DescriptionGiven an array with n objects colored red, white or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white and blue. Here, we will">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-25T13:53:52.825Z">
+<meta property="og:updated_time" content="2020-01-20T13:55:05.861Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mac终端代理和git代理设置">
-<meta name="twitter:description" content="一、直接设置系统环境变量1. 临时代理在终端中输入 1234export http_proxy=&quot;http://127.0.0.1:1087&quot;   export https_proxy=&quot;http://127.0.0.1:1087&quot;或者直接export all_proxy=&quot;http://127.0.0.1:1087&quot;// 这是直接设置了http/https省得麻烦，当然你要是有分开设置的需求就分">
+<meta name="twitter:title" content="LeetCode 075 Sort Colors">
+<meta name="twitter:description" content="DescriptionGiven an array with n objects colored red, white or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white and blue. Here, we will">
 
-<link rel="canonical" href="http://yoursite.com/posts/53106/">
+<link rel="canonical" href="http://yoursite.com/posts/29179/">
 
 
 <script id="page-configurations">
@@ -72,7 +72,7 @@
   };
 </script>
 
-  <title>Mac终端代理和git代理设置 | Show me the code</title>
+  <title>LeetCode 075 Sort Colors | Show me the code</title>
   
 
 
@@ -211,7 +211,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/53106/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/29179/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -224,7 +224,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Mac终端代理和git代理设置
+          LeetCode 075 Sort Colors
         </h1>
 
         <div class="post-meta">
@@ -235,7 +235,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2019-12-25 21:12:50 / 修改时间：21:53:52" itemprop="dateCreated datePublished" datetime="2019-12-25T21:12:50+08:00">2019-12-25</time>
+              <time title="创建时间：2020-01-20 20:31:07 / 修改时间：21:55:05" itemprop="dateCreated datePublished" datetime="2020-01-20T20:31:07+08:00">2020-01-20</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -243,8 +243,8 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/computer/" itemprop="url" rel="index">
-                    <span itemprop="name">computer</span>
+                  <a href="/categories/leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetcode</span>
                   </a>
                 </span>
             </span>
@@ -260,39 +260,36 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="一、直接设置系统环境变量"><a href="#一、直接设置系统环境变量" class="headerlink" title="一、直接设置系统环境变量"></a>一、直接设置系统环境变量</h2><h3 id="1-临时代理"><a href="#1-临时代理" class="headerlink" title="1. 临时代理"></a>1. 临时代理</h3><p>在终端中输入</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export http_proxy="http://127.0.0.1:1087"   </span><br><span class="line">export https_proxy="http://127.0.0.1:1087"</span><br><span class="line">或者直接</span><br><span class="line">export all_proxy="http://127.0.0.1:1087"// 这是直接设置了http/https省得麻烦，当然你要是有分开设置的需求就分开设置</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>这是代理本身走的https/http</p>
-</blockquote>
+        <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given an array with n objects colored red, white or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white and blue.</p>
+<p>Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively.</p>
+<p><strong>Note:</strong> You are not suppose to use the library’s sort function for this problem.</p>
+<p><strong>Example:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [2,0,2,1,1,0]</span><br><span class="line">Output: [0,0,1,1,2,2]</span><br></pre></td></tr></table></figure>
+<p><strong>Follow up:</strong></p>
+<ul>
+<li>A rather straight forward solution is a two-pass algorithm using counting sort.<br>First, iterate the array counting number of 0’s, 1’s, and 2’s, then overwrite array with total number of 0’s, then 1’s and followed by 2’s.</li>
+<li>Could you come up with a one-pass algorithm using only constant space?</li>
+</ul>
+<p><strong>Difficulty: Medium</strong></p>
+<p><strong>Code:</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sortColors</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>一个数组用数字表示颜色，0表示红色，1表示白色，2表示蓝色，将数字按照从0到1到顺序排序。要求不能使用排序API，看能否只遍历一遍数组。</p>
 <a id="more"></a>
-<p>或者</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export http_proxy="socks5://127.0.0.1:1086"   </span><br><span class="line">export https_proxy="socks5://127.0.0.1:1086"</span><br><span class="line">或者</span><br><span class="line">export all_proxy="socks5://127.0.0.1:1086" // 这是直接设置了http/https省得麻烦，当然你要是有分开设置的需求就分开设置</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>这是代理本身走的socks5</p>
-</blockquote>
-<h3 id="2-永久写入"><a href="#2-永久写入" class="headerlink" title="2. 永久写入"></a>2. 永久写入</h3><p>如果使用的是zsh就在.zshrc中写入</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">export http_proxy="http://127.0.0.1:1087"   </span><br><span class="line">export https_proxy="http://127.0.0.1:1087"</span><br><span class="line">或者</span><br><span class="line">export http_proxy="socks5://127.0.0.1:1086"   </span><br><span class="line">export https_proxy="socks5://127.0.0.1:1086"</span><br><span class="line">或者</span><br><span class="line">export all_proxy="socks5://127.0.0.1:1086"</span><br><span class="line">或者</span><br><span class="line">export all_proxy="http://127.0.0.1:1087"</span><br></pre></td></tr></table></figure>
-<h3 id="3-取消代理"><a href="#3-取消代理" class="headerlink" title="3. 取消代理"></a>3. 取消代理</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">unset http_proxy // 取消http代理</span><br><span class="line">unset https_proxy // 取消https代理</span><br><span class="line">或者直接全部取消</span><br><span class="line">unset ALL_PROXY</span><br></pre></td></tr></table></figure>
-<h3 id="4-验证代理是否成功（查看公网ip和所在地址）"><a href="#4-验证代理是否成功（查看公网ip和所在地址）" class="headerlink" title="4. 验证代理是否成功（查看公网ip和所在地址）"></a>4. 验证代理是否成功（查看公网ip和所在地址）</h3><p>终端输入</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl ip.gs</span><br></pre></td></tr></table></figure>
-<p>你会看到</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">~ curl ip.gs</span><br><span class="line">Current IP / 当前 IP: 101.69.200.10</span><br><span class="line">ISP / 运营商:  ChinaUnicom</span><br><span class="line">City / 城市: Jiaxing Zhejiang</span><br><span class="line">Country / 国家: China</span><br><span class="line">IP.GS is now IP.SB, please visit https://ip.sb/ for more information. / IP.GS 已更改为 IP.SB ，请访问 https://ip.sb/ 获取更详细 IP 信息！</span><br><span class="line">Please join Telegram group https://t.me/sbfans if you have any issues. / 如有问题，请加入 Telegram 群 https://t.me/sbfans</span><br><span class="line"></span><br><span class="line">  /\_/\</span><br><span class="line">=( °w° )=</span><br><span class="line">  )   (  //</span><br><span class="line"> (__ __)//</span><br><span class="line"></span><br><span class="line">~</span><br></pre></td></tr></table></figure>
-<p>当然了你要是只想看ip就输入</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl ip.sb</span><br></pre></td></tr></table></figure>
-<p>就直接显示你在公网上的ip</p>
-<blockquote>
-<p>注：ifconfig是查看本机在局域网内的ip，不是公网ip</p>
-</blockquote>
-<p>你要是装了istat menus直接点击顶栏的网络部分就可以查看局域网ip和公网ip</p>
-<h2 id="使用alias自定义命令"><a href="#使用alias自定义命令" class="headerlink" title="使用alias自定义命令"></a>使用alias自定义命令</h2><p>像这样（我用的zsh所以是在.zshrc文件中写入）</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alias setproxy="export ALL_PROXY=socks5://127.0.0.1:1086"</span><br><span class="line">alias setproxyhttp="export ALL_PROXY=http://127.0.0.1:1087"</span><br><span class="line">alias unsetproxy="unset ALL_PROXY"</span><br></pre></td></tr></table></figure>
-<p>这样你只需要输入setproxy或者setproxyhttp就行了，取消的话就unsetproxy就好了</p>
-<p>你也可以单独给git设置代理</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">alias agent="git config --global http.proxy socks5://127.0.0.1:1086;git config --global https.proxy socks5://127.0.0.1:1086;git config --global http.sslVerify false"</span><br><span class="line">alias unagent="git config --global --unset http.proxy;git config --global --unset https.proxy"</span><br><span class="line">或者</span><br><span class="line">alias agent="git config --global http.proxy http://127.0.0.1:1087;git config --global https.proxy http://127.0.0.1:1087;git config --global http.sslVerify false"</span><br><span class="line">alias unagent="git config --global --unset http.proxy;git config --global --unset https.proxy"</span><br></pre></td></tr></table></figure>
-<p>使用和取消同上</p>
-<p>作者：LanceAdd</p>
-<p>原文链接：<a href="https://www.jianshu.com/p/205aff65954a" target="_blank" rel="noopener">https://www.jianshu.com/p/205aff65954a</a></p>
+<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>定义int数组res表示各种颜色的个数：</p>
+<ol>
+<li>首先遍历一遍数组，分别记录三种颜色对应的个数</li>
+<li>根据res去从头到尾更新，按照个数分别赋予0、1、2</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sortColors</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> num:nums)&#123;</span><br><span class="line">            res[num]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>,cur=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;res[i];j++)&#123;</span><br><span class="line">                nums[cur++]=i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(n)。</p>
+<p><strong>空间复杂度:</strong> O(1)。</p>
+<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><p>使用双指针，red指向开头位置，blue指向结尾位置，表示下一个0或者1要放置到下标。</p>
+<p>从头开始遍历，若遇到0，则交换nums[i]和nums[red]的值，并将red++；</p>
+<p>若遇到2，则交换nums[i]和nums[blue]的值，并将blue–，但由于从后面blue交换过来的值没有排过序，所以将i–</p>
+<p>若遇到1，则不处理继续遍历。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sortColors</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums.length;</span><br><span class="line">        <span class="keyword">int</span> red=<span class="number">0</span>, blue=n-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=blue;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> cur = nums[i];</span><br><span class="line">            <span class="keyword">if</span>(cur==<span class="number">0</span>)&#123;</span><br><span class="line">                nums[i]=nums[red];</span><br><span class="line">                nums[red]=<span class="number">0</span>;</span><br><span class="line">                red++;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(cur==<span class="number">2</span>)&#123;</span><br><span class="line">                nums[i]=nums[blue];</span><br><span class="line">                nums[blue]=<span class="number">2</span>;</span><br><span class="line">                blue--;</span><br><span class="line">                i--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度:</strong> O(n)。</p>
+<p><strong>空间复杂度:</strong> O(1)。</p>
 
     </div>
 
@@ -317,7 +314,11 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/proxy/" rel="tag"># proxy</a>
+              <a href="/tags/leetcode/" rel="tag"># leetcode</a>
+              <a href="/tags/leetcode-array/" rel="tag"># leetcode-array</a>
+              <a href="/tags/leetcode-medium/" rel="tag"># leetcode-medium</a>
+              <a href="/tags/leetcode-two-pointers/" rel="tag"># leetcode-two-pointers</a>
+              <a href="/tags/leetcode-sort/" rel="tag"># leetcode-sort</a>
           </div>
 
         
@@ -326,13 +327,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/posts/10703/" rel="prev" title="Docker容器安全性分析">
-      <i class="fa fa-chevron-left"></i> Docker容器安全性分析
+    <a href="/posts/5854/" rel="prev" title="LeetCode 074 Search a 2D Matrix">
+      <i class="fa fa-chevron-left"></i> LeetCode 074 Search a 2D Matrix
     </a></div>
-      <div class="post-nav-item">
-    <a href="/posts/28138/" rel="next" title="Linux进程和线程pid">
-      Linux进程和线程pid <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -370,7 +368,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、直接设置系统环境变量"><span class="nav-number">1.</span> <span class="nav-text">一、直接设置系统环境变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-临时代理"><span class="nav-number">1.1.</span> <span class="nav-text">1. 临时代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-永久写入"><span class="nav-number">1.2.</span> <span class="nav-text">2. 永久写入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-取消代理"><span class="nav-number">1.3.</span> <span class="nav-text">3. 取消代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-验证代理是否成功（查看公网ip和所在地址）"><span class="nav-number">1.4.</span> <span class="nav-text">4. 验证代理是否成功（查看公网ip和所在地址）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用alias自定义命令"><span class="nav-number">2.</span> <span class="nav-text">使用alias自定义命令</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题意"><span class="nav-number">2.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-1"><span class="nav-number">3.</span> <span class="nav-text">Solution 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-2"><span class="nav-number">4.</span> <span class="nav-text">Solution 2</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
