@@ -128,6 +128,94 @@ class Solution {
 
 ## Solution 2
 
+同样在第一列上先用一次二分查找法找到目标值所在的行的位置，然后在该行上再用一次二分查找法来找是否存在目标值。
+
+如果是查找第一个不小于目标值的数，当target在第一列时，会返回target所在的行，但若target不在的话，有可能会返回下一行，不好统一。所以可以查找第一个大于目标值的数，这样只要回退一个，就一定是target所在的行。
+
+```java
+class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        if(matrix==null || matrix.length==0 || matrix[0].length==0) return false;
+        int m = matrix.length, n = matrix[0].length;
+        if(matrix[0][0]>target||matrix[m-1][n-1]<target) return false;
+        int row = searchRow(matrix, target, 0, m-1);
+        Integer col = searchCol(matrix, target, row, 0, n-1);
+        if(col==null) return false;
+        return true;
+    }
+    
+    public int searchRow(int[][] matrix, int target, int start, int end){
+        while(start<end){
+            int mid = (start+end+1)/2;
+            int val = matrix[mid][0];
+            if(val==target){
+                return mid;
+            }else if(val>target){
+                end=mid-1;
+            }else{
+                start=mid;
+            }
+        }
+        return start;
+    }
+    
+    public Integer searchCol(int[][] matrix, int target, int row, int start, int end){
+        while(start<=end){
+            int mid = (start+end)/2;
+            int val = matrix[row][mid];
+            if(val==target){
+                return mid;
+            }else if(val>target){
+                end=mid-1;
+            }else{
+                start=mid+1;
+            }
+        }
+        return null;
+    }
+}
+```
+
+**时间复杂度:** O(log2 mn)。
+
+**空间复杂度:** O(1)。
+
+## Solution 3
+
+使用双指针也是可以的，初始化时i指向第一行，j指向最后一列。
+
+* 若matrix[i][j]与target相等直接返回true
+* 若matrix[i][j]小于target则要递增一行i++
+* 若大于target则说明只会在当前行对前部出现，往前移动j--
+
+最后若退出循环也没找到则说明不存在返回false。
+
+```java
+class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        if(matrix==null || matrix.length==0 || matrix[0].length==0) return false;
+        int m = matrix.length, n = matrix[0].length;
+        int i=0, j=n-1;
+        while(i<m&&j>=0){
+            int cur = matrix[i][j];
+            if(cur==target) return true;
+            if(cur>target){
+                j--;
+            }else{
+                i++;
+            }
+        }
+        return false;
+    }
+}
+```
+
+**时间复杂度:** O(m+n)。
+
+**空间复杂度:** O(1)。
+
+## Solution 4
+
 直接将整个矩阵当作有序数组，最左侧是右下角元素下标为0，最右侧是右下角元素下标为m*n-1。
 
 mid设为(left+right)/2，其在矩阵中对位置为`matrix[mid/n][mid%n]`，然后据此进行二分查找。
