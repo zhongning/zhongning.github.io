@@ -206,6 +206,204 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/44378/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Zhong Ning(钟宁)">
+      <meta itemprop="description" content>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Show me the code">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/44378/" class="post-title-link" itemprop="url">LeetCode 072 Edit Distance</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-01-07 21:04:21" itemprop="dateCreated datePublished" datetime="2020-01-07T21:04:21+08:00">2020-01-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-14 21:47:11" itemprop="dateModified" datetime="2020-04-14T21:47:11+08:00">2020-04-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetcode</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given two words word1 and word2, find the minimum number of operations required to convert word1 to word2.</p>
+<p>You have the following 3 operations permitted on a word:</p>
+<ol>
+<li>Insert a character</li>
+<li>Delete a character</li>
+<li>Replace a character</li>
+</ol>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Input: word1 = &quot;horse&quot;, word2 = &quot;ros&quot;</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: </span><br><span class="line">horse -&gt; rorse (replace &apos;h&apos; with &apos;r&apos;)</span><br><span class="line">rorse -&gt; rose (remove &apos;r&apos;)</span><br><span class="line">rose -&gt; ros (remove &apos;e&apos;)</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Input: word1 = &quot;intention&quot;, word2 = &quot;execution&quot;</span><br><span class="line">Output: 5</span><br><span class="line">Explanation: </span><br><span class="line">intention -&gt; inention (remove &apos;t&apos;)</span><br><span class="line">inention -&gt; enention (replace &apos;i&apos; with &apos;e&apos;)</span><br><span class="line">enention -&gt; exention (replace &apos;n&apos; with &apos;x&apos;)</span><br><span class="line">exention -&gt; exection (replace &apos;n&apos; with &apos;c&apos;)</span><br><span class="line">exection -&gt; execution (insert &apos;u&apos;)</span><br></pre></td></tr></table></figure>
+<p><strong>Difficulty: Hard</strong></p>
+<p><strong>Code:</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minDistance</span><span class="params">(String word1, String word2)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>这道题让求从一个字符串转变到另一个字符串需要的变换步骤，共有三种变换方式，插入一个字符，删除一个字符，和替换一个字符。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/44378/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/8718/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Zhong Ning(钟宁)">
+      <meta itemprop="description" content>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Show me the code">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/8718/" class="post-title-link" itemprop="url">LeetCode 071 Simplify Path</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-01-06 20:34:14" itemprop="dateCreated datePublished" datetime="2020-01-06T20:34:14+08:00">2020-01-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-14 21:47:11" itemprop="dateModified" datetime="2020-04-14T21:47:11+08:00">2020-04-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetcode</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given an absolute path for a file (Unix-style), simplify it. Or in other words, convert it to the canonical path.</p>
+<p>In a UNIX-style file system, a period . refers to the current directory. Furthermore, a double period .. moves the directory up a level. For more information, see: Absolute path vs relative path in Linux/Unix</p>
+<p>Note that the returned canonical path must always begin with a slash /, and there must be only a single slash / between two directory names.<br>The last directory name (if it exists) must not end with a trailing /. Also, the canonical path must be the shortest string representing the absolute path.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;/home/&quot;</span><br><span class="line">Output: &quot;/home&quot;</span><br><span class="line">Explanation: Note that there is no trailing slash after the last directory name.</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;/../&quot;</span><br><span class="line">Output: &quot;/&quot;</span><br><span class="line">Explanation: Going one level up from the root directory is a no-op, as the root level is the highest level you can go.</span><br></pre></td></tr></table></figure>
+<p><strong>Example 3:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;/home//foo/&quot;</span><br><span class="line">Output: &quot;/home/foo&quot;</span><br><span class="line">Explanation: In the canonical path, multiple consecutive slashes are replaced by a single one.</span><br></pre></td></tr></table></figure>
+<p><strong>Example 4:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;/a/./b/../../c/&quot;</span><br><span class="line">Output: &quot;/c&quot;</span><br></pre></td></tr></table></figure>
+<p><strong>Example 5:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;/a/../../b/../c//.//&quot;</span><br><span class="line">Output: &quot;/c&quot;</span><br></pre></td></tr></table></figure>
+<p><strong>Example 6:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;/a//b////c/d//././/..&quot;</span><br><span class="line">Output: &quot;/a/b/c&quot;</span><br></pre></td></tr></table></figure>
+<p><strong>Difficulty: Medium</strong></p>
+<p><strong>Code:</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">simplifyPath</span><span class="params">(String path)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>简化linux的文件绝对路径。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/8718/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/45711/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -229,10 +427,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-01-06 19:59:11 / 修改时间：20:33:09" itemprop="dateCreated datePublished" datetime="2020-01-06T19:59:11+08:00">2020-01-06</time>
+              <time title="创建时间：2020-01-06 19:59:11" itemprop="dateCreated datePublished" datetime="2020-01-06T19:59:11+08:00">2020-01-06</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-14 21:47:11" itemprop="dateModified" datetime="2020-04-14T21:47:11+08:00">2020-04-14</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -307,10 +511,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-01-06 18:43:47 / 修改时间：19:40:02" itemprop="dateCreated datePublished" datetime="2020-01-06T18:43:47+08:00">2020-01-06</time>
+              <time title="创建时间：2020-01-06 18:43:47" itemprop="dateCreated datePublished" datetime="2020-01-06T18:43:47+08:00">2020-01-06</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-14 21:47:11" itemprop="dateModified" datetime="2020-04-14T21:47:11+08:00">2020-04-14</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -396,10 +606,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2019-12-30 23:09:51 / 修改时间：23:21:23" itemprop="dateCreated datePublished" datetime="2019-12-30T23:09:51+08:00">2019-12-30</time>
+              <time title="创建时间：2019-12-30 23:09:51" itemprop="dateCreated datePublished" datetime="2019-12-30T23:09:51+08:00">2019-12-30</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-14 21:47:11" itemprop="dateModified" datetime="2020-04-14T21:47:11+08:00">2020-04-14</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -429,166 +645,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/posts/8686/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/930/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Zhong Ning(钟宁)">
-      <meta itemprop="description" content>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Show me the code">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/930/" class="post-title-link" itemprop="url">看涨期权和看跌期权</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-12-30 23:00:46 / 修改时间：23:30:10" itemprop="dateCreated datePublished" datetime="2019-12-30T23:00:46+08:00">2019-12-30</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/finance/" itemprop="url" rel="index">
-                    <span itemprop="name">finance</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="期权分类"><a href="#期权分类" class="headerlink" title="期权分类"></a>期权分类</h2><p>期权(Option)，是一种选择权，指是一种能在未来某特定时间以特定价格买入或卖出一定数量的某种特定商品的权利。它是在期货基础上产生的一种金融工具，给予买方(或持有者)购买或出售标的资产(underlying asset)的权利。期权的持有者可以在该项期权规定的时间内选择买或不买、卖或不卖的权利，可以实施该权利，也可以放弃该权利，而期权的出卖者则只负有期权合约规定的义务。</p>
-<h3 id="1-按期权的权利划分，有看涨期权和看跌期权两种类型："><a href="#1-按期权的权利划分，有看涨期权和看跌期权两种类型：" class="headerlink" title="1. 按期权的权利划分，有看涨期权和看跌期权两种类型："></a>1. 按期权的权利划分，有看涨期权和看跌期权两种类型：</h3><ol>
-<li>看涨期权(Call Options)是指期权的买方向期权的卖方支付一定数额的权利金后，即拥有在期权合约的有效期内，按事先约定的价格向期权卖方买入一定数量的期权合约规定的特定商品的权利，但不负有必须买进的义务。而期权卖方有义务在期权规定的有效期内，应期权买方的要求，以期权合约事先规定的价格卖出期权合约规定的特定商品；</li>
-<li>看跌期权(Put Options)是指期权的买方向期权的卖方支付一定数额的权利金后，即拥有在期权合约的有效期内，按事先约定的价格向期权卖方卖出一定数量的期权合约规定的特定商品的权利，但不负有必须卖出的义务。而期权卖方有义务在期权规定的有效期内，应期权买方的要求，以期权合约事先规定的价格买入期权合约规定的特定商品。</li>
-</ol>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/930/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/35377/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Zhong Ning(钟宁)">
-      <meta itemprop="description" content>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Show me the code">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/35377/" class="post-title-link" itemprop="url">Java进程CPU过高分析</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-12-30 22:38:36 / 修改时间：23:07:20" itemprop="dateCreated datePublished" datetime="2019-12-30T22:38:36+08:00">2019-12-30</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <meta name="referrer" content="no-referrer">
-
-<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>记得前段时间，同事说他们测试环境的服务器cpu使用率一直处于100%，本地又没有什么接口调用，为什么会这样？cpu使用率居高不下，自然是有某些线程一直占用着cpu资源，那又如何查看占用cpu较高的线程？</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/35377/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -657,7 +713,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">97</span>
+          <span class="site-state-item-count">99</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
